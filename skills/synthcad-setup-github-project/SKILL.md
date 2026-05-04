@@ -29,18 +29,25 @@ collaboration, pull-request review, or CI validation.
 
 ## Commands
 
+Set the project variables from `uv run synthcad-build --list` and the current
+repo's build registry:
+
 ```bash
 gh auth status
 gh repo view --json nameWithOwner,visibility,defaultBranchRef
 git status --short --ignored
+uv run synthcad-build --list
+PROJECT=<project-slug>
+ASSEMBLY_TARGET=<assembly-target>
+URDF_TARGET=<urdf-target-or-empty>
 uv run python -m compileall -q -f main.py synthcad tests projects
 uv run pytest
-uv run pytest projects/flat-disk-robot/tests
-uv run synthcad-build --project flat-disk-robot --profile
-uv run synthcad-inspect --target flat-disk-robot --interference all
-uv run show-interference --target flat-disk-robot
-uv run synthcad-report --project flat-disk-robot
-uv run synthcad-urdf --target flat-disk-robot
+uv run pytest "projects/$PROJECT/tests"
+uv run synthcad-build --project "$PROJECT" --profile
+uv run synthcad-inspect --target "$ASSEMBLY_TARGET" --interference all
+uv run show-interference --target "$ASSEMBLY_TARGET"
+uv run synthcad-report --project "$PROJECT"
+test -z "$URDF_TARGET" || uv run synthcad-urdf --target "$URDF_TARGET"
 ```
 
 Use the local `readline` shim for pytest if the local uv Python crashes before
@@ -59,7 +66,6 @@ PY
 ## CI Review Pattern
 
 Read `references/github-ci-review.md` when creating or changing the workflow.
-It includes the expected Actions shape, required artifact policy, branch
-PR visualization/comment policy, branch protection checklist, and points to the
-reusable workflow template at
-`references/synthcad-ci-template.yml`.
+It includes the expected Actions shape, artifact policy,
+PR visualization/comment policy, branch protection checklist, and reusable
+workflow template at `references/synthcad-ci-template.yml`.

@@ -7,11 +7,11 @@ Create a workflow like `.github/workflows/synthcad-ci.yml` with these jobs:
 - compile Python sources;
 - run root and project-local pytest suites, using the local `readline` shim if
   needed;
-- export the flat disk robot targets;
+- export the configured project targets;
 - run assembly inspection and interference overlays;
-- export the URDF package;
+- export the URDF package when the project has one;
 - write `synthcad-report` output into `$GITHUB_STEP_SUMMARY`; and
-- upload `projects/flat-disk-robot/generated/` as a review artifact;
+- upload `projects/<project-slug>/generated/` as a review artifact;
 - build a static PR diff viewer with `synthcad-pr-pages`;
 - publish the viewer to `gh-pages/pr-<number>/` for same-repository PRs; and
 - create or update a PR comment linking to the web viewer, workflow run, and
@@ -74,15 +74,15 @@ projects/*/generated/
 
 For PR review, the most useful artifacts are:
 
-- `projects/flat-disk-robot/generated/manifest.json`
-- `projects/flat-disk-robot/generated/*.step`
-- `projects/flat-disk-robot/generated/*.stl`
-- `projects/flat-disk-robot/generated/*.glb`
-- `projects/flat-disk-robot/generated/inspection/inspection-report.json`
-- `projects/flat-disk-robot/generated/inspection/*.svg`
-- `projects/flat-disk-robot/generated/inspection/interference/*.svg`
-- `projects/flat-disk-robot/generated/urdf/`
-- `projects/flat-disk-robot/generated/ci/validation-report.md`
+- `projects/<project-slug>/generated/manifest.json`
+- `projects/<project-slug>/generated/*.step`
+- `projects/<project-slug>/generated/*.stl`
+- `projects/<project-slug>/generated/*.glb`
+- `projects/<project-slug>/generated/inspection/inspection-report.json`
+- `projects/<project-slug>/generated/inspection/*.svg`
+- `projects/<project-slug>/generated/inspection/interference/*.svg`
+- `projects/<project-slug>/generated/urdf/` when applicable
+- `projects/<project-slug>/generated/ci/validation-report.md`
 - `synthcad-pr-diff-viewer` workflow artifact
 
 ## PR Visualization Comment

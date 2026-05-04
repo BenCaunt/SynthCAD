@@ -13,13 +13,13 @@ permissions:
 
 env:
   # Edit these values for the project repo.
-  SYNTHCAD_PROJECT: flat-disk-robot
-  SYNTHCAD_ASSEMBLY_TARGET: flat-disk-robot
+  SYNTHCAD_PROJECT: "<project-slug>"
+  SYNTHCAD_ASSEMBLY_TARGET: "<assembly-target>"
   # Leave empty if the project does not export URDF.
-  SYNTHCAD_URDF_TARGET: flat-disk-robot
+  SYNTHCAD_URDF_TARGET: ""
   SYNTHCAD_ARTIFACT_NAME: synthcad-review-artifacts
   # Space-separated assembly targets shown in the interactive PR diff viewer.
-  SYNTHCAD_PR_SITE_TARGETS: flat-disk-robot
+  SYNTHCAD_PR_SITE_TARGETS: "<assembly-target>"
 
 jobs:
   cad-review:

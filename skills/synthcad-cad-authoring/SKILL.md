@@ -11,10 +11,12 @@ inspection, project-local tests, or URDF handoff.
 ## Operating Rules
 
 - Use millimeters for all CAD dimensions.
-- Prefer small parameterized changes in `synthcad/projects/flat_disk_robot/`.
-- Preserve real component interfaces first: motor face holes, wheel and shaft
-  clearances, encoder spacing, battery fit, sensor placement, USB access, and
-  lid fastener locations.
+- Discover the active project and target before editing. Use the build
+  registry or user request as the source of truth.
+- Prefer small parameterized changes in the target's existing source module.
+- Preserve real component interfaces first: hole patterns, shafts, registers,
+  fastener clearances, mounting faces, service access, cable/connector access,
+  and other constraints documented by the current project.
 - Do not hand-edit generated STEP, STL, GLB, URDF, inspection, or BREP files.
 - Keep each project's source references, docs, tests, and generated artifacts
   inside `projects/<project-slug>/`.
@@ -28,15 +30,27 @@ inspection, project-local tests, or URDF handoff.
 
 ## Commands
 
+Set these from the current repo and request:
+
 ```bash
-uv run synthcad-build --project flat-disk-robot
-uv run synthcad-probe --target flat-disk-robot --children
-uv run synthcad-inspect --target flat-disk-robot
-uv run show-interference --target flat-disk-robot
-uv run synthcad-report --project flat-disk-robot
-uv run synthcad-urdf --target flat-disk-robot
+uv run synthcad-build --list
+PROJECT=<project-slug>
+TARGET=<changed-build-target>
+ASSEMBLY_TARGET=<assembly-target-to-review>
+URDF_TARGET=<urdf-target-or-empty>
+```
+
+Use the variables consistently:
+
+```bash
+uv run synthcad-build --project "$PROJECT"
+uv run synthcad-probe --target "$TARGET" --children
+uv run synthcad-inspect --target "$ASSEMBLY_TARGET"
+uv run show-interference --target "$ASSEMBLY_TARGET"
+uv run synthcad-report --project "$PROJECT"
+test -z "$URDF_TARGET" || uv run synthcad-urdf --target "$URDF_TARGET"
 uv run pytest
-uv run pytest projects/flat-disk-robot/tests
+uv run pytest "projects/$PROJECT/tests"
 ```
 
 Use `synthcad-probe` before writing throwaway geometry scripts. It reports
@@ -44,16 +58,16 @@ target bounds, child labels, and inspection model structure quickly.
 
 ## Done Criteria
 
-A flat disk robot CAD change is done when:
+A CAD change is done when:
 
 - the changed target imports and builds without errors;
 - relevant project-local tests are added/updated and pass;
-- exports regenerate for `flat-disk-robot`;
+- exports regenerate for the affected project or target;
 - inspection artifacts are generated for the changed target or assembly;
 - unexpected interferences are fixed or documented as intentional; and
-- robot-specific assumptions or validation notes are updated.
+- project-specific assumptions or validation notes are updated.
 
 ## Reference
 
-Open `references/flat-disk-workflow.md` for the flat disk robot checklist and
-project-local test examples.
+Open `references/project-workflow.md` for the generic project workflow and
+test expectations.
