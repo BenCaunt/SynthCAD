@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>synthcad PR diff viewer</title>
+    <link rel="stylesheet" href="./pr-diff.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="diff-app-shell">
+      <header class="diff-toolbar">
+        <div class="toolbar-group toolbar-grow">
+          <label class="field inline-field">
+            <span>Assembly</span>
+            <select id="assemblySelect"></select>
+          </label>
+        </div>
+        <div class="toolbar-group">
+          <button id="headOnlyButton" type="button">Head only</button>
+          <button id="fitBothButton" type="button">Fit both</button>
+          <button id="isoViewButton" type="button">Iso</button>
+          <button id="frontViewButton" type="button">Front</button>
+          <button id="rightViewButton" type="button">Right</button>
+          <button id="topViewButton" type="button">Top</button>
+        </div>
+      </header>
+
+      <main class="diff-layout">
+        <section class="pane-column">
+          <div class="pane-header">
+            <div>
+              <h2>Base</h2>
+              <div id="baseStatus" class="helper-text">Loading…</div>
+            </div>
+            <span class="badge muted">previous</span>
+          </div>
+          <section class="viewer-pane">
+            <canvas id="baseCanvas"></canvas>
+            <div id="baseOverlay" class="viewer-overlay hidden"></div>
+          </section>
+          <section class="pane-card">
+            <h3>Changed/removed parts</h3>
+            <div id="baseChangedList" class="chip-list empty-state">No base-side changes highlighted.</div>
+          </section>
+        </section>
+
+        <section class="pane-column">
+          <div class="pane-header">
+            <div>
+              <h2>Head</h2>
+              <div id="headStatus" class="helper-text">Loading…</div>
+            </div>
+            <span class="badge accent">current</span>
+          </div>
+          <section class="viewer-pane">
+            <canvas id="headCanvas"></canvas>
+            <div id="headOverlay" class="viewer-overlay hidden"></div>
+          </section>
+          <section class="pane-card">
+            <h3>Changed/added parts</h3>
+            <div id="headChangedList" class="chip-list empty-state">No head-side changes highlighted.</div>
+          </section>
+        </section>
+
+        <aside class="sidebar">
+          <section class="pane-card">
+            <div class="section-header">
+              <h2>PR diff summary</h2>
+            </div>
+            <div id="comparisonSummary" class="summary-card empty-state">Select an assembly diff.</div>
+          </section>
+
+          <section class="pane-card">
+            <div class="section-header">
+              <h2>Rendered review outputs</h2>
+            </div>
+            <div id="reviewGallery" class="gallery empty-state">No rendered review outputs.</div>
+          </section>
+
+          <section id="headInspectorCard" class="pane-card">
+            <div class="section-header inspector-header">
+              <h2>Head part explorer</h2>
+              <button id="clearHeadSelectionButton" type="button">Clear</button>
+            </div>
+            <div class="helper-text">Use Head only mode, then click a part in the model or list.</div>
+            <div id="headPartList" class="part-list empty-state">Enable Head only mode to browse head parts.</div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="./pr-diff.js"></script>
+  </body>
+</html>
