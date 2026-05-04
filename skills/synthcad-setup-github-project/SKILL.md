@@ -57,5 +57,6 @@ PY
 ## CI Review Pattern
 
 Read `references/github-ci-review.md` when creating or changing the workflow.
-It includes the expected Actions shape, required artifact policy, and branch
-protection checklist.
+It includes the expected Actions shape, required artifact policy, branch
+protection checklist, and points to the reusable workflow template at
+`references/synthcad-ci-template.yml`.

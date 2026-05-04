@@ -7,8 +7,10 @@ on:
       - main
 
 env:
+  # Edit these values for the project repo.
   SYNTHCAD_PROJECT: flat-disk-robot
   SYNTHCAD_ASSEMBLY_TARGET: flat-disk-robot
+  # Leave empty if the project does not export URDF.
   SYNTHCAD_URDF_TARGET: flat-disk-robot
   SYNTHCAD_ARTIFACT_NAME: synthcad-review-artifacts
 
@@ -53,10 +55,10 @@ jobs:
           raise SystemExit(pytest.main(["-q", "tests", f"projects/{project}/tests"]))
           PY
 
-      - name: Export flat disk robot CAD
+      - name: Export project CAD
         run: uv run synthcad-build --project "$SYNTHCAD_PROJECT" --profile
 
-      - name: Inspect flat disk robot assembly
+      - name: Inspect assembly
         run: |
           uv run synthcad-inspect \
             --target "$SYNTHCAD_ASSEMBLY_TARGET" \

@@ -15,6 +15,12 @@ Create a workflow like `.github/workflows/synthcad-ci.yml` with these jobs:
 
 The workflow should run on `pull_request` and on pushes to the default branch.
 
+Start new project repos from `references/synthcad-ci-template.yml`. Copy it to
+`.github/workflows/synthcad-ci.yml`, then edit the `env:` values at the top for
+the project slug, primary assembly target, optional URDF target, and artifact
+name. For multi-project repos, convert those values into a GitHub Actions
+matrix and keep the same checks per project.
+
 ## Project Test Policy
 
 Every CAD project should include tests under `projects/<project-slug>/tests/`.
