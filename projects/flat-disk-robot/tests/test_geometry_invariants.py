@@ -117,9 +117,9 @@ def test_tpu_wheel_volume_increases_with_radius() -> None:
 
 
 def test_flat_disk_robot_uses_larger_drive_wheels_with_matching_slot_clearance() -> None:
-    assert ROBOT_WHEEL_GROUND_PROTRUSION == pytest.approx(4.5, abs=1e-6)
-    assert ROBOT_WHEEL_RADIUS == pytest.approx(WHEEL_RADIUS + 4.5, abs=1e-6)
-    assert 2 * ROBOT_WHEEL_RADIUS == pytest.approx(53.0, abs=1e-6)
+    assert ROBOT_WHEEL_GROUND_PROTRUSION == pytest.approx(6.0, abs=1e-6)
+    assert ROBOT_WHEEL_RADIUS == pytest.approx(WHEEL_RADIUS + 6.0, abs=1e-6)
+    assert 2 * ROBOT_WHEEL_RADIUS == pytest.approx(56.0, abs=1e-6)
     assert WHEEL_SLOT_SIZE[1] == pytest.approx(
         2 * ROBOT_WHEEL_RADIUS + WHEEL_SLOT_CLEARANCE_Y,
         abs=1e-6,
@@ -128,7 +128,7 @@ def test_flat_disk_robot_uses_larger_drive_wheels_with_matching_slot_clearance()
     wheel_bbox = bounding_box_summary(place_wheel_on_x_axis(1))
 
     assert wheel_bbox["size"] == pytest.approx(
-        (WHEEL_HUB_WIDTH, 53.0, 53.0),
+        (WHEEL_HUB_WIDTH, 56.0, 56.0),
         abs=0.1,
     )
 
