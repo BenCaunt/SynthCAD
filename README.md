@@ -6,6 +6,11 @@ exporting 3D-printable robotics parts from Python.
 This open-source extraction contains only the flat disk robot project and its
 required reference inputs.
 
+## Demo
+
+See a real driving robot designed with SynthCAD in
+[this X post](https://x.com/BdcauntBen/status/2049014205408280934?s=20).
+
 ## Quick Start
 
 ```bash
