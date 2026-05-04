@@ -21,6 +21,7 @@ synthcad-show-interference = "synthcad.show_interference_cli:main"
 synthcad-view = "synthcad.viewer_cli:main"
 synthcad-urdf = "synthcad.urdf_cli:main"
 synthcad-probe = "synthcad.probe_cli:main"
+synthcad-pr-pages = "synthcad.pr_pages:main"
 show-interference = "synthcad.show_interference_cli:main"
 
 [build-system]

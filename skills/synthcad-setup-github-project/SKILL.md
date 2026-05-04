@@ -14,9 +14,11 @@ collaboration, pull-request review, or CI validation.
 2. Check local git status before editing or pushing.
 3. Add or update a GitHub Actions CAD review workflow under
    `.github/workflows/`.
-4. Make CI produce reviewable artifacts, not just pass/fail logs:
+4. Make CI produce reviewable artifacts and PR review links, not just pass/fail
+   logs:
    generated CAD exports, inspection reports, interference overlays, URDF
-   packages, and a Markdown summary in `$GITHUB_STEP_SUMMARY`.
+   packages, a Markdown summary in `$GITHUB_STEP_SUMMARY`, a static PR diff
+   viewer, and an upserted PR comment linking to the viewer and workflow run.
 5. Ensure every CAD project has tests under `projects/<project-slug>/tests/`
    and that CI runs both root tests and project-local tests.
 6. Keep `projects/*/generated/`, BREP caches, virtualenvs, and build outputs
@@ -58,5 +60,6 @@ PY
 
 Read `references/github-ci-review.md` when creating or changing the workflow.
 It includes the expected Actions shape, required artifact policy, branch
-protection checklist, and points to the reusable workflow template at
+PR visualization/comment policy, branch protection checklist, and points to the
+reusable workflow template at
 `references/synthcad-ci-template.yml`.

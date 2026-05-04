@@ -11,15 +11,36 @@ Create a workflow like `.github/workflows/synthcad-ci.yml` with these jobs:
 - run assembly inspection and interference overlays;
 - export the URDF package;
 - write `synthcad-report` output into `$GITHUB_STEP_SUMMARY`; and
-- upload `projects/flat-disk-robot/generated/` as a review artifact.
+- upload `projects/flat-disk-robot/generated/` as a review artifact;
+- build a static PR diff viewer with `synthcad-pr-pages`;
+- publish the viewer to `gh-pages/pr-<number>/` for same-repository PRs; and
+- create or update a PR comment linking to the web viewer, workflow run, and
+  generated artifacts.
 
 The workflow should run on `pull_request` and on pushes to the default branch.
+The PR visualization/comment steps should run only for `pull_request` events.
 
 Start new project repos from `references/synthcad-ci-template.yml`. Copy it to
 `.github/workflows/synthcad-ci.yml`, then edit the `env:` values at the top for
 the project slug, primary assembly target, optional URDF target, and artifact
-name. For multi-project repos, convert those values into a GitHub Actions
-matrix and keep the same checks per project.
+name. Set `SYNTHCAD_PR_SITE_TARGETS` to the assembly targets that should appear
+in the web diff viewer. For multi-project repos, convert those values into a
+GitHub Actions matrix and keep the same checks per project.
+
+The workflow needs these token permissions:
+
+```yaml
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+```
+
+Use `actions/checkout` with `fetch-depth: 0`, create a detached base worktree
+from `${{ github.event.pull_request.base.sha }}`, then call `synthcad-pr-pages`
+with the base root, base SHA, head SHA, output directory, and selected targets.
+Upload the generated site as an artifact even when GitHub Pages is the primary
+review link.
 
 ## Project Test Policy
 
@@ -62,6 +83,23 @@ For PR review, the most useful artifacts are:
 - `projects/flat-disk-robot/generated/inspection/interference/*.svg`
 - `projects/flat-disk-robot/generated/urdf/`
 - `projects/flat-disk-robot/generated/ci/validation-report.md`
+- `synthcad-pr-diff-viewer` workflow artifact
+
+## PR Visualization Comment
+
+Every PR should get one bot-managed comment identified by
+`<!-- synthcad-pr-visualization -->`. The comment should be updated on each
+push, not duplicated. Include:
+
+- the base and head commit prefixes being compared;
+- a link to the interactive diff viewer when the PR is not from a fork;
+- a fallback link to the workflow run and uploaded viewer artifact; and
+- enough target/project context for reviewers to know what was visualized.
+
+For same-repository PRs, publish the viewer by replacing
+`gh-pages/pr-<number>/` and pushing the `gh-pages` branch. Also ensure the repo
+has GitHub Pages configured to serve that branch from `/`. For fork PRs, skip
+Pages publishing and rely on uploaded artifacts.
 
 ## Branch Protection
 
@@ -72,7 +110,8 @@ For a shared GitHub project, prefer:
 - require branches to be up to date before merge if the repo is active;
 - disallow force pushes to `main`;
 - keep generated CAD outputs out of review diffs; and
-- use artifact links and the Actions summary for generated geometry evidence.
+- use the PR visualization comment, artifact links, and the Actions summary for
+  generated geometry evidence.
 
 ## Repository Setup
 

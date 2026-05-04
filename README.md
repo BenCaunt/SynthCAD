@@ -36,7 +36,8 @@ committed.
 `.github/workflows/synthcad-ci.yml` runs tests, exports the flat disk robot,
 generates inspection/interference evidence, exports the URDF package, writes a
 Markdown Actions summary, and uploads `projects/flat-disk-robot/generated/` as
-review artifacts.
+review artifacts. On pull requests it also publishes a static base/head CAD
+diff viewer and updates a PR comment with the visualization and workflow links.
 
 ## Agent Skills
 
