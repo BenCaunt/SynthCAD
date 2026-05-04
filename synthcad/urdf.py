@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element, ElementTree, SubElement
 
 from synthcad.cad.common import export_model
-from synthcad.paths import GENERATED_DIR
+from synthcad.paths import GENERATED_DIR, project_generated_dir
 
 
 MM_TO_M = 0.001
@@ -112,7 +112,10 @@ class RobotDescription:
         return sanitize_artifact_name(self.artifact_name or self.name)
 
     def output_dir(self, generated_dir: str | Path = GENERATED_DIR) -> Path:
-        return Path(generated_dir) / self.project / "urdf" / self.output_stem
+        output_path = Path(generated_dir)
+        if output_path.resolve() == project_generated_dir(self.project).resolve():
+            return output_path / "urdf" / self.output_stem
+        return output_path / self.project / "urdf" / self.output_stem
 
 
 def sanitize_name(value: str) -> str:

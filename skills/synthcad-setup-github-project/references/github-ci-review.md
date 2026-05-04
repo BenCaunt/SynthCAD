@@ -10,7 +10,7 @@ Create a workflow like `.github/workflows/synthcad-ci.yml` with these jobs:
 - run assembly inspection and interference overlays;
 - export the URDF package;
 - write `synthcad-report` output into `$GITHUB_STEP_SUMMARY`; and
-- upload `real-parts/generated/` as a review artifact.
+- upload `projects/flat-disk-robot/generated/` as a review artifact.
 
 The workflow should run on `pull_request` and on pushes to the default branch.
 
@@ -20,7 +20,7 @@ CI should upload generated review artifacts, but generated files should not be
 committed:
 
 ```text
-real-parts/generated/
+projects/*/generated/
 *.brep
 .venv/
 .pytest_cache/
@@ -29,15 +29,15 @@ real-parts/generated/
 
 For PR review, the most useful artifacts are:
 
-- `real-parts/generated/manifest.json`
-- `real-parts/generated/flat-disk-robot/*.step`
-- `real-parts/generated/flat-disk-robot/*.stl`
-- `real-parts/generated/flat-disk-robot/*.glb`
-- `real-parts/generated/inspection/inspection-report.json`
-- `real-parts/generated/inspection/*.svg`
-- `real-parts/generated/inspection/interference/*.svg`
-- `real-parts/generated/flat-disk-robot/urdf/`
-- `real-parts/generated/ci/validation-report.md`
+- `projects/flat-disk-robot/generated/manifest.json`
+- `projects/flat-disk-robot/generated/*.step`
+- `projects/flat-disk-robot/generated/*.stl`
+- `projects/flat-disk-robot/generated/*.glb`
+- `projects/flat-disk-robot/generated/inspection/inspection-report.json`
+- `projects/flat-disk-robot/generated/inspection/*.svg`
+- `projects/flat-disk-robot/generated/inspection/interference/*.svg`
+- `projects/flat-disk-robot/generated/urdf/`
+- `projects/flat-disk-robot/generated/ci/validation-report.md`
 
 ## Branch Protection
 

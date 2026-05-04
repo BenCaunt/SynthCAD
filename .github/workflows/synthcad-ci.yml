@@ -25,7 +25,7 @@ jobs:
           python-version-file: .python-version
 
       - name: Compile Python sources
-        run: uv run python -m compileall -q -f main.py synthcad tests
+        run: uv run python -m compileall -q -f main.py synthcad tests projects
 
       - name: Run tests
         run: |
@@ -63,14 +63,14 @@ jobs:
 
       - name: Write validation report
         run: |
-          mkdir -p real-parts/generated/ci
+          mkdir -p projects/flat-disk-robot/generated/ci
           uv run synthcad-report --project flat-disk-robot \
-            | tee real-parts/generated/ci/validation-report.md
-          cat real-parts/generated/ci/validation-report.md >> "$GITHUB_STEP_SUMMARY"
+            | tee projects/flat-disk-robot/generated/ci/validation-report.md
+          cat projects/flat-disk-robot/generated/ci/validation-report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload generated review artifacts
         uses: actions/upload-artifact@v7.0.1
         with:
           name: synthcad-review-artifacts
-          path: real-parts/generated
+          path: projects/flat-disk-robot/generated
           if-no-files-found: error

@@ -1,4 +1,4 @@
-real-parts/generated/
+projects/*/generated/
 .venv/
 .pytest_cache/
 __pycache__/

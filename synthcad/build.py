@@ -8,7 +8,7 @@ from time import perf_counter
 from typing import Callable
 
 from synthcad.cad.common import export_model, export_model_with_timings
-from synthcad.paths import GENERATED_DIR
+from synthcad.paths import GENERATED_DIR, project_generated_dir
 from synthcad.projects.flat_disk_robot.robot import (
     make_flat_disk_robot,
     make_flat_disk_robot_chassis,
@@ -51,7 +51,10 @@ class BuildTarget:
         return "assembly" in self.kind
 
     def output_prefix(self, output_dir: str | Path = GENERATED_DIR) -> Path:
-        return Path(output_dir) / self.project / self.name
+        output_path = Path(output_dir)
+        if output_path.resolve() == project_generated_dir(self.project).resolve():
+            return output_path / self.name
+        return output_path / self.project / self.name
 
     def make_inspection_model(self):
         factory = self.inspection_factory or self.factory
@@ -59,12 +62,12 @@ class BuildTarget:
 
 
 FLAT_DISK_SOURCE_REFS = (
-    "real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
-    "real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
-    "real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
-    "real-parts/OV2640_21mm-160_camera.STEP",
-    "real-parts/TOF-sensor-drawing.webp",
-    "real-parts/battery.png",
+    "projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
+    "projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
+    "projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
+    "projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP",
+    "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
+    "projects/flat-disk-robot/real-parts/battery.png",
 )
 
 
@@ -78,7 +81,7 @@ BUILD_TARGETS = [
         "flat-disk-robot",
         "printable-candidate",
         source_refs=FLAT_DISK_SOURCE_REFS,
-        docs=("docs/flat-disk-robot-notes.md",),
+        docs=("projects/flat-disk-robot/docs/flat-disk-robot-notes.md",),
         validation=ValidationPlan(interference_targets=("flat-disk-robot",)),
     ),
     BuildTarget(
@@ -89,7 +92,7 @@ BUILD_TARGETS = [
         True,
         "flat-disk-robot",
         "printable-candidate",
-        docs=("docs/flat-disk-robot-notes.md",),
+        docs=("projects/flat-disk-robot/docs/flat-disk-robot-notes.md",),
         validation=ValidationPlan(interference_targets=("flat-disk-robot",)),
     ),
     BuildTarget(
@@ -101,7 +104,7 @@ BUILD_TARGETS = [
         "flat-disk-robot",
         "active",
         source_refs=FLAT_DISK_SOURCE_REFS,
-        docs=("docs/flat-disk-robot-notes.md",),
+        docs=("projects/flat-disk-robot/docs/flat-disk-robot-notes.md",),
         intentional_interferences=(
             IntentionalInterference(
                 "repeat-compact-1806-gearmotor",

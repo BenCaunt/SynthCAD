@@ -56,7 +56,7 @@ TOF_MOUNTING_HOLES = [
 
 
 def make_product_diagram_board() -> Compound:
-    """Approximate the 40 mm x 15 mm board drawing in real-parts/drawing.png."""
+    """Approximate the 40 mm x 15 mm board drawing from a project reference image."""
 
     small_vias = [
         (-18.0 + col * 0.82, -4.6 + row * 1.0, 0.16)
@@ -214,7 +214,7 @@ def _tof_board_outline(
 
 
 def make_tof_sensor_board() -> Compound:
-    """Approximate the TOF sensor board drawing in real-parts/TOF-sensor-drawing.webp."""
+    """Approximate the TOF sensor board drawing in the flat disk robot references."""
 
     mounting_holes = TOF_MOUNTING_HOLES
     via_holes = _tof_satellite_vias(mounting_holes)

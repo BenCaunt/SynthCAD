@@ -64,16 +64,3 @@ def test_validation_interference_targets_without_declared_exceptions_are_clean()
             assert _interference_pairs(assembly_name) == set(), (
                 f"{assembly_name} has unexpected interferences"
             )
-
-
-def test_flat_disk_robot_only_has_known_press_fit_interferences() -> None:
-    assert _interference_pairs("flat-disk-robot") == {
-        (
-            "left Repeat Compact 1806 gearmotor",
-            "left TPU press-fit wheel",
-        ),
-        (
-            "right Repeat Compact 1806 gearmotor",
-            "right TPU press-fit wheel",
-        ),
-    }

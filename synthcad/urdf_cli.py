@@ -23,7 +23,7 @@ URDF_TARGETS = [
         name="flat-disk-robot",
         project="flat-disk-robot",
         factory=make_flat_disk_robot_urdf,
-        docs=("docs/flat-disk-robot-notes.md",),
+        docs=("projects/flat-disk-robot/docs/flat-disk-robot-notes.md",),
     ),
 ]
 

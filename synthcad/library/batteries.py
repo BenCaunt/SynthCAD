@@ -5,7 +5,7 @@ from build123d import Box, BuildPart, BuildSketch, Compound, Location, Plane, Re
 from synthcad.cad.common import BATTERY_BLACK, BATTERY_LABEL, SILVER, tag
 
 
-# OCR/readback from real-parts/battery.png:
+# OCR/readback from projects/flat-disk-robot/real-parts/battery.png:
 # OVONIC 4S1P 14.8V, 1550 mAh, 100C, 22.94 Wh, 2.87 x 1.42 x 1.50 in.
 BATTERY_LENGTH = 73.0
 BATTERY_WIDTH = 36.0
@@ -23,7 +23,7 @@ def _rounded_pack_body():
 
 
 def make_small_4s_battery() -> Compound:
-    """Reference 73 x 36 x 38 mm 4S LiPo pack from real-parts/battery.png."""
+    """Reference 73 x 36 x 38 mm 4S LiPo pack from the flat disk robot references."""
 
     children = [_rounded_pack_body()]
     children.append(

@@ -16,10 +16,10 @@ exports, inspection, or URDF handoff.
   clearances, encoder spacing, battery fit, sensor placement, USB access, and
   lid fastener locations.
 - Do not hand-edit generated STEP, STL, GLB, URDF, inspection, or BREP files.
-- Keep source references under `real-parts/`; generated outputs belong under
-  `real-parts/generated/`.
+- Keep source references under `projects/flat-disk-robot/real-parts/`;
+  generated outputs belong under `projects/flat-disk-robot/generated/`.
 - If a drawing or component constraint is incomplete, record the assumption in
-  `docs/flat-disk-robot-notes.md`.
+  `projects/flat-disk-robot/docs/flat-disk-robot-notes.md`.
 
 ## Commands
 

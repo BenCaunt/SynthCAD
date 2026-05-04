@@ -17,7 +17,7 @@ uv run synthcad-urdf --target flat-disk-robot
 ```
 
 Generated STEP, STL, GLB, inspection, and URDF artifacts are written under
-`real-parts/generated/`, which is intentionally ignored by git.
+`projects/flat-disk-robot/generated/`, which is intentionally ignored by git.
 
 ## Build Targets
 
@@ -26,16 +26,17 @@ Generated STEP, STL, GLB, inspection, and URDF artifacts are written under
 - `flat-disk-robot`: reference assembly with motors, wheels, electronics,
   sensors, battery, and lid.
 
-The source references used by the flat disk robot live under `real-parts/`.
-BREP cache files may be generated beside STEP inputs during local builds; they
-are ignored and should not be committed.
+The source references used by the flat disk robot live under
+`projects/flat-disk-robot/real-parts/`. BREP cache files may be generated
+beside STEP inputs during local builds; they are ignored and should not be
+committed.
 
 ## GitHub CI
 
 `.github/workflows/synthcad-ci.yml` runs tests, exports the flat disk robot,
 generates inspection/interference evidence, exports the URDF package, writes a
-Markdown Actions summary, and uploads `real-parts/generated/` as review
-artifacts.
+Markdown Actions summary, and uploads `projects/flat-disk-robot/generated/` as
+review artifacts.
 
 ## Agent Skills
 
@@ -68,5 +69,5 @@ uv run synthcad-inspect --target flat-disk-robot
 uv run synthcad-report --project flat-disk-robot
 ```
 
-See `docs/flat-disk-robot-notes.md` for robot-specific layout assumptions and
-current validation notes.
+See `projects/flat-disk-robot/docs/flat-disk-robot-notes.md` for robot-specific
+layout assumptions and current validation notes.

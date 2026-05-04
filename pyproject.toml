@@ -34,4 +34,4 @@ include = ["synthcad*"]
 synthcad = ["webviewer/*"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "projects"]

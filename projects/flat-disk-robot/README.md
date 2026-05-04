@@ -5,6 +5,13 @@ Boundary: `project`
 Robot-specific work for the flat disk platform. Keep chassis, assembly, and
 validation notes here. Reusable primitives belong in `projects/library/`.
 
+Project-owned files live with this bundle:
+
+- `real-parts/`: checked-in source STEP/image references for this robot.
+- `docs/`: robot-specific design notes and validation history.
+- `tests/`: robot-specific geometry and assembly invariants.
+- `generated/`: ignored local/CI review artifacts.
+
 Current targets:
 
 - `flat-disk-robot-chassis`: printable candidate.

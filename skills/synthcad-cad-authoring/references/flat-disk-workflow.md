@@ -12,16 +12,16 @@
 - `synthcad/projects/flat_disk_robot/urdf.py`
 - `synthcad/build.py`
 - `synthcad/external_parts.py`
-- `docs/flat-disk-robot-notes.md`
+- `projects/flat-disk-robot/docs/flat-disk-robot-notes.md`
 
 ## Source References
 
-- `real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP`
-- `real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step`
-- `real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step`
-- `real-parts/OV2640_21mm-160_camera.STEP`
-- `real-parts/TOF-sensor-drawing.webp`
-- `real-parts/battery.png`
+- `projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP`
+- `projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step`
+- `projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step`
+- `projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP`
+- `projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp`
+- `projects/flat-disk-robot/real-parts/battery.png`
 
 ## Typical Loop
 
@@ -36,7 +36,7 @@ uv run synthcad-probe --target flat-disk-robot --children
 3. Run focused tests.
 
 ```bash
-uv run pytest tests/test_geometry_invariants.py tests/test_build_registry.py
+uv run pytest projects/flat-disk-robot/tests/test_geometry_invariants.py tests/test_build_registry.py
 ```
 
 4. Regenerate and inspect.
