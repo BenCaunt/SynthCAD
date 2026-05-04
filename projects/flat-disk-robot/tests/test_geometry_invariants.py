@@ -1,3 +1,4 @@
+from itertools import combinations
 from math import hypot
 
 import pytest
@@ -40,6 +41,10 @@ from synthcad.projects.flat_disk_robot.robot import (
     LID_LOGO_TEXT_SIZE,
     LID_MOUNT_POINTS,
     LID_FRONT_WALL_OPENING_DEPTH,
+    LID_HEX_POCKET_DEPTH,
+    LID_HEX_POCKET_MIN_FLOOR_THICKNESS,
+    LID_HEX_POCKET_PITCH,
+    LID_HEX_POCKET_VERTEX_RADIUS,
     LID_SHELL_WALL_THICKNESS,
     LID_SWITCH_CUTOUT_CENTER,
     LID_SWITCH_CUTOUT_SIZE,
@@ -93,6 +98,7 @@ from synthcad.projects.flat_disk_robot.robot import (
     TOF_STANDOFF_EXTENSION,
     WHEEL_SLOT_CLEARANCE_Y,
     WHEEL_SLOT_SIZE,
+    _lid_hex_pocket_centers,
     _make_encoder_mount,
     _motor_driver_access_center_x,
     _motor_driver_access_tunnel_length,
@@ -209,6 +215,45 @@ def test_flat_disk_robot_lid_adds_visible_circular_vent_pattern() -> None:
     ]
 
     assert len(vent_holes) == LID_VENT_HOLE_COUNT
+
+
+def test_flat_disk_robot_lid_adds_blind_hex_weight_reduction_pockets() -> None:
+    centers = _lid_hex_pocket_centers()
+    floor_thickness = LID_TOP_THICKNESS - LID_HEX_POCKET_DEPTH
+
+    assert len(centers) == 36
+    assert floor_thickness >= LID_HEX_POCKET_MIN_FLOOR_THICKNESS
+    assert LID_HEX_POCKET_PITCH - 2 * LID_HEX_POCKET_VERTEX_RADIUS >= 4.5
+
+    for first, second in combinations(centers, 2):
+        center_distance = hypot(first[0] - second[0], first[1] - second[1])
+        assert center_distance >= LID_HEX_POCKET_PITCH - 1e-6
+
+    lid = make_flat_disk_robot_lid()
+    assert len(lid.solids()) == 1
+
+    void_probe_radius = LID_HEX_POCKET_VERTEX_RADIUS * 0.4
+    void_probe_height = LID_HEX_POCKET_DEPTH - 0.4
+    floor_probe_height = 0.6
+
+    for x, y in centers:
+        void_probe = Location(
+            (x, y, LID_TOP_SURFACE_Z - LID_HEX_POCKET_DEPTH / 2)
+        ) * Cylinder(void_probe_radius, void_probe_height)
+        void_common = lid.intersect(void_probe)
+        void_volume = float(void_common.volume) if void_common.solids() else 0.0
+        assert void_volume == pytest.approx(0.0, abs=1e-6)
+
+        floor_probe = Location(
+            (
+                x,
+                y,
+                LID_TOP_SURFACE_Z - LID_HEX_POCKET_DEPTH - floor_probe_height / 2 - 0.05,
+            )
+        ) * Cylinder(void_probe_radius, floor_probe_height)
+        floor_common = lid.intersect(floor_probe)
+        floor_volume = float(floor_common.volume) if floor_common.solids() else 0.0
+        assert floor_volume > 1.0
 
 
 def test_flat_disk_robot_lid_adds_switch_press_fit_cutout() -> None:

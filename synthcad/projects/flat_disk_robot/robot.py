@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from math import cos, sin, sqrt, tau
+from math import cos, hypot, sin, sqrt, tau
 
 from build123d import (
     Align,
@@ -13,6 +13,7 @@ from build123d import (
     Locations,
     Mode,
     Plane,
+    RegularPolygon,
     Text,
     TextAlign,
     add,
@@ -322,6 +323,154 @@ LID_LOGO_BLOCK_ALIGN = (Align.CENTER, Align.CENTER)
 LID_LOGO_CENTER = (0.0, -50.0)
 LID_LOGO_ENGRAVE_DEPTH = 0.35
 LID_LOGO_CUT_OVERTRAVEL = 0.1
+
+# Blind top-face weight reduction pockets. The deterministic grid keeps a
+# continuous roof floor and explicit webs around every functional lid feature.
+LID_HEX_POCKET_VERTEX_RADIUS = 5.2
+LID_HEX_POCKET_DEPTH = 1.35
+LID_HEX_POCKET_CUT_OVERTRAVEL = 0.15
+LID_HEX_POCKET_MIN_FLOOR_THICKNESS = 1.5
+LID_HEX_POCKET_PITCH = 15.5
+LID_HEX_POCKET_ROW_STEP = LID_HEX_POCKET_PITCH * sqrt(3) / 2
+LID_HEX_POCKET_EDGE_MARGIN = 5.0
+LID_HEX_POCKET_SCREW_MARGIN = 7.0
+LID_HEX_POCKET_SWITCH_MARGIN = 6.0
+LID_HEX_POCKET_WHEEL_WELL_MARGIN = 5.0
+LID_HEX_POCKET_SIDE_ACCESS_MARGIN = 4.0
+LID_HEX_POCKET_VENT_MARGIN = 4.0
+LID_HEX_POCKET_LOGO_MARGIN = 1.5
+LID_HEX_POCKET_LOGO_KEEP_OUT_SIZE = (155.0, 16.0)
+LID_HEX_POCKET_KEEPIN_RADIUS = (
+    LID_INNER_RADIUS - LID_HEX_POCKET_VERTEX_RADIUS - LID_HEX_POCKET_EDGE_MARGIN
+)
+LID_HEX_POCKET_INNER_KEEP_OUT_RADIUS = (
+    LID_VENT_RING_RADIUS
+    + LID_VENT_HOLE_RADIUS
+    + LID_HEX_POCKET_VERTEX_RADIUS
+    + LID_HEX_POCKET_VENT_MARGIN
+)
+
+
+def _is_hex_pocket_clear_of_circle(
+    x: float,
+    y: float,
+    center_x: float,
+    center_y: float,
+    radius: float,
+    margin: float,
+) -> bool:
+    return (
+        hypot(x - center_x, y - center_y)
+        >= radius + LID_HEX_POCKET_VERTEX_RADIUS + margin
+    )
+
+
+def _is_hex_pocket_clear_of_rectangle(
+    x: float,
+    y: float,
+    center_x: float,
+    center_y: float,
+    width: float,
+    length: float,
+    margin: float,
+) -> bool:
+    clearance = LID_HEX_POCKET_VERTEX_RADIUS + margin
+    return (
+        abs(x - center_x) >= width / 2 + clearance
+        or abs(y - center_y) >= length / 2 + clearance
+    )
+
+
+def _is_lid_hex_pocket_center_safe(x: float, y: float) -> bool:
+    if hypot(x, y) > LID_HEX_POCKET_KEEPIN_RADIUS:
+        return False
+    if hypot(x, y) < LID_HEX_POCKET_INNER_KEEP_OUT_RADIUS:
+        return False
+
+    if not _is_hex_pocket_clear_of_rectangle(
+        x,
+        y,
+        LID_SWITCH_CUTOUT_CENTER[0],
+        LID_SWITCH_CUTOUT_CENTER[1],
+        LID_SWITCH_CUTOUT_SIZE[0],
+        LID_SWITCH_CUTOUT_SIZE[1],
+        LID_HEX_POCKET_SWITCH_MARGIN,
+    ):
+        return False
+
+    if not _is_hex_pocket_clear_of_rectangle(
+        x,
+        y,
+        LID_LOGO_CENTER[0],
+        LID_LOGO_CENTER[1],
+        LID_HEX_POCKET_LOGO_KEEP_OUT_SIZE[0],
+        LID_HEX_POCKET_LOGO_KEEP_OUT_SIZE[1],
+        LID_HEX_POCKET_LOGO_MARGIN,
+    ):
+        return False
+
+    for screw_x, screw_y in LID_MOUNT_POINTS:
+        if not _is_hex_pocket_clear_of_circle(
+            x,
+            y,
+            screw_x,
+            screw_y,
+            LID_PAD_RADIUS,
+            LID_HEX_POCKET_SCREW_MARGIN,
+        ):
+            return False
+
+    for index in range(LID_VENT_HOLE_COUNT):
+        angle = tau * index / LID_VENT_HOLE_COUNT
+        if not _is_hex_pocket_clear_of_circle(
+            x,
+            y,
+            LID_VENT_RING_RADIUS * cos(angle),
+            LID_VENT_RING_RADIUS * sin(angle),
+            LID_VENT_HOLE_RADIUS,
+            LID_HEX_POCKET_VENT_MARGIN,
+        ):
+            return False
+
+    for side in (-1, 1):
+        if not _is_hex_pocket_clear_of_rectangle(
+            x,
+            y,
+            side * ROBOT_WHEEL_CENTER_X,
+            ROBOT_AXLE_Y,
+            LID_WHEEL_WELL_CUTOUT_WIDTH,
+            LID_WHEEL_WELL_CUTOUT_LENGTH,
+            LID_HEX_POCKET_WHEEL_WELL_MARGIN,
+        ):
+            return False
+        if not _is_hex_pocket_clear_of_rectangle(
+            x,
+            y,
+            side * LID_SIDE_ACCESS_OPENING_CENTER_X,
+            LID_SIDE_ACCESS_OPENING_CENTER_Y,
+            LID_SIDE_ACCESS_OPENING_WIDTH,
+            LID_SIDE_ACCESS_OPENING_LENGTH,
+            LID_HEX_POCKET_SIDE_ACCESS_MARGIN,
+        ):
+            return False
+
+    return True
+
+
+def _lid_hex_pocket_centers() -> tuple[tuple[float, float], ...]:
+    max_rows = int(LID_HEX_POCKET_KEEPIN_RADIUS / LID_HEX_POCKET_ROW_STEP) + 2
+    max_cols = int(LID_HEX_POCKET_KEEPIN_RADIUS / LID_HEX_POCKET_PITCH) + 2
+    centers: list[tuple[float, float]] = []
+
+    for row in range(-max_rows, max_rows + 1):
+        y = row * LID_HEX_POCKET_ROW_STEP
+        x_offset = LID_HEX_POCKET_PITCH / 2 if row % 2 else 0.0
+        for column in range(-max_cols, max_cols + 1):
+            x = column * LID_HEX_POCKET_PITCH + x_offset
+            if _is_lid_hex_pocket_center_safe(x, y):
+                centers.append((round(x, 6), round(y, 6)))
+
+    return tuple(centers)
 
 
 def _motor_plate_center_x(side: int) -> float:
@@ -712,6 +861,24 @@ def _make_lid_logo_engraving():
     return logo.part
 
 
+def _make_lid_hex_weight_pocket_cutters():
+    if LID_TOP_THICKNESS - LID_HEX_POCKET_DEPTH < LID_HEX_POCKET_MIN_FLOOR_THICKNESS:
+        raise ValueError("Lid hex pockets would leave too little roof floor thickness")
+
+    with BuildPart() as pocket_cutters:
+        with BuildSketch(Plane.XY):
+            for x, y in _lid_hex_pocket_centers():
+                with Locations((x, y)):
+                    RegularPolygon(
+                        LID_HEX_POCKET_VERTEX_RADIUS,
+                        6,
+                        rotation=30,
+                    )
+        extrude(amount=LID_HEX_POCKET_DEPTH + LID_HEX_POCKET_CUT_OVERTRAVEL)
+
+    return pocket_cutters.part
+
+
 def make_flat_disk_robot_lid():
     """Raised M4-fastened lid over the central battery and controller bay."""
 
@@ -816,6 +983,12 @@ def make_flat_disk_robot_lid():
                     LID_TOP_THICKNESS + 1.0,
                     mode=Mode.SUBTRACT,
                 )
+
+        add(
+            Location((0, 0, LID_TOP_SURFACE_Z - LID_HEX_POCKET_DEPTH))
+            * _make_lid_hex_weight_pocket_cutters(),
+            mode=Mode.SUBTRACT,
+        )
 
         add(
             Location(
