@@ -6,13 +6,20 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+
 env:
   # Edit these values for the project repo.
-  SYNTHCAD_PROJECT: flat-disk-robot
-  SYNTHCAD_ASSEMBLY_TARGET: flat-disk-robot
+  SYNTHCAD_PROJECT: "<project-slug>"
+  SYNTHCAD_ASSEMBLY_TARGET: "<assembly-target>"
   # Leave empty if the project does not export URDF.
-  SYNTHCAD_URDF_TARGET: flat-disk-robot
+  SYNTHCAD_URDF_TARGET: ""
   SYNTHCAD_ARTIFACT_NAME: synthcad-review-artifacts
+  # Space-separated assembly targets shown in the interactive PR diff viewer.
+  SYNTHCAD_PR_SITE_TARGETS: "<assembly-target>"
 
 jobs:
   cad-review:
@@ -23,6 +30,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
 
       - name: Install uv
         uses: astral-sh/setup-uv@v8.1.0
@@ -31,6 +40,10 @@ jobs:
         uses: actions/setup-python@v6.2.0
         with:
           python-version-file: .python-version
+
+      - name: Prepare base worktree
+        if: ${{ github.event_name == 'pull_request' }}
+        run: git worktree add --detach "$RUNNER_TEMP/base" "${{ github.event.pull_request.base.sha }}"
 
       - name: Compile Python sources
         run: uv run python -m compileall -q -f main.py synthcad tests projects
@@ -94,3 +107,164 @@ jobs:
           name: ${{ env.SYNTHCAD_ARTIFACT_NAME }}
           path: projects/${{ env.SYNTHCAD_PROJECT }}/generated
           if-no-files-found: error
+
+      - name: Build PR diff viewer site
+        if: ${{ github.event_name == 'pull_request' && success() }}
+        env:
+          SITE_DIR: ${{ runner.temp }}/pr-diff-site
+          PYTHONUNBUFFERED: "1"
+        run: |
+          target_args=()
+          for target in $SYNTHCAD_PR_SITE_TARGETS; do
+            target_args+=(--target "$target")
+          done
+          if [ "${#target_args[@]}" -eq 0 ]; then
+            target_args+=(--project "$SYNTHCAD_PROJECT")
+          fi
+
+          uv run synthcad-pr-pages \
+            --repo-root "$GITHUB_WORKSPACE" \
+            --base-root "$RUNNER_TEMP/base" \
+            --base-ref "${{ github.event.pull_request.base.sha }}" \
+            --head-ref "${{ github.event.pull_request.head.sha }}" \
+            --output-dir "$SITE_DIR" \
+            "${target_args[@]}"
+
+      - name: Upload PR diff viewer site
+        if: ${{ github.event_name == 'pull_request' && success() }}
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: synthcad-pr-diff-viewer
+          path: ${{ runner.temp }}/pr-diff-site
+          if-no-files-found: error
+
+      - name: Publish PR diff viewer to GitHub Pages
+        if: ${{ github.event_name == 'pull_request' && success() && !github.event.pull_request.head.repo.fork }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_BRANCH: gh-pages
+          PAGES_ROOT: ${{ runner.temp }}/gh-pages-worktree
+          PAGES_SITE_DIR: ${{ runner.temp }}/pr-diff-site
+          PAGES_URL_PATH: ${{ runner.temp }}/pages-url.txt
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          REPO_OWNER: ${{ github.repository_owner }}
+        run: |
+          git fetch origin "$PAGES_BRANCH" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/$PAGES_BRANCH"; then
+            git worktree add "$PAGES_ROOT" -B "$PAGES_BRANCH" "origin/$PAGES_BRANCH"
+          else
+            git worktree add --detach "$PAGES_ROOT"
+            cd "$PAGES_ROOT"
+            git checkout --orphan "$PAGES_BRANCH"
+            git rm -rf . >/dev/null 2>&1 || true
+            cd "$GITHUB_WORKSPACE"
+          fi
+
+          site_dest="$PAGES_ROOT/pr-$PR_NUMBER"
+          rm -rf "$site_dest"
+          mkdir -p "$site_dest"
+          cp -R "$PAGES_SITE_DIR"/. "$site_dest"/
+
+          cd "$PAGES_ROOT"
+          touch .nojekyll
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path(".")
+          links = sorted(path.name for path in root.glob("pr-*") if path.is_dir())
+          items = "\n".join(f'<li><a href="./{name}/">{name}</a></li>' for name in links)
+          (root / "index.html").write_text(
+              "<!doctype html>\n"
+              '<html lang="en">\n'
+              '  <head><meta charset="utf-8"><title>SynthCAD PR diff viewers</title></head>\n'
+              '  <body style="font-family: sans-serif; padding: 2rem;">\n'
+              "    <h1>SynthCAD PR diff viewers</h1>\n"
+              "    <ul>" + items + "</ul>\n"
+              "  </body>\n"
+              "</html>\n",
+              encoding="utf-8",
+          )
+          PY
+
+          git add .
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update PR diff viewer site for #$PR_NUMBER"
+            git push origin "$PAGES_BRANCH"
+          fi
+
+          pages_configured=0
+          if gh api "repos/$GITHUB_REPOSITORY/pages" >/dev/null 2>&1; then
+            gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" \
+              -f "source[branch]=$PAGES_BRANCH" \
+              -f "source[path]=/" >/dev/null || true
+            pages_configured=1
+          else
+            if gh api --method POST "repos/$GITHUB_REPOSITORY/pages" \
+              -f "source[branch]=$PAGES_BRANCH" \
+              -f "source[path]=/" >/dev/null; then
+              pages_configured=1
+            else
+              echo "::warning::GitHub Pages is not enabled for this repository; comment will link to the artifact."
+            fi
+          fi
+
+          if [ "$pages_configured" -eq 1 ]; then
+            pages_url=$(printf "https://%s.github.io/%s/pr-%s/" "$REPO_OWNER" "$REPO_NAME" "$PR_NUMBER")
+            printf "%s\n" "$pages_url" > "$PAGES_URL_PATH"
+          fi
+
+      - name: Create or update PR visualization comment
+        if: ${{ github.event_name == 'pull_request' && success() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_REF: ${{ github.event.pull_request.base.sha }}
+          HEAD_REF: ${{ github.event.pull_request.head.sha }}
+          PAGES_URL_PATH: ${{ runner.temp }}/pages-url.txt
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          marker="<!-- synthcad-pr-visualization -->"
+          body_path="$RUNNER_TEMP/pr-visualization-comment.md"
+          payload_path="$RUNNER_TEMP/pr-visualization-comment.json"
+          pages_url=""
+          if [ -f "$PAGES_URL_PATH" ]; then
+            pages_url="$(cat "$PAGES_URL_PATH")"
+          fi
+
+          {
+            printf "%s\n\n" "$marker"
+            printf "## SynthCAD CAD review\n\n"
+            printf "Compared \`%s\` to \`%s\` for \`%s\`.\n\n" \
+              "${BASE_REF:0:12}" "${HEAD_REF:0:12}" "$SYNTHCAD_PR_SITE_TARGETS"
+            if [ -n "$pages_url" ]; then
+              printf -- "- [Interactive diff viewer](%s)\n" "$pages_url"
+            else
+              printf -- "- PR diff viewer site was uploaded as a workflow artifact.\n"
+            fi
+            printf -- "- [Workflow run and generated artifacts](%s)\n" "$RUN_URL"
+          } > "$body_path"
+
+          BODY_PATH="$body_path" python - <<'PY' > "$payload_path"
+          import json
+          import os
+          from pathlib import Path
+
+          print(json.dumps({"body": Path(os.environ["BODY_PATH"]).read_text()}))
+          PY
+
+          comment_id="$(
+            gh api "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" \
+              --jq ".[] | select(.user.type == \"Bot\" and (.body | contains(\"$marker\"))) | .id" \
+              | head -n 1
+          )"
+
+          if [ -n "$comment_id" ]; then
+            gh api --method PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$comment_id" \
+              --input "$payload_path" >/dev/null
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" \
+              --input "$payload_path" >/dev/null
+          fi

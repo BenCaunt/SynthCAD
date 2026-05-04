@@ -43,7 +43,7 @@ and rear-mounted magnetic encoder boards.
 
 - Printable 216 mm disk chassis.
 - Two imported Repeat Compact 1806 gearmotor references.
-- Two generated `51 mm` diameter TPU D-bore wheels.
+- Two generated `53 mm` diameter TPU D-bore wheels.
 - Two imported AS5600 encoder module references.
 - Two modeled 3 mm radius encoder magnets behind the motors.
 - Imported Seeed Studio XIAO ESP32-S3 Sense controller reference.
@@ -158,11 +158,11 @@ Fastener stack assumptions encoded in `synthcad.projects.flat_disk_robot.robot`:
 - The lower chassis now adds `8 x Ø7 mm` horizontal driver tunnels aligned to
   the motor face-mount screw pattern, matching the wheel hub screw-access hole
   so a driver has the same clearance all the way to the screw heads.
-- The drive wheels grew by `4 mm` diameter, from `47 mm` to `51 mm`, while the
+- The drive wheels grew by `6 mm` diameter, from `47 mm` to `53 mm`, while the
   motor axle stayed at `z = 22 mm`. The chassis wheel slots now grow with the
-  wheel size and are `22 x 64 mm`, preserving the previous side clearance.
+  wheel size and are `22 x 66 mm`, preserving the previous side clearance.
 - The lid side wall openings remain broad service openings, and separate
-  `24 x 56 mm` roof reliefs are cut directly above the wheels so the taller
+  `24 x 58 mm` roof reliefs are cut directly above the wheels so the taller
   tires clear the lid top without trimming the outer disk edge.
 
 Print intent for the lid:

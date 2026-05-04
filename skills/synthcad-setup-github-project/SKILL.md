@@ -14,9 +14,11 @@ collaboration, pull-request review, or CI validation.
 2. Check local git status before editing or pushing.
 3. Add or update a GitHub Actions CAD review workflow under
    `.github/workflows/`.
-4. Make CI produce reviewable artifacts, not just pass/fail logs:
+4. Make CI produce reviewable artifacts and PR review links, not just pass/fail
+   logs:
    generated CAD exports, inspection reports, interference overlays, URDF
-   packages, and a Markdown summary in `$GITHUB_STEP_SUMMARY`.
+   packages, a Markdown summary in `$GITHUB_STEP_SUMMARY`, a static PR diff
+   viewer, and an upserted PR comment linking to the viewer and workflow run.
 5. Ensure every CAD project has tests under `projects/<project-slug>/tests/`
    and that CI runs both root tests and project-local tests.
 6. Keep `projects/*/generated/`, BREP caches, virtualenvs, and build outputs
@@ -27,18 +29,25 @@ collaboration, pull-request review, or CI validation.
 
 ## Commands
 
+Set the project variables from `uv run synthcad-build --list` and the current
+repo's build registry:
+
 ```bash
 gh auth status
 gh repo view --json nameWithOwner,visibility,defaultBranchRef
 git status --short --ignored
+uv run synthcad-build --list
+PROJECT=<project-slug>
+ASSEMBLY_TARGET=<assembly-target>
+URDF_TARGET=<urdf-target-or-empty>
 uv run python -m compileall -q -f main.py synthcad tests projects
 uv run pytest
-uv run pytest projects/flat-disk-robot/tests
-uv run synthcad-build --project flat-disk-robot --profile
-uv run synthcad-inspect --target flat-disk-robot --interference all
-uv run show-interference --target flat-disk-robot
-uv run synthcad-report --project flat-disk-robot
-uv run synthcad-urdf --target flat-disk-robot
+uv run pytest "projects/$PROJECT/tests"
+uv run synthcad-build --project "$PROJECT" --profile
+uv run synthcad-inspect --target "$ASSEMBLY_TARGET" --interference all
+uv run show-interference --target "$ASSEMBLY_TARGET"
+uv run synthcad-report --project "$PROJECT"
+test -z "$URDF_TARGET" || uv run synthcad-urdf --target "$URDF_TARGET"
 ```
 
 Use the local `readline` shim for pytest if the local uv Python crashes before
@@ -57,6 +66,6 @@ PY
 ## CI Review Pattern
 
 Read `references/github-ci-review.md` when creating or changing the workflow.
-It includes the expected Actions shape, required artifact policy, branch
-protection checklist, and points to the reusable workflow template at
-`references/synthcad-ci-template.yml`.
+It includes the expected Actions shape, artifact policy,
+PR visualization/comment policy, branch protection checklist, and reusable
+workflow template at `references/synthcad-ci-template.yml`.
