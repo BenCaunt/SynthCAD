@@ -1,0 +1,76 @@
+name: SynthCAD CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  cad-review:
+    name: CAD review
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+
+      - name: Compile Python sources
+        run: uv run python -m compileall -q -f main.py synthcad tests
+
+      - name: Run tests
+        run: |
+          uv run python - <<'PY'
+          import sys
+          import types
+
+          sys.modules["readline"] = types.ModuleType("readline")
+
+          import pytest
+
+          raise SystemExit(pytest.main(["-q"]))
+          PY
+
+      - name: Export flat disk robot CAD
+        run: uv run synthcad-build --project flat-disk-robot --profile
+
+      - name: Inspect flat disk robot assembly
+        run: |
+          uv run synthcad-inspect \
+            --target flat-disk-robot \
+            --interference all \
+            --view isometric \
+            --view rear-isometric
+
+      - name: Render interference overlays
+        run: |
+          uv run show-interference \
+            --target flat-disk-robot \
+            --view isometric \
+            --view rear-isometric
+
+      - name: Export URDF package
+        run: uv run synthcad-urdf --target flat-disk-robot
+
+      - name: Write validation report
+        run: |
+          mkdir -p real-parts/generated/ci
+          uv run synthcad-report --project flat-disk-robot \
+            | tee real-parts/generated/ci/validation-report.md
+          cat real-parts/generated/ci/validation-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload generated review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: synthcad-review-artifacts
+          path: real-parts/generated
+          if-no-files-found: error

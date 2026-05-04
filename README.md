@@ -30,6 +30,13 @@ The source references used by the flat disk robot live under `real-parts/`.
 BREP cache files may be generated beside STEP inputs during local builds; they
 are ignored and should not be committed.
 
+## GitHub CI
+
+`.github/workflows/synthcad-ci.yml` runs tests, exports the flat disk robot,
+generates inspection/interference evidence, exports the URDF package, writes a
+Markdown Actions summary, and uploads `real-parts/generated/` as review
+artifacts.
+
 ## Agent Skills
 
 This repository can be used with `vercel-labs/skills`:
@@ -37,11 +44,12 @@ This repository can be used with `vercel-labs/skills`:
 ```bash
 npx skills add BenCaunt/SynthCAD --list
 npx skills add BenCaunt/SynthCAD --skill synthcad-cad-authoring
+npx skills add BenCaunt/SynthCAD --skill synthcad-setup-github-project
 ```
 
-The skill source is in `skills/synthcad-cad-authoring/`. The repo intentionally
-does not include a root `SKILL.md`, so skill installers copy only the skill
-directory instead of the whole CAD repository.
+Skill sources are in `skills/`. The repo intentionally does not include a root
+`SKILL.md`, so skill installers copy only the selected skill directory instead
+of the whole CAD repository.
 
 ## Validation
 
