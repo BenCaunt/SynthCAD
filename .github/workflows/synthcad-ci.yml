@@ -229,11 +229,11 @@ jobs:
             printf "Compared \`%s\` to \`%s\` for \`%s\`.\n\n" \
               "${BASE_REF:0:12}" "${HEAD_REF:0:12}" "$SYNTHCAD_PR_SITE_TARGETS"
             if [ -n "$pages_url" ]; then
-              printf "- [Interactive diff viewer](%s)\n" "$pages_url"
+              printf -- "- [Interactive diff viewer](%s)\n" "$pages_url"
             else
-              printf "- PR diff viewer site was uploaded as a workflow artifact.\n"
+              printf -- "- PR diff viewer site was uploaded as a workflow artifact.\n"
             fi
-            printf "- [Workflow run and generated artifacts](%s)\n" "$RUN_URL"
+            printf -- "- [Workflow run and generated artifacts](%s)\n" "$RUN_URL"
           } > "$body_path"
 
           BODY_PATH="$body_path" python - <<'PY' > "$payload_path"
