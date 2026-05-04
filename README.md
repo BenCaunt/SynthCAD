@@ -11,6 +11,12 @@ required reference inputs.
 See a real driving robot designed with SynthCAD in
 [this X post](https://x.com/BdcauntBen/status/2049014205408280934?s=20).
 
+Photos of the physical robot and printed chassis details:
+
+| Built flat disk robot | Printed chassis internals |
+| --- | --- |
+| ![Built flat disk robot with assembled top lid and electronics visible](docs/assets/flat-disk-robot-part-assembly.jpg) | ![Printed flat disk robot chassis interior with standoffs and component mounts](docs/assets/flat-disk-robot-part-detail.jpg) |
+
 ## Quick Start
 
 ```bash
