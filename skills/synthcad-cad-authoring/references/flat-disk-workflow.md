@@ -23,6 +23,25 @@
 - `projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp`
 - `projects/flat-disk-robot/real-parts/battery.png`
 
+## Project Tests
+
+Project-specific tests belong under `projects/<project-slug>/tests/`, not root
+`tests/`. Root tests are for shared SynthCAD tooling.
+
+For each project, write tests that cover:
+
+- geometry invariants for printable parts and assemblies;
+- critical real-component interfaces such as holes, shafts, registers,
+  clearances, service access, and mounting faces;
+- expected assembly interferences and documented intentional overlaps;
+- source reference and docs metadata resolving to checked-in project files; and
+- target selection or project filtering when the project adds registry behavior.
+
+The flat disk robot examples are:
+
+- `projects/flat-disk-robot/tests/test_geometry_invariants.py`
+- `projects/flat-disk-robot/tests/test_interference_invariants.py`
+
 ## Typical Loop
 
 1. Probe the current target.
@@ -36,7 +55,7 @@ uv run synthcad-probe --target flat-disk-robot --children
 3. Run focused tests.
 
 ```bash
-uv run pytest projects/flat-disk-robot/tests/test_geometry_invariants.py tests/test_build_registry.py
+uv run pytest projects/flat-disk-robot/tests tests/test_build_registry.py
 ```
 
 4. Regenerate and inspect.

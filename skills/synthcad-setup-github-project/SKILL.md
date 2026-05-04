@@ -1,6 +1,6 @@
 ---
 name: synthcad-setup-github-project
-description: Set up GitHub repository, Actions CI review, artifacts, and branch protection for SynthCAD CAD projects.
+description: Set up GitHub repository, Actions CI review, project-local tests, artifacts, and branch protection for SynthCAD CAD projects.
 ---
 
 # SynthCAD GitHub Project Setup
@@ -17,10 +17,12 @@ collaboration, pull-request review, or CI validation.
 4. Make CI produce reviewable artifacts, not just pass/fail logs:
    generated CAD exports, inspection reports, interference overlays, URDF
    packages, and a Markdown summary in `$GITHUB_STEP_SUMMARY`.
-5. Keep `projects/*/generated/`, BREP caches, virtualenvs, and build outputs
+5. Ensure every CAD project has tests under `projects/<project-slug>/tests/`
+   and that CI runs both root tests and project-local tests.
+6. Keep `projects/*/generated/`, BREP caches, virtualenvs, and build outputs
    ignored.
-6. Run the local checks that mirror CI before committing.
-7. Push intentionally and, for nontrivial changes, open a PR rather than
+7. Run the local checks that mirror CI before committing.
+8. Push intentionally and, for nontrivial changes, open a PR rather than
    pushing directly to the protected default branch.
 
 ## Commands
@@ -31,6 +33,7 @@ gh repo view --json nameWithOwner,visibility,defaultBranchRef
 git status --short --ignored
 uv run python -m compileall -q -f main.py synthcad tests projects
 uv run pytest
+uv run pytest projects/flat-disk-robot/tests
 uv run synthcad-build --project flat-disk-robot --profile
 uv run synthcad-inspect --target flat-disk-robot --interference all
 uv run show-interference --target flat-disk-robot

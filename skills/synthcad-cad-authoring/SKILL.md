@@ -1,12 +1,12 @@
 ---
 name: synthcad-cad-authoring
-description: Build, modify, and validate SynthCAD build123d CAD for the flat disk robot.
+description: Build, modify, and validate SynthCAD build123d CAD projects, including project-local tests and generated review artifacts.
 ---
 
 # SynthCAD CAD Authoring
 
-Use this skill when working in the SynthCAD repository on flat disk robot CAD,
-exports, inspection, or URDF handoff.
+Use this skill when working in the SynthCAD repository on CAD projects, exports,
+inspection, project-local tests, or URDF handoff.
 
 ## Operating Rules
 
@@ -16,10 +16,15 @@ exports, inspection, or URDF handoff.
   clearances, encoder spacing, battery fit, sensor placement, USB access, and
   lid fastener locations.
 - Do not hand-edit generated STEP, STL, GLB, URDF, inspection, or BREP files.
-- Keep source references under `projects/flat-disk-robot/real-parts/`;
-  generated outputs belong under `projects/flat-disk-robot/generated/`.
+- Keep each project's source references, docs, tests, and generated artifacts
+  inside `projects/<project-slug>/`.
+- Put project-specific tests under `projects/<project-slug>/tests/`. Reserve
+  root `tests/` for reusable framework, CLI, registry, and library behavior.
+- When creating a new project or build target, add or update tests for its
+  geometry invariants, critical component interfaces, source refs/docs metadata,
+  and expected assembly interferences.
 - If a drawing or component constraint is incomplete, record the assumption in
-  `projects/flat-disk-robot/docs/flat-disk-robot-notes.md`.
+  the project's own `docs/` directory.
 
 ## Commands
 
@@ -31,6 +36,7 @@ uv run show-interference --target flat-disk-robot
 uv run synthcad-report --project flat-disk-robot
 uv run synthcad-urdf --target flat-disk-robot
 uv run pytest
+uv run pytest projects/flat-disk-robot/tests
 ```
 
 Use `synthcad-probe` before writing throwaway geometry scripts. It reports
@@ -41,7 +47,7 @@ target bounds, child labels, and inspection model structure quickly.
 A flat disk robot CAD change is done when:
 
 - the changed target imports and builds without errors;
-- relevant tests pass;
+- relevant project-local tests are added/updated and pass;
 - exports regenerate for `flat-disk-robot`;
 - inspection artifacts are generated for the changed target or assembly;
 - unexpected interferences are fixed or documented as intentional; and
@@ -49,4 +55,5 @@ A flat disk robot CAD change is done when:
 
 ## Reference
 
-Open `references/flat-disk-workflow.md` for a compact workflow checklist.
+Open `references/flat-disk-workflow.md` for the flat disk robot checklist and
+project-local test examples.

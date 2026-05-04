@@ -5,7 +5,8 @@
 Create a workflow like `.github/workflows/synthcad-ci.yml` with these jobs:
 
 - compile Python sources;
-- run pytest, using the local `readline` shim if needed;
+- run root and project-local pytest suites, using the local `readline` shim if
+  needed;
 - export the flat disk robot targets;
 - run assembly inspection and interference overlays;
 - export the URDF package;
@@ -13,6 +14,23 @@ Create a workflow like `.github/workflows/synthcad-ci.yml` with these jobs:
 - upload `projects/flat-disk-robot/generated/` as a review artifact.
 
 The workflow should run on `pull_request` and on pushes to the default branch.
+
+## Project Test Policy
+
+Every CAD project should include tests under `projects/<project-slug>/tests/`.
+Do not put project-specific geometry or interference invariants in root
+`tests/`; keep root tests for shared SynthCAD tooling.
+
+For each new project, require tests for:
+
+- geometry invariants for printable parts and assemblies;
+- critical real-component interfaces and clearances;
+- expected assembly interferences and intentional-overlap exceptions;
+- source reference and docs metadata resolving to checked-in project files; and
+- project filtering or registry behavior when the project adds targets.
+
+CI should run `uv run pytest` with `pyproject.toml` configured to discover both
+root `tests/` and `projects/`.
 
 ## Artifact Policy
 
