@@ -8,9 +8,6 @@ required reference inputs.
 
 ## Demo
 
-See a real driving robot designed with SynthCAD in
-[this X post](https://x.com/BdcauntBen/status/2049014205408280934?s=20).
-
 Photos of the physical robot and printed chassis details:
 
 | Built flat disk robot | Printed chassis internals |
