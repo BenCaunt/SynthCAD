@@ -1,0 +1,5 @@
+[project]
+name = "flat-disk-robot"
+boundary = "project"
+lifecycle = "active"
+summary = "Robot-specific CAD and validation for the flat disk platform."

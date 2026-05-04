@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>synthcad viewer</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="toolbar">
+        <div class="toolbar-group toolbar-grow">
+          <label class="field inline-field">
+            <span>Target</span>
+            <select id="targetSelect"></select>
+          </label>
+          <button id="reloadTargetButton" type="button">Reload</button>
+        </div>
+
+        <div class="toolbar-group">
+          <button id="fitAllButton" type="button">Fit</button>
+          <button id="isoViewButton" type="button">Iso</button>
+          <button id="frontViewButton" type="button">Front</button>
+          <button id="rightViewButton" type="button">Right</button>
+          <button id="topViewButton" type="button">Top</button>
+        </div>
+
+        <div class="toolbar-group">
+          <button id="orbitModeButton" type="button" class="active">Orbit</button>
+          <button id="panModeButton" type="button">Pan</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="panel panel-left">
+          <section class="panel-section">
+            <div class="section-header">
+              <h2>Parts</h2>
+              <span id="partCountBadge" class="badge">0</span>
+            </div>
+            <label class="field">
+              <span>Filter</span>
+              <input id="partSearchInput" type="search" placeholder="Search parts">
+            </label>
+            <div class="button-row compact">
+              <button id="showAllPartsButton" type="button">Show all</button>
+              <button id="isolateSelectedButton" type="button">Isolate selected</button>
+              <button id="hideSelectedButton" type="button">Hide selected</button>
+            </div>
+            <div id="partList" class="part-list empty-state">Load a target to browse parts.</div>
+          </section>
+        </aside>
+
+        <section class="viewer-panel">
+          <canvas id="viewerCanvas"></canvas>
+          <div id="viewerOverlay" class="viewer-overlay hidden"></div>
+          <div class="viewer-hint">
+            <span>Left drag: orbit</span>
+            <span>Right drag: pan</span>
+            <span>Shift+drag: pan</span>
+            <span>Wheel: zoom</span>
+            <span>Click: select part</span>
+          </div>
+        </section>
+
+        <aside class="panel panel-right">
+          <section class="panel-section">
+            <div class="section-header">
+              <h2>Target</h2>
+              <span id="targetStatusBadge" class="badge muted">-</span>
+            </div>
+            <dl id="targetSummary" class="summary-list"></dl>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-header">
+              <h2>Selection</h2>
+              <button id="fitSelectionButton" type="button">Fit selection</button>
+            </div>
+            <div id="selectionDetails" class="detail-card empty-state">No part selected.</div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-header">
+              <h2>Section view</h2>
+            </div>
+            <div class="field-grid">
+              <label class="field">
+                <span>Axis</span>
+                <select id="sectionAxisSelect">
+                  <option value="off">Off</option>
+                  <option value="x">X</option>
+                  <option value="y">Y</option>
+                  <option value="z">Z</option>
+                </select>
+              </label>
+              <label class="field checkbox-field">
+                <input id="sectionFlipCheckbox" type="checkbox">
+                <span>Flip cut</span>
+              </label>
+            </div>
+            <label class="field">
+              <span id="sectionSliderLabel">Position</span>
+              <input id="sectionSlider" type="range" min="0" max="1000" value="500" disabled>
+            </label>
+            <div id="sectionReadout" class="helper-text">Section view disabled.</div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-header">
+              <h2>Interferences</h2>
+              <span id="interferenceCountBadge" class="badge">0</span>
+            </div>
+            <div id="intentionalInterferenceList" class="notice-list"></div>
+            <div id="interferenceList" class="interference-list empty-state">No interference data loaded.</div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-header">
+              <h2>Inspection outputs</h2>
+            </div>
+            <div id="inspectionGallery" class="gallery empty-state">No inspection projections recorded.</div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

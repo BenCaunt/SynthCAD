@@ -1,0 +1,37 @@
+[project]
+name = "synthcad"
+version = "0.1.0"
+description = "Open build123d CAD workflow and flat disk robot reference project."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "build123d>=0.10.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+
+[project.scripts]
+synthcad-build = "synthcad.build:main"
+synthcad-inspect = "synthcad.inspect_cli:main"
+synthcad-report = "synthcad.report_cli:main"
+synthcad-show-interference = "synthcad.show_interference_cli:main"
+synthcad-view = "synthcad.viewer_cli:main"
+synthcad-urdf = "synthcad.urdf_cli:main"
+synthcad-probe = "synthcad.probe_cli:main"
+show-interference = "synthcad.show_interference_cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["synthcad*"]
+
+[tool.setuptools.package-data]
+synthcad = ["webviewer/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
