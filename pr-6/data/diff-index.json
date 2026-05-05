@@ -1,1328 +1,1111 @@
 {
   "base_ref": "50cc8c6e65051c70cf7ecb9be8ab6dacc433294c",
-  "head_ref": "2e30ea795a7c89afc0c0266ef8e6132bbbc44c06",
-  "default_assembly": "flat-disk-robot",
+  "head_ref": "a4433b455783176bc41799e7403b32e8f1fa25a0",
+  "default_assembly": "demo-ftc-robot",
   "assemblies": [
     {
-      "name": "flat-disk-robot",
-      "project": "flat-disk-robot",
-      "kind": "robot-reference-assembly",
+      "name": "demo-ftc-robot",
+      "project": "demo-ftc-robot",
+      "kind": "robot-planning-assembly",
       "comparison": {
-        "unchanged_count": 29,
-        "added": [],
+        "unchanged_count": 0,
+        "added": [
+          {
+            "label": "left side frame rail blockout",
+            "base_instance_key": null,
+            "head_instance_key": "left side frame rail blockout @ (-180.00, 0.00, 42.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -189.0,
+                -191.0,
+                25.0
+              ],
+              "max": [
+                -171.0,
+                191.0,
+                59.0
+              ],
+              "center": [
+                -180.0,
+                0.0,
+                42.0
+              ],
+              "size": [
+                18.0,
+                382.0,
+                34.0
+              ],
+              "diagonal": 383.9323
+            }
+          },
+          {
+            "label": "right side frame rail blockout",
+            "base_instance_key": null,
+            "head_instance_key": "right side frame rail blockout @ (180.00, 0.00, 42.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                171.0,
+                -191.0,
+                25.0
+              ],
+              "max": [
+                189.0,
+                191.0,
+                59.0
+              ],
+              "center": [
+                180.0,
+                0.0,
+                42.0
+              ],
+              "size": [
+                18.0,
+                382.0,
+                34.0
+              ],
+              "diagonal": 383.9323
+            }
+          },
+          {
+            "label": "front frame cross rail and intake hardpoint",
+            "base_instance_key": null,
+            "head_instance_key": "front frame cross rail and intake hardpoint @ (0.00, 182.00, 42.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -180.0,
+                173.0,
+                25.0
+              ],
+              "max": [
+                180.0,
+                191.0,
+                59.0
+              ],
+              "center": [
+                0.0,
+                182.0,
+                42.0
+              ],
+              "size": [
+                360.0,
+                18.0,
+                34.0
+              ],
+              "diagonal": 362.0497
+            }
+          },
+          {
+            "label": "rear frame cross rail",
+            "base_instance_key": null,
+            "head_instance_key": "rear frame cross rail @ (0.00, -182.00, 42.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -180.0,
+                -191.0,
+                25.0
+              ],
+              "max": [
+                180.0,
+                -173.0,
+                59.0
+              ],
+              "center": [
+                0.0,
+                -182.0,
+                42.0
+              ],
+              "size": [
+                360.0,
+                18.0,
+                34.0
+              ],
+              "diagonal": 362.0497
+            }
+          },
+          {
+            "label": "thin electronics bellypan blockout",
+            "base_instance_key": null,
+            "head_instance_key": "thin electronics bellypan blockout @ (0.00, -22.00, 18.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -156.0,
+                -172.0,
+                15.5
+              ],
+              "max": [
+                156.0,
+                128.0,
+                20.5
+              ],
+              "center": [
+                0.0,
+                -22.0,
+                18.0
+              ],
+              "size": [
+                312.0,
+                300.0,
+                5.0
+              ],
+              "diagonal": 432.8614
+            }
+          },
+          {
+            "label": "top lid and hood roller mounting plate",
+            "base_instance_key": null,
+            "head_instance_key": "top lid and hood roller mounting plate @ (0.00, 22.00, 326.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -158.0,
+                -144.0,
+                323.0
+              ],
+              "max": [
+                158.0,
+                188.0,
+                329.0
+              ],
+              "center": [
+                0.0,
+                22.0,
+                326.0
+              ],
+              "size": [
+                316.0,
+                332.0,
+                6.0
+              ],
+              "diagonal": 458.3841
+            }
+          },
+          {
+            "label": "left rear 96 mm drive wheel",
+            "base_instance_key": null,
+            "head_instance_key": "left rear 96 mm drive wheel @ (-188.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -200.0,
+                -174.0,
+                0.0
+              ],
+              "max": [
+                -176.0,
+                -78.0,
+                96.0
+              ],
+              "center": [
+                -188.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                24.0,
+                96.0,
+                96.0
+              ],
+              "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "left center 96 mm drive wheel",
+            "base_instance_key": null,
+            "head_instance_key": "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -200.0,
+                -48.0,
+                0.0
+              ],
+              "max": [
+                -176.0,
+                48.0,
+                96.0
+              ],
+              "center": [
+                -188.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                24.0,
+                96.0,
+                96.0
+              ],
+              "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "left front 96 mm drive wheel",
+            "base_instance_key": null,
+            "head_instance_key": "left front 96 mm drive wheel @ (-188.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -200.0,
+                78.0,
+                0.0
+              ],
+              "max": [
+                -176.0,
+                174.0,
+                96.0
+              ],
+              "center": [
+                -188.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                24.0,
+                96.0,
+                96.0
+              ],
+              "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "left drive Yellow Jacket proxy y=-84",
+            "base_instance_key": null,
+            "head_instance_key": "left drive Yellow Jacket proxy y=-84 @ (-120.32, -84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -173.32,
+                -102.5,
+                45.5
+              ],
+              "max": [
+                -67.32,
+                -65.5,
+                82.5
+              ],
+              "center": [
+                -120.32,
+                -84.0,
+                64.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "left drive Yellow Jacket proxy y=84",
+            "base_instance_key": null,
+            "head_instance_key": "left drive Yellow Jacket proxy y=84 @ (-120.32, 84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -173.32,
+                65.5,
+                45.5
+              ],
+              "max": [
+                -67.32,
+                102.5,
+                82.5
+              ],
+              "center": [
+                -120.32,
+                84.0,
+                64.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "right rear 96 mm drive wheel",
+            "base_instance_key": null,
+            "head_instance_key": "right rear 96 mm drive wheel @ (188.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                176.0,
+                -174.0,
+                0.0
+              ],
+              "max": [
+                200.0,
+                -78.0,
+                96.0
+              ],
+              "center": [
+                188.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                24.0,
+                96.0,
+                96.0
+              ],
+              "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "right center 96 mm drive wheel",
+            "base_instance_key": null,
+            "head_instance_key": "right center 96 mm drive wheel @ (188.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                176.0,
+                -48.0,
+                0.0
+              ],
+              "max": [
+                200.0,
+                48.0,
+                96.0
+              ],
+              "center": [
+                188.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                24.0,
+                96.0,
+                96.0
+              ],
+              "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "right front 96 mm drive wheel",
+            "base_instance_key": null,
+            "head_instance_key": "right front 96 mm drive wheel @ (188.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                176.0,
+                78.0,
+                0.0
+              ],
+              "max": [
+                200.0,
+                174.0,
+                96.0
+              ],
+              "center": [
+                188.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                24.0,
+                96.0,
+                96.0
+              ],
+              "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "right drive Yellow Jacket proxy y=-84",
+            "base_instance_key": null,
+            "head_instance_key": "right drive Yellow Jacket proxy y=-84 @ (120.32, -84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                67.32,
+                -102.5,
+                45.5
+              ],
+              "max": [
+                173.32,
+                -65.5,
+                82.5
+              ],
+              "center": [
+                120.32,
+                -84.0,
+                64.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "right drive Yellow Jacket proxy y=84",
+            "base_instance_key": null,
+            "head_instance_key": "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                67.32,
+                65.5,
+                45.5
+              ],
+              "max": [
+                173.32,
+                102.5,
+                82.5
+              ],
+              "center": [
+                120.32,
+                84.0,
+                64.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "front intake swept volume",
+            "base_instance_key": null,
+            "head_instance_key": "front intake swept volume @ (0.00, 168.00, 102.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -164.0,
+                139.0,
+                52.0
+              ],
+              "max": [
+                164.0,
+                197.0,
+                152.0
+              ],
+              "center": [
+                0.0,
+                168.0,
+                102.0
+              ],
+              "size": [
+                328.0,
+                58.0,
+                100.0
+              ],
+              "diagonal": 347.7758
+            }
+          },
+          {
+            "label": "front-facing main intake roller",
+            "base_instance_key": null,
+            "head_instance_key": "front-facing main intake roller @ (0.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -155.0,
+                155.0,
+                59.0
+              ],
+              "max": [
+                155.0,
+                193.0,
+                97.0
+              ],
+              "center": [
+                0.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                310.0,
+                38.0,
+                38.0
+              ],
+              "diagonal": 314.6236
+            }
+          },
+          {
+            "label": "intake Yellow Jacket proxy",
+            "base_instance_key": null,
+            "head_instance_key": "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -177.0,
+                141.5,
+                65.5
+              ],
+              "max": [
+                -71.0,
+                178.5,
+                102.5
+              ],
+              "center": [
+                -124.0,
+                160.0,
+                84.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "three artifact queue channel",
+            "base_instance_key": null,
+            "head_instance_key": "three artifact queue channel @ (0.00, -6.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -73.0,
+                -177.0,
+                50.0
+              ],
+              "max": [
+                73.0,
+                165.0,
+                182.0
+              ],
+              "center": [
+                0.0,
+                -6.0,
+                116.0
+              ],
+              "size": [
+                146.0,
+                342.0,
+                132.0
+              ],
+              "diagonal": 394.5935
+            }
+          },
+          {
+            "label": "front-facing second stage indexer wheel",
+            "base_instance_key": null,
+            "head_instance_key": "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -80.0,
+                45.3,
+                141.3
+              ],
+              "max": [
+                80.0,
+                70.7,
+                166.7
+              ],
+              "center": [
+                0.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                160.0,
+                25.4,
+                25.4
+              ],
+              "diagonal": 163.9827
+            }
+          },
+          {
+            "label": "indexer Yellow Jacket proxy",
+            "base_instance_key": null,
+            "head_instance_key": "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -175.0,
+                23.5,
+                135.5
+              ],
+              "max": [
+                -69.0,
+                60.5,
+                172.5
+              ],
+              "center": [
+                -122.0,
+                42.0,
+                154.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "front-facing shooter throat envelope",
+            "base_instance_key": null,
+            "head_instance_key": "front-facing shooter throat envelope @ (0.00, 148.00, 252.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -77.0,
+                101.0,
+                208.0
+              ],
+              "max": [
+                77.0,
+                195.0,
+                296.0
+              ],
+              "center": [
+                0.0,
+                148.0,
+                252.0
+              ],
+              "size": [
+                154.0,
+                94.0,
+                88.0
+              ],
+              "diagonal": 200.7386
+            }
+          },
+          {
+            "label": "72 mm flywheel shooter wheel",
+            "base_instance_key": null,
+            "head_instance_key": "72 mm flywheel shooter wheel @ (0.00, 126.00, 236.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -21.0,
+                90.0,
+                200.0
+              ],
+              "max": [
+                21.0,
+                162.0,
+                272.0
+              ],
+              "center": [
+                0.0,
+                126.0,
+                236.0
+              ],
+              "size": [
+                42.0,
+                72.0,
+                72.0
+              ],
+              "diagonal": 110.1454
+            }
+          },
+          {
+            "label": "shooter Yellow Jacket proxy",
+            "base_instance_key": null,
+            "head_instance_key": "shooter Yellow Jacket proxy @ (-124.00, 112.00, 236.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -177.0,
+                93.5,
+                217.5
+              ],
+              "max": [
+                -71.0,
+                130.5,
+                254.5
+              ],
+              "center": [
+                -124.0,
+                112.0,
+                236.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "lid-mounted 1 in hood roller 1",
+            "base_instance_key": null,
+            "head_instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 132.00, 286.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -85.0,
+                119.3,
+                273.3
+              ],
+              "max": [
+                85.0,
+                144.7,
+                298.7
+              ],
+              "center": [
+                0.0,
+                132.0,
+                286.0
+              ],
+              "size": [
+                170.0,
+                25.4,
+                25.4
+              ],
+              "diagonal": 173.7536
+            }
+          },
+          {
+            "label": "lid-mounted 1 in hood roller 2",
+            "base_instance_key": null,
+            "head_instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 172.00, 312.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -85.0,
+                159.3,
+                299.3
+              ],
+              "max": [
+                85.0,
+                184.7,
+                324.7
+              ],
+              "center": [
+                0.0,
+                172.0,
+                312.0
+              ],
+              "size": [
+                170.0,
+                25.4,
+                25.4
+              ],
+              "diagonal": 173.7536
+            }
+          },
+          {
+            "label": "front shooter exit keepout",
+            "base_instance_key": null,
+            "head_instance_key": "front shooter exit keepout @ (0.00, 184.00, 252.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -68.0,
+                167.0,
+                221.0
+              ],
+              "max": [
+                68.0,
+                201.0,
+                283.0
+              ],
+              "center": [
+                0.0,
+                184.0,
+                252.0
+              ],
+              "size": [
+                136.0,
+                34.0,
+                62.0
+              ],
+              "diagonal": 153.2841
+            }
+          },
+          {
+            "label": "stored DECODE artifact 1",
+            "base_instance_key": null,
+            "head_instance_key": "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -63.5,
+                -191.5,
+                52.5
+              ],
+              "max": [
+                63.5,
+                -64.5,
+                179.5
+              ],
+              "center": [
+                0.0,
+                -128.0,
+                116.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            }
+          },
+          {
+            "label": "stored DECODE artifact 2",
+            "base_instance_key": null,
+            "head_instance_key": "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -63.5,
+                -65.5,
+                52.5
+              ],
+              "max": [
+                63.5,
+                61.5,
+                179.5
+              ],
+              "center": [
+                0.0,
+                -2.0,
+                116.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            }
+          },
+          {
+            "label": "stored DECODE artifact 3",
+            "base_instance_key": null,
+            "head_instance_key": "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -63.5,
+                60.5,
+                52.5
+              ],
+              "max": [
+                63.5,
+                187.5,
+                179.5
+              ],
+              "center": [
+                0.0,
+                124.0,
+                116.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            }
+          },
+          {
+            "label": "REV control hub placeholder",
+            "base_instance_key": null,
+            "head_instance_key": "REV control hub placeholder @ (54.00, -88.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -1.0,
+                -124.0,
+                43.0
+              ],
+              "max": [
+                109.0,
+                -52.0,
+                69.0
+              ],
+              "center": [
+                54.0,
+                -88.0,
+                56.0
+              ],
+              "size": [
+                110.0,
+                72.0,
+                26.0
+              ],
+              "diagonal": 134.0149
+            }
+          },
+          {
+            "label": "12V FTC battery placeholder",
+            "base_instance_key": null,
+            "head_instance_key": "12V FTC battery placeholder @ (-66.00, -92.00, 52.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -112.0,
+                -116.0,
+                28.0
+              ],
+              "max": [
+                -20.0,
+                -68.0,
+                76.0
+              ],
+              "center": [
+                -66.0,
+                -92.0,
+                52.0
+              ],
+              "size": [
+                92.0,
+                48.0,
+                48.0
+              ],
+              "diagonal": 114.3328
+            }
+          }
+        ],
         "modified": [],
         "removed": []
       },
       "base": {
         "target": {
-          "name": "flat-disk-robot",
-          "kind": "robot-reference-assembly",
-          "source_module": "synthcad.projects.flat_disk_robot.robot",
-          "printable": false,
-          "project": "flat-disk-robot",
-          "status": "active",
-          "source_refs": [
-            "projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
-            "projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
-            "projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
-            "projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP",
-            "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
-            "projects/flat-disk-robot/real-parts/battery.png"
-          ],
-          "docs": [
-            "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
-          ],
-          "validation": {
-            "inspect": true,
-            "interference_targets": []
-          },
-          "intentional_interferences": [
-            {
-              "first": "repeat-compact-1806-gearmotor",
-              "second": "TPU press-fit D-bore wheel",
-              "reason": "The wheel/motor overlap is the modeled TPU press fit, not a hard interference."
-            }
-          ],
-          "formats": [
-            "step",
-            "stl",
-            "glb"
-          ]
+          "name": "demo-ftc-robot",
+          "project": null,
+          "kind": "unavailable-build-target"
         },
+        "glb_url": null,
+        "artifact_urls": {},
         "model_summary": {
-          "name": "flat-disk-robot",
-          "kind": "robot-reference-assembly",
-          "label": "flat-disk-robot",
+          "name": "demo-ftc-robot",
+          "kind": "unavailable-build-target",
+          "label": "demo-ftc-robot",
           "bbox_mm": {
             "min": [
-              -108.0,
-              -108.0,
-              -4.5
+              0.0,
+              0.0,
+              0.0
             ],
             "max": [
-              108.0,
-              108.0,
-              53.5
+              0.0,
+              0.0,
+              0.0
             ],
             "center": [
               0.0,
               0.0,
-              24.5
+              0.0
             ],
             "size": [
-              216.0,
-              216.0,
-              58.0
+              0.0,
+              0.0,
+              0.0
             ],
-            "diagonal": 310.9276
+            "diagonal": 0.0
           },
-          "child_count": 29,
-          "solid_count": 29,
+          "child_count": 0,
+          "solid_count": 0,
           "volume_mm3": 0.0
         },
-        "children": [
-          {
-            "index": 0,
-            "label": "216 mm flat disk robot chassis",
-            "instance_key": "216 mm flat disk robot chassis @ (-0.00, 0.00, 21.82)",
-            "bbox_mm": {
-              "min": [
-                -108.0,
-                -108.0,
-                -0.0
-              ],
-              "max": [
-                108.0,
-                108.0,
-                43.65
-              ],
-              "center": [
-                -0.0,
-                0.0,
-                21.825
-              ],
-              "size": [
-                216.0,
-                216.0,
-                43.65
-              ],
-              "diagonal": 308.573
-            },
-            "color": {
-              "hex": "#6d7378",
-              "rgba": [
-                0.427451,
-                0.45098,
-                0.470588,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 1,
-            "label": "M4-fastened flat disk robot service lid",
-            "instance_key": "M4-fastened flat disk robot service lid @ (0.00, 0.00, 36.25)",
-            "bbox_mm": {
-              "min": [
-                -108.0,
-                -108.0,
-                23.0
-              ],
-              "max": [
-                108.0,
-                108.0,
-                49.5
-              ],
-              "center": [
-                0.0,
-                0.0,
-                36.25
-              ],
-              "size": [
-                216.0,
-                216.0,
-                26.5
-              ],
-              "diagonal": 306.6174
-            },
-            "color": {
-              "hex": "#6d7378",
-              "rgba": [
-                0.427451,
-                0.45098,
-                0.470588,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 2,
-            "label": "centered 4S 1550 mAh battery",
-            "instance_key": "centered 4S 1550 mAh battery @ (0.00, -18.00, 24.10)",
-            "bbox_mm": {
-              "min": [
-                -18.0,
-                -64.5,
-                5.0
-              ],
-              "max": [
-                18.0,
-                28.5,
-                43.2
-              ],
-              "center": [
-                0.0,
-                -18.0,
-                24.1
-              ],
-              "size": [
-                36.0,
-                93.0,
-                38.2
-              ],
-              "diagonal": 106.7906
-            },
-            "color": {
-              "hex": "#111111",
-              "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 3,
-            "label": "XIAO ESP32-S3 Sense controller reference, USB down",
-            "instance_key": "XIAO ESP32-S3 Sense controller reference, USB down @ (1.89, 88.73, 26.79)",
-            "bbox_mm": {
-              "min": [
-                -7.0014,
-                81.75,
-                14.61
-              ],
-              "max": [
-                10.7786,
-                95.71,
-                38.9733
-              ],
-              "center": [
-                1.8886,
-                88.73,
-                26.7917
-              ],
-              "size": [
-                17.78,
-                13.96,
-                24.3633
-              ],
-              "diagonal": 33.2353
-            },
-            "color": {
-              "hex": "#111111",
-              "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 4,
-            "label": "front OV2640 160 degree camera",
-            "instance_key": "front OV2640 160 degree camera @ (0.00, 102.22, 27.12)",
-            "bbox_mm": {
-              "min": [
-                -6.25,
-                96.5743,
-                16.25
-              ],
-              "max": [
-                6.25,
-                107.8743,
-                38.0
-              ],
-              "center": [
-                0.0,
-                102.2243,
-                27.125
-              ],
-              "size": [
-                12.5,
-                11.3,
-                21.75
-              ],
-              "diagonal": 27.5137
-            },
-            "color": {
-              "hex": "#111111",
-              "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 5,
-            "label": "flipped forward-facing TOF sensor board",
-            "instance_key": "flipped forward-facing TOF sensor board @ (-34.00, 89.25, 30.00)",
-            "bbox_mm": {
-              "min": [
-                -55.0,
-                86.0,
-                16.25
-              ],
-              "max": [
-                -13.0,
-                92.5,
-                43.75
-              ],
-              "center": [
-                -34.0,
-                89.25,
-                30.0
-              ],
-              "size": [
-                42.0,
-                6.5,
-                27.5
-              ],
-              "diagonal": 50.6211
-            },
-            "color": {
-              "hex": "#c89f2d",
-              "rgba": [
-                0.784314,
-                0.623529,
-                0.176471,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 6,
-            "label": "forward-facing radar module",
-            "instance_key": "forward-facing radar module @ (34.00, 85.80, 28.00)",
-            "bbox_mm": {
-              "min": [
-                22.0,
-                84.0,
-                19.0
-              ],
-              "max": [
-                46.0,
-                87.6,
-                37.0
-              ],
-              "center": [
-                34.0,
-                85.8,
-                28.0
-              ],
-              "size": [
-                24.0,
-                3.6,
-                18.0
-              ],
-              "diagonal": 30.2152
-            },
-            "color": {
-              "hex": "#c89f2d",
-              "rgba": [
-                0.784314,
-                0.623529,
-                0.176471,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 7,
-            "label": "M4 lid screw 1 clearance reference",
-            "instance_key": "M4 lid screw 1 clearance reference @ (-58.00, -78.00, 34.75)",
-            "bbox_mm": {
-              "min": [
-                -61.5,
-                -81.5,
-                16.0
-              ],
-              "max": [
-                -54.5,
-                -74.5,
-                53.5
-              ],
-              "center": [
-                -58.0,
-                -78.0,
-                34.75
-              ],
-              "size": [
-                7.0,
-                7.0,
-                37.5
-              ],
-              "diagonal": 38.7847
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 8,
-            "label": "M4 lid screw 2 clearance reference",
-            "instance_key": "M4 lid screw 2 clearance reference @ (58.00, -78.00, 34.75)",
-            "bbox_mm": {
-              "min": [
-                54.5,
-                -81.5,
-                16.0
-              ],
-              "max": [
-                61.5,
-                -74.5,
-                53.5
-              ],
-              "center": [
-                58.0,
-                -78.0,
-                34.75
-              ],
-              "size": [
-                7.0,
-                7.0,
-                37.5
-              ],
-              "diagonal": 38.7847
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 9,
-            "label": "M4 lid screw 3 clearance reference",
-            "instance_key": "M4 lid screw 3 clearance reference @ (-82.00, 24.00, 34.75)",
-            "bbox_mm": {
-              "min": [
-                -85.5,
-                20.5,
-                16.0
-              ],
-              "max": [
-                -78.5,
-                27.5,
-                53.5
-              ],
-              "center": [
-                -82.0,
-                24.0,
-                34.75
-              ],
-              "size": [
-                7.0,
-                7.0,
-                37.5
-              ],
-              "diagonal": 38.7847
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 10,
-            "label": "M4 lid screw 4 clearance reference",
-            "instance_key": "M4 lid screw 4 clearance reference @ (82.00, 24.00, 34.75)",
-            "bbox_mm": {
-              "min": [
-                78.5,
-                20.5,
-                16.0
-              ],
-              "max": [
-                85.5,
-                27.5,
-                53.5
-              ],
-              "center": [
-                82.0,
-                24.0,
-                34.75
-              ],
-              "size": [
-                7.0,
-                7.0,
-                37.5
-              ],
-              "diagonal": 38.7847
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 11,
-            "label": "M4 lid screw 5 clearance reference",
-            "instance_key": "M4 lid screw 5 clearance reference @ (-68.00, 60.00, 34.75)",
-            "bbox_mm": {
-              "min": [
-                -71.5,
-                56.5,
-                16.0
-              ],
-              "max": [
-                -64.5,
-                63.5,
-                53.5
-              ],
-              "center": [
-                -68.0,
-                60.0,
-                34.75
-              ],
-              "size": [
-                7.0,
-                7.0,
-                37.5
-              ],
-              "diagonal": 38.7847
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 12,
-            "label": "M4 lid screw 6 clearance reference",
-            "instance_key": "M4 lid screw 6 clearance reference @ (68.00, 60.00, 34.75)",
-            "bbox_mm": {
-              "min": [
-                64.5,
-                56.5,
-                16.0
-              ],
-              "max": [
-                71.5,
-                63.5,
-                53.5
-              ],
-              "center": [
-                68.0,
-                60.0,
-                34.75
-              ],
-              "size": [
-                7.0,
-                7.0,
-                37.5
-              ],
-              "diagonal": 38.7847
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 13,
-            "label": "left Repeat Compact 1806 gearmotor",
-            "instance_key": "left Repeat Compact 1806 gearmotor @ (-68.15, -20.17, 24.17)",
-            "bbox_mm": {
-              "min": [
-                -97.8,
-                -33.8392,
-                10.5
-              ],
-              "max": [
-                -38.5,
-                -6.5,
-                37.8392
-              ],
-              "center": [
-                -68.15,
-                -20.1696,
-                24.1696
-              ],
-              "size": [
-                59.3,
-                27.3392,
-                27.3392
-              ],
-              "diagonal": 70.7909
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 14,
-            "label": "left TPU press-fit wheel",
-            "instance_key": "left TPU press-fit wheel @ (-86.50, -18.00, 22.00)",
-            "bbox_mm": {
-              "min": [
-                -95.5,
-                -44.5,
-                -4.5
-              ],
-              "max": [
-                -77.5,
-                8.5,
-                48.5
-              ],
-              "center": [
-                -86.5,
-                -18.0,
-                22.0
-              ],
-              "size": [
-                18.0,
-                53.0,
-                53.0
-              ],
-              "diagonal": 77.0844
-            },
-            "color": {
-              "hex": "#181818",
-              "rgba": [
-                0.094118,
-                0.094118,
-                0.094118,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 15,
-            "label": "left glued encoder magnet",
-            "instance_key": "left glued encoder magnet @ (-37.50, -18.00, 22.00)",
-            "bbox_mm": {
-              "min": [
-                -38.5,
-                -21.0,
-                19.0
-              ],
-              "max": [
-                -36.5,
-                -15.0,
-                25.0
-              ],
-              "center": [
-                -37.5,
-                -18.0,
-                22.0
-              ],
-              "size": [
-                2.0,
-                6.0,
-                6.0
-              ],
-              "diagonal": 8.7178
-            },
-            "color": {
-              "hex": "#111111",
-              "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 16,
-            "label": "left AS5600 drive encoder",
-            "instance_key": "left AS5600 drive encoder @ (-34.25, -18.00, 22.00)",
-            "bbox_mm": {
-              "min": [
-                -36.0,
-                -29.325,
-                10.4
-              ],
-              "max": [
-                -32.5,
-                -6.675,
-                33.6
-              ],
-              "center": [
-                -34.25,
-                -18.0,
-                22.0
-              ],
-              "size": [
-                3.5,
-                22.65,
-                23.2
-              ],
-              "diagonal": 32.6115
-            },
-            "color": {
-              "hex": "#1d5f99",
-              "rgba": [
-                0.113725,
-                0.372549,
-                0.6,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 17,
-            "label": "M2 motor screw head 1",
-            "instance_key": "M2 motor screw head 1 @ (-75.50, -11.64, 28.36)",
-            "bbox_mm": {
-              "min": [
-                -76.2,
-                -13.399,
-                26.601
-              ],
-              "max": [
-                -74.8,
-                -9.873,
-                30.127
-              ],
-              "center": [
-                -75.5,
-                -11.636,
-                28.364
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 18,
-            "label": "M2 motor screw head 2",
-            "instance_key": "M2 motor screw head 2 @ (-75.50, -24.36, 28.36)",
-            "bbox_mm": {
-              "min": [
-                -76.2,
-                -26.127,
-                26.601
-              ],
-              "max": [
-                -74.8,
-                -22.601,
-                30.127
-              ],
-              "center": [
-                -75.5,
-                -24.364,
-                28.364
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 19,
-            "label": "M2 motor screw head 3",
-            "instance_key": "M2 motor screw head 3 @ (-75.50, -24.36, 15.64)",
-            "bbox_mm": {
-              "min": [
-                -76.2,
-                -26.127,
-                13.873
-              ],
-              "max": [
-                -74.8,
-                -22.601,
-                17.399
-              ],
-              "center": [
-                -75.5,
-                -24.364,
-                15.636
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 20,
-            "label": "M2 motor screw head 4",
-            "instance_key": "M2 motor screw head 4 @ (-75.50, -11.64, 15.64)",
-            "bbox_mm": {
-              "min": [
-                -76.2,
-                -13.399,
-                13.873
-              ],
-              "max": [
-                -74.8,
-                -9.873,
-                17.399
-              ],
-              "center": [
-                -75.5,
-                -11.636,
-                15.636
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 21,
-            "label": "right Repeat Compact 1806 gearmotor",
-            "instance_key": "right Repeat Compact 1806 gearmotor @ (68.15, -20.17, 19.83)",
-            "bbox_mm": {
-              "min": [
-                38.5,
-                -33.8392,
-                6.1608
-              ],
-              "max": [
-                97.8,
-                -6.5,
-                33.5
-              ],
-              "center": [
-                68.15,
-                -20.1696,
-                19.8304
-              ],
-              "size": [
-                59.3,
-                27.3392,
-                27.3392
-              ],
-              "diagonal": 70.7909
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 22,
-            "label": "right TPU press-fit wheel",
-            "instance_key": "right TPU press-fit wheel @ (86.50, -18.00, 22.00)",
-            "bbox_mm": {
-              "min": [
-                77.5,
-                -44.5,
-                -4.5
-              ],
-              "max": [
-                95.5,
-                8.5,
-                48.5
-              ],
-              "center": [
-                86.5,
-                -18.0,
-                22.0
-              ],
-              "size": [
-                18.0,
-                53.0,
-                53.0
-              ],
-              "diagonal": 77.0844
-            },
-            "color": {
-              "hex": "#181818",
-              "rgba": [
-                0.094118,
-                0.094118,
-                0.094118,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 23,
-            "label": "right glued encoder magnet",
-            "instance_key": "right glued encoder magnet @ (37.50, -18.00, 22.00)",
-            "bbox_mm": {
-              "min": [
-                36.5,
-                -21.0,
-                19.0
-              ],
-              "max": [
-                38.5,
-                -15.0,
-                25.0
-              ],
-              "center": [
-                37.5,
-                -18.0,
-                22.0
-              ],
-              "size": [
-                2.0,
-                6.0,
-                6.0
-              ],
-              "diagonal": 8.7178
-            },
-            "color": {
-              "hex": "#111111",
-              "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 24,
-            "label": "right AS5600 drive encoder",
-            "instance_key": "right AS5600 drive encoder @ (34.25, -18.00, 22.00)",
-            "bbox_mm": {
-              "min": [
-                32.5,
-                -29.325,
-                10.4
-              ],
-              "max": [
-                36.0,
-                -6.675,
-                33.6
-              ],
-              "center": [
-                34.25,
-                -18.0,
-                22.0
-              ],
-              "size": [
-                3.5,
-                22.65,
-                23.2
-              ],
-              "diagonal": 32.6115
-            },
-            "color": {
-              "hex": "#1d5f99",
-              "rgba": [
-                0.113725,
-                0.372549,
-                0.6,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 25,
-            "label": "M2 motor screw head 1",
-            "instance_key": "M2 motor screw head 1 @ (75.50, -11.64, 28.36)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -13.399,
-                26.601
-              ],
-              "max": [
-                76.2,
-                -9.873,
-                30.127
-              ],
-              "center": [
-                75.5,
-                -11.636,
-                28.364
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 26,
-            "label": "M2 motor screw head 2",
-            "instance_key": "M2 motor screw head 2 @ (75.50, -24.36, 28.36)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -26.127,
-                26.601
-              ],
-              "max": [
-                76.2,
-                -22.601,
-                30.127
-              ],
-              "center": [
-                75.5,
-                -24.364,
-                28.364
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 27,
-            "label": "M2 motor screw head 3",
-            "instance_key": "M2 motor screw head 3 @ (75.50, -24.36, 15.64)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -26.127,
-                13.873
-              ],
-              "max": [
-                76.2,
-                -22.601,
-                17.399
-              ],
-              "center": [
-                75.5,
-                -24.364,
-                15.636
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 28,
-            "label": "M2 motor screw head 4",
-            "instance_key": "M2 motor screw head 4 @ (75.50, -11.64, 15.64)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -13.399,
-                13.873
-              ],
-              "max": [
-                76.2,
-                -9.873,
-                17.399
-              ],
-              "center": [
-                75.5,
-                -11.636,
-                15.636
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          }
-        ],
+        "children": [],
         "inspection": {
-          "projection_urls": []
+          "projection_urls": [],
+          "detail_projection_urls": []
         },
-        "glb_url": "assets/base/flat-disk-robot/flat-disk-robot.glb",
-        "artifact_urls": {
-          "glb": "assets/base/flat-disk-robot/flat-disk-robot.glb"
-        },
+        "unavailable": true,
+        "unavailable_reason": "Target is unavailable in this revision.",
         "changed_instance_keys": []
       },
       "head": {
         "target": {
-          "name": "flat-disk-robot",
-          "kind": "robot-reference-assembly",
-          "source_module": "synthcad.projects.flat_disk_robot.robot",
+          "name": "demo-ftc-robot",
+          "kind": "robot-planning-assembly",
+          "source_module": "synthcad.projects.demo_ftc_robot.robot",
           "printable": false,
-          "project": "flat-disk-robot",
-          "status": "active",
-          "source_refs": [
-            "projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
-            "projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
-            "projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
-            "projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP",
-            "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
-            "projects/flat-disk-robot/real-parts/battery.png"
-          ],
+          "project": "demo-ftc-robot",
+          "status": "concept",
+          "source_refs": [],
           "docs": [
-            "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
+            "projects/demo-ftc-robot/docs/demo-ftc-robot-notes.md"
           ],
           "validation": {
             "inspect": true,
             "interference_targets": []
           },
-          "intentional_interferences": [
-            {
-              "first": "repeat-compact-1806-gearmotor",
-              "second": "TPU press-fit D-bore wheel",
-              "reason": "The wheel/motor overlap is the modeled TPU press fit, not a hard interference."
-            }
-          ],
+          "intentional_interferences": [],
           "formats": [
             "step",
-            "stl",
             "glb"
           ]
         },
         "model_summary": {
-          "name": "flat-disk-robot",
-          "kind": "robot-reference-assembly",
-          "label": "flat-disk-robot",
+          "name": "demo-ftc-robot",
+          "kind": "robot-planning-assembly",
+          "label": "demo-ftc-robot crayon concept",
           "bbox_mm": {
             "min": [
-              -108.0,
-              -108.0,
-              -4.5
+              -200.0,
+              -191.5,
+              0.0
             ],
             "max": [
-              108.0,
-              108.0,
-              53.5
+              200.0,
+              201.0,
+              329.0
             ],
             "center": [
               0.0,
-              0.0,
-              24.5
+              4.75,
+              164.5
             ],
             "size": [
-              216.0,
-              216.0,
-              58.0
+              400.0,
+              392.5,
+              329.0
             ],
-            "diagonal": 310.9276
+            "diagonal": 649.844
           },
-          "child_count": 29,
-          "solid_count": 29,
+          "child_count": 33,
+          "solid_count": 33,
           "volume_mm3": 0.0
         },
         "children": [
           {
             "index": 0,
-            "label": "216 mm flat disk robot chassis",
-            "instance_key": "216 mm flat disk robot chassis @ (-0.00, 0.00, 21.82)",
+            "label": "left side frame rail blockout",
+            "instance_key": "left side frame rail blockout @ (-180.00, 0.00, 42.00)",
             "bbox_mm": {
               "min": [
-                -108.0,
-                -108.0,
-                -0.0
+                -189.0,
+                -191.0,
+                25.0
               ],
               "max": [
-                108.0,
-                108.0,
-                43.65
+                -171.0,
+                191.0,
+                59.0
               ],
               "center": [
-                -0.0,
+                -180.0,
                 0.0,
-                21.825
+                42.0
               ],
               "size": [
-                216.0,
-                216.0,
-                43.65
+                18.0,
+                382.0,
+                34.0
               ],
-              "diagonal": 308.573
+              "diagonal": 383.9323
             },
             "color": {
-              "hex": "#6d7378",
+              "hex": "#4b5563",
               "rgba": [
-                0.427451,
-                0.45098,
-                0.470588,
+                0.294118,
+                0.333333,
+                0.388235,
                 1.0
               ]
             },
@@ -1331,37 +1114,37 @@
           },
           {
             "index": 1,
-            "label": "M4-fastened flat disk robot service lid",
-            "instance_key": "M4-fastened flat disk robot service lid @ (0.00, 0.00, 36.25)",
+            "label": "right side frame rail blockout",
+            "instance_key": "right side frame rail blockout @ (180.00, 0.00, 42.00)",
             "bbox_mm": {
               "min": [
-                -108.0,
-                -108.0,
-                23.0
+                171.0,
+                -191.0,
+                25.0
               ],
               "max": [
-                108.0,
-                108.0,
-                49.5
+                189.0,
+                191.0,
+                59.0
               ],
               "center": [
+                180.0,
                 0.0,
-                0.0,
-                36.25
+                42.0
               ],
               "size": [
-                216.0,
-                216.0,
-                26.5
+                18.0,
+                382.0,
+                34.0
               ],
-              "diagonal": 306.6174
+              "diagonal": 383.9323
             },
             "color": {
-              "hex": "#6d7378",
+              "hex": "#4b5563",
               "rgba": [
-                0.427451,
-                0.45098,
-                0.470588,
+                0.294118,
+                0.333333,
+                0.388235,
                 1.0
               ]
             },
@@ -1370,37 +1153,37 @@
           },
           {
             "index": 2,
-            "label": "centered 4S 1550 mAh battery",
-            "instance_key": "centered 4S 1550 mAh battery @ (0.00, -18.00, 24.10)",
+            "label": "front frame cross rail and intake hardpoint",
+            "instance_key": "front frame cross rail and intake hardpoint @ (0.00, 182.00, 42.00)",
             "bbox_mm": {
               "min": [
-                -18.0,
-                -64.5,
-                5.0
+                -180.0,
+                173.0,
+                25.0
               ],
               "max": [
-                18.0,
-                28.5,
-                43.2
+                180.0,
+                191.0,
+                59.0
               ],
               "center": [
                 0.0,
-                -18.0,
-                24.1
+                182.0,
+                42.0
               ],
               "size": [
-                36.0,
-                93.0,
-                38.2
+                360.0,
+                18.0,
+                34.0
               ],
-              "diagonal": 106.7906
+              "diagonal": 362.0497
             },
             "color": {
-              "hex": "#111111",
+              "hex": "#4b5563",
               "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
+                0.294118,
+                0.333333,
+                0.388235,
                 1.0
               ]
             },
@@ -1409,37 +1192,37 @@
           },
           {
             "index": 3,
-            "label": "XIAO ESP32-S3 Sense controller reference, USB down",
-            "instance_key": "XIAO ESP32-S3 Sense controller reference, USB down @ (1.89, 88.73, 26.79)",
+            "label": "rear frame cross rail",
+            "instance_key": "rear frame cross rail @ (0.00, -182.00, 42.00)",
             "bbox_mm": {
               "min": [
-                -7.0014,
-                81.75,
-                14.61
+                -180.0,
+                -191.0,
+                25.0
               ],
               "max": [
-                10.7786,
-                95.71,
-                38.9733
+                180.0,
+                -173.0,
+                59.0
               ],
               "center": [
-                1.8886,
-                88.73,
-                26.7917
+                0.0,
+                -182.0,
+                42.0
               ],
               "size": [
-                17.78,
-                13.96,
-                24.3633
+                360.0,
+                18.0,
+                34.0
               ],
-              "diagonal": 33.2353
+              "diagonal": 362.0497
             },
             "color": {
-              "hex": "#111111",
+              "hex": "#4b5563",
               "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
+                0.294118,
+                0.333333,
+                0.388235,
                 1.0
               ]
             },
@@ -1448,37 +1231,37 @@
           },
           {
             "index": 4,
-            "label": "front OV2640 160 degree camera",
-            "instance_key": "front OV2640 160 degree camera @ (0.00, 102.22, 27.12)",
+            "label": "thin electronics bellypan blockout",
+            "instance_key": "thin electronics bellypan blockout @ (0.00, -22.00, 18.00)",
             "bbox_mm": {
               "min": [
-                -6.25,
-                96.5743,
-                16.25
+                -156.0,
+                -172.0,
+                15.5
               ],
               "max": [
-                6.25,
-                107.8743,
-                38.0
+                156.0,
+                128.0,
+                20.5
               ],
               "center": [
                 0.0,
-                102.2243,
-                27.125
+                -22.0,
+                18.0
               ],
               "size": [
-                12.5,
-                11.3,
-                21.75
+                312.0,
+                300.0,
+                5.0
               ],
-              "diagonal": 27.5137
+              "diagonal": 432.8614
             },
             "color": {
-              "hex": "#111111",
+              "hex": "#64748b",
               "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
+                0.392157,
+                0.454902,
+                0.545098,
                 1.0
               ]
             },
@@ -1487,38 +1270,38 @@
           },
           {
             "index": 5,
-            "label": "flipped forward-facing TOF sensor board",
-            "instance_key": "flipped forward-facing TOF sensor board @ (-34.00, 89.25, 30.00)",
+            "label": "top lid and hood roller mounting plate",
+            "instance_key": "top lid and hood roller mounting plate @ (0.00, 22.00, 326.00)",
             "bbox_mm": {
               "min": [
-                -55.0,
-                86.0,
-                16.25
+                -158.0,
+                -144.0,
+                323.0
               ],
               "max": [
-                -13.0,
-                92.5,
-                43.75
+                158.0,
+                188.0,
+                329.0
               ],
               "center": [
-                -34.0,
-                89.25,
-                30.0
+                0.0,
+                22.0,
+                326.0
               ],
               "size": [
-                42.0,
-                6.5,
-                27.5
+                316.0,
+                332.0,
+                6.0
               ],
-              "diagonal": 50.6211
+              "diagonal": 458.3841
             },
             "color": {
-              "hex": "#c89f2d",
+              "hex": "#4b5563",
               "rgba": [
-                0.784314,
-                0.623529,
-                0.176471,
-                1.0
+                0.294118,
+                0.333333,
+                0.388235,
+                0.5
               ]
             },
             "solid_count": 1,
@@ -1526,37 +1309,37 @@
           },
           {
             "index": 6,
-            "label": "forward-facing radar module",
-            "instance_key": "forward-facing radar module @ (34.00, 85.80, 28.00)",
+            "label": "left rear 96 mm drive wheel",
+            "instance_key": "left rear 96 mm drive wheel @ (-188.00, -126.00, 48.00)",
             "bbox_mm": {
               "min": [
-                22.0,
-                84.0,
-                19.0
+                -200.0,
+                -174.0,
+                0.0
               ],
               "max": [
-                46.0,
-                87.6,
-                37.0
+                -176.0,
+                -78.0,
+                96.0
               ],
               "center": [
-                34.0,
-                85.8,
-                28.0
+                -188.0,
+                -126.0,
+                48.0
               ],
               "size": [
                 24.0,
-                3.6,
-                18.0
+                96.0,
+                96.0
               ],
-              "diagonal": 30.2152
+              "diagonal": 137.8695
             },
             "color": {
-              "hex": "#c89f2d",
+              "hex": "#dc2626",
               "rgba": [
-                0.784314,
-                0.623529,
-                0.176471,
+                0.862745,
+                0.14902,
+                0.14902,
                 1.0
               ]
             },
@@ -1565,37 +1348,37 @@
           },
           {
             "index": 7,
-            "label": "M4 lid screw 1 clearance reference",
-            "instance_key": "M4 lid screw 1 clearance reference @ (-58.00, -78.00, 34.75)",
+            "label": "left center 96 mm drive wheel",
+            "instance_key": "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
             "bbox_mm": {
               "min": [
-                -61.5,
-                -81.5,
-                16.0
+                -200.0,
+                -48.0,
+                0.0
               ],
               "max": [
-                -54.5,
-                -74.5,
-                53.5
+                -176.0,
+                48.0,
+                96.0
               ],
               "center": [
-                -58.0,
-                -78.0,
-                34.75
+                -188.0,
+                0.0,
+                48.0
               ],
               "size": [
-                7.0,
-                7.0,
-                37.5
+                24.0,
+                96.0,
+                96.0
               ],
-              "diagonal": 38.7847
+              "diagonal": 137.8695
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#dc2626",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.862745,
+                0.14902,
+                0.14902,
                 1.0
               ]
             },
@@ -1604,37 +1387,37 @@
           },
           {
             "index": 8,
-            "label": "M4 lid screw 2 clearance reference",
-            "instance_key": "M4 lid screw 2 clearance reference @ (58.00, -78.00, 34.75)",
+            "label": "left front 96 mm drive wheel",
+            "instance_key": "left front 96 mm drive wheel @ (-188.00, 126.00, 48.00)",
             "bbox_mm": {
               "min": [
-                54.5,
-                -81.5,
-                16.0
+                -200.0,
+                78.0,
+                0.0
               ],
               "max": [
-                61.5,
-                -74.5,
-                53.5
+                -176.0,
+                174.0,
+                96.0
               ],
               "center": [
-                58.0,
-                -78.0,
-                34.75
+                -188.0,
+                126.0,
+                48.0
               ],
               "size": [
-                7.0,
-                7.0,
-                37.5
+                24.0,
+                96.0,
+                96.0
               ],
-              "diagonal": 38.7847
+              "diagonal": 137.8695
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#dc2626",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.862745,
+                0.14902,
+                0.14902,
                 1.0
               ]
             },
@@ -1643,37 +1426,37 @@
           },
           {
             "index": 9,
-            "label": "M4 lid screw 3 clearance reference",
-            "instance_key": "M4 lid screw 3 clearance reference @ (-82.00, 24.00, 34.75)",
+            "label": "left drive Yellow Jacket proxy y=-84",
+            "instance_key": "left drive Yellow Jacket proxy y=-84 @ (-120.32, -84.00, 64.00)",
             "bbox_mm": {
               "min": [
-                -85.5,
-                20.5,
-                16.0
+                -173.32,
+                -102.5,
+                45.5
               ],
               "max": [
-                -78.5,
-                27.5,
-                53.5
+                -67.32,
+                -65.5,
+                82.5
               ],
               "center": [
-                -82.0,
-                24.0,
-                34.75
+                -120.32,
+                -84.0,
+                64.0
               ],
               "size": [
-                7.0,
-                7.0,
-                37.5
+                106.0,
+                37.0,
+                37.0
               ],
-              "diagonal": 38.7847
+              "diagonal": 118.2117
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#ca8a04",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.792157,
+                0.541176,
+                0.015686,
                 1.0
               ]
             },
@@ -1682,37 +1465,37 @@
           },
           {
             "index": 10,
-            "label": "M4 lid screw 4 clearance reference",
-            "instance_key": "M4 lid screw 4 clearance reference @ (82.00, 24.00, 34.75)",
+            "label": "left drive Yellow Jacket proxy y=84",
+            "instance_key": "left drive Yellow Jacket proxy y=84 @ (-120.32, 84.00, 64.00)",
             "bbox_mm": {
               "min": [
-                78.5,
-                20.5,
-                16.0
+                -173.32,
+                65.5,
+                45.5
               ],
               "max": [
-                85.5,
-                27.5,
-                53.5
+                -67.32,
+                102.5,
+                82.5
               ],
               "center": [
-                82.0,
-                24.0,
-                34.75
+                -120.32,
+                84.0,
+                64.0
               ],
               "size": [
-                7.0,
-                7.0,
-                37.5
+                106.0,
+                37.0,
+                37.0
               ],
-              "diagonal": 38.7847
+              "diagonal": 118.2117
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#ca8a04",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.792157,
+                0.541176,
+                0.015686,
                 1.0
               ]
             },
@@ -1721,37 +1504,37 @@
           },
           {
             "index": 11,
-            "label": "M4 lid screw 5 clearance reference",
-            "instance_key": "M4 lid screw 5 clearance reference @ (-68.00, 60.00, 34.75)",
+            "label": "right rear 96 mm drive wheel",
+            "instance_key": "right rear 96 mm drive wheel @ (188.00, -126.00, 48.00)",
             "bbox_mm": {
               "min": [
-                -71.5,
-                56.5,
-                16.0
+                176.0,
+                -174.0,
+                0.0
               ],
               "max": [
-                -64.5,
-                63.5,
-                53.5
+                200.0,
+                -78.0,
+                96.0
               ],
               "center": [
-                -68.0,
-                60.0,
-                34.75
+                188.0,
+                -126.0,
+                48.0
               ],
               "size": [
-                7.0,
-                7.0,
-                37.5
+                24.0,
+                96.0,
+                96.0
               ],
-              "diagonal": 38.7847
+              "diagonal": 137.8695
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#dc2626",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.862745,
+                0.14902,
+                0.14902,
                 1.0
               ]
             },
@@ -1760,37 +1543,37 @@
           },
           {
             "index": 12,
-            "label": "M4 lid screw 6 clearance reference",
-            "instance_key": "M4 lid screw 6 clearance reference @ (68.00, 60.00, 34.75)",
+            "label": "right center 96 mm drive wheel",
+            "instance_key": "right center 96 mm drive wheel @ (188.00, 0.00, 48.00)",
             "bbox_mm": {
               "min": [
-                64.5,
-                56.5,
-                16.0
+                176.0,
+                -48.0,
+                0.0
               ],
               "max": [
-                71.5,
-                63.5,
-                53.5
+                200.0,
+                48.0,
+                96.0
               ],
               "center": [
-                68.0,
-                60.0,
-                34.75
+                188.0,
+                0.0,
+                48.0
               ],
               "size": [
-                7.0,
-                7.0,
-                37.5
+                24.0,
+                96.0,
+                96.0
               ],
-              "diagonal": 38.7847
+              "diagonal": 137.8695
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#dc2626",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.862745,
+                0.14902,
+                0.14902,
                 1.0
               ]
             },
@@ -1799,37 +1582,37 @@
           },
           {
             "index": 13,
-            "label": "left Repeat Compact 1806 gearmotor",
-            "instance_key": "left Repeat Compact 1806 gearmotor @ (-68.15, -20.17, 24.17)",
+            "label": "right front 96 mm drive wheel",
+            "instance_key": "right front 96 mm drive wheel @ (188.00, 126.00, 48.00)",
             "bbox_mm": {
               "min": [
-                -97.8,
-                -33.8392,
-                10.5
+                176.0,
+                78.0,
+                0.0
               ],
               "max": [
-                -38.5,
-                -6.5,
-                37.8392
+                200.0,
+                174.0,
+                96.0
               ],
               "center": [
-                -68.15,
-                -20.1696,
-                24.1696
+                188.0,
+                126.0,
+                48.0
               ],
               "size": [
-                59.3,
-                27.3392,
-                27.3392
+                24.0,
+                96.0,
+                96.0
               ],
-              "diagonal": 70.7909
+              "diagonal": 137.8695
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#dc2626",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.862745,
+                0.14902,
+                0.14902,
                 1.0
               ]
             },
@@ -1838,37 +1621,37 @@
           },
           {
             "index": 14,
-            "label": "left TPU press-fit wheel",
-            "instance_key": "left TPU press-fit wheel @ (-86.50, -18.00, 22.00)",
+            "label": "right drive Yellow Jacket proxy y=-84",
+            "instance_key": "right drive Yellow Jacket proxy y=-84 @ (120.32, -84.00, 64.00)",
             "bbox_mm": {
               "min": [
-                -95.5,
-                -44.5,
-                -4.5
+                67.32,
+                -102.5,
+                45.5
               ],
               "max": [
-                -77.5,
-                8.5,
-                48.5
+                173.32,
+                -65.5,
+                82.5
               ],
               "center": [
-                -86.5,
-                -18.0,
-                22.0
+                120.32,
+                -84.0,
+                64.0
               ],
               "size": [
-                18.0,
-                53.0,
-                53.0
+                106.0,
+                37.0,
+                37.0
               ],
-              "diagonal": 77.0844
+              "diagonal": 118.2117
             },
             "color": {
-              "hex": "#181818",
+              "hex": "#ca8a04",
               "rgba": [
-                0.094118,
-                0.094118,
-                0.094118,
+                0.792157,
+                0.541176,
+                0.015686,
                 1.0
               ]
             },
@@ -1877,37 +1660,37 @@
           },
           {
             "index": 15,
-            "label": "left glued encoder magnet",
-            "instance_key": "left glued encoder magnet @ (-37.50, -18.00, 22.00)",
+            "label": "right drive Yellow Jacket proxy y=84",
+            "instance_key": "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
             "bbox_mm": {
               "min": [
-                -38.5,
-                -21.0,
-                19.0
+                67.32,
+                65.5,
+                45.5
               ],
               "max": [
-                -36.5,
-                -15.0,
-                25.0
+                173.32,
+                102.5,
+                82.5
               ],
               "center": [
-                -37.5,
-                -18.0,
-                22.0
+                120.32,
+                84.0,
+                64.0
               ],
               "size": [
-                2.0,
-                6.0,
-                6.0
+                106.0,
+                37.0,
+                37.0
               ],
-              "diagonal": 8.7178
+              "diagonal": 118.2117
             },
             "color": {
-              "hex": "#111111",
+              "hex": "#ca8a04",
               "rgba": [
-                0.066667,
-                0.066667,
-                0.066667,
+                0.792157,
+                0.541176,
+                0.015686,
                 1.0
               ]
             },
@@ -1916,38 +1699,38 @@
           },
           {
             "index": 16,
-            "label": "left AS5600 drive encoder",
-            "instance_key": "left AS5600 drive encoder @ (-34.25, -18.00, 22.00)",
+            "label": "front intake swept volume",
+            "instance_key": "front intake swept volume @ (0.00, 168.00, 102.00)",
             "bbox_mm": {
               "min": [
-                -36.0,
-                -29.325,
-                10.4
+                -164.0,
+                139.0,
+                52.0
               ],
               "max": [
-                -32.5,
-                -6.675,
-                33.6
+                164.0,
+                197.0,
+                152.0
               ],
               "center": [
-                -34.25,
-                -18.0,
-                22.0
+                0.0,
+                168.0,
+                102.0
               ],
               "size": [
-                3.5,
-                22.65,
-                23.2
+                328.0,
+                58.0,
+                100.0
               ],
-              "diagonal": 32.6115
+              "diagonal": 347.7758
             },
             "color": {
-              "hex": "#1d5f99",
+              "hex": "#2563eb",
               "rgba": [
-                0.113725,
-                0.372549,
-                0.6,
-                1.0
+                0.145098,
+                0.388235,
+                0.921569,
+                0.28
               ]
             },
             "solid_count": 1,
@@ -1955,37 +1738,37 @@
           },
           {
             "index": 17,
-            "label": "M2 motor screw head 1",
-            "instance_key": "M2 motor screw head 1 @ (-75.50, -11.64, 28.36)",
+            "label": "front-facing main intake roller",
+            "instance_key": "front-facing main intake roller @ (0.00, 174.00, 78.00)",
             "bbox_mm": {
               "min": [
-                -76.2,
-                -13.399,
-                26.601
+                -155.0,
+                155.0,
+                59.0
               ],
               "max": [
-                -74.8,
-                -9.873,
-                30.127
+                155.0,
+                193.0,
+                97.0
               ],
               "center": [
-                -75.5,
-                -11.636,
-                28.364
+                0.0,
+                174.0,
+                78.0
               ],
               "size": [
-                1.4,
-                3.526,
-                3.526
+                310.0,
+                38.0,
+                38.0
               ],
-              "diagonal": 5.1793
+              "diagonal": 314.6236
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#2563eb",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.145098,
+                0.388235,
+                0.921569,
                 1.0
               ]
             },
@@ -1994,37 +1777,37 @@
           },
           {
             "index": 18,
-            "label": "M2 motor screw head 2",
-            "instance_key": "M2 motor screw head 2 @ (-75.50, -24.36, 28.36)",
+            "label": "intake Yellow Jacket proxy",
+            "instance_key": "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
             "bbox_mm": {
               "min": [
-                -76.2,
-                -26.127,
-                26.601
+                -177.0,
+                141.5,
+                65.5
               ],
               "max": [
-                -74.8,
-                -22.601,
-                30.127
+                -71.0,
+                178.5,
+                102.5
               ],
               "center": [
-                -75.5,
-                -24.364,
-                28.364
+                -124.0,
+                160.0,
+                84.0
               ],
               "size": [
-                1.4,
-                3.526,
-                3.526
+                106.0,
+                37.0,
+                37.0
               ],
-              "diagonal": 5.1793
+              "diagonal": 118.2117
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#ca8a04",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.792157,
+                0.541176,
+                0.015686,
                 1.0
               ]
             },
@@ -2033,38 +1816,38 @@
           },
           {
             "index": 19,
-            "label": "M2 motor screw head 3",
-            "instance_key": "M2 motor screw head 3 @ (-75.50, -24.36, 15.64)",
+            "label": "three artifact queue channel",
+            "instance_key": "three artifact queue channel @ (0.00, -6.00, 116.00)",
             "bbox_mm": {
               "min": [
-                -76.2,
-                -26.127,
-                13.873
+                -73.0,
+                -177.0,
+                50.0
               ],
               "max": [
-                -74.8,
-                -22.601,
-                17.399
+                73.0,
+                165.0,
+                182.0
               ],
               "center": [
-                -75.5,
-                -24.364,
-                15.636
+                0.0,
+                -6.0,
+                116.0
               ],
               "size": [
-                1.4,
-                3.526,
-                3.526
+                146.0,
+                342.0,
+                132.0
               ],
-              "diagonal": 5.1793
+              "diagonal": 394.5935
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#059669",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
+                0.019608,
+                0.588235,
+                0.411765,
+                0.24
               ]
             },
             "solid_count": 1,
@@ -2072,37 +1855,37 @@
           },
           {
             "index": 20,
-            "label": "M2 motor screw head 4",
-            "instance_key": "M2 motor screw head 4 @ (-75.50, -11.64, 15.64)",
+            "label": "front-facing second stage indexer wheel",
+            "instance_key": "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
             "bbox_mm": {
               "min": [
-                -76.2,
-                -13.399,
-                13.873
+                -80.0,
+                45.3,
+                141.3
               ],
               "max": [
-                -74.8,
-                -9.873,
-                17.399
+                80.0,
+                70.7,
+                166.7
               ],
               "center": [
-                -75.5,
-                -11.636,
-                15.636
+                0.0,
+                58.0,
+                154.0
               ],
               "size": [
-                1.4,
-                3.526,
-                3.526
+                160.0,
+                25.4,
+                25.4
               ],
-              "diagonal": 5.1793
+              "diagonal": 163.9827
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#059669",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.019608,
+                0.588235,
+                0.411765,
                 1.0
               ]
             },
@@ -2111,37 +1894,37 @@
           },
           {
             "index": 21,
-            "label": "right Repeat Compact 1806 gearmotor",
-            "instance_key": "right Repeat Compact 1806 gearmotor @ (68.15, -20.17, 19.83)",
+            "label": "indexer Yellow Jacket proxy",
+            "instance_key": "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
             "bbox_mm": {
               "min": [
-                38.5,
-                -33.8392,
-                6.1608
+                -175.0,
+                23.5,
+                135.5
               ],
               "max": [
-                97.8,
-                -6.5,
-                33.5
+                -69.0,
+                60.5,
+                172.5
               ],
               "center": [
-                68.15,
-                -20.1696,
-                19.8304
+                -122.0,
+                42.0,
+                154.0
               ],
               "size": [
-                59.3,
-                27.3392,
-                27.3392
+                106.0,
+                37.0,
+                37.0
               ],
-              "diagonal": 70.7909
+              "diagonal": 118.2117
             },
             "color": {
-              "hex": "#b9b9b9",
+              "hex": "#ca8a04",
               "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
+                0.792157,
+                0.541176,
+                0.015686,
                 1.0
               ]
             },
@@ -2150,38 +1933,38 @@
           },
           {
             "index": 22,
-            "label": "right TPU press-fit wheel",
-            "instance_key": "right TPU press-fit wheel @ (86.50, -18.00, 22.00)",
+            "label": "front-facing shooter throat envelope",
+            "instance_key": "front-facing shooter throat envelope @ (0.00, 148.00, 252.00)",
             "bbox_mm": {
               "min": [
-                77.5,
-                -44.5,
-                -4.5
+                -77.0,
+                101.0,
+                208.0
               ],
               "max": [
-                95.5,
-                8.5,
-                48.5
+                77.0,
+                195.0,
+                296.0
               ],
               "center": [
-                86.5,
-                -18.0,
-                22.0
+                0.0,
+                148.0,
+                252.0
               ],
               "size": [
-                18.0,
-                53.0,
-                53.0
+                154.0,
+                94.0,
+                88.0
               ],
-              "diagonal": 77.0844
+              "diagonal": 200.7386
             },
             "color": {
-              "hex": "#181818",
+              "hex": "#f59e0b",
               "rgba": [
-                0.094118,
-                0.094118,
-                0.094118,
-                1.0
+                0.960784,
+                0.619608,
+                0.043137,
+                0.3
               ]
             },
             "solid_count": 1,
@@ -2189,30 +1972,381 @@
           },
           {
             "index": 23,
-            "label": "right glued encoder magnet",
-            "instance_key": "right glued encoder magnet @ (37.50, -18.00, 22.00)",
+            "label": "72 mm flywheel shooter wheel",
+            "instance_key": "72 mm flywheel shooter wheel @ (0.00, 126.00, 236.00)",
             "bbox_mm": {
               "min": [
-                36.5,
                 -21.0,
-                19.0
+                90.0,
+                200.0
               ],
               "max": [
-                38.5,
-                -15.0,
-                25.0
+                21.0,
+                162.0,
+                272.0
               ],
               "center": [
-                37.5,
-                -18.0,
-                22.0
+                0.0,
+                126.0,
+                236.0
               ],
               "size": [
-                2.0,
-                6.0,
-                6.0
+                42.0,
+                72.0,
+                72.0
               ],
-              "diagonal": 8.7178
+              "diagonal": 110.1454
+            },
+            "color": {
+              "hex": "#f59e0b",
+              "rgba": [
+                0.960784,
+                0.619608,
+                0.043137,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 24,
+            "label": "shooter Yellow Jacket proxy",
+            "instance_key": "shooter Yellow Jacket proxy @ (-124.00, 112.00, 236.00)",
+            "bbox_mm": {
+              "min": [
+                -177.0,
+                93.5,
+                217.5
+              ],
+              "max": [
+                -71.0,
+                130.5,
+                254.5
+              ],
+              "center": [
+                -124.0,
+                112.0,
+                236.0
+              ],
+              "size": [
+                106.0,
+                37.0,
+                37.0
+              ],
+              "diagonal": 118.2117
+            },
+            "color": {
+              "hex": "#ca8a04",
+              "rgba": [
+                0.792157,
+                0.541176,
+                0.015686,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 25,
+            "label": "lid-mounted 1 in hood roller 1",
+            "instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 132.00, 286.00)",
+            "bbox_mm": {
+              "min": [
+                -85.0,
+                119.3,
+                273.3
+              ],
+              "max": [
+                85.0,
+                144.7,
+                298.7
+              ],
+              "center": [
+                0.0,
+                132.0,
+                286.0
+              ],
+              "size": [
+                170.0,
+                25.4,
+                25.4
+              ],
+              "diagonal": 173.7536
+            },
+            "color": {
+              "hex": "#f97316",
+              "rgba": [
+                0.976471,
+                0.45098,
+                0.086275,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 26,
+            "label": "lid-mounted 1 in hood roller 2",
+            "instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 172.00, 312.00)",
+            "bbox_mm": {
+              "min": [
+                -85.0,
+                159.3,
+                299.3
+              ],
+              "max": [
+                85.0,
+                184.7,
+                324.7
+              ],
+              "center": [
+                0.0,
+                172.0,
+                312.0
+              ],
+              "size": [
+                170.0,
+                25.4,
+                25.4
+              ],
+              "diagonal": 173.7536
+            },
+            "color": {
+              "hex": "#f97316",
+              "rgba": [
+                0.976471,
+                0.45098,
+                0.086275,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 27,
+            "label": "front shooter exit keepout",
+            "instance_key": "front shooter exit keepout @ (0.00, 184.00, 252.00)",
+            "bbox_mm": {
+              "min": [
+                -68.0,
+                167.0,
+                221.0
+              ],
+              "max": [
+                68.0,
+                201.0,
+                283.0
+              ],
+              "center": [
+                0.0,
+                184.0,
+                252.0
+              ],
+              "size": [
+                136.0,
+                34.0,
+                62.0
+              ],
+              "diagonal": 153.2841
+            },
+            "color": {
+              "hex": "#e5e7eb",
+              "rgba": [
+                0.898039,
+                0.905882,
+                0.921569,
+                0.24
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 28,
+            "label": "stored DECODE artifact 1",
+            "instance_key": "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
+            "bbox_mm": {
+              "min": [
+                -63.5,
+                -191.5,
+                52.5
+              ],
+              "max": [
+                63.5,
+                -64.5,
+                179.5
+              ],
+              "center": [
+                0.0,
+                -128.0,
+                116.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            },
+            "color": {
+              "hex": "#7e22ce",
+              "rgba": [
+                0.494118,
+                0.133333,
+                0.807843,
+                0.78
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 29,
+            "label": "stored DECODE artifact 2",
+            "instance_key": "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
+            "bbox_mm": {
+              "min": [
+                -63.5,
+                -65.5,
+                52.5
+              ],
+              "max": [
+                63.5,
+                61.5,
+                179.5
+              ],
+              "center": [
+                0.0,
+                -2.0,
+                116.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            },
+            "color": {
+              "hex": "#16a34a",
+              "rgba": [
+                0.086275,
+                0.639216,
+                0.290196,
+                0.78
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 30,
+            "label": "stored DECODE artifact 3",
+            "instance_key": "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
+            "bbox_mm": {
+              "min": [
+                -63.5,
+                60.5,
+                52.5
+              ],
+              "max": [
+                63.5,
+                187.5,
+                179.5
+              ],
+              "center": [
+                0.0,
+                124.0,
+                116.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            },
+            "color": {
+              "hex": "#7e22ce",
+              "rgba": [
+                0.494118,
+                0.133333,
+                0.807843,
+                0.78
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 31,
+            "label": "REV control hub placeholder",
+            "instance_key": "REV control hub placeholder @ (54.00, -88.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                -1.0,
+                -124.0,
+                43.0
+              ],
+              "max": [
+                109.0,
+                -52.0,
+                69.0
+              ],
+              "center": [
+                54.0,
+                -88.0,
+                56.0
+              ],
+              "size": [
+                110.0,
+                72.0,
+                26.0
+              ],
+              "diagonal": 134.0149
+            },
+            "color": {
+              "hex": "#7c3aed",
+              "rgba": [
+                0.486275,
+                0.227451,
+                0.929412,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 32,
+            "label": "12V FTC battery placeholder",
+            "instance_key": "12V FTC battery placeholder @ (-66.00, -92.00, 52.00)",
+            "bbox_mm": {
+              "min": [
+                -112.0,
+                -116.0,
+                28.0
+              ],
+              "max": [
+                -20.0,
+                -68.0,
+                76.0
+              ],
+              "center": [
+                -66.0,
+                -92.0,
+                52.0
+              ],
+              "size": [
+                92.0,
+                48.0,
+                48.0
+              ],
+              "diagonal": 114.3328
             },
             "color": {
               "hex": "#111111",
@@ -2225,211 +2359,51 @@
             },
             "solid_count": 1,
             "volume_mm3": 0.0
-          },
-          {
-            "index": 24,
-            "label": "right AS5600 drive encoder",
-            "instance_key": "right AS5600 drive encoder @ (34.25, -18.00, 22.00)",
-            "bbox_mm": {
-              "min": [
-                32.5,
-                -29.325,
-                10.4
-              ],
-              "max": [
-                36.0,
-                -6.675,
-                33.6
-              ],
-              "center": [
-                34.25,
-                -18.0,
-                22.0
-              ],
-              "size": [
-                3.5,
-                22.65,
-                23.2
-              ],
-              "diagonal": 32.6115
-            },
-            "color": {
-              "hex": "#1d5f99",
-              "rgba": [
-                0.113725,
-                0.372549,
-                0.6,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 25,
-            "label": "M2 motor screw head 1",
-            "instance_key": "M2 motor screw head 1 @ (75.50, -11.64, 28.36)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -13.399,
-                26.601
-              ],
-              "max": [
-                76.2,
-                -9.873,
-                30.127
-              ],
-              "center": [
-                75.5,
-                -11.636,
-                28.364
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 26,
-            "label": "M2 motor screw head 2",
-            "instance_key": "M2 motor screw head 2 @ (75.50, -24.36, 28.36)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -26.127,
-                26.601
-              ],
-              "max": [
-                76.2,
-                -22.601,
-                30.127
-              ],
-              "center": [
-                75.5,
-                -24.364,
-                28.364
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 27,
-            "label": "M2 motor screw head 3",
-            "instance_key": "M2 motor screw head 3 @ (75.50, -24.36, 15.64)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -26.127,
-                13.873
-              ],
-              "max": [
-                76.2,
-                -22.601,
-                17.399
-              ],
-              "center": [
-                75.5,
-                -24.364,
-                15.636
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
-          },
-          {
-            "index": 28,
-            "label": "M2 motor screw head 4",
-            "instance_key": "M2 motor screw head 4 @ (75.50, -11.64, 15.64)",
-            "bbox_mm": {
-              "min": [
-                74.8,
-                -13.399,
-                13.873
-              ],
-              "max": [
-                76.2,
-                -9.873,
-                17.399
-              ],
-              "center": [
-                75.5,
-                -11.636,
-                15.636
-              ],
-              "size": [
-                1.4,
-                3.526,
-                3.526
-              ],
-              "diagonal": 5.1793
-            },
-            "color": {
-              "hex": "#b9b9b9",
-              "rgba": [
-                0.72549,
-                0.72549,
-                0.72549,
-                1.0
-              ]
-            },
-            "solid_count": 1,
-            "volume_mm3": 0.0
           }
         ],
         "inspection": {
-          "projection_urls": []
+          "projection_urls": [],
+          "detail_projection_urls": []
         },
-        "glb_url": "assets/head/flat-disk-robot/flat-disk-robot.glb",
+        "glb_url": "assets/head/demo-ftc-robot/demo-ftc-robot.glb",
         "artifact_urls": {
-          "glb": "assets/head/flat-disk-robot/flat-disk-robot.glb"
+          "glb": "assets/head/demo-ftc-robot/demo-ftc-robot.glb"
         },
-        "changed_instance_keys": []
+        "changed_instance_keys": [
+          "left side frame rail blockout @ (-180.00, 0.00, 42.00)",
+          "right side frame rail blockout @ (180.00, 0.00, 42.00)",
+          "front frame cross rail and intake hardpoint @ (0.00, 182.00, 42.00)",
+          "rear frame cross rail @ (0.00, -182.00, 42.00)",
+          "thin electronics bellypan blockout @ (0.00, -22.00, 18.00)",
+          "top lid and hood roller mounting plate @ (0.00, 22.00, 326.00)",
+          "left rear 96 mm drive wheel @ (-188.00, -126.00, 48.00)",
+          "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
+          "left front 96 mm drive wheel @ (-188.00, 126.00, 48.00)",
+          "left drive Yellow Jacket proxy y=-84 @ (-120.32, -84.00, 64.00)",
+          "left drive Yellow Jacket proxy y=84 @ (-120.32, 84.00, 64.00)",
+          "right rear 96 mm drive wheel @ (188.00, -126.00, 48.00)",
+          "right center 96 mm drive wheel @ (188.00, 0.00, 48.00)",
+          "right front 96 mm drive wheel @ (188.00, 126.00, 48.00)",
+          "right drive Yellow Jacket proxy y=-84 @ (120.32, -84.00, 64.00)",
+          "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
+          "front intake swept volume @ (0.00, 168.00, 102.00)",
+          "front-facing main intake roller @ (0.00, 174.00, 78.00)",
+          "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
+          "three artifact queue channel @ (0.00, -6.00, 116.00)",
+          "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
+          "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
+          "front-facing shooter throat envelope @ (0.00, 148.00, 252.00)",
+          "72 mm flywheel shooter wheel @ (0.00, 126.00, 236.00)",
+          "shooter Yellow Jacket proxy @ (-124.00, 112.00, 236.00)",
+          "lid-mounted 1 in hood roller 1 @ (0.00, 132.00, 286.00)",
+          "lid-mounted 1 in hood roller 2 @ (0.00, 172.00, 312.00)",
+          "front shooter exit keepout @ (0.00, 184.00, 252.00)",
+          "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
+          "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
+          "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
+          "REV control hub placeholder @ (54.00, -88.00, 56.00)",
+          "12V FTC battery placeholder @ (-66.00, -92.00, 52.00)"
+        ]
       },
       "review_outputs": []
     }
