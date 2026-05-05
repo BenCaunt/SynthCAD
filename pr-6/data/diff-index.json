@@ -1,6 +1,6 @@
 {
   "base_ref": "50cc8c6e65051c70cf7ecb9be8ab6dacc433294c",
-  "head_ref": "01af1f588d3a77ecf2d5d19740246454a9755634",
+  "head_ref": "655f2936ae4db19baec100ed522f650d5254d9e0",
   "default_assembly": "demo-ftc-robot",
   "assemblies": [
     {
@@ -1577,6 +1577,35 @@
             }
           },
           {
+            "label": "front intake 8 mm roller shaft",
+            "base_instance_key": null,
+            "head_instance_key": "front intake 8 mm roller shaft @ (0.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -163.0,
+                170.0,
+                74.0
+              ],
+              "max": [
+                163.0,
+                178.0,
+                82.0
+              ],
+              "center": [
+                0.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                326.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 326.1963
+            }
+          },
+          {
             "label": "front-facing main intake roller",
             "base_instance_key": null,
             "head_instance_key": "front-facing main intake roller @ (0.00, 174.00, 78.00)",
@@ -1603,6 +1632,296 @@
                 38.0
               ],
               "diagonal": 314.6236
+            }
+          },
+          {
+            "label": "front intake compliant wheel 1",
+            "base_instance_key": null,
+            "head_instance_key": "front intake compliant wheel 1 @ (-120.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -129.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                -111.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                -120.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            }
+          },
+          {
+            "label": "front intake compliant wheel 2",
+            "base_instance_key": null,
+            "head_instance_key": "front intake compliant wheel 2 @ (-72.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -81.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                -63.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                -72.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            }
+          },
+          {
+            "label": "front intake compliant wheel 3",
+            "base_instance_key": null,
+            "head_instance_key": "front intake compliant wheel 3 @ (-24.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -33.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                -15.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                -24.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            }
+          },
+          {
+            "label": "front intake compliant wheel 4",
+            "base_instance_key": null,
+            "head_instance_key": "front intake compliant wheel 4 @ (24.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                15.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                33.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                24.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            }
+          },
+          {
+            "label": "front intake compliant wheel 5",
+            "base_instance_key": null,
+            "head_instance_key": "front intake compliant wheel 5 @ (72.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                63.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                81.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                72.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            }
+          },
+          {
+            "label": "front intake compliant wheel 6",
+            "base_instance_key": null,
+            "head_instance_key": "front intake compliant wheel 6 @ (120.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                111.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                129.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                120.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            }
+          },
+          {
+            "label": "left front intake bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left front intake bearing block @ (-164.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -171.0,
+                162.0,
+                64.0
+              ],
+              "max": [
+                -157.0,
+                186.0,
+                92.0
+              ],
+              "center": [
+                -164.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                28.0
+              ],
+              "diagonal": 39.4462
+            }
+          },
+          {
+            "label": "right front intake bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right front intake bearing block @ (164.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                157.0,
+                162.0,
+                64.0
+              ],
+              "max": [
+                171.0,
+                186.0,
+                92.0
+              ],
+              "center": [
+                164.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                28.0
+              ],
+              "diagonal": 39.4462
+            }
+          },
+          {
+            "label": "front intake pulley",
+            "base_instance_key": null,
+            "head_instance_key": "front intake pulley @ (-145.00, 174.00, 78.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -151.0,
+                156.0,
+                60.0
+              ],
+              "max": [
+                -139.0,
+                192.0,
+                96.0
+              ],
+              "center": [
+                -145.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                12.0,
+                36.0,
+                36.0
+              ],
+              "diagonal": 52.3068
+            }
+          },
+          {
+            "label": "intake belt span",
+            "base_instance_key": null,
+            "head_instance_key": "intake belt span @ (-145.00, 167.00, 81.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -150.0,
+                159.2122,
+                76.1617
+              ],
+              "max": [
+                -140.0,
+                174.7878,
+                85.8383
+              ],
+              "center": [
+                -145.0,
+                167.0,
+                81.0
+              ],
+              "size": [
+                10.0,
+                15.5757,
+                9.6766
+              ],
+              "diagonal": 20.8863
             }
           },
           {
@@ -1777,6 +2096,151 @@
                 25.4
               ],
               "diagonal": 163.9827
+            }
+          },
+          {
+            "label": "second stage indexer 8 mm shaft",
+            "base_instance_key": null,
+            "head_instance_key": "second stage indexer 8 mm shaft @ (0.00, 58.00, 154.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -88.0,
+                54.0,
+                150.0
+              ],
+              "max": [
+                88.0,
+                62.0,
+                158.0
+              ],
+              "center": [
+                0.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                176.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 176.3633
+            }
+          },
+          {
+            "label": "left second stage indexer bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left second stage indexer bearing block @ (-88.00, 58.00, 154.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -95.0,
+                47.0,
+                140.0
+              ],
+              "max": [
+                -81.0,
+                69.0,
+                168.0
+              ],
+              "center": [
+                -88.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                14.0,
+                22.0,
+                28.0
+              ],
+              "diagonal": 38.2623
+            }
+          },
+          {
+            "label": "right second stage indexer bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right second stage indexer bearing block @ (88.00, 58.00, 154.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                81.0,
+                47.0,
+                140.0
+              ],
+              "max": [
+                95.0,
+                69.0,
+                168.0
+              ],
+              "center": [
+                88.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                14.0,
+                22.0,
+                28.0
+              ],
+              "diagonal": 38.2623
+            }
+          },
+          {
+            "label": "second stage indexer pulley",
+            "base_instance_key": null,
+            "head_instance_key": "second stage indexer pulley @ (-88.00, 58.00, 154.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -94.0,
+                42.0,
+                138.0
+              ],
+              "max": [
+                -82.0,
+                74.0,
+                170.0
+              ],
+              "center": [
+                -88.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                12.0,
+                32.0,
+                32.0
+              ],
+              "diagonal": 46.8188
+            }
+          },
+          {
+            "label": "indexer belt span",
+            "base_instance_key": null,
+            "head_instance_key": "indexer belt span @ (-105.00, 50.00, 154.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -126.0,
+                46.0,
+                151.5
+              ],
+              "max": [
+                -84.0,
+                54.0,
+                156.5
+              ],
+              "center": [
+                -105.0,
+                50.0,
+                154.0
+              ],
+              "size": [
+                42.0,
+                8.0,
+                5.0
+              ],
+              "diagonal": 43.0465
             }
           },
           {
@@ -2518,8 +2982,8 @@
             ],
             "diagonal": 695.4317
           },
-          "child_count": 83,
-          "solid_count": 83,
+          "child_count": 99,
+          "solid_count": 99,
           "volume_mm3": 0.0
         },
         "children": [
@@ -4631,6 +5095,45 @@
           },
           {
             "index": 54,
+            "label": "front intake 8 mm roller shaft",
+            "instance_key": "front intake 8 mm roller shaft @ (0.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                -163.0,
+                170.0,
+                74.0
+              ],
+              "max": [
+                163.0,
+                178.0,
+                82.0
+              ],
+              "center": [
+                0.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                326.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 326.1963
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 55,
             "label": "front-facing main intake roller",
             "instance_key": "front-facing main intake roller @ (0.00, 174.00, 78.00)",
             "bbox_mm": {
@@ -4669,7 +5172,397 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 55,
+            "index": 56,
+            "label": "front intake compliant wheel 1",
+            "instance_key": "front intake compliant wheel 1 @ (-120.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                -129.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                -111.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                -120.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 57,
+            "label": "front intake compliant wheel 2",
+            "instance_key": "front intake compliant wheel 2 @ (-72.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                -81.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                -63.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                -72.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 58,
+            "label": "front intake compliant wheel 3",
+            "instance_key": "front intake compliant wheel 3 @ (-24.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                -33.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                -15.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                -24.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 59,
+            "label": "front intake compliant wheel 4",
+            "instance_key": "front intake compliant wheel 4 @ (24.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                15.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                33.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                24.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 60,
+            "label": "front intake compliant wheel 5",
+            "instance_key": "front intake compliant wheel 5 @ (72.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                63.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                81.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                72.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 61,
+            "label": "front intake compliant wheel 6",
+            "instance_key": "front intake compliant wheel 6 @ (120.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                111.0,
+                144.0,
+                48.0
+              ],
+              "max": [
+                129.0,
+                204.0,
+                108.0
+              ],
+              "center": [
+                120.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                18.0,
+                60.0,
+                60.0
+              ],
+              "diagonal": 86.741
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 62,
+            "label": "left front intake bearing block",
+            "instance_key": "left front intake bearing block @ (-164.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                -171.0,
+                162.0,
+                64.0
+              ],
+              "max": [
+                -157.0,
+                186.0,
+                92.0
+              ],
+              "center": [
+                -164.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                28.0
+              ],
+              "diagonal": 39.4462
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 63,
+            "label": "right front intake bearing block",
+            "instance_key": "right front intake bearing block @ (164.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                157.0,
+                162.0,
+                64.0
+              ],
+              "max": [
+                171.0,
+                186.0,
+                92.0
+              ],
+              "center": [
+                164.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                28.0
+              ],
+              "diagonal": 39.4462
+            },
+            "color": {
+              "hex": "#60a5fa",
+              "rgba": [
+                0.376471,
+                0.647059,
+                0.980392,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 64,
+            "label": "front intake pulley",
+            "instance_key": "front intake pulley @ (-145.00, 174.00, 78.00)",
+            "bbox_mm": {
+              "min": [
+                -151.0,
+                156.0,
+                60.0
+              ],
+              "max": [
+                -139.0,
+                192.0,
+                96.0
+              ],
+              "center": [
+                -145.0,
+                174.0,
+                78.0
+              ],
+              "size": [
+                12.0,
+                36.0,
+                36.0
+              ],
+              "diagonal": 52.3068
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 65,
+            "label": "intake belt span",
+            "instance_key": "intake belt span @ (-145.00, 167.00, 81.00)",
+            "bbox_mm": {
+              "min": [
+                -150.0,
+                159.2122,
+                76.1617
+              ],
+              "max": [
+                -140.0,
+                174.7878,
+                85.8383
+              ],
+              "center": [
+                -145.0,
+                167.0,
+                81.0
+              ],
+              "size": [
+                10.0,
+                15.5757,
+                9.6766
+              ],
+              "diagonal": 20.8863
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 66,
             "label": "intake Yellow Jacket proxy",
             "instance_key": "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
             "bbox_mm": {
@@ -4708,7 +5601,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 56,
+            "index": 67,
             "label": "three artifact queue swept volume",
             "instance_key": "three artifact queue swept volume @ (0.00, -6.00, 116.00)",
             "bbox_mm": {
@@ -4747,7 +5640,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 57,
+            "index": 68,
             "label": "left three-ball queue sidewall plate",
             "instance_key": "left three-ball queue sidewall plate @ (-77.00, -6.00, 116.00)",
             "bbox_mm": {
@@ -4786,7 +5679,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 58,
+            "index": 69,
             "label": "right three-ball queue sidewall plate",
             "instance_key": "right three-ball queue sidewall plate @ (77.00, -6.00, 116.00)",
             "bbox_mm": {
@@ -4825,7 +5718,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 59,
+            "index": 70,
             "label": "sloped queue floor feeding shooter throat",
             "instance_key": "sloped queue floor feeding shooter throat @ (0.00, 40.00, 132.00)",
             "bbox_mm": {
@@ -4864,7 +5757,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 60,
+            "index": 71,
             "label": "front-facing second stage indexer wheel",
             "instance_key": "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
             "bbox_mm": {
@@ -4903,7 +5796,202 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 61,
+            "index": 72,
+            "label": "second stage indexer 8 mm shaft",
+            "instance_key": "second stage indexer 8 mm shaft @ (0.00, 58.00, 154.00)",
+            "bbox_mm": {
+              "min": [
+                -88.0,
+                54.0,
+                150.0
+              ],
+              "max": [
+                88.0,
+                62.0,
+                158.0
+              ],
+              "center": [
+                0.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                176.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 176.3633
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 73,
+            "label": "left second stage indexer bearing block",
+            "instance_key": "left second stage indexer bearing block @ (-88.00, 58.00, 154.00)",
+            "bbox_mm": {
+              "min": [
+                -95.0,
+                47.0,
+                140.0
+              ],
+              "max": [
+                -81.0,
+                69.0,
+                168.0
+              ],
+              "center": [
+                -88.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                14.0,
+                22.0,
+                28.0
+              ],
+              "diagonal": 38.2623
+            },
+            "color": {
+              "hex": "#059669",
+              "rgba": [
+                0.019608,
+                0.588235,
+                0.411765,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 74,
+            "label": "right second stage indexer bearing block",
+            "instance_key": "right second stage indexer bearing block @ (88.00, 58.00, 154.00)",
+            "bbox_mm": {
+              "min": [
+                81.0,
+                47.0,
+                140.0
+              ],
+              "max": [
+                95.0,
+                69.0,
+                168.0
+              ],
+              "center": [
+                88.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                14.0,
+                22.0,
+                28.0
+              ],
+              "diagonal": 38.2623
+            },
+            "color": {
+              "hex": "#059669",
+              "rgba": [
+                0.019608,
+                0.588235,
+                0.411765,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 75,
+            "label": "second stage indexer pulley",
+            "instance_key": "second stage indexer pulley @ (-88.00, 58.00, 154.00)",
+            "bbox_mm": {
+              "min": [
+                -94.0,
+                42.0,
+                138.0
+              ],
+              "max": [
+                -82.0,
+                74.0,
+                170.0
+              ],
+              "center": [
+                -88.0,
+                58.0,
+                154.0
+              ],
+              "size": [
+                12.0,
+                32.0,
+                32.0
+              ],
+              "diagonal": 46.8188
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 76,
+            "label": "indexer belt span",
+            "instance_key": "indexer belt span @ (-105.00, 50.00, 154.00)",
+            "bbox_mm": {
+              "min": [
+                -126.0,
+                46.0,
+                151.5
+              ],
+              "max": [
+                -84.0,
+                54.0,
+                156.5
+              ],
+              "center": [
+                -105.0,
+                50.0,
+                154.0
+              ],
+              "size": [
+                42.0,
+                8.0,
+                5.0
+              ],
+              "diagonal": 43.0465
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 77,
             "label": "indexer Yellow Jacket proxy",
             "instance_key": "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
             "bbox_mm": {
@@ -4942,7 +6030,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 62,
+            "index": 78,
             "label": "front-facing shooter ball path envelope above flywheel",
             "instance_key": "front-facing shooter ball path envelope above flywheel @ (0.00, 124.00, 318.00)",
             "bbox_mm": {
@@ -4981,7 +6069,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 63,
+            "index": 79,
             "label": "left shooter side plate with roller slots",
             "instance_key": "left shooter side plate with roller slots @ (-92.00, 124.00, 304.00)",
             "bbox_mm": {
@@ -5020,7 +6108,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 64,
+            "index": 80,
             "label": "right shooter side plate with roller slots",
             "instance_key": "right shooter side plate with roller slots @ (92.00, 124.00, 304.00)",
             "bbox_mm": {
@@ -5059,7 +6147,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 65,
+            "index": 81,
             "label": "72 mm flywheel shooter wheel",
             "instance_key": "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
             "bbox_mm": {
@@ -5098,7 +6186,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 66,
+            "index": 82,
             "label": "8 mm flywheel live shaft",
             "instance_key": "8 mm flywheel live shaft @ (0.00, 88.00, 210.00)",
             "bbox_mm": {
@@ -5137,7 +6225,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 67,
+            "index": 83,
             "label": "shooter Yellow Jacket proxy",
             "instance_key": "shooter Yellow Jacket proxy @ (-124.00, 74.00, 210.00)",
             "bbox_mm": {
@@ -5176,7 +6264,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 68,
+            "index": 84,
             "label": "lid-mounted 1 in hood roller 1",
             "instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -5215,7 +6303,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 69,
+            "index": 85,
             "label": "lid-mounted 1 in hood roller 2",
             "instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -5254,7 +6342,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 70,
+            "index": 86,
             "label": "left hood roller 1 bearing block",
             "instance_key": "left hood roller 1 bearing block @ (-92.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -5293,7 +6381,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 71,
+            "index": 87,
             "label": "right hood roller 1 bearing block",
             "instance_key": "right hood roller 1 bearing block @ (92.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -5332,7 +6420,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 72,
+            "index": 88,
             "label": "left hood roller 2 bearing block",
             "instance_key": "left hood roller 2 bearing block @ (-92.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -5371,7 +6459,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 73,
+            "index": 89,
             "label": "right hood roller 2 bearing block",
             "instance_key": "right hood roller 2 bearing block @ (92.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -5410,7 +6498,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 74,
+            "index": 90,
             "label": "shooter ball path ghost 1",
             "instance_key": "shooter ball path ghost 1 @ (0.00, 74.00, 300.00)",
             "bbox_mm": {
@@ -5449,7 +6537,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 75,
+            "index": 91,
             "label": "shooter ball path ghost 2",
             "instance_key": "shooter ball path ghost 2 @ (0.00, 116.00, 314.00)",
             "bbox_mm": {
@@ -5488,7 +6576,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 76,
+            "index": 92,
             "label": "shooter ball path ghost 3",
             "instance_key": "shooter ball path ghost 3 @ (0.00, 150.00, 334.00)",
             "bbox_mm": {
@@ -5527,7 +6615,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 77,
+            "index": 93,
             "label": "front shooter exit keepout",
             "instance_key": "front shooter exit keepout @ (0.00, 190.00, 334.00)",
             "bbox_mm": {
@@ -5566,7 +6654,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 78,
+            "index": 94,
             "label": "stored DECODE artifact 1",
             "instance_key": "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
             "bbox_mm": {
@@ -5605,7 +6693,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 79,
+            "index": 95,
             "label": "stored DECODE artifact 2",
             "instance_key": "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
             "bbox_mm": {
@@ -5644,7 +6732,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 80,
+            "index": 96,
             "label": "stored DECODE artifact 3",
             "instance_key": "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
             "bbox_mm": {
@@ -5683,7 +6771,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 81,
+            "index": 97,
             "label": "REV control hub placeholder",
             "instance_key": "REV control hub placeholder @ (54.00, -88.00, 56.00)",
             "bbox_mm": {
@@ -5722,7 +6810,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 82,
+            "index": 98,
             "label": "12V FTC battery placeholder",
             "instance_key": "12V FTC battery placeholder @ (-66.00, -92.00, 52.00)",
             "bbox_mm": {
@@ -5824,13 +6912,29 @@
           "front intake swept volume @ (0.00, 168.00, 102.00)",
           "left front intake side plate @ (-164.00, 158.00, 96.00)",
           "right front intake side plate @ (164.00, 158.00, 96.00)",
+          "front intake 8 mm roller shaft @ (0.00, 174.00, 78.00)",
           "front-facing main intake roller @ (0.00, 174.00, 78.00)",
+          "front intake compliant wheel 1 @ (-120.00, 174.00, 78.00)",
+          "front intake compliant wheel 2 @ (-72.00, 174.00, 78.00)",
+          "front intake compliant wheel 3 @ (-24.00, 174.00, 78.00)",
+          "front intake compliant wheel 4 @ (24.00, 174.00, 78.00)",
+          "front intake compliant wheel 5 @ (72.00, 174.00, 78.00)",
+          "front intake compliant wheel 6 @ (120.00, 174.00, 78.00)",
+          "left front intake bearing block @ (-164.00, 174.00, 78.00)",
+          "right front intake bearing block @ (164.00, 174.00, 78.00)",
+          "front intake pulley @ (-145.00, 174.00, 78.00)",
+          "intake belt span @ (-145.00, 167.00, 81.00)",
           "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
           "three artifact queue swept volume @ (0.00, -6.00, 116.00)",
           "left three-ball queue sidewall plate @ (-77.00, -6.00, 116.00)",
           "right three-ball queue sidewall plate @ (77.00, -6.00, 116.00)",
           "sloped queue floor feeding shooter throat @ (0.00, 40.00, 132.00)",
           "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
+          "second stage indexer 8 mm shaft @ (0.00, 58.00, 154.00)",
+          "left second stage indexer bearing block @ (-88.00, 58.00, 154.00)",
+          "right second stage indexer bearing block @ (88.00, 58.00, 154.00)",
+          "second stage indexer pulley @ (-88.00, 58.00, 154.00)",
+          "indexer belt span @ (-105.00, 50.00, 154.00)",
           "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
           "front-facing shooter ball path envelope above flywheel @ (0.00, 124.00, 318.00)",
           "left shooter side plate with roller slots @ (-92.00, 124.00, 304.00)",
