@@ -1,0 +1,11 @@
+[project]
+name = "demo-ftc-robot"
+boundary = "project"
+lifecycle = "concept"
+summary = "Crayon-style FTC DECODE robot concept with 6WD, intake, indexer, and flywheel shooter."
+
+[layout]
+source_refs = "real-parts"
+docs = "docs"
+tests = "tests"
+generated = "generated"

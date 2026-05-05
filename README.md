@@ -3,8 +3,8 @@
 SynthCAD is a small `build123d` CAD workflow for generating, inspecting, and
 exporting 3D-printable robotics parts from Python.
 
-This open-source extraction contains only the flat disk robot project and its
-required reference inputs.
+This open-source extraction contains the flat disk robot reference project and
+a low-resolution demo FTC robot planning project.
 
 ## Demo
 
@@ -33,6 +33,8 @@ Generated STEP, STL, GLB, inspection, and URDF artifacts are written under
 - `flat-disk-robot-lid`: printable service lid.
 - `flat-disk-robot`: reference assembly with motors, wheels, electronics,
   sensors, battery, and lid.
+- `demo-ftc-robot`: color-coded CrayonPlan concept assembly for an FTC DECODE
+  robot with six-wheel drive, intake, indexer, and flywheel shooter.
 
 The source references used by the flat disk robot live under
 `projects/flat-disk-robot/real-parts/`. BREP cache files may be generated
@@ -58,6 +60,7 @@ This repository can be used with `vercel-labs/skills`:
 ```bash
 npx skills add BenCaunt/SynthCAD --list
 npx skills add BenCaunt/SynthCAD --skill synthcad-cad-authoring
+npx skills add BenCaunt/SynthCAD --skill synthcad-crayon-plan
 npx skills add BenCaunt/SynthCAD --skill synthcad-setup-github-project
 ```
 

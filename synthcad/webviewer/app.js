@@ -562,10 +562,27 @@ function renderPartList(detail) {
     const main = document.createElement('button');
     main.type = 'button';
     main.className = 'part-main';
-    main.innerHTML = `
-      <span class="part-title">${child.label}</span>
-      <span class="part-meta">${child.bbox_mm.size.map((value) => formatNumber(value, 1)).join(' × ')} mm</span>
-    `;
+
+    const titleRow = document.createElement('span');
+    titleRow.className = 'part-title-row';
+    if (child.color?.hex) {
+      const swatch = document.createElement('span');
+      swatch.className = 'part-color-swatch';
+      swatch.style.backgroundColor = child.color.hex;
+      swatch.style.opacity = child.color.rgba?.[3] ?? 1;
+      swatch.title = child.color.hex;
+      titleRow.appendChild(swatch);
+    }
+
+    const title = document.createElement('span');
+    title.className = 'part-title';
+    title.textContent = child.label;
+    titleRow.appendChild(title);
+
+    const meta = document.createElement('span');
+    meta.className = 'part-meta';
+    meta.textContent = `${child.bbox_mm.size.map((value) => formatNumber(value, 1)).join(' × ')} mm`;
+    main.append(titleRow, meta);
     main.addEventListener('click', () => {
       state.interferenceFocus = new Set();
       selectPart(child.index);

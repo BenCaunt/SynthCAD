@@ -660,7 +660,18 @@ function renderHeadPartList(assembly) {
     if (state.selectedHeadPartIndex === index) {
       button.classList.add('active');
     }
-    button.textContent = part.label || part.instance_key || `part ${index + 1}`;
+    if (part.color?.hex) {
+      const swatch = document.createElement('span');
+      swatch.className = 'part-color-swatch';
+      swatch.style.backgroundColor = part.color.hex;
+      swatch.style.opacity = part.color.rgba?.[3] ?? 1;
+      swatch.title = part.color.hex;
+      button.appendChild(swatch);
+    }
+    const label = document.createElement('span');
+    label.className = 'part-list-label';
+    label.textContent = part.label || part.instance_key || `part ${index + 1}`;
+    button.appendChild(label);
     button.addEventListener('click', () => {
       state.selectedHeadPartIndex = index;
       panes.head.setPartSelection(index, { focus: false });

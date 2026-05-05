@@ -14,7 +14,7 @@ from typing import Any
 from urllib.parse import quote, unquote, urlparse
 
 from synthcad.build import BUILD_TARGETS, BuildTarget
-from synthcad.paths import GENERATED_DIR, ROOT
+from synthcad.paths import GENERATED_DIR, ROOT, project_generated_dir
 from synthcad.report_cli import filter_targets_by_project
 from synthcad.review_assets import build_display_snapshot
 
@@ -54,6 +54,10 @@ class ViewerData:
         self.initial_target = initial_target if initial_target in self.target_lookup else None
         self._detail_cache: dict[str, dict[str, Any]] = {}
         self._detail_lock = threading.Lock()
+        self.generated_roots = {
+            project: project_generated_dir(project)
+            for project in {target.project for target in targets}
+        }
         self.manifest_index = self._load_manifest_index()
         self.inspection_subjects = self._load_subjects(DEFAULT_INSPECTION_REPORT_PATH)
         self.interference_subjects = self._load_subjects(DEFAULT_INTERFERENCE_REPORT_PATH)
@@ -89,11 +93,18 @@ class ViewerData:
             candidate = (ROOT / candidate).resolve()
         else:
             candidate = candidate.resolve()
+        for project, base in self.generated_roots.items():
+            try:
+                relative = candidate.relative_to(base.resolve())
+            except ValueError:
+                continue
+            return f"/project-generated/{quote(project)}/{quote(relative.as_posix())}"
+
         try:
             relative = candidate.relative_to(GENERATED_DIR.resolve())
         except ValueError:
             return None
-        return f"/generated/{relative.as_posix()}"
+        return f"/generated/{quote(relative.as_posix())}"
 
     def _glb_path(self, target: BuildTarget) -> Path:
         return target.output_prefix().with_suffix(".glb")
@@ -282,6 +293,20 @@ class ViewerRequestHandler(SimpleHTTPRequestHandler):
         if parsed.path.startswith("/generated/"):
             relative = parsed.path.removeprefix("/generated/")
             self._serve_file_from_base(GENERATED_DIR, relative)
+            return
+
+        if parsed.path.startswith("/project-generated/"):
+            parts = parsed.path.removeprefix("/project-generated/").split("/", 1)
+            if len(parts) != 2:
+                self.send_error(HTTPStatus.NOT_FOUND, "Missing project generated path")
+                return
+            project = unquote(parts[0])
+            relative = unquote(parts[1])
+            base = self.viewer_data.generated_roots.get(project)
+            if base is None:
+                self.send_error(HTTPStatus.NOT_FOUND, f"Unknown generated project {project!r}")
+                return
+            self._serve_file_from_base(base, relative)
             return
 
         super().do_GET()

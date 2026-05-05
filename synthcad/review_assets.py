@@ -82,6 +82,30 @@ def _shape_label(shape: Any, index: int) -> str:
     return label or f"child-{index:03d}"
 
 
+def _shape_color_record(shape: Any) -> dict[str, Any] | None:
+    color = getattr(shape, "color", None)
+    if color is None:
+        return None
+
+    try:
+        components = tuple(float(component) for component in color)
+    except TypeError:
+        return None
+
+    if len(components) < 3:
+        return None
+
+    rgba = tuple(
+        round(max(0.0, min(component, 1.0)), 6)
+        for component in (*components[:3], components[3] if len(components) > 3 else 1.0)
+    )
+    hex_color = "#" + "".join(f"{round(component * 255):02x}" for component in rgba[:3])
+    return {
+        "hex": hex_color,
+        "rgba": rgba,
+    }
+
+
 def _instance_key(label: str, center: tuple[float, float, float]) -> str:
     x, y, z = (round(float(component), 2) for component in center)
     return f"{label} @ ({x:.2f}, {y:.2f}, {z:.2f})"
@@ -113,6 +137,7 @@ def _snapshot_child_record(shape: Any, index: int, seen_keys: dict[str, int]) ->
         "label": label,
         "instance_key": instance_key,
         "bbox_mm": bbox,
+        "color": _shape_color_record(shape),
         # The PR diff viewer only needs labels/bounds/order. Keep snapshot
         # generation cheap by avoiding expensive exact .solids()/.volume()
         # queries on large imported vendor parts.

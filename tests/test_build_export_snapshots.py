@@ -1,18 +1,21 @@
 import json
 from pathlib import Path
 
-from build123d import Box, Compound, Location
+from build123d import Box, Color, Compound, Location
 
 import synthcad.build as build_module
 from synthcad.build import BuildTarget, export_targets
+from synthcad.paths import project_generated_dir
 
 
 def _make_target(name: str) -> BuildTarget:
     def factory():
         first = Box(2, 2, 2)
         first.label = "first child"
+        first.color = Color("#ff0000")
         second = Location((5, 0, 0)) * Box(2, 2, 2)
         second.label = "second child"
+        second.color = Color("#00ff00")
         return Compound(children=[first, second], label="export snapshot target")
 
     return BuildTarget(
@@ -58,9 +61,19 @@ def test_export_targets_writes_display_snapshot_and_manifest_entry(
         "first child",
         "second child",
     ]
+    assert [child["color"]["hex"] for child in snapshot["children"]] == [
+        "#ff0000",
+        "#00ff00",
+    ]
 
     manifest = json.loads(manifest_path.read_text())
     assert manifest[0]["display_snapshot"] == str(snapshot_path)
     assert manifest[0]["outputs"] == [
         str(tmp_path / target.project / f"{target.name}.glb")
     ]
+
+
+def test_build_target_default_output_prefix_uses_project_generated_dir() -> None:
+    target = _make_target("project-local-output-target")
+
+    assert target.output_prefix() == project_generated_dir(target.project) / target.name

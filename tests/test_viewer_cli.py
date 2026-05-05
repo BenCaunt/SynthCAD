@@ -105,6 +105,17 @@ def test_viewer_data_index_reports_selected_target(tmp_path, monkeypatch) -> Non
     assert payload["targets"][0]["has_glb"] is True
 
 
+def test_viewer_data_maps_project_generated_artifacts_to_project_route() -> None:
+    target = _make_target("viewer-project-generated-target", lambda: Compound(children=[Box(1, 1, 1)]))
+    viewer = ViewerData([target], initial_target=target.name)
+    artifact_path = viewer.generated_roots[target.project] / f"{target.name}.glb"
+
+    assert (
+        viewer._generated_url(artifact_path)
+        == f"/project-generated/{target.project}/{target.name}.glb"
+    )
+
+
 def test_viewer_data_detail_prefers_prebuilt_snapshot_without_calling_factory(
     tmp_path,
     monkeypatch,

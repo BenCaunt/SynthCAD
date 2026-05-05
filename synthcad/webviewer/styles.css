@@ -317,6 +317,22 @@ a {
   min-width: 0;
 }
 
+.part-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.part-color-swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: 0 0 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.75);
+}
+
 .part-title {
   font-weight: 600;
   white-space: nowrap;

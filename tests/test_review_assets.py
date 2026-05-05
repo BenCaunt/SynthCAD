@@ -1,8 +1,42 @@
 import time
 from pathlib import Path
+from types import SimpleNamespace
 
+from build123d import Box, Color, Compound, Location
+from glb_helpers import glb_material_colors
 import synthcad.review_assets as review_assets
-from synthcad.review_assets import DisplayExportRequest, DisplayExportResult
+from synthcad.review_assets import DisplayExportRequest, DisplayExportResult, export_display_assets
+
+
+def test_export_display_assets_preserves_snapshot_and_glb_colors(tmp_path: Path) -> None:
+    def factory():
+        first = Box(1, 2, 3)
+        first.label = "red planning block"
+        first.color = Color("#ff0000")
+        second = Location((4, 0, 0)) * Box(1, 2, 3)
+        second.label = "green planning block"
+        second.color = Color("#00ff00")
+        return Compound(children=[first, second], label="colored planning assembly")
+
+    target = SimpleNamespace(
+        name="colored-planning-assembly",
+        factory=factory,
+        kind="robot-planning-assembly",
+        project="color-test",
+        status="sandbox",
+        printable=False,
+    )
+
+    snapshot = export_display_assets(target, tmp_path)
+
+    assert [child["color"]["hex"] for child in snapshot["children"]] == [
+        "#ff0000",
+        "#00ff00",
+    ]
+    assert glb_material_colors(tmp_path / "colored-planning-assembly.glb") >= {
+        (1.0, 0.0, 0.0, 1.0),
+        (0.0, 1.0, 0.0, 1.0),
+    }
 
 
 def test_export_display_assets_batch_preserves_request_order(tmp_path: Path, monkeypatch) -> None:

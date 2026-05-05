@@ -1,10 +1,11 @@
 from pathlib import Path
 
-from build123d import Box, Color
+from build123d import Box, Color, Compound, Location
 
 import synthcad.cad.common as common
 import synthcad.external_parts as external_parts
 from synthcad.external_parts import ExternalPart
+from glb_helpers import glb_material_colors
 
 
 def test_export_model_uses_viewer_focused_glb_tessellation(monkeypatch, tmp_path: Path) -> None:
@@ -25,6 +26,26 @@ def test_export_model_uses_viewer_focused_glb_tessellation(monkeypatch, tmp_path
     assert captured["binary"] is True
     assert captured["linear_deflection"] == common.GLB_LINEAR_DEFLECTION_MM
     assert captured["angular_deflection"] == common.GLB_ANGULAR_DEFLECTION_RAD
+
+
+def test_export_model_preserves_child_material_colors_in_glb(tmp_path: Path) -> None:
+    first = Box(1, 2, 3)
+    first.label = "red child"
+    first.color = Color("#ff0000")
+    second = Location((4, 0, 0)) * Box(1, 2, 3)
+    second.label = "green child"
+    second.color = Color("#00ff00")
+
+    common.export_model(
+        Compound(children=[first, second], label="colored assembly"),
+        tmp_path / "colored-assembly",
+        ("glb",),
+    )
+
+    assert glb_material_colors(tmp_path / "colored-assembly.glb") >= {
+        (1.0, 0.0, 0.0, 1.0),
+        (0.0, 1.0, 0.0, 1.0),
+    }
 
 
 def test_external_part_load_reuses_imported_step_and_returns_fresh_wrappers(

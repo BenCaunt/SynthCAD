@@ -9,6 +9,7 @@ from typing import Callable
 
 from synthcad.cad.common import export_model, export_model_with_timings
 from synthcad.paths import GENERATED_DIR, project_generated_dir
+from synthcad.projects.demo_ftc_robot.robot import make_demo_ftc_robot
 from synthcad.projects.flat_disk_robot.robot import (
     make_flat_disk_robot,
     make_flat_disk_robot_chassis,
@@ -50,8 +51,8 @@ class BuildTarget:
     def is_assembly(self) -> bool:
         return "assembly" in self.kind
 
-    def output_prefix(self, output_dir: str | Path = GENERATED_DIR) -> Path:
-        output_path = Path(output_dir)
+    def output_prefix(self, output_dir: str | Path | None = None) -> Path:
+        output_path = Path(output_dir) if output_dir is not None else project_generated_dir(self.project)
         if output_path.resolve() == project_generated_dir(self.project).resolve():
             return output_path / self.name
         return output_path / self.project / self.name
@@ -69,6 +70,8 @@ FLAT_DISK_SOURCE_REFS = (
     "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
     "projects/flat-disk-robot/real-parts/battery.png",
 )
+
+DEMO_FTC_DOCS = ("projects/demo-ftc-robot/docs/demo-ftc-robot-notes.md",)
 
 
 BUILD_TARGETS = [
@@ -112,6 +115,17 @@ BUILD_TARGETS = [
                 "The wheel/motor overlap is the modeled TPU press fit, not a hard interference.",
             ),
         ),
+    ),
+    BuildTarget(
+        "demo-ftc-robot",
+        make_demo_ftc_robot,
+        "robot-planning-assembly",
+        "synthcad.projects.demo_ftc_robot.robot",
+        False,
+        "demo-ftc-robot",
+        "concept",
+        docs=DEMO_FTC_DOCS,
+        formats=("step", "glb"),
     ),
 ]
 
@@ -282,8 +296,11 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=GENERATED_DIR,
-        help=f"Output directory. Defaults to {GENERATED_DIR}.",
+        default=None,
+        help=(
+            "Output directory. Defaults to the selected project's generated/ "
+            f"directory when one project is selected, otherwise {GENERATED_DIR}."
+        ),
     )
     parser.add_argument(
         "--list",
@@ -324,7 +341,16 @@ def main() -> None:
     except ValueError as exc:
         raise SystemExit(str(exc)) from exc
 
-    for path in export_targets(targets, output_dir=args.output_dir, profile=args.profile):
+    output_dir = args.output_dir
+    if output_dir is None:
+        selected_projects = {target.project for target in targets}
+        output_dir = (
+            project_generated_dir(next(iter(selected_projects)))
+            if len(selected_projects) == 1
+            else GENERATED_DIR
+        )
+
+    for path in export_targets(targets, output_dir=output_dir, profile=args.profile):
         print(path)
 
 

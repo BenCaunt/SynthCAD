@@ -291,6 +291,8 @@ canvas {
 
 .part-list-item {
   display: flex;
+  align-items: center;
+  gap: 0.45rem;
   width: 100%;
   text-align: left;
   padding: 0.55rem 0.7rem;
@@ -298,6 +300,22 @@ canvas {
   border: 1px solid var(--line);
   background: var(--panel-alt);
   color: var(--text);
+}
+
+.part-color-swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: 0 0 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.75);
+}
+
+.part-list-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .part-list-item.active {
