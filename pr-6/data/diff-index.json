@@ -1,6 +1,6 @@
 {
   "base_ref": "50cc8c6e65051c70cf7ecb9be8ab6dacc433294c",
-  "head_ref": "54e77911d45d9efd1f01d5cc3e08c84ed7ecc979",
+  "head_ref": "28914a0f9be68034d4badfe357709897fbaacd2c",
   "default_assembly": "demo-ftc-robot",
   "assemblies": [
     {
@@ -156,32 +156,177 @@
             }
           },
           {
-            "label": "top lid and hood roller mounting plate",
+            "label": "left flat drivetrain side plate",
             "base_instance_key": null,
-            "head_instance_key": "top lid and hood roller mounting plate @ (0.00, 22.00, 326.00)",
+            "head_instance_key": "left flat drivetrain side plate @ (-172.00, 0.00, 84.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
-                -158.0,
-                -144.0,
-                323.0
+                -174.0,
+                -172.0,
+                38.0
               ],
               "max": [
-                158.0,
-                188.0,
-                329.0
+                -170.0,
+                172.0,
+                130.0
+              ],
+              "center": [
+                -172.0,
+                0.0,
+                84.0
+              ],
+              "size": [
+                4.0,
+                344.0,
+                92.0
+              ],
+              "diagonal": 356.1123
+            }
+          },
+          {
+            "label": "right flat drivetrain side plate",
+            "base_instance_key": null,
+            "head_instance_key": "right flat drivetrain side plate @ (172.00, 0.00, 84.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                170.0,
+                -172.0,
+                38.0
+              ],
+              "max": [
+                174.0,
+                172.0,
+                130.0
+              ],
+              "center": [
+                172.0,
+                0.0,
+                84.0
+              ],
+              "size": [
+                4.0,
+                344.0,
+                92.0
+              ],
+              "diagonal": 356.1123
+            }
+          },
+          {
+            "label": "rear upper 12 mm frame standoff",
+            "base_instance_key": null,
+            "head_instance_key": "rear upper 12 mm frame standoff @ (0.00, -150.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -163.0,
+                -156.0,
+                110.0
+              ],
+              "max": [
+                163.0,
+                -144.0,
+                122.0
               ],
               "center": [
                 0.0,
-                22.0,
-                326.0
+                -150.0,
+                116.0
               ],
               "size": [
-                316.0,
-                332.0,
-                6.0
+                326.0,
+                12.0,
+                12.0
               ],
-              "diagonal": 458.3841
+              "diagonal": 326.4414
+            }
+          },
+          {
+            "label": "center lower 12 mm frame standoff",
+            "base_instance_key": null,
+            "head_instance_key": "center lower 12 mm frame standoff @ (0.00, -12.00, 72.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -163.0,
+                -18.0,
+                66.0
+              ],
+              "max": [
+                163.0,
+                -6.0,
+                78.0
+              ],
+              "center": [
+                0.0,
+                -12.0,
+                72.0
+              ],
+              "size": [
+                326.0,
+                12.0,
+                12.0
+              ],
+              "diagonal": 326.4414
+            }
+          },
+          {
+            "label": "front upper 12 mm frame standoff",
+            "base_instance_key": null,
+            "head_instance_key": "front upper 12 mm frame standoff @ (0.00, 150.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -163.0,
+                144.0,
+                110.0
+              ],
+              "max": [
+                163.0,
+                156.0,
+                122.0
+              ],
+              "center": [
+                0.0,
+                150.0,
+                116.0
+              ],
+              "size": [
+                326.0,
+                12.0,
+                12.0
+              ],
+              "diagonal": 326.4414
+            }
+          },
+          {
+            "label": "removable top service plate and shooter hood bridge",
+            "base_instance_key": null,
+            "head_instance_key": "removable top service plate and shooter hood bridge @ (0.00, 92.00, 397.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -130.0,
+                -15.0,
+                394.5
+              ],
+              "max": [
+                130.0,
+                199.0,
+                399.5
+              ],
+              "center": [
+                0.0,
+                92.0,
+                397.0
+              ],
+              "size": [
+                260.0,
+                214.0,
+                5.0
+              ],
+              "diagonal": 336.7803
             }
           },
           {
@@ -504,6 +649,64 @@
             }
           },
           {
+            "label": "left front intake side plate",
+            "base_instance_key": null,
+            "head_instance_key": "left front intake side plate @ (-164.00, 158.00, 96.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -166.5,
+                114.0,
+                46.0
+              ],
+              "max": [
+                -161.5,
+                202.0,
+                146.0
+              ],
+              "center": [
+                -164.0,
+                158.0,
+                96.0
+              ],
+              "size": [
+                5.0,
+                88.0,
+                100.0
+              ],
+              "diagonal": 133.3004
+            }
+          },
+          {
+            "label": "right front intake side plate",
+            "base_instance_key": null,
+            "head_instance_key": "right front intake side plate @ (164.00, 158.00, 96.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                161.5,
+                114.0,
+                46.0
+              ],
+              "max": [
+                166.5,
+                202.0,
+                146.0
+              ],
+              "center": [
+                164.0,
+                158.0,
+                96.0
+              ],
+              "size": [
+                5.0,
+                88.0,
+                100.0
+              ],
+              "diagonal": 133.3004
+            }
+          },
+          {
             "label": "front-facing main intake roller",
             "base_instance_key": null,
             "head_instance_key": "front-facing main intake roller @ (0.00, 174.00, 78.00)",
@@ -562,9 +765,9 @@
             }
           },
           {
-            "label": "three artifact queue channel",
+            "label": "three artifact queue swept volume",
             "base_instance_key": null,
-            "head_instance_key": "three artifact queue channel @ (0.00, -6.00, 116.00)",
+            "head_instance_key": "three artifact queue swept volume @ (0.00, -6.00, 116.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
@@ -588,6 +791,93 @@
                 132.0
               ],
               "diagonal": 394.5935
+            }
+          },
+          {
+            "label": "left three-ball queue sidewall plate",
+            "base_instance_key": null,
+            "head_instance_key": "left three-ball queue sidewall plate @ (-77.00, -6.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -79.5,
+                -177.0,
+                50.0
+              ],
+              "max": [
+                -74.5,
+                165.0,
+                182.0
+              ],
+              "center": [
+                -77.0,
+                -6.0,
+                116.0
+              ],
+              "size": [
+                5.0,
+                342.0,
+                132.0
+              ],
+              "diagonal": 366.6238
+            }
+          },
+          {
+            "label": "right three-ball queue sidewall plate",
+            "base_instance_key": null,
+            "head_instance_key": "right three-ball queue sidewall plate @ (77.00, -6.00, 116.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                74.5,
+                -177.0,
+                50.0
+              ],
+              "max": [
+                79.5,
+                165.0,
+                182.0
+              ],
+              "center": [
+                77.0,
+                -6.0,
+                116.0
+              ],
+              "size": [
+                5.0,
+                342.0,
+                132.0
+              ],
+              "diagonal": 366.6238
+            }
+          },
+          {
+            "label": "sloped queue floor feeding shooter throat",
+            "base_instance_key": null,
+            "head_instance_key": "sloped queue floor feeding shooter throat @ (0.00, 40.00, 132.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -69.0,
+                -49.872,
+                107.3174
+              ],
+              "max": [
+                69.0,
+                129.872,
+                156.6826
+              ],
+              "center": [
+                0.0,
+                40.0,
+                132.0
+              ],
+              "size": [
+                138.0,
+                179.744,
+                49.3651
+              ],
+              "diagonal": 231.9242
             }
           },
           {
@@ -649,54 +939,112 @@
             }
           },
           {
-            "label": "front-facing shooter throat envelope",
+            "label": "front-facing shooter ball path envelope above flywheel",
             "base_instance_key": null,
-            "head_instance_key": "front-facing shooter throat envelope @ (0.00, 148.00, 252.00)",
+            "head_instance_key": "front-facing shooter ball path envelope above flywheel @ (0.00, 124.00, 318.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
                 -77.0,
-                101.0,
-                208.0
+                47.0,
+                254.0
               ],
               "max": [
                 77.0,
-                195.0,
-                296.0
+                201.0,
+                382.0
               ],
               "center": [
                 0.0,
-                148.0,
-                252.0
+                124.0,
+                318.0
               ],
               "size": [
                 154.0,
-                94.0,
-                88.0
+                154.0,
+                128.0
               ],
-              "diagonal": 200.7386
+              "diagonal": 252.6183
+            }
+          },
+          {
+            "label": "left shooter side plate with roller slots",
+            "base_instance_key": null,
+            "head_instance_key": "left shooter side plate with roller slots @ (-92.00, 124.00, 304.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -94.5,
+                42.0,
+                223.0
+              ],
+              "max": [
+                -89.5,
+                206.0,
+                385.0
+              ],
+              "center": [
+                -92.0,
+                124.0,
+                304.0
+              ],
+              "size": [
+                5.0,
+                164.0,
+                162.0
+              ],
+              "diagonal": 230.5754
+            }
+          },
+          {
+            "label": "right shooter side plate with roller slots",
+            "base_instance_key": null,
+            "head_instance_key": "right shooter side plate with roller slots @ (92.00, 124.00, 304.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                89.5,
+                42.0,
+                223.0
+              ],
+              "max": [
+                94.5,
+                206.0,
+                385.0
+              ],
+              "center": [
+                92.0,
+                124.0,
+                304.0
+              ],
+              "size": [
+                5.0,
+                164.0,
+                162.0
+              ],
+              "diagonal": 230.5754
             }
           },
           {
             "label": "72 mm flywheel shooter wheel",
             "base_instance_key": null,
-            "head_instance_key": "72 mm flywheel shooter wheel @ (0.00, 126.00, 236.00)",
+            "head_instance_key": "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
                 -21.0,
-                90.0,
-                200.0
+                52.0,
+                174.0
               ],
               "max": [
                 21.0,
-                162.0,
-                272.0
+                124.0,
+                246.0
               ],
               "center": [
                 0.0,
-                126.0,
-                236.0
+                88.0,
+                210.0
               ],
               "size": [
                 42.0,
@@ -707,25 +1055,54 @@
             }
           },
           {
+            "label": "8 mm flywheel live shaft",
+            "base_instance_key": null,
+            "head_instance_key": "8 mm flywheel live shaft @ (0.00, 88.00, 210.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -97.0,
+                84.0,
+                206.0
+              ],
+              "max": [
+                97.0,
+                92.0,
+                214.0
+              ],
+              "center": [
+                0.0,
+                88.0,
+                210.0
+              ],
+              "size": [
+                194.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 194.3296
+            }
+          },
+          {
             "label": "shooter Yellow Jacket proxy",
             "base_instance_key": null,
-            "head_instance_key": "shooter Yellow Jacket proxy @ (-124.00, 112.00, 236.00)",
+            "head_instance_key": "shooter Yellow Jacket proxy @ (-124.00, 74.00, 210.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
                 -177.0,
-                93.5,
-                217.5
+                55.5,
+                191.5
               ],
               "max": [
                 -71.0,
-                130.5,
-                254.5
+                92.5,
+                228.5
               ],
               "center": [
                 -124.0,
-                112.0,
-                236.0
+                74.0,
+                210.0
               ],
               "size": [
                 106.0,
@@ -738,23 +1115,23 @@
           {
             "label": "lid-mounted 1 in hood roller 1",
             "base_instance_key": null,
-            "head_instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 132.00, 286.00)",
+            "head_instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 96.00, 368.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
                 -85.0,
-                119.3,
-                273.3
+                83.3,
+                355.3
               ],
               "max": [
                 85.0,
-                144.7,
-                298.7
+                108.7,
+                380.7
               ],
               "center": [
                 0.0,
-                132.0,
-                286.0
+                96.0,
+                368.0
               ],
               "size": [
                 170.0,
@@ -767,23 +1144,23 @@
           {
             "label": "lid-mounted 1 in hood roller 2",
             "base_instance_key": null,
-            "head_instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 172.00, 312.00)",
+            "head_instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 140.00, 381.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
                 -85.0,
-                159.3,
-                299.3
+                127.3,
+                368.3
               ],
               "max": [
                 85.0,
-                184.7,
-                324.7
+                152.7,
+                393.7
               ],
               "center": [
                 0.0,
-                172.0,
-                312.0
+                140.0,
+                381.0
               ],
               "size": [
                 170.0,
@@ -794,32 +1171,235 @@
             }
           },
           {
+            "label": "left hood roller 1 bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left hood roller 1 bearing block @ (-92.00, 96.00, 368.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -99.0,
+                84.0,
+                353.0
+              ],
+              "max": [
+                -85.0,
+                108.0,
+                383.0
+              ],
+              "center": [
+                -92.0,
+                96.0,
+                368.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            }
+          },
+          {
+            "label": "right hood roller 1 bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right hood roller 1 bearing block @ (92.00, 96.00, 368.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                85.0,
+                84.0,
+                353.0
+              ],
+              "max": [
+                99.0,
+                108.0,
+                383.0
+              ],
+              "center": [
+                92.0,
+                96.0,
+                368.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            }
+          },
+          {
+            "label": "left hood roller 2 bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left hood roller 2 bearing block @ (-92.00, 140.00, 381.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -99.0,
+                128.0,
+                366.0
+              ],
+              "max": [
+                -85.0,
+                152.0,
+                396.0
+              ],
+              "center": [
+                -92.0,
+                140.0,
+                381.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            }
+          },
+          {
+            "label": "right hood roller 2 bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right hood roller 2 bearing block @ (92.00, 140.00, 381.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                85.0,
+                128.0,
+                366.0
+              ],
+              "max": [
+                99.0,
+                152.0,
+                396.0
+              ],
+              "center": [
+                92.0,
+                140.0,
+                381.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            }
+          },
+          {
+            "label": "shooter ball path ghost 1",
+            "base_instance_key": null,
+            "head_instance_key": "shooter ball path ghost 1 @ (0.00, 74.00, 300.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -63.5,
+                10.5,
+                236.5
+              ],
+              "max": [
+                63.5,
+                137.5,
+                363.5
+              ],
+              "center": [
+                0.0,
+                74.0,
+                300.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            }
+          },
+          {
+            "label": "shooter ball path ghost 2",
+            "base_instance_key": null,
+            "head_instance_key": "shooter ball path ghost 2 @ (0.00, 116.00, 314.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -63.5,
+                52.5,
+                250.5
+              ],
+              "max": [
+                63.5,
+                179.5,
+                377.5
+              ],
+              "center": [
+                0.0,
+                116.0,
+                314.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            }
+          },
+          {
+            "label": "shooter ball path ghost 3",
+            "base_instance_key": null,
+            "head_instance_key": "shooter ball path ghost 3 @ (0.00, 150.00, 334.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -63.5,
+                86.5,
+                270.5
+              ],
+              "max": [
+                63.5,
+                213.5,
+                397.5
+              ],
+              "center": [
+                0.0,
+                150.0,
+                334.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            }
+          },
+          {
             "label": "front shooter exit keepout",
             "base_instance_key": null,
-            "head_instance_key": "front shooter exit keepout @ (0.00, 184.00, 252.00)",
+            "head_instance_key": "front shooter exit keepout @ (0.00, 190.00, 334.00)",
             "base_bbox_mm": null,
             "head_bbox_mm": {
               "min": [
                 -68.0,
-                167.0,
-                221.0
+                175.0,
+                298.0
               ],
               "max": [
                 68.0,
-                201.0,
-                283.0
+                205.0,
+                370.0
               ],
               "center": [
                 0.0,
-                184.0,
-                252.0
+                190.0,
+                334.0
               ],
               "size": [
                 136.0,
-                34.0,
-                62.0
+                30.0,
+                72.0
               ],
-              "diagonal": 153.2841
+              "diagonal": 156.7801
             }
           },
           {
@@ -1053,23 +1633,23 @@
             ],
             "max": [
               200.0,
-              201.0,
-              329.0
+              213.5,
+              399.5
             ],
             "center": [
               0.0,
-              4.75,
-              164.5
+              11.0,
+              199.75
             ],
             "size": [
               400.0,
-              392.5,
-              329.0
+              405.0,
+              399.5
             ],
-            "diagonal": 649.844
+            "diagonal": 695.4317
           },
-          "child_count": 33,
-          "solid_count": 33,
+          "child_count": 53,
+          "solid_count": 53,
           "volume_mm3": 0.0
         },
         "children": [
@@ -1270,30 +1850,30 @@
           },
           {
             "index": 5,
-            "label": "top lid and hood roller mounting plate",
-            "instance_key": "top lid and hood roller mounting plate @ (0.00, 22.00, 326.00)",
+            "label": "left flat drivetrain side plate",
+            "instance_key": "left flat drivetrain side plate @ (-172.00, 0.00, 84.00)",
             "bbox_mm": {
               "min": [
-                -158.0,
-                -144.0,
-                323.0
+                -174.0,
+                -172.0,
+                38.0
               ],
               "max": [
-                158.0,
-                188.0,
-                329.0
+                -170.0,
+                172.0,
+                130.0
               ],
               "center": [
+                -172.0,
                 0.0,
-                22.0,
-                326.0
+                84.0
               ],
               "size": [
-                316.0,
-                332.0,
-                6.0
+                4.0,
+                344.0,
+                92.0
               ],
-              "diagonal": 458.3841
+              "diagonal": 356.1123
             },
             "color": {
               "hex": "#4b5563",
@@ -1301,7 +1881,7 @@
                 0.294118,
                 0.333333,
                 0.388235,
-                0.5
+                0.82
               ]
             },
             "solid_count": 1,
@@ -1309,6 +1889,201 @@
           },
           {
             "index": 6,
+            "label": "right flat drivetrain side plate",
+            "instance_key": "right flat drivetrain side plate @ (172.00, 0.00, 84.00)",
+            "bbox_mm": {
+              "min": [
+                170.0,
+                -172.0,
+                38.0
+              ],
+              "max": [
+                174.0,
+                172.0,
+                130.0
+              ],
+              "center": [
+                172.0,
+                0.0,
+                84.0
+              ],
+              "size": [
+                4.0,
+                344.0,
+                92.0
+              ],
+              "diagonal": 356.1123
+            },
+            "color": {
+              "hex": "#4b5563",
+              "rgba": [
+                0.294118,
+                0.333333,
+                0.388235,
+                0.82
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 7,
+            "label": "rear upper 12 mm frame standoff",
+            "instance_key": "rear upper 12 mm frame standoff @ (0.00, -150.00, 116.00)",
+            "bbox_mm": {
+              "min": [
+                -163.0,
+                -156.0,
+                110.0
+              ],
+              "max": [
+                163.0,
+                -144.0,
+                122.0
+              ],
+              "center": [
+                0.0,
+                -150.0,
+                116.0
+              ],
+              "size": [
+                326.0,
+                12.0,
+                12.0
+              ],
+              "diagonal": 326.4414
+            },
+            "color": {
+              "hex": "#94a3b8",
+              "rgba": [
+                0.580392,
+                0.639216,
+                0.721569,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 8,
+            "label": "center lower 12 mm frame standoff",
+            "instance_key": "center lower 12 mm frame standoff @ (0.00, -12.00, 72.00)",
+            "bbox_mm": {
+              "min": [
+                -163.0,
+                -18.0,
+                66.0
+              ],
+              "max": [
+                163.0,
+                -6.0,
+                78.0
+              ],
+              "center": [
+                0.0,
+                -12.0,
+                72.0
+              ],
+              "size": [
+                326.0,
+                12.0,
+                12.0
+              ],
+              "diagonal": 326.4414
+            },
+            "color": {
+              "hex": "#94a3b8",
+              "rgba": [
+                0.580392,
+                0.639216,
+                0.721569,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 9,
+            "label": "front upper 12 mm frame standoff",
+            "instance_key": "front upper 12 mm frame standoff @ (0.00, 150.00, 116.00)",
+            "bbox_mm": {
+              "min": [
+                -163.0,
+                144.0,
+                110.0
+              ],
+              "max": [
+                163.0,
+                156.0,
+                122.0
+              ],
+              "center": [
+                0.0,
+                150.0,
+                116.0
+              ],
+              "size": [
+                326.0,
+                12.0,
+                12.0
+              ],
+              "diagonal": 326.4414
+            },
+            "color": {
+              "hex": "#94a3b8",
+              "rgba": [
+                0.580392,
+                0.639216,
+                0.721569,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 10,
+            "label": "removable top service plate and shooter hood bridge",
+            "instance_key": "removable top service plate and shooter hood bridge @ (0.00, 92.00, 397.00)",
+            "bbox_mm": {
+              "min": [
+                -130.0,
+                -15.0,
+                394.5
+              ],
+              "max": [
+                130.0,
+                199.0,
+                399.5
+              ],
+              "center": [
+                0.0,
+                92.0,
+                397.0
+              ],
+              "size": [
+                260.0,
+                214.0,
+                5.0
+              ],
+              "diagonal": 336.7803
+            },
+            "color": {
+              "hex": "#4b5563",
+              "rgba": [
+                0.294118,
+                0.333333,
+                0.388235,
+                0.58
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 11,
             "label": "left rear 96 mm drive wheel",
             "instance_key": "left rear 96 mm drive wheel @ (-188.00, -126.00, 48.00)",
             "bbox_mm": {
@@ -1347,7 +2122,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 7,
+            "index": 12,
             "label": "left center 96 mm drive wheel",
             "instance_key": "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
             "bbox_mm": {
@@ -1386,7 +2161,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 8,
+            "index": 13,
             "label": "left front 96 mm drive wheel",
             "instance_key": "left front 96 mm drive wheel @ (-188.00, 126.00, 48.00)",
             "bbox_mm": {
@@ -1425,7 +2200,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 9,
+            "index": 14,
             "label": "left drive Yellow Jacket proxy y=-84",
             "instance_key": "left drive Yellow Jacket proxy y=-84 @ (-120.32, -84.00, 64.00)",
             "bbox_mm": {
@@ -1464,7 +2239,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 10,
+            "index": 15,
             "label": "left drive Yellow Jacket proxy y=84",
             "instance_key": "left drive Yellow Jacket proxy y=84 @ (-120.32, 84.00, 64.00)",
             "bbox_mm": {
@@ -1503,7 +2278,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 11,
+            "index": 16,
             "label": "right rear 96 mm drive wheel",
             "instance_key": "right rear 96 mm drive wheel @ (188.00, -126.00, 48.00)",
             "bbox_mm": {
@@ -1542,7 +2317,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 12,
+            "index": 17,
             "label": "right center 96 mm drive wheel",
             "instance_key": "right center 96 mm drive wheel @ (188.00, 0.00, 48.00)",
             "bbox_mm": {
@@ -1581,7 +2356,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 13,
+            "index": 18,
             "label": "right front 96 mm drive wheel",
             "instance_key": "right front 96 mm drive wheel @ (188.00, 126.00, 48.00)",
             "bbox_mm": {
@@ -1620,7 +2395,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 14,
+            "index": 19,
             "label": "right drive Yellow Jacket proxy y=-84",
             "instance_key": "right drive Yellow Jacket proxy y=-84 @ (120.32, -84.00, 64.00)",
             "bbox_mm": {
@@ -1659,7 +2434,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 15,
+            "index": 20,
             "label": "right drive Yellow Jacket proxy y=84",
             "instance_key": "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
             "bbox_mm": {
@@ -1698,7 +2473,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 16,
+            "index": 21,
             "label": "front intake swept volume",
             "instance_key": "front intake swept volume @ (0.00, 168.00, 102.00)",
             "bbox_mm": {
@@ -1737,7 +2512,85 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 17,
+            "index": 22,
+            "label": "left front intake side plate",
+            "instance_key": "left front intake side plate @ (-164.00, 158.00, 96.00)",
+            "bbox_mm": {
+              "min": [
+                -166.5,
+                114.0,
+                46.0
+              ],
+              "max": [
+                -161.5,
+                202.0,
+                146.0
+              ],
+              "center": [
+                -164.0,
+                158.0,
+                96.0
+              ],
+              "size": [
+                5.0,
+                88.0,
+                100.0
+              ],
+              "diagonal": 133.3004
+            },
+            "color": {
+              "hex": "#2563eb",
+              "rgba": [
+                0.145098,
+                0.388235,
+                0.921569,
+                0.75
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 23,
+            "label": "right front intake side plate",
+            "instance_key": "right front intake side plate @ (164.00, 158.00, 96.00)",
+            "bbox_mm": {
+              "min": [
+                161.5,
+                114.0,
+                46.0
+              ],
+              "max": [
+                166.5,
+                202.0,
+                146.0
+              ],
+              "center": [
+                164.0,
+                158.0,
+                96.0
+              ],
+              "size": [
+                5.0,
+                88.0,
+                100.0
+              ],
+              "diagonal": 133.3004
+            },
+            "color": {
+              "hex": "#2563eb",
+              "rgba": [
+                0.145098,
+                0.388235,
+                0.921569,
+                0.75
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 24,
             "label": "front-facing main intake roller",
             "instance_key": "front-facing main intake roller @ (0.00, 174.00, 78.00)",
             "bbox_mm": {
@@ -1776,7 +2629,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 18,
+            "index": 25,
             "label": "intake Yellow Jacket proxy",
             "instance_key": "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
             "bbox_mm": {
@@ -1815,9 +2668,9 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 19,
-            "label": "three artifact queue channel",
-            "instance_key": "three artifact queue channel @ (0.00, -6.00, 116.00)",
+            "index": 26,
+            "label": "three artifact queue swept volume",
+            "instance_key": "three artifact queue swept volume @ (0.00, -6.00, 116.00)",
             "bbox_mm": {
               "min": [
                 -73.0,
@@ -1854,7 +2707,124 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 20,
+            "index": 27,
+            "label": "left three-ball queue sidewall plate",
+            "instance_key": "left three-ball queue sidewall plate @ (-77.00, -6.00, 116.00)",
+            "bbox_mm": {
+              "min": [
+                -79.5,
+                -177.0,
+                50.0
+              ],
+              "max": [
+                -74.5,
+                165.0,
+                182.0
+              ],
+              "center": [
+                -77.0,
+                -6.0,
+                116.0
+              ],
+              "size": [
+                5.0,
+                342.0,
+                132.0
+              ],
+              "diagonal": 366.6238
+            },
+            "color": {
+              "hex": "#059669",
+              "rgba": [
+                0.019608,
+                0.588235,
+                0.411765,
+                0.78
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 28,
+            "label": "right three-ball queue sidewall plate",
+            "instance_key": "right three-ball queue sidewall plate @ (77.00, -6.00, 116.00)",
+            "bbox_mm": {
+              "min": [
+                74.5,
+                -177.0,
+                50.0
+              ],
+              "max": [
+                79.5,
+                165.0,
+                182.0
+              ],
+              "center": [
+                77.0,
+                -6.0,
+                116.0
+              ],
+              "size": [
+                5.0,
+                342.0,
+                132.0
+              ],
+              "diagonal": 366.6238
+            },
+            "color": {
+              "hex": "#059669",
+              "rgba": [
+                0.019608,
+                0.588235,
+                0.411765,
+                0.78
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 29,
+            "label": "sloped queue floor feeding shooter throat",
+            "instance_key": "sloped queue floor feeding shooter throat @ (0.00, 40.00, 132.00)",
+            "bbox_mm": {
+              "min": [
+                -69.0,
+                -49.872,
+                107.3174
+              ],
+              "max": [
+                69.0,
+                129.872,
+                156.6826
+              ],
+              "center": [
+                0.0,
+                40.0,
+                132.0
+              ],
+              "size": [
+                138.0,
+                179.744,
+                49.3651
+              ],
+              "diagonal": 231.9242
+            },
+            "color": {
+              "hex": "#059669",
+              "rgba": [
+                0.019608,
+                0.588235,
+                0.411765,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 30,
             "label": "front-facing second stage indexer wheel",
             "instance_key": "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
             "bbox_mm": {
@@ -1893,7 +2863,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 21,
+            "index": 31,
             "label": "indexer Yellow Jacket proxy",
             "instance_key": "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
             "bbox_mm": {
@@ -1932,31 +2902,31 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 22,
-            "label": "front-facing shooter throat envelope",
-            "instance_key": "front-facing shooter throat envelope @ (0.00, 148.00, 252.00)",
+            "index": 32,
+            "label": "front-facing shooter ball path envelope above flywheel",
+            "instance_key": "front-facing shooter ball path envelope above flywheel @ (0.00, 124.00, 318.00)",
             "bbox_mm": {
               "min": [
                 -77.0,
-                101.0,
-                208.0
+                47.0,
+                254.0
               ],
               "max": [
                 77.0,
-                195.0,
-                296.0
+                201.0,
+                382.0
               ],
               "center": [
                 0.0,
-                148.0,
-                252.0
+                124.0,
+                318.0
               ],
               "size": [
                 154.0,
-                94.0,
-                88.0
+                154.0,
+                128.0
               ],
-              "diagonal": 200.7386
+              "diagonal": 252.6183
             },
             "color": {
               "hex": "#f59e0b",
@@ -1964,31 +2934,109 @@
                 0.960784,
                 0.619608,
                 0.043137,
-                0.3
+                0.22
               ]
             },
             "solid_count": 1,
             "volume_mm3": 0.0
           },
           {
-            "index": 23,
+            "index": 33,
+            "label": "left shooter side plate with roller slots",
+            "instance_key": "left shooter side plate with roller slots @ (-92.00, 124.00, 304.00)",
+            "bbox_mm": {
+              "min": [
+                -94.5,
+                42.0,
+                223.0
+              ],
+              "max": [
+                -89.5,
+                206.0,
+                385.0
+              ],
+              "center": [
+                -92.0,
+                124.0,
+                304.0
+              ],
+              "size": [
+                5.0,
+                164.0,
+                162.0
+              ],
+              "diagonal": 230.5754
+            },
+            "color": {
+              "hex": "#f59e0b",
+              "rgba": [
+                0.960784,
+                0.619608,
+                0.043137,
+                0.78
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 34,
+            "label": "right shooter side plate with roller slots",
+            "instance_key": "right shooter side plate with roller slots @ (92.00, 124.00, 304.00)",
+            "bbox_mm": {
+              "min": [
+                89.5,
+                42.0,
+                223.0
+              ],
+              "max": [
+                94.5,
+                206.0,
+                385.0
+              ],
+              "center": [
+                92.0,
+                124.0,
+                304.0
+              ],
+              "size": [
+                5.0,
+                164.0,
+                162.0
+              ],
+              "diagonal": 230.5754
+            },
+            "color": {
+              "hex": "#f59e0b",
+              "rgba": [
+                0.960784,
+                0.619608,
+                0.043137,
+                0.78
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 35,
             "label": "72 mm flywheel shooter wheel",
-            "instance_key": "72 mm flywheel shooter wheel @ (0.00, 126.00, 236.00)",
+            "instance_key": "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
             "bbox_mm": {
               "min": [
                 -21.0,
-                90.0,
-                200.0
+                52.0,
+                174.0
               ],
               "max": [
                 21.0,
-                162.0,
-                272.0
+                124.0,
+                246.0
               ],
               "center": [
                 0.0,
-                126.0,
-                236.0
+                88.0,
+                210.0
               ],
               "size": [
                 42.0,
@@ -2010,24 +3058,63 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 24,
+            "index": 36,
+            "label": "8 mm flywheel live shaft",
+            "instance_key": "8 mm flywheel live shaft @ (0.00, 88.00, 210.00)",
+            "bbox_mm": {
+              "min": [
+                -97.0,
+                84.0,
+                206.0
+              ],
+              "max": [
+                97.0,
+                92.0,
+                214.0
+              ],
+              "center": [
+                0.0,
+                88.0,
+                210.0
+              ],
+              "size": [
+                194.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 194.3296
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 37,
             "label": "shooter Yellow Jacket proxy",
-            "instance_key": "shooter Yellow Jacket proxy @ (-124.00, 112.00, 236.00)",
+            "instance_key": "shooter Yellow Jacket proxy @ (-124.00, 74.00, 210.00)",
             "bbox_mm": {
               "min": [
                 -177.0,
-                93.5,
-                217.5
+                55.5,
+                191.5
               ],
               "max": [
                 -71.0,
-                130.5,
-                254.5
+                92.5,
+                228.5
               ],
               "center": [
                 -124.0,
-                112.0,
-                236.0
+                74.0,
+                210.0
               ],
               "size": [
                 106.0,
@@ -2049,24 +3136,24 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 25,
+            "index": 38,
             "label": "lid-mounted 1 in hood roller 1",
-            "instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 132.00, 286.00)",
+            "instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 96.00, 368.00)",
             "bbox_mm": {
               "min": [
                 -85.0,
-                119.3,
-                273.3
+                83.3,
+                355.3
               ],
               "max": [
                 85.0,
-                144.7,
-                298.7
+                108.7,
+                380.7
               ],
               "center": [
                 0.0,
-                132.0,
-                286.0
+                96.0,
+                368.0
               ],
               "size": [
                 170.0,
@@ -2088,24 +3175,24 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 26,
+            "index": 39,
             "label": "lid-mounted 1 in hood roller 2",
-            "instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 172.00, 312.00)",
+            "instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 140.00, 381.00)",
             "bbox_mm": {
               "min": [
                 -85.0,
-                159.3,
-                299.3
+                127.3,
+                368.3
               ],
               "max": [
                 85.0,
-                184.7,
-                324.7
+                152.7,
+                393.7
               ],
               "center": [
                 0.0,
-                172.0,
-                312.0
+                140.0,
+                381.0
               ],
               "size": [
                 170.0,
@@ -2127,31 +3214,304 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 27,
+            "index": 40,
+            "label": "left hood roller 1 bearing block",
+            "instance_key": "left hood roller 1 bearing block @ (-92.00, 96.00, 368.00)",
+            "bbox_mm": {
+              "min": [
+                -99.0,
+                84.0,
+                353.0
+              ],
+              "max": [
+                -85.0,
+                108.0,
+                383.0
+              ],
+              "center": [
+                -92.0,
+                96.0,
+                368.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 41,
+            "label": "right hood roller 1 bearing block",
+            "instance_key": "right hood roller 1 bearing block @ (92.00, 96.00, 368.00)",
+            "bbox_mm": {
+              "min": [
+                85.0,
+                84.0,
+                353.0
+              ],
+              "max": [
+                99.0,
+                108.0,
+                383.0
+              ],
+              "center": [
+                92.0,
+                96.0,
+                368.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 42,
+            "label": "left hood roller 2 bearing block",
+            "instance_key": "left hood roller 2 bearing block @ (-92.00, 140.00, 381.00)",
+            "bbox_mm": {
+              "min": [
+                -99.0,
+                128.0,
+                366.0
+              ],
+              "max": [
+                -85.0,
+                152.0,
+                396.0
+              ],
+              "center": [
+                -92.0,
+                140.0,
+                381.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 43,
+            "label": "right hood roller 2 bearing block",
+            "instance_key": "right hood roller 2 bearing block @ (92.00, 140.00, 381.00)",
+            "bbox_mm": {
+              "min": [
+                85.0,
+                128.0,
+                366.0
+              ],
+              "max": [
+                99.0,
+                152.0,
+                396.0
+              ],
+              "center": [
+                92.0,
+                140.0,
+                381.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                30.0
+              ],
+              "diagonal": 40.8901
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 44,
+            "label": "shooter ball path ghost 1",
+            "instance_key": "shooter ball path ghost 1 @ (0.00, 74.00, 300.00)",
+            "bbox_mm": {
+              "min": [
+                -63.5,
+                10.5,
+                236.5
+              ],
+              "max": [
+                63.5,
+                137.5,
+                363.5
+              ],
+              "center": [
+                0.0,
+                74.0,
+                300.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            },
+            "color": {
+              "hex": "#e5e7eb",
+              "rgba": [
+                0.898039,
+                0.905882,
+                0.921569,
+                0.18
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 45,
+            "label": "shooter ball path ghost 2",
+            "instance_key": "shooter ball path ghost 2 @ (0.00, 116.00, 314.00)",
+            "bbox_mm": {
+              "min": [
+                -63.5,
+                52.5,
+                250.5
+              ],
+              "max": [
+                63.5,
+                179.5,
+                377.5
+              ],
+              "center": [
+                0.0,
+                116.0,
+                314.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            },
+            "color": {
+              "hex": "#e5e7eb",
+              "rgba": [
+                0.898039,
+                0.905882,
+                0.921569,
+                0.18
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 46,
+            "label": "shooter ball path ghost 3",
+            "instance_key": "shooter ball path ghost 3 @ (0.00, 150.00, 334.00)",
+            "bbox_mm": {
+              "min": [
+                -63.5,
+                86.5,
+                270.5
+              ],
+              "max": [
+                63.5,
+                213.5,
+                397.5
+              ],
+              "center": [
+                0.0,
+                150.0,
+                334.0
+              ],
+              "size": [
+                127.0,
+                127.0,
+                127.0
+              ],
+              "diagonal": 219.9705
+            },
+            "color": {
+              "hex": "#e5e7eb",
+              "rgba": [
+                0.898039,
+                0.905882,
+                0.921569,
+                0.18
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 47,
             "label": "front shooter exit keepout",
-            "instance_key": "front shooter exit keepout @ (0.00, 184.00, 252.00)",
+            "instance_key": "front shooter exit keepout @ (0.00, 190.00, 334.00)",
             "bbox_mm": {
               "min": [
                 -68.0,
-                167.0,
-                221.0
+                175.0,
+                298.0
               ],
               "max": [
                 68.0,
-                201.0,
-                283.0
+                205.0,
+                370.0
               ],
               "center": [
                 0.0,
-                184.0,
-                252.0
+                190.0,
+                334.0
               ],
               "size": [
                 136.0,
-                34.0,
-                62.0
+                30.0,
+                72.0
               ],
-              "diagonal": 153.2841
+              "diagonal": 156.7801
             },
             "color": {
               "hex": "#e5e7eb",
@@ -2166,7 +3526,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 28,
+            "index": 48,
             "label": "stored DECODE artifact 1",
             "instance_key": "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
             "bbox_mm": {
@@ -2205,7 +3565,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 29,
+            "index": 49,
             "label": "stored DECODE artifact 2",
             "instance_key": "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
             "bbox_mm": {
@@ -2244,7 +3604,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 30,
+            "index": 50,
             "label": "stored DECODE artifact 3",
             "instance_key": "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
             "bbox_mm": {
@@ -2283,7 +3643,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 31,
+            "index": 51,
             "label": "REV control hub placeholder",
             "instance_key": "REV control hub placeholder @ (54.00, -88.00, 56.00)",
             "bbox_mm": {
@@ -2322,7 +3682,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 32,
+            "index": 52,
             "label": "12V FTC battery placeholder",
             "instance_key": "12V FTC battery placeholder @ (-66.00, -92.00, 52.00)",
             "bbox_mm": {
@@ -2375,7 +3735,12 @@
           "front frame cross rail and intake hardpoint @ (0.00, 182.00, 42.00)",
           "rear frame cross rail @ (0.00, -182.00, 42.00)",
           "thin electronics bellypan blockout @ (0.00, -22.00, 18.00)",
-          "top lid and hood roller mounting plate @ (0.00, 22.00, 326.00)",
+          "left flat drivetrain side plate @ (-172.00, 0.00, 84.00)",
+          "right flat drivetrain side plate @ (172.00, 0.00, 84.00)",
+          "rear upper 12 mm frame standoff @ (0.00, -150.00, 116.00)",
+          "center lower 12 mm frame standoff @ (0.00, -12.00, 72.00)",
+          "front upper 12 mm frame standoff @ (0.00, 150.00, 116.00)",
+          "removable top service plate and shooter hood bridge @ (0.00, 92.00, 397.00)",
           "left rear 96 mm drive wheel @ (-188.00, -126.00, 48.00)",
           "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
           "left front 96 mm drive wheel @ (-188.00, 126.00, 48.00)",
@@ -2387,17 +3752,32 @@
           "right drive Yellow Jacket proxy y=-84 @ (120.32, -84.00, 64.00)",
           "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
           "front intake swept volume @ (0.00, 168.00, 102.00)",
+          "left front intake side plate @ (-164.00, 158.00, 96.00)",
+          "right front intake side plate @ (164.00, 158.00, 96.00)",
           "front-facing main intake roller @ (0.00, 174.00, 78.00)",
           "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
-          "three artifact queue channel @ (0.00, -6.00, 116.00)",
+          "three artifact queue swept volume @ (0.00, -6.00, 116.00)",
+          "left three-ball queue sidewall plate @ (-77.00, -6.00, 116.00)",
+          "right three-ball queue sidewall plate @ (77.00, -6.00, 116.00)",
+          "sloped queue floor feeding shooter throat @ (0.00, 40.00, 132.00)",
           "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
           "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
-          "front-facing shooter throat envelope @ (0.00, 148.00, 252.00)",
-          "72 mm flywheel shooter wheel @ (0.00, 126.00, 236.00)",
-          "shooter Yellow Jacket proxy @ (-124.00, 112.00, 236.00)",
-          "lid-mounted 1 in hood roller 1 @ (0.00, 132.00, 286.00)",
-          "lid-mounted 1 in hood roller 2 @ (0.00, 172.00, 312.00)",
-          "front shooter exit keepout @ (0.00, 184.00, 252.00)",
+          "front-facing shooter ball path envelope above flywheel @ (0.00, 124.00, 318.00)",
+          "left shooter side plate with roller slots @ (-92.00, 124.00, 304.00)",
+          "right shooter side plate with roller slots @ (92.00, 124.00, 304.00)",
+          "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
+          "8 mm flywheel live shaft @ (0.00, 88.00, 210.00)",
+          "shooter Yellow Jacket proxy @ (-124.00, 74.00, 210.00)",
+          "lid-mounted 1 in hood roller 1 @ (0.00, 96.00, 368.00)",
+          "lid-mounted 1 in hood roller 2 @ (0.00, 140.00, 381.00)",
+          "left hood roller 1 bearing block @ (-92.00, 96.00, 368.00)",
+          "right hood roller 1 bearing block @ (92.00, 96.00, 368.00)",
+          "left hood roller 2 bearing block @ (-92.00, 140.00, 381.00)",
+          "right hood roller 2 bearing block @ (92.00, 140.00, 381.00)",
+          "shooter ball path ghost 1 @ (0.00, 74.00, 300.00)",
+          "shooter ball path ghost 2 @ (0.00, 116.00, 314.00)",
+          "shooter ball path ghost 3 @ (0.00, 150.00, 334.00)",
+          "front shooter exit keepout @ (0.00, 190.00, 334.00)",
           "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
           "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
           "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
