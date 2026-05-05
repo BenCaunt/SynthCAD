@@ -1,6 +1,6 @@
 {
   "base_ref": "50cc8c6e65051c70cf7ecb9be8ab6dacc433294c",
-  "head_ref": "28914a0f9be68034d4badfe357709897fbaacd2c",
+  "head_ref": "01af1f588d3a77ecf2d5d19740246454a9755634",
   "default_assembly": "demo-ftc-robot",
   "assemblies": [
     {
@@ -359,6 +359,93 @@
             }
           },
           {
+            "label": "left rear 8 mm axle shaft",
+            "base_instance_key": null,
+            "head_instance_key": "left rear 8 mm axle shaft @ (-178.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -200.0,
+                -130.0,
+                44.0
+              ],
+              "max": [
+                -156.0,
+                -122.0,
+                52.0
+              ],
+              "center": [
+                -178.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            }
+          },
+          {
+            "label": "left rear drive bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left rear drive bearing block @ (-172.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -179.0,
+                -138.0,
+                36.0
+              ],
+              "max": [
+                -165.0,
+                -114.0,
+                60.0
+              ],
+              "center": [
+                -172.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            }
+          },
+          {
+            "label": "left rear drive pulley",
+            "base_instance_key": null,
+            "head_instance_key": "left rear drive pulley @ (-154.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -160.0,
+                -143.0,
+                31.0
+              ],
+              "max": [
+                -148.0,
+                -109.0,
+                65.0
+              ],
+              "center": [
+                -154.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            }
+          },
+          {
             "label": "left center 96 mm drive wheel",
             "base_instance_key": null,
             "head_instance_key": "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
@@ -385,6 +472,93 @@
                 96.0
               ],
               "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "left center 8 mm axle shaft",
+            "base_instance_key": null,
+            "head_instance_key": "left center 8 mm axle shaft @ (-178.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -200.0,
+                -4.0,
+                44.0
+              ],
+              "max": [
+                -156.0,
+                4.0,
+                52.0
+              ],
+              "center": [
+                -178.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            }
+          },
+          {
+            "label": "left center drive bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left center drive bearing block @ (-172.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -179.0,
+                -12.0,
+                36.0
+              ],
+              "max": [
+                -165.0,
+                12.0,
+                60.0
+              ],
+              "center": [
+                -172.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            }
+          },
+          {
+            "label": "left center drive pulley",
+            "base_instance_key": null,
+            "head_instance_key": "left center drive pulley @ (-154.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -160.0,
+                -17.0,
+                31.0
+              ],
+              "max": [
+                -148.0,
+                17.0,
+                65.0
+              ],
+              "center": [
+                -154.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
             }
           },
           {
@@ -417,6 +591,93 @@
             }
           },
           {
+            "label": "left front 8 mm axle shaft",
+            "base_instance_key": null,
+            "head_instance_key": "left front 8 mm axle shaft @ (-178.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -200.0,
+                122.0,
+                44.0
+              ],
+              "max": [
+                -156.0,
+                130.0,
+                52.0
+              ],
+              "center": [
+                -178.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            }
+          },
+          {
+            "label": "left front drive bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left front drive bearing block @ (-172.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -179.0,
+                114.0,
+                36.0
+              ],
+              "max": [
+                -165.0,
+                138.0,
+                60.0
+              ],
+              "center": [
+                -172.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            }
+          },
+          {
+            "label": "left front drive pulley",
+            "base_instance_key": null,
+            "head_instance_key": "left front drive pulley @ (-154.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -160.0,
+                109.0,
+                31.0
+              ],
+              "max": [
+                -148.0,
+                143.0,
+                65.0
+              ],
+              "center": [
+                -154.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            }
+          },
+          {
             "label": "left drive Yellow Jacket proxy y=-84",
             "base_instance_key": null,
             "head_instance_key": "left drive Yellow Jacket proxy y=-84 @ (-120.32, -84.00, 64.00)",
@@ -443,6 +704,35 @@
                 37.0
               ],
               "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "left drive motor mount plate y=-84",
+            "base_instance_key": null,
+            "head_instance_key": "left drive motor mount plate y=-84 @ (-151.36, -84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -153.86,
+                -112.0,
+                37.0
+              ],
+              "max": [
+                -148.86,
+                -56.0,
+                91.0
+              ],
+              "center": [
+                -151.36,
+                -84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
             }
           },
           {
@@ -475,6 +765,151 @@
             }
           },
           {
+            "label": "left drive motor mount plate y=84",
+            "base_instance_key": null,
+            "head_instance_key": "left drive motor mount plate y=84 @ (-151.36, 84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -153.86,
+                56.0,
+                37.0
+              ],
+              "max": [
+                -148.86,
+                112.0,
+                91.0
+              ],
+              "center": [
+                -151.36,
+                84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
+            }
+          },
+          {
+            "label": "left rear wheel drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "left rear wheel drive belt span @ (-154.00, -105.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -159.0,
+                -126.712,
+                46.131
+              ],
+              "max": [
+                -149.0,
+                -83.288,
+                65.869
+              ],
+              "center": [
+                -154.0,
+                -105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
+            }
+          },
+          {
+            "label": "left center rear drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "left center rear drive belt span @ (-154.00, -42.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -159.0,
+                -84.3742,
+                46.0353
+              ],
+              "max": [
+                -149.0,
+                0.3742,
+                65.9647
+              ],
+              "center": [
+                -154.0,
+                -42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            }
+          },
+          {
+            "label": "left center front drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "left center front drive belt span @ (-154.00, 42.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -159.0,
+                -0.3742,
+                46.0353
+              ],
+              "max": [
+                -149.0,
+                84.3742,
+                65.9647
+              ],
+              "center": [
+                -154.0,
+                42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            }
+          },
+          {
+            "label": "left front wheel drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "left front wheel drive belt span @ (-154.00, 105.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -159.0,
+                83.288,
+                46.131
+              ],
+              "max": [
+                -149.0,
+                126.712,
+                65.869
+              ],
+              "center": [
+                -154.0,
+                105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
+            }
+          },
+          {
             "label": "right rear 96 mm drive wheel",
             "base_instance_key": null,
             "head_instance_key": "right rear 96 mm drive wheel @ (188.00, -126.00, 48.00)",
@@ -501,6 +936,93 @@
                 96.0
               ],
               "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "right rear 8 mm axle shaft",
+            "base_instance_key": null,
+            "head_instance_key": "right rear 8 mm axle shaft @ (178.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                156.0,
+                -130.0,
+                44.0
+              ],
+              "max": [
+                200.0,
+                -122.0,
+                52.0
+              ],
+              "center": [
+                178.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            }
+          },
+          {
+            "label": "right rear drive bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right rear drive bearing block @ (172.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                165.0,
+                -138.0,
+                36.0
+              ],
+              "max": [
+                179.0,
+                -114.0,
+                60.0
+              ],
+              "center": [
+                172.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            }
+          },
+          {
+            "label": "right rear drive pulley",
+            "base_instance_key": null,
+            "head_instance_key": "right rear drive pulley @ (154.00, -126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                148.0,
+                -143.0,
+                31.0
+              ],
+              "max": [
+                160.0,
+                -109.0,
+                65.0
+              ],
+              "center": [
+                154.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
             }
           },
           {
@@ -533,6 +1055,93 @@
             }
           },
           {
+            "label": "right center 8 mm axle shaft",
+            "base_instance_key": null,
+            "head_instance_key": "right center 8 mm axle shaft @ (178.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                156.0,
+                -4.0,
+                44.0
+              ],
+              "max": [
+                200.0,
+                4.0,
+                52.0
+              ],
+              "center": [
+                178.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            }
+          },
+          {
+            "label": "right center drive bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right center drive bearing block @ (172.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                165.0,
+                -12.0,
+                36.0
+              ],
+              "max": [
+                179.0,
+                12.0,
+                60.0
+              ],
+              "center": [
+                172.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            }
+          },
+          {
+            "label": "right center drive pulley",
+            "base_instance_key": null,
+            "head_instance_key": "right center drive pulley @ (154.00, 0.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                148.0,
+                -17.0,
+                31.0
+              ],
+              "max": [
+                160.0,
+                17.0,
+                65.0
+              ],
+              "center": [
+                154.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            }
+          },
+          {
             "label": "right front 96 mm drive wheel",
             "base_instance_key": null,
             "head_instance_key": "right front 96 mm drive wheel @ (188.00, 126.00, 48.00)",
@@ -559,6 +1168,93 @@
                 96.0
               ],
               "diagonal": 137.8695
+            }
+          },
+          {
+            "label": "right front 8 mm axle shaft",
+            "base_instance_key": null,
+            "head_instance_key": "right front 8 mm axle shaft @ (178.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                156.0,
+                122.0,
+                44.0
+              ],
+              "max": [
+                200.0,
+                130.0,
+                52.0
+              ],
+              "center": [
+                178.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            }
+          },
+          {
+            "label": "right front drive bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right front drive bearing block @ (172.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                165.0,
+                114.0,
+                36.0
+              ],
+              "max": [
+                179.0,
+                138.0,
+                60.0
+              ],
+              "center": [
+                172.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            }
+          },
+          {
+            "label": "right front drive pulley",
+            "base_instance_key": null,
+            "head_instance_key": "right front drive pulley @ (154.00, 126.00, 48.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                148.0,
+                109.0,
+                31.0
+              ],
+              "max": [
+                160.0,
+                143.0,
+                65.0
+              ],
+              "center": [
+                154.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
             }
           },
           {
@@ -591,6 +1287,35 @@
             }
           },
           {
+            "label": "right drive motor mount plate y=-84",
+            "base_instance_key": null,
+            "head_instance_key": "right drive motor mount plate y=-84 @ (151.36, -84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                148.86,
+                -112.0,
+                37.0
+              ],
+              "max": [
+                153.86,
+                -56.0,
+                91.0
+              ],
+              "center": [
+                151.36,
+                -84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
+            }
+          },
+          {
             "label": "right drive Yellow Jacket proxy y=84",
             "base_instance_key": null,
             "head_instance_key": "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
@@ -617,6 +1342,151 @@
                 37.0
               ],
               "diagonal": 118.2117
+            }
+          },
+          {
+            "label": "right drive motor mount plate y=84",
+            "base_instance_key": null,
+            "head_instance_key": "right drive motor mount plate y=84 @ (151.36, 84.00, 64.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                148.86,
+                56.0,
+                37.0
+              ],
+              "max": [
+                153.86,
+                112.0,
+                91.0
+              ],
+              "center": [
+                151.36,
+                84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
+            }
+          },
+          {
+            "label": "right rear wheel drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "right rear wheel drive belt span @ (154.00, -105.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                149.0,
+                -126.712,
+                46.131
+              ],
+              "max": [
+                159.0,
+                -83.288,
+                65.869
+              ],
+              "center": [
+                154.0,
+                -105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
+            }
+          },
+          {
+            "label": "right center rear drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "right center rear drive belt span @ (154.00, -42.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                149.0,
+                -84.3742,
+                46.0353
+              ],
+              "max": [
+                159.0,
+                0.3742,
+                65.9647
+              ],
+              "center": [
+                154.0,
+                -42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            }
+          },
+          {
+            "label": "right center front drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "right center front drive belt span @ (154.00, 42.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                149.0,
+                -0.3742,
+                46.0353
+              ],
+              "max": [
+                159.0,
+                84.3742,
+                65.9647
+              ],
+              "center": [
+                154.0,
+                42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            }
+          },
+          {
+            "label": "right front wheel drive belt span",
+            "base_instance_key": null,
+            "head_instance_key": "right front wheel drive belt span @ (154.00, 105.00, 56.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                149.0,
+                83.288,
+                46.131
+              ],
+              "max": [
+                159.0,
+                126.712,
+                65.869
+              ],
+              "center": [
+                154.0,
+                105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
             }
           },
           {
@@ -1648,8 +2518,8 @@
             ],
             "diagonal": 695.4317
           },
-          "child_count": 53,
-          "solid_count": 53,
+          "child_count": 83,
+          "solid_count": 83,
           "volume_mm3": 0.0
         },
         "children": [
@@ -2123,6 +2993,123 @@
           },
           {
             "index": 12,
+            "label": "left rear 8 mm axle shaft",
+            "instance_key": "left rear 8 mm axle shaft @ (-178.00, -126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -200.0,
+                -130.0,
+                44.0
+              ],
+              "max": [
+                -156.0,
+                -122.0,
+                52.0
+              ],
+              "center": [
+                -178.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 13,
+            "label": "left rear drive bearing block",
+            "instance_key": "left rear drive bearing block @ (-172.00, -126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -179.0,
+                -138.0,
+                36.0
+              ],
+              "max": [
+                -165.0,
+                -114.0,
+                60.0
+              ],
+              "center": [
+                -172.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            },
+            "color": {
+              "hex": "#64748b",
+              "rgba": [
+                0.392157,
+                0.454902,
+                0.545098,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 14,
+            "label": "left rear drive pulley",
+            "instance_key": "left rear drive pulley @ (-154.00, -126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -160.0,
+                -143.0,
+                31.0
+              ],
+              "max": [
+                -148.0,
+                -109.0,
+                65.0
+              ],
+              "center": [
+                -154.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 15,
             "label": "left center 96 mm drive wheel",
             "instance_key": "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
             "bbox_mm": {
@@ -2161,7 +3148,124 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 13,
+            "index": 16,
+            "label": "left center 8 mm axle shaft",
+            "instance_key": "left center 8 mm axle shaft @ (-178.00, 0.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -200.0,
+                -4.0,
+                44.0
+              ],
+              "max": [
+                -156.0,
+                4.0,
+                52.0
+              ],
+              "center": [
+                -178.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 17,
+            "label": "left center drive bearing block",
+            "instance_key": "left center drive bearing block @ (-172.00, 0.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -179.0,
+                -12.0,
+                36.0
+              ],
+              "max": [
+                -165.0,
+                12.0,
+                60.0
+              ],
+              "center": [
+                -172.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            },
+            "color": {
+              "hex": "#64748b",
+              "rgba": [
+                0.392157,
+                0.454902,
+                0.545098,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 18,
+            "label": "left center drive pulley",
+            "instance_key": "left center drive pulley @ (-154.00, 0.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -160.0,
+                -17.0,
+                31.0
+              ],
+              "max": [
+                -148.0,
+                17.0,
+                65.0
+              ],
+              "center": [
+                -154.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 19,
             "label": "left front 96 mm drive wheel",
             "instance_key": "left front 96 mm drive wheel @ (-188.00, 126.00, 48.00)",
             "bbox_mm": {
@@ -2200,7 +3304,124 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 14,
+            "index": 20,
+            "label": "left front 8 mm axle shaft",
+            "instance_key": "left front 8 mm axle shaft @ (-178.00, 126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -200.0,
+                122.0,
+                44.0
+              ],
+              "max": [
+                -156.0,
+                130.0,
+                52.0
+              ],
+              "center": [
+                -178.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 21,
+            "label": "left front drive bearing block",
+            "instance_key": "left front drive bearing block @ (-172.00, 126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -179.0,
+                114.0,
+                36.0
+              ],
+              "max": [
+                -165.0,
+                138.0,
+                60.0
+              ],
+              "center": [
+                -172.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            },
+            "color": {
+              "hex": "#64748b",
+              "rgba": [
+                0.392157,
+                0.454902,
+                0.545098,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 22,
+            "label": "left front drive pulley",
+            "instance_key": "left front drive pulley @ (-154.00, 126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                -160.0,
+                109.0,
+                31.0
+              ],
+              "max": [
+                -148.0,
+                143.0,
+                65.0
+              ],
+              "center": [
+                -154.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 23,
             "label": "left drive Yellow Jacket proxy y=-84",
             "instance_key": "left drive Yellow Jacket proxy y=-84 @ (-120.32, -84.00, 64.00)",
             "bbox_mm": {
@@ -2239,7 +3460,46 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 15,
+            "index": 24,
+            "label": "left drive motor mount plate y=-84",
+            "instance_key": "left drive motor mount plate y=-84 @ (-151.36, -84.00, 64.00)",
+            "bbox_mm": {
+              "min": [
+                -153.86,
+                -112.0,
+                37.0
+              ],
+              "max": [
+                -148.86,
+                -56.0,
+                91.0
+              ],
+              "center": [
+                -151.36,
+                -84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
+            },
+            "color": {
+              "hex": "#6b7280",
+              "rgba": [
+                0.419608,
+                0.447059,
+                0.501961,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 25,
             "label": "left drive Yellow Jacket proxy y=84",
             "instance_key": "left drive Yellow Jacket proxy y=84 @ (-120.32, 84.00, 64.00)",
             "bbox_mm": {
@@ -2278,7 +3538,202 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 16,
+            "index": 26,
+            "label": "left drive motor mount plate y=84",
+            "instance_key": "left drive motor mount plate y=84 @ (-151.36, 84.00, 64.00)",
+            "bbox_mm": {
+              "min": [
+                -153.86,
+                56.0,
+                37.0
+              ],
+              "max": [
+                -148.86,
+                112.0,
+                91.0
+              ],
+              "center": [
+                -151.36,
+                84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
+            },
+            "color": {
+              "hex": "#6b7280",
+              "rgba": [
+                0.419608,
+                0.447059,
+                0.501961,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 27,
+            "label": "left rear wheel drive belt span",
+            "instance_key": "left rear wheel drive belt span @ (-154.00, -105.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                -159.0,
+                -126.712,
+                46.131
+              ],
+              "max": [
+                -149.0,
+                -83.288,
+                65.869
+              ],
+              "center": [
+                -154.0,
+                -105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 28,
+            "label": "left center rear drive belt span",
+            "instance_key": "left center rear drive belt span @ (-154.00, -42.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                -159.0,
+                -84.3742,
+                46.0353
+              ],
+              "max": [
+                -149.0,
+                0.3742,
+                65.9647
+              ],
+              "center": [
+                -154.0,
+                -42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 29,
+            "label": "left center front drive belt span",
+            "instance_key": "left center front drive belt span @ (-154.00, 42.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                -159.0,
+                -0.3742,
+                46.0353
+              ],
+              "max": [
+                -149.0,
+                84.3742,
+                65.9647
+              ],
+              "center": [
+                -154.0,
+                42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 30,
+            "label": "left front wheel drive belt span",
+            "instance_key": "left front wheel drive belt span @ (-154.00, 105.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                -159.0,
+                83.288,
+                46.131
+              ],
+              "max": [
+                -149.0,
+                126.712,
+                65.869
+              ],
+              "center": [
+                -154.0,
+                105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 31,
             "label": "right rear 96 mm drive wheel",
             "instance_key": "right rear 96 mm drive wheel @ (188.00, -126.00, 48.00)",
             "bbox_mm": {
@@ -2317,7 +3772,124 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 17,
+            "index": 32,
+            "label": "right rear 8 mm axle shaft",
+            "instance_key": "right rear 8 mm axle shaft @ (178.00, -126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                156.0,
+                -130.0,
+                44.0
+              ],
+              "max": [
+                200.0,
+                -122.0,
+                52.0
+              ],
+              "center": [
+                178.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 33,
+            "label": "right rear drive bearing block",
+            "instance_key": "right rear drive bearing block @ (172.00, -126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                165.0,
+                -138.0,
+                36.0
+              ],
+              "max": [
+                179.0,
+                -114.0,
+                60.0
+              ],
+              "center": [
+                172.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            },
+            "color": {
+              "hex": "#64748b",
+              "rgba": [
+                0.392157,
+                0.454902,
+                0.545098,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 34,
+            "label": "right rear drive pulley",
+            "instance_key": "right rear drive pulley @ (154.00, -126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                148.0,
+                -143.0,
+                31.0
+              ],
+              "max": [
+                160.0,
+                -109.0,
+                65.0
+              ],
+              "center": [
+                154.0,
+                -126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 35,
             "label": "right center 96 mm drive wheel",
             "instance_key": "right center 96 mm drive wheel @ (188.00, 0.00, 48.00)",
             "bbox_mm": {
@@ -2356,7 +3928,124 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 18,
+            "index": 36,
+            "label": "right center 8 mm axle shaft",
+            "instance_key": "right center 8 mm axle shaft @ (178.00, 0.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                156.0,
+                -4.0,
+                44.0
+              ],
+              "max": [
+                200.0,
+                4.0,
+                52.0
+              ],
+              "center": [
+                178.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 37,
+            "label": "right center drive bearing block",
+            "instance_key": "right center drive bearing block @ (172.00, 0.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                165.0,
+                -12.0,
+                36.0
+              ],
+              "max": [
+                179.0,
+                12.0,
+                60.0
+              ],
+              "center": [
+                172.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            },
+            "color": {
+              "hex": "#64748b",
+              "rgba": [
+                0.392157,
+                0.454902,
+                0.545098,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 38,
+            "label": "right center drive pulley",
+            "instance_key": "right center drive pulley @ (154.00, 0.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                148.0,
+                -17.0,
+                31.0
+              ],
+              "max": [
+                160.0,
+                17.0,
+                65.0
+              ],
+              "center": [
+                154.0,
+                0.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 39,
             "label": "right front 96 mm drive wheel",
             "instance_key": "right front 96 mm drive wheel @ (188.00, 126.00, 48.00)",
             "bbox_mm": {
@@ -2395,7 +4084,124 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 19,
+            "index": 40,
+            "label": "right front 8 mm axle shaft",
+            "instance_key": "right front 8 mm axle shaft @ (178.00, 126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                156.0,
+                122.0,
+                44.0
+              ],
+              "max": [
+                200.0,
+                130.0,
+                52.0
+              ],
+              "center": [
+                178.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                44.0,
+                8.0,
+                8.0
+              ],
+              "diagonal": 45.4313
+            },
+            "color": {
+              "hex": "#d1d5db",
+              "rgba": [
+                0.819608,
+                0.835294,
+                0.858824,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 41,
+            "label": "right front drive bearing block",
+            "instance_key": "right front drive bearing block @ (172.00, 126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                165.0,
+                114.0,
+                36.0
+              ],
+              "max": [
+                179.0,
+                138.0,
+                60.0
+              ],
+              "center": [
+                172.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                14.0,
+                24.0,
+                24.0
+              ],
+              "diagonal": 36.7151
+            },
+            "color": {
+              "hex": "#64748b",
+              "rgba": [
+                0.392157,
+                0.454902,
+                0.545098,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 42,
+            "label": "right front drive pulley",
+            "instance_key": "right front drive pulley @ (154.00, 126.00, 48.00)",
+            "bbox_mm": {
+              "min": [
+                148.0,
+                109.0,
+                31.0
+              ],
+              "max": [
+                160.0,
+                143.0,
+                65.0
+              ],
+              "center": [
+                154.0,
+                126.0,
+                48.0
+              ],
+              "size": [
+                12.0,
+                34.0,
+                34.0
+              ],
+              "diagonal": 49.558
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 43,
             "label": "right drive Yellow Jacket proxy y=-84",
             "instance_key": "right drive Yellow Jacket proxy y=-84 @ (120.32, -84.00, 64.00)",
             "bbox_mm": {
@@ -2434,7 +4240,46 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 20,
+            "index": 44,
+            "label": "right drive motor mount plate y=-84",
+            "instance_key": "right drive motor mount plate y=-84 @ (151.36, -84.00, 64.00)",
+            "bbox_mm": {
+              "min": [
+                148.86,
+                -112.0,
+                37.0
+              ],
+              "max": [
+                153.86,
+                -56.0,
+                91.0
+              ],
+              "center": [
+                151.36,
+                -84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
+            },
+            "color": {
+              "hex": "#6b7280",
+              "rgba": [
+                0.419608,
+                0.447059,
+                0.501961,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 45,
             "label": "right drive Yellow Jacket proxy y=84",
             "instance_key": "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
             "bbox_mm": {
@@ -2473,7 +4318,202 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 21,
+            "index": 46,
+            "label": "right drive motor mount plate y=84",
+            "instance_key": "right drive motor mount plate y=84 @ (151.36, 84.00, 64.00)",
+            "bbox_mm": {
+              "min": [
+                148.86,
+                56.0,
+                37.0
+              ],
+              "max": [
+                153.86,
+                112.0,
+                91.0
+              ],
+              "center": [
+                151.36,
+                84.0,
+                64.0
+              ],
+              "size": [
+                5.0,
+                56.0,
+                54.0
+              ],
+              "diagonal": 77.9551
+            },
+            "color": {
+              "hex": "#6b7280",
+              "rgba": [
+                0.419608,
+                0.447059,
+                0.501961,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 47,
+            "label": "right rear wheel drive belt span",
+            "instance_key": "right rear wheel drive belt span @ (154.00, -105.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                149.0,
+                -126.712,
+                46.131
+              ],
+              "max": [
+                159.0,
+                -83.288,
+                65.869
+              ],
+              "center": [
+                154.0,
+                -105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 48,
+            "label": "right center rear drive belt span",
+            "instance_key": "right center rear drive belt span @ (154.00, -42.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                149.0,
+                -84.3742,
+                46.0353
+              ],
+              "max": [
+                159.0,
+                0.3742,
+                65.9647
+              ],
+              "center": [
+                154.0,
+                -42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 49,
+            "label": "right center front drive belt span",
+            "instance_key": "right center front drive belt span @ (154.00, 42.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                149.0,
+                -0.3742,
+                46.0353
+              ],
+              "max": [
+                159.0,
+                84.3742,
+                65.9647
+              ],
+              "center": [
+                154.0,
+                42.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                84.7484,
+                19.9294
+              ],
+              "diagonal": 87.6326
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 50,
+            "label": "right front wheel drive belt span",
+            "instance_key": "right front wheel drive belt span @ (154.00, 105.00, 56.00)",
+            "bbox_mm": {
+              "min": [
+                149.0,
+                83.288,
+                46.131
+              ],
+              "max": [
+                159.0,
+                126.712,
+                65.869
+              ],
+              "center": [
+                154.0,
+                105.0,
+                56.0
+              ],
+              "size": [
+                10.0,
+                43.424,
+                19.738
+              ],
+              "diagonal": 48.7363
+            },
+            "color": {
+              "hex": "#111827",
+              "rgba": [
+                0.066667,
+                0.094118,
+                0.152941,
+                0.72
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 51,
             "label": "front intake swept volume",
             "instance_key": "front intake swept volume @ (0.00, 168.00, 102.00)",
             "bbox_mm": {
@@ -2512,7 +4552,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 22,
+            "index": 52,
             "label": "left front intake side plate",
             "instance_key": "left front intake side plate @ (-164.00, 158.00, 96.00)",
             "bbox_mm": {
@@ -2551,7 +4591,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 23,
+            "index": 53,
             "label": "right front intake side plate",
             "instance_key": "right front intake side plate @ (164.00, 158.00, 96.00)",
             "bbox_mm": {
@@ -2590,7 +4630,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 24,
+            "index": 54,
             "label": "front-facing main intake roller",
             "instance_key": "front-facing main intake roller @ (0.00, 174.00, 78.00)",
             "bbox_mm": {
@@ -2629,7 +4669,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 25,
+            "index": 55,
             "label": "intake Yellow Jacket proxy",
             "instance_key": "intake Yellow Jacket proxy @ (-124.00, 160.00, 84.00)",
             "bbox_mm": {
@@ -2668,7 +4708,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 26,
+            "index": 56,
             "label": "three artifact queue swept volume",
             "instance_key": "three artifact queue swept volume @ (0.00, -6.00, 116.00)",
             "bbox_mm": {
@@ -2707,7 +4747,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 27,
+            "index": 57,
             "label": "left three-ball queue sidewall plate",
             "instance_key": "left three-ball queue sidewall plate @ (-77.00, -6.00, 116.00)",
             "bbox_mm": {
@@ -2746,7 +4786,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 28,
+            "index": 58,
             "label": "right three-ball queue sidewall plate",
             "instance_key": "right three-ball queue sidewall plate @ (77.00, -6.00, 116.00)",
             "bbox_mm": {
@@ -2785,7 +4825,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 29,
+            "index": 59,
             "label": "sloped queue floor feeding shooter throat",
             "instance_key": "sloped queue floor feeding shooter throat @ (0.00, 40.00, 132.00)",
             "bbox_mm": {
@@ -2824,7 +4864,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 30,
+            "index": 60,
             "label": "front-facing second stage indexer wheel",
             "instance_key": "front-facing second stage indexer wheel @ (0.00, 58.00, 154.00)",
             "bbox_mm": {
@@ -2863,7 +4903,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 31,
+            "index": 61,
             "label": "indexer Yellow Jacket proxy",
             "instance_key": "indexer Yellow Jacket proxy @ (-122.00, 42.00, 154.00)",
             "bbox_mm": {
@@ -2902,7 +4942,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 32,
+            "index": 62,
             "label": "front-facing shooter ball path envelope above flywheel",
             "instance_key": "front-facing shooter ball path envelope above flywheel @ (0.00, 124.00, 318.00)",
             "bbox_mm": {
@@ -2941,7 +4981,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 33,
+            "index": 63,
             "label": "left shooter side plate with roller slots",
             "instance_key": "left shooter side plate with roller slots @ (-92.00, 124.00, 304.00)",
             "bbox_mm": {
@@ -2980,7 +5020,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 34,
+            "index": 64,
             "label": "right shooter side plate with roller slots",
             "instance_key": "right shooter side plate with roller slots @ (92.00, 124.00, 304.00)",
             "bbox_mm": {
@@ -3019,7 +5059,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 35,
+            "index": 65,
             "label": "72 mm flywheel shooter wheel",
             "instance_key": "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
             "bbox_mm": {
@@ -3058,7 +5098,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 36,
+            "index": 66,
             "label": "8 mm flywheel live shaft",
             "instance_key": "8 mm flywheel live shaft @ (0.00, 88.00, 210.00)",
             "bbox_mm": {
@@ -3097,7 +5137,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 37,
+            "index": 67,
             "label": "shooter Yellow Jacket proxy",
             "instance_key": "shooter Yellow Jacket proxy @ (-124.00, 74.00, 210.00)",
             "bbox_mm": {
@@ -3136,7 +5176,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 38,
+            "index": 68,
             "label": "lid-mounted 1 in hood roller 1",
             "instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -3175,7 +5215,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 39,
+            "index": 69,
             "label": "lid-mounted 1 in hood roller 2",
             "instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -3214,7 +5254,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 40,
+            "index": 70,
             "label": "left hood roller 1 bearing block",
             "instance_key": "left hood roller 1 bearing block @ (-92.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -3253,7 +5293,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 41,
+            "index": 71,
             "label": "right hood roller 1 bearing block",
             "instance_key": "right hood roller 1 bearing block @ (92.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -3292,7 +5332,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 42,
+            "index": 72,
             "label": "left hood roller 2 bearing block",
             "instance_key": "left hood roller 2 bearing block @ (-92.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -3331,7 +5371,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 43,
+            "index": 73,
             "label": "right hood roller 2 bearing block",
             "instance_key": "right hood roller 2 bearing block @ (92.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -3370,7 +5410,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 44,
+            "index": 74,
             "label": "shooter ball path ghost 1",
             "instance_key": "shooter ball path ghost 1 @ (0.00, 74.00, 300.00)",
             "bbox_mm": {
@@ -3409,7 +5449,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 45,
+            "index": 75,
             "label": "shooter ball path ghost 2",
             "instance_key": "shooter ball path ghost 2 @ (0.00, 116.00, 314.00)",
             "bbox_mm": {
@@ -3448,7 +5488,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 46,
+            "index": 76,
             "label": "shooter ball path ghost 3",
             "instance_key": "shooter ball path ghost 3 @ (0.00, 150.00, 334.00)",
             "bbox_mm": {
@@ -3487,7 +5527,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 47,
+            "index": 77,
             "label": "front shooter exit keepout",
             "instance_key": "front shooter exit keepout @ (0.00, 190.00, 334.00)",
             "bbox_mm": {
@@ -3526,7 +5566,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 48,
+            "index": 78,
             "label": "stored DECODE artifact 1",
             "instance_key": "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
             "bbox_mm": {
@@ -3565,7 +5605,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 49,
+            "index": 79,
             "label": "stored DECODE artifact 2",
             "instance_key": "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
             "bbox_mm": {
@@ -3604,7 +5644,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 50,
+            "index": 80,
             "label": "stored DECODE artifact 3",
             "instance_key": "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
             "bbox_mm": {
@@ -3643,7 +5683,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 51,
+            "index": 81,
             "label": "REV control hub placeholder",
             "instance_key": "REV control hub placeholder @ (54.00, -88.00, 56.00)",
             "bbox_mm": {
@@ -3682,7 +5722,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 52,
+            "index": 82,
             "label": "12V FTC battery placeholder",
             "instance_key": "12V FTC battery placeholder @ (-66.00, -92.00, 52.00)",
             "bbox_mm": {
@@ -3742,15 +5782,45 @@
           "front upper 12 mm frame standoff @ (0.00, 150.00, 116.00)",
           "removable top service plate and shooter hood bridge @ (0.00, 92.00, 397.00)",
           "left rear 96 mm drive wheel @ (-188.00, -126.00, 48.00)",
+          "left rear 8 mm axle shaft @ (-178.00, -126.00, 48.00)",
+          "left rear drive bearing block @ (-172.00, -126.00, 48.00)",
+          "left rear drive pulley @ (-154.00, -126.00, 48.00)",
           "left center 96 mm drive wheel @ (-188.00, 0.00, 48.00)",
+          "left center 8 mm axle shaft @ (-178.00, 0.00, 48.00)",
+          "left center drive bearing block @ (-172.00, 0.00, 48.00)",
+          "left center drive pulley @ (-154.00, 0.00, 48.00)",
           "left front 96 mm drive wheel @ (-188.00, 126.00, 48.00)",
+          "left front 8 mm axle shaft @ (-178.00, 126.00, 48.00)",
+          "left front drive bearing block @ (-172.00, 126.00, 48.00)",
+          "left front drive pulley @ (-154.00, 126.00, 48.00)",
           "left drive Yellow Jacket proxy y=-84 @ (-120.32, -84.00, 64.00)",
+          "left drive motor mount plate y=-84 @ (-151.36, -84.00, 64.00)",
           "left drive Yellow Jacket proxy y=84 @ (-120.32, 84.00, 64.00)",
+          "left drive motor mount plate y=84 @ (-151.36, 84.00, 64.00)",
+          "left rear wheel drive belt span @ (-154.00, -105.00, 56.00)",
+          "left center rear drive belt span @ (-154.00, -42.00, 56.00)",
+          "left center front drive belt span @ (-154.00, 42.00, 56.00)",
+          "left front wheel drive belt span @ (-154.00, 105.00, 56.00)",
           "right rear 96 mm drive wheel @ (188.00, -126.00, 48.00)",
+          "right rear 8 mm axle shaft @ (178.00, -126.00, 48.00)",
+          "right rear drive bearing block @ (172.00, -126.00, 48.00)",
+          "right rear drive pulley @ (154.00, -126.00, 48.00)",
           "right center 96 mm drive wheel @ (188.00, 0.00, 48.00)",
+          "right center 8 mm axle shaft @ (178.00, 0.00, 48.00)",
+          "right center drive bearing block @ (172.00, 0.00, 48.00)",
+          "right center drive pulley @ (154.00, 0.00, 48.00)",
           "right front 96 mm drive wheel @ (188.00, 126.00, 48.00)",
+          "right front 8 mm axle shaft @ (178.00, 126.00, 48.00)",
+          "right front drive bearing block @ (172.00, 126.00, 48.00)",
+          "right front drive pulley @ (154.00, 126.00, 48.00)",
           "right drive Yellow Jacket proxy y=-84 @ (120.32, -84.00, 64.00)",
+          "right drive motor mount plate y=-84 @ (151.36, -84.00, 64.00)",
           "right drive Yellow Jacket proxy y=84 @ (120.32, 84.00, 64.00)",
+          "right drive motor mount plate y=84 @ (151.36, 84.00, 64.00)",
+          "right rear wheel drive belt span @ (154.00, -105.00, 56.00)",
+          "right center rear drive belt span @ (154.00, -42.00, 56.00)",
+          "right center front drive belt span @ (154.00, 42.00, 56.00)",
+          "right front wheel drive belt span @ (154.00, 105.00, 56.00)",
           "front intake swept volume @ (0.00, 168.00, 102.00)",
           "left front intake side plate @ (-164.00, 158.00, 96.00)",
           "right front intake side plate @ (164.00, 158.00, 96.00)",
