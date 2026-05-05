@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from math import atan2, degrees, sqrt
+
 from build123d import Compound
 
 from synthcad.library.crayon import (
@@ -54,6 +56,10 @@ DRIVE_WHEEL_X_MM = 188.0
 DRIVE_WHEEL_Y_POSITIONS_MM = (-126.0, 0.0, 126.0)
 DRIVE_WHEEL_CENTER_Z_MM = DRIVE_WHEEL_RADIUS_MM
 DRIVE_WHEEL_COUNT = 6
+DRIVE_SHAFT_DIAMETER_MM = 8.0
+DRIVE_PULLEY_DIAMETER_MM = 34.0
+DRIVE_BELT_WIDTH_MM = 10.0
+DRIVE_BELT_THICKNESS_MM = 4.0
 
 INTAKE_ROLLER_DIAMETER_MM = 38.0
 INTAKE_ROLLER_WIDTH_MM = 310.0
@@ -82,6 +88,33 @@ SHOOTER_BALL_PATH_CENTERS_MM = (
 )
 
 FRONT_DIRECTION = (0.0, 1.0, 0.0)
+
+
+def _yz_span_box(
+    label: str,
+    x: float,
+    start_yz: tuple[float, float],
+    end_yz: tuple[float, float],
+    *,
+    width_x: float,
+    thickness_z: float,
+    color: str,
+    alpha: float = 1.0,
+    intent: CrayonIntent | None = None,
+):
+    start_y, start_z = start_yz
+    end_y, end_z = end_yz
+    delta_y = end_y - start_y
+    delta_z = end_z - start_z
+    return crayon_box(
+        label,
+        (x, (start_y + end_y) / 2, (start_z + end_z) / 2),
+        (width_x, sqrt(delta_y**2 + delta_z**2), thickness_z),
+        color,
+        alpha=alpha,
+        rotation=(degrees(atan2(delta_z, delta_y)), 0.0, 0.0),
+        intent=intent,
+    )
 
 
 def _frame_children():
@@ -193,6 +226,12 @@ def _drive_children():
         ("left", -DRIVE_WHEEL_X_MM, -1),
         ("right", DRIVE_WHEEL_X_MM, 1),
     ):
+        plate_x = 172.0 * shaft_direction
+        pulley_x = 154.0 * shaft_direction
+        belt_intent = CrayonIntent(
+            interfaces=("Yellow Jacket shaft pulley", "drive wheel pulley"),
+            refine_with=("HTD belt", "pulley tooth counts", "tensioner slot"),
+        )
         for position_label, y in (("rear", -126.0), ("center", 0.0), ("front", 126.0)):
             children.append(
                 crayon_cylinder(
@@ -205,6 +244,46 @@ def _drive_children():
                     intent=CrayonIntent(
                         interfaces=("wheel axle", "side rail bearing line"),
                         refine_with=("96 mm FTC traction wheel STEP", "bearings", "spacers"),
+                    ),
+                )
+            )
+            children.append(
+                crayon_cylinder(
+                    f"{side_label} {position_label} 8 mm axle shaft",
+                    (178.0 * shaft_direction, y, DRIVE_WHEEL_CENTER_Z_MM),
+                    radius=DRIVE_SHAFT_DIAMETER_MM / 2,
+                    length=44.0,
+                    axis="x",
+                    color="#d1d5db",
+                    intent=CrayonIntent(
+                        interfaces=("96 mm wheel", "side plate bearing", "drive pulley"),
+                        refine_with=("8 mm REX shaft", "bearings", "shaft collars"),
+                    ),
+                )
+            )
+            children.append(
+                crayon_box(
+                    f"{side_label} {position_label} drive bearing block",
+                    (plate_x, y, DRIVE_WHEEL_CENTER_Z_MM),
+                    (14.0, 24.0, 24.0),
+                    "#64748b",
+                    intent=CrayonIntent(
+                        interfaces=("side plate", "8 mm drive axle"),
+                        refine_with=("flanged bearing", "bolt pattern", "spacer stack"),
+                    ),
+                )
+            )
+            children.append(
+                crayon_cylinder(
+                    f"{side_label} {position_label} drive pulley",
+                    (pulley_x, y, DRIVE_WHEEL_CENTER_Z_MM),
+                    radius=DRIVE_PULLEY_DIAMETER_MM / 2,
+                    length=12.0,
+                    axis="x",
+                    color="#111827",
+                    intent=CrayonIntent(
+                        interfaces=("8 mm axle", "drive belt"),
+                        refine_with=("HTD pulley STEP", "set screws", "belt clearance"),
                     ),
                 )
             )
@@ -222,6 +301,69 @@ def _drive_children():
                     ),
                 )
             )
+            children.append(
+                crayon_box(
+                    f"{side_label} drive motor mount plate y={y:g}",
+                    (plate_x * 0.88, y, 64.0),
+                    (5.0, 56.0, 54.0),
+                    "#6b7280",
+                    intent=CrayonIntent(
+                        interfaces=("Yellow Jacket gearbox face", "side plate", "belt tension slots"),
+                        refine_with=("motor bolt circle", "slotted adjustment", "pulley guard"),
+                    ),
+                )
+            )
+
+        motor_rear_yz = (-84.0, 64.0)
+        motor_front_yz = (84.0, 64.0)
+        children.extend(
+            [
+                _yz_span_box(
+                    f"{side_label} rear wheel drive belt span",
+                    pulley_x,
+                    motor_rear_yz,
+                    (-126.0, DRIVE_WHEEL_CENTER_Z_MM),
+                    width_x=DRIVE_BELT_WIDTH_MM,
+                    thickness_z=DRIVE_BELT_THICKNESS_MM,
+                    color="#111827",
+                    alpha=0.72,
+                    intent=belt_intent,
+                ),
+                _yz_span_box(
+                    f"{side_label} center rear drive belt span",
+                    pulley_x,
+                    motor_rear_yz,
+                    (0.0, DRIVE_WHEEL_CENTER_Z_MM),
+                    width_x=DRIVE_BELT_WIDTH_MM,
+                    thickness_z=DRIVE_BELT_THICKNESS_MM,
+                    color="#111827",
+                    alpha=0.72,
+                    intent=belt_intent,
+                ),
+                _yz_span_box(
+                    f"{side_label} center front drive belt span",
+                    pulley_x,
+                    motor_front_yz,
+                    (0.0, DRIVE_WHEEL_CENTER_Z_MM),
+                    width_x=DRIVE_BELT_WIDTH_MM,
+                    thickness_z=DRIVE_BELT_THICKNESS_MM,
+                    color="#111827",
+                    alpha=0.72,
+                    intent=belt_intent,
+                ),
+                _yz_span_box(
+                    f"{side_label} front wheel drive belt span",
+                    pulley_x,
+                    motor_front_yz,
+                    (126.0, DRIVE_WHEEL_CENTER_Z_MM),
+                    width_x=DRIVE_BELT_WIDTH_MM,
+                    thickness_z=DRIVE_BELT_THICKNESS_MM,
+                    color="#111827",
+                    alpha=0.72,
+                    intent=belt_intent,
+                ),
+            ]
+        )
     return children
 
 

@@ -147,6 +147,9 @@ def test_demo_ftc_robot_has_structural_crayon_parts() -> None:
     required_tokens = (
         "flat drivetrain side plate",
         "frame standoff",
+        "drive bearing block",
+        "drive pulley",
+        "drive belt span",
         "front intake side plate",
         "queue sidewall plate",
         "shooter side plate",

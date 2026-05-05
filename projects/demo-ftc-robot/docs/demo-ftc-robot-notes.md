@@ -41,6 +41,8 @@ the repo grows a general FTC parts library with a broader ownership boundary.
 - Structure: flat drivetrain side plates, frame standoffs, intake side plates,
   queue sidewall plates, shooter side plates, and a sloped queue floor are
   modeled as separate crayon parts so the architecture is mechanically legible.
+- Drive transmission: each wheel now has an 8 mm axle, bearing block, planning
+  pulley, and visible belt spans from the paired Yellow Jacket motor locations.
 - Motor proxies: low-resolution Yellow Jacket sized envelopes; replace with
   vendor STEP files before detailed packaging decisions.
 
