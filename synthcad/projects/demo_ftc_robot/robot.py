@@ -65,6 +65,9 @@ INTAKE_ROLLER_DIAMETER_MM = 38.0
 INTAKE_ROLLER_WIDTH_MM = 310.0
 INTAKE_ROLLER_CENTER_MM = (0.0, 174.0, 78.0)
 INTAKE_SIDE_PLATE_X_MM = 164.0
+INTAKE_COMPLIANT_WHEEL_DIAMETER_MM = 60.0
+INTAKE_COMPLIANT_WHEEL_WIDTH_MM = 18.0
+INTAKE_COMPLIANT_WHEEL_X_POSITIONS_MM = (-120.0, -72.0, -24.0, 24.0, 72.0, 120.0)
 INDEXER_ROLLER_DIAMETER_MM = 25.4
 INDEXER_ROLLER_WIDTH_MM = 160.0
 INDEXER_ROLLER_CENTER_MM = (0.0, 58.0, 154.0)
@@ -405,6 +408,18 @@ def _intake_and_indexer_children():
             intent=intake_side_plate_intent,
         ),
         crayon_cylinder(
+            "front intake 8 mm roller shaft",
+            INTAKE_ROLLER_CENTER_MM,
+            radius=4.0,
+            length=326.0,
+            axis="x",
+            color="#d1d5db",
+            intent=CrayonIntent(
+                interfaces=("intake side plate bearings", "compliant wheel stack", "intake pulley"),
+                refine_with=("8 mm REX shaft", "spacers", "shaft collars"),
+            ),
+        ),
+        crayon_cylinder(
             "front-facing main intake roller",
             INTAKE_ROLLER_CENTER_MM,
             radius=INTAKE_ROLLER_DIAMETER_MM / 2,
@@ -414,6 +429,60 @@ def _intake_and_indexer_children():
             intent=CrayonIntent(
                 interfaces=("front artifact contact line", "intake motor belt path"),
                 refine_with=("roller tube", "bearings", "compliant wheel stack"),
+            ),
+        ),
+        *[
+            crayon_cylinder(
+                f"front intake compliant wheel {index}",
+                (x, INTAKE_ROLLER_CENTER_MM[1], INTAKE_ROLLER_CENTER_MM[2]),
+                radius=INTAKE_COMPLIANT_WHEEL_DIAMETER_MM / 2,
+                length=INTAKE_COMPLIANT_WHEEL_WIDTH_MM,
+                axis="x",
+                color="#60a5fa",
+                intent=CrayonIntent(
+                    interfaces=("front intake shaft", "artifact contact patch"),
+                    refine_with=("FTC compliant wheel STEP", "spacers", "durometer choice"),
+                ),
+            )
+            for index, x in enumerate(INTAKE_COMPLIANT_WHEEL_X_POSITIONS_MM, start=1)
+        ],
+        *[
+            crayon_box(
+                f"{side} front intake bearing block",
+                (x, INTAKE_ROLLER_CENTER_MM[1], INTAKE_ROLLER_CENTER_MM[2]),
+                (14.0, 24.0, 28.0),
+                "#60a5fa",
+                intent=CrayonIntent(
+                    interfaces=("front intake side plate", "intake shaft"),
+                    refine_with=("flanged bearing", "bolt pattern", "guard clearance"),
+                ),
+            )
+            for side, x in (("left", -INTAKE_SIDE_PLATE_X_MM), ("right", INTAKE_SIDE_PLATE_X_MM))
+        ],
+        crayon_cylinder(
+            "front intake pulley",
+            (-145.0, INTAKE_ROLLER_CENTER_MM[1], INTAKE_ROLLER_CENTER_MM[2]),
+            radius=18.0,
+            length=12.0,
+            axis="x",
+            color="#111827",
+            intent=CrayonIntent(
+                interfaces=("intake shaft", "intake belt"),
+                refine_with=("HTD pulley STEP", "set screws", "belt guard"),
+            ),
+        ),
+        _yz_span_box(
+            "intake belt span",
+            -145.0,
+            (160.0, 84.0),
+            (INTAKE_ROLLER_CENTER_MM[1], INTAKE_ROLLER_CENTER_MM[2]),
+            width_x=10.0,
+            thickness_z=4.0,
+            color="#111827",
+            alpha=0.72,
+            intent=CrayonIntent(
+                interfaces=("intake motor pulley", "intake roller pulley"),
+                refine_with=("belt path", "tensioner slot", "guard"),
             ),
         ),
         make_yellowjacket_motor_proxy(
@@ -475,6 +544,54 @@ def _intake_and_indexer_children():
             intent=CrayonIntent(
                 interfaces=("queued artifact release", "flywheel throat"),
                 refine_with=("1 in roller", "bearing blocks", "timing pulley"),
+            ),
+        ),
+        crayon_cylinder(
+            "second stage indexer 8 mm shaft",
+            INDEXER_ROLLER_CENTER_MM,
+            radius=4.0,
+            length=176.0,
+            axis="x",
+            color="#d1d5db",
+            intent=CrayonIntent(
+                interfaces=("queue sidewall bearings", "indexer roller", "indexer pulley"),
+                refine_with=("8 mm shaft", "bearings", "shaft collars"),
+            ),
+        ),
+        *[
+            crayon_box(
+                f"{side} second stage indexer bearing block",
+                (x, INDEXER_ROLLER_CENTER_MM[1], INDEXER_ROLLER_CENTER_MM[2]),
+                (14.0, 22.0, 28.0),
+                CRAYON_INDEXER,
+                intent=CrayonIntent(
+                    interfaces=("queue sidewall plate", "indexer shaft"),
+                    refine_with=("flanged bearing", "slot for compression", "fasteners"),
+                ),
+            )
+            for side, x in (("left", -88.0), ("right", 88.0))
+        ],
+        crayon_cylinder(
+            "second stage indexer pulley",
+            (-88.0, INDEXER_ROLLER_CENTER_MM[1], INDEXER_ROLLER_CENTER_MM[2]),
+            radius=16.0,
+            length=12.0,
+            axis="x",
+            color="#111827",
+            intent=CrayonIntent(
+                interfaces=("indexer shaft", "indexer belt"),
+                refine_with=("HTD pulley STEP", "belt guard", "spacer stack"),
+            ),
+        ),
+        crayon_box(
+            "indexer belt span",
+            (-105.0, 50.0, 154.0),
+            (42.0, 8.0, 5.0),
+            "#111827",
+            alpha=0.72,
+            intent=CrayonIntent(
+                interfaces=("indexer motor pulley", "second stage indexer pulley"),
+                refine_with=("belt path", "tension slot", "guarding"),
             ),
         ),
         make_yellowjacket_motor_proxy(

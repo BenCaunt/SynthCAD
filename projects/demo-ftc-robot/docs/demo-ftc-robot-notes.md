@@ -38,6 +38,9 @@ the repo grows a general FTC parts library with a broader ownership boundary.
   and shooter hood bridge. It ties into the shooter side plates and locates the
   hood roller bearing blocks; it is not intended to represent a full robot lid.
 - Indexing: main intake roller plus a second 1 in roller before the flywheel.
+- Intake/indexer detail: the intake roller now includes an 8 mm shaft,
+  compliant wheel stack, bearing blocks, pulley, and belt span. The second
+  stage indexer has a shaft, sidewall bearing blocks, pulley, and belt span.
 - Structure: flat drivetrain side plates, frame standoffs, intake side plates,
   queue sidewall plates, shooter side plates, and a sloped queue floor are
   modeled as separate crayon parts so the architecture is mechanically legible.
