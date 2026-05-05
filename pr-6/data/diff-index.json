@@ -1,6 +1,6 @@
 {
   "base_ref": "50cc8c6e65051c70cf7ecb9be8ab6dacc433294c",
-  "head_ref": "655f2936ae4db19baec100ed522f650d5254d9e0",
+  "head_ref": "a02d9e6804c7141e04dc4132e399b397f42d2fa9",
   "default_assembly": "demo-ftc-robot",
   "assemblies": [
     {
