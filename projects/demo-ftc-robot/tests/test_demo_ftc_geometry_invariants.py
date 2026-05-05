@@ -158,6 +158,9 @@ def test_demo_ftc_robot_has_structural_crayon_parts() -> None:
         "indexer belt span",
         "shooter side plate",
         "flywheel live shaft",
+        "flywheel bearing block",
+        "curved hood rail",
+        "compression slot reference",
         "top service plate",
     )
 

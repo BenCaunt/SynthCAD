@@ -616,6 +616,10 @@ def _shooter_children():
         interfaces=("hood roller axle", "shooter side plate"),
         refine_with=("bearing block", "slotted compression adjustment", "fasteners"),
     )
+    hood_rail_intent = CrayonIntent(
+        interfaces=("ball path", "hood roller compression line", "shooter side plate"),
+        refine_with=("polycarbonate hood rail", "adjustable slots", "spacers"),
+    )
     return [
         crayon_box(
             "front-facing shooter ball path envelope above flywheel",
@@ -644,6 +648,19 @@ def _shooter_children():
             alpha=0.78,
             intent=side_plate_intent,
         ),
+        *[
+            crayon_box(
+                f"{side} flywheel bearing block",
+                (x, FLYWHEEL_CENTER_MM[1], FLYWHEEL_CENTER_MM[2]),
+                (16.0, 30.0, 34.0),
+                "#fb923c",
+                intent=CrayonIntent(
+                    interfaces=("shooter side plate", "flywheel shaft"),
+                    refine_with=("flanged bearing", "shaft collar clearance", "fasteners"),
+                ),
+            )
+            for side, x in (("left", -92.0), ("right", 92.0))
+        ],
         crayon_cylinder(
             "72 mm flywheel shooter wheel",
             FLYWHEEL_CENTER_MM,
@@ -702,6 +719,49 @@ def _shooter_children():
                 intent=bearing_block_intent,
             )
             for index, center in enumerate(HOOD_ROLLER_CENTERS_MM, start=1)
+            for side, x in (("left", -92.0), ("right", 92.0))
+        ],
+        *[
+            _yz_span_box(
+                f"{side} curved hood rail lower segment",
+                x,
+                (70.0, 330.0),
+                (HOOD_ROLLER_CENTERS_MM[0][1], HOOD_ROLLER_CENTERS_MM[0][2]),
+                width_x=5.0,
+                thickness_z=6.0,
+                color="#fb923c",
+                alpha=0.86,
+                intent=hood_rail_intent,
+            )
+            for side, x in (("left", -78.0), ("right", 78.0))
+        ],
+        *[
+            _yz_span_box(
+                f"{side} curved hood rail upper segment",
+                x,
+                (HOOD_ROLLER_CENTERS_MM[0][1], HOOD_ROLLER_CENTERS_MM[0][2]),
+                (HOOD_ROLLER_CENTERS_MM[1][1], HOOD_ROLLER_CENTERS_MM[1][2]),
+                width_x=5.0,
+                thickness_z=6.0,
+                color="#fb923c",
+                alpha=0.86,
+                intent=hood_rail_intent,
+            )
+            for side, x in (("left", -78.0), ("right", 78.0))
+        ],
+        *[
+            crayon_box(
+                f"{side} shooter compression slot reference",
+                (x, 122.0, 374.0),
+                (6.0, 64.0, 10.0),
+                "#fed7aa",
+                alpha=0.74,
+                rotation=(15.0, 0.0, 0.0),
+                intent=CrayonIntent(
+                    interfaces=("hood roller bearing blocks", "shooter side plate"),
+                    refine_with=("slotted adjustment", "calibrated compression marks", "fasteners"),
+                ),
+            )
             for side, x in (("left", -92.0), ("right", 92.0))
         ],
         *[

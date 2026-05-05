@@ -37,6 +37,9 @@ the repo grows a general FTC parts library with a broader ownership boundary.
 - Hood/top structure: the top plate is now modeled as a removable service plate
   and shooter hood bridge. It ties into the shooter side plates and locates the
   hood roller bearing blocks; it is not intended to represent a full robot lid.
+- Shooter structure: flywheel bearing blocks, hood roller bearing blocks,
+  curved hood rail segments, and compression slot references show how the
+  ball path would be constrained and adjusted.
 - Indexing: main intake roller plus a second 1 in roller before the flywheel.
 - Intake/indexer detail: the intake roller now includes an 8 mm shaft,
   compliant wheel stack, bearing blocks, pulley, and belt span. The second
