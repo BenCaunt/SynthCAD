@@ -32,9 +32,15 @@ the repo grows a general FTC parts library with a broader ownership boundary.
 - Drivetrain: six 96 mm wheels, three per side.
 - Intake direction: front of robot, +Y.
 - Shooter direction: front of robot, +Y.
-- Shooter: 72 mm flywheel with two 1 in diameter hood rollers mounted on the
-  top lid.
+- Shooter: 72 mm flywheel at the lower contact point, with the ball path above
+  the flywheel and two 1 in diameter hood rollers above the ball path.
+- Hood/top structure: the top plate is now modeled as a removable service plate
+  and shooter hood bridge. It ties into the shooter side plates and locates the
+  hood roller bearing blocks; it is not intended to represent a full robot lid.
 - Indexing: main intake roller plus a second 1 in roller before the flywheel.
+- Structure: flat drivetrain side plates, frame standoffs, intake side plates,
+  queue sidewall plates, shooter side plates, and a sloped queue floor are
+  modeled as separate crayon parts so the architecture is mechanically legible.
 - Motor proxies: low-resolution Yellow Jacket sized envelopes; replace with
   vendor STEP files before detailed packaging decisions.
 
@@ -46,7 +52,9 @@ the repo grows a general FTC parts library with a broader ownership boundary.
   STEP references.
 - Turn the frame blockout into plates, channel, bearing blocks, and fastener
   patterns.
-- Add ball compression studies for the intake, indexer, flywheel, and hood.
+- Add ball compression studies for the intake, indexer, flywheel, and hood;
+  the current shooter path captures approximate flywheel and hood roller
+  compression but not dynamic ball deformation.
 - Add service access for battery changes, hub USB access, and belt tensioning.
 
 ## Inspection Notes

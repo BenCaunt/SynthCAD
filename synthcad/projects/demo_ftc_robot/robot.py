@@ -43,6 +43,9 @@ FRAME_LENGTH_MM = 382.0
 FRAME_WIDTH_MM = 360.0
 FRAME_RAIL_THICKNESS_MM = 18.0
 FRAME_RAIL_HEIGHT_MM = 34.0
+FRAME_PLATE_THICKNESS_MM = 4.0
+FRAME_SIDE_PLATE_HEIGHT_MM = 92.0
+FRAME_STANDOFF_DIAMETER_MM = 12.0
 
 DRIVE_WHEEL_DIAMETER_MM = 96.0
 DRIVE_WHEEL_RADIUS_MM = DRIVE_WHEEL_DIAMETER_MM / 2
@@ -55,18 +58,27 @@ DRIVE_WHEEL_COUNT = 6
 INTAKE_ROLLER_DIAMETER_MM = 38.0
 INTAKE_ROLLER_WIDTH_MM = 310.0
 INTAKE_ROLLER_CENTER_MM = (0.0, 174.0, 78.0)
+INTAKE_SIDE_PLATE_X_MM = 164.0
 INDEXER_ROLLER_DIAMETER_MM = 25.4
 INDEXER_ROLLER_WIDTH_MM = 160.0
 INDEXER_ROLLER_CENTER_MM = (0.0, 58.0, 154.0)
+QUEUE_SIDEWALL_X_MM = 77.0
 
 FLYWHEEL_DIAMETER_MM = 72.0
 FLYWHEEL_WIDTH_MM = 42.0
-FLYWHEEL_CENTER_MM = (0.0, 126.0, 236.0)
+FLYWHEEL_CENTER_MM = (0.0, 88.0, 210.0)
+FLYWHEEL_COMPRESSION_MM = 8.0
 HOOD_ROLLER_DIAMETER_MM = 25.4
 HOOD_ROLLER_WIDTH_MM = 170.0
+HOOD_ROLLER_COMPRESSION_MM = 4.8
 HOOD_ROLLER_CENTERS_MM = (
-    (0.0, 132.0, 286.0),
-    (0.0, 172.0, 312.0),
+    (0.0, 96.0, 368.0),
+    (0.0, 140.0, 381.0),
+)
+SHOOTER_BALL_PATH_CENTERS_MM = (
+    (0.0, 74.0, 300.0),
+    (0.0, 116.0, 314.0),
+    (0.0, 150.0, 334.0),
 )
 
 FRONT_DIRECTION = (0.0, 1.0, 0.0)
@@ -121,14 +133,55 @@ def _frame_children():
             ),
         ),
         crayon_box(
-            "top lid and hood roller mounting plate",
-            (0.0, 22.0, 326.0),
-            (316.0, 332.0, 6.0),
+            "left flat drivetrain side plate",
+            (-172.0, 0.0, 84.0),
+            (FRAME_PLATE_THICKNESS_MM, 344.0, FRAME_SIDE_PLATE_HEIGHT_MM),
             CRAYON_FRAME,
-            alpha=0.5,
+            alpha=0.82,
             intent=CrayonIntent(
-                interfaces=("1 in hood roller axles", "shooter hood", "service access"),
-                refine_with=("removable lid", "bearing pockets", "fasteners"),
+                interfaces=("drive bearing line", "Yellow Jacket motor mounts", "front intake plate"),
+                refine_with=("waterjet side plate", "bearing holes", "motor slots"),
+            ),
+        ),
+        crayon_box(
+            "right flat drivetrain side plate",
+            (172.0, 0.0, 84.0),
+            (FRAME_PLATE_THICKNESS_MM, 344.0, FRAME_SIDE_PLATE_HEIGHT_MM),
+            CRAYON_FRAME,
+            alpha=0.82,
+            intent=CrayonIntent(
+                interfaces=("drive bearing line", "Yellow Jacket motor mounts", "front intake plate"),
+                refine_with=("waterjet side plate", "bearing holes", "motor slots"),
+            ),
+        ),
+        *[
+            crayon_cylinder(
+                f"{label} 12 mm frame standoff",
+                (0.0, y, z),
+                radius=FRAME_STANDOFF_DIAMETER_MM / 2,
+                length=326.0,
+                axis="x",
+                color="#94a3b8",
+                intent=CrayonIntent(
+                    interfaces=("left side plate", "right side plate"),
+                    refine_with=("threaded standoff", "spacers", "through bolts"),
+                ),
+            )
+            for label, y, z in (
+                ("rear upper", -150.0, 116.0),
+                ("center lower", -12.0, 72.0),
+                ("front upper", 150.0, 116.0),
+            )
+        ],
+        crayon_box(
+            "removable top service plate and shooter hood bridge",
+            (0.0, 92.0, 397.0),
+            (260.0, 214.0, 5.0),
+            CRAYON_FRAME,
+            alpha=0.58,
+            intent=CrayonIntent(
+                interfaces=("1 in hood roller axles", "shooter side plates", "service access"),
+                refine_with=("removable top plate", "bearing pockets", "fastener pattern"),
             ),
         ),
     ]
@@ -173,6 +226,14 @@ def _drive_children():
 
 
 def _intake_and_indexer_children():
+    intake_side_plate_intent = CrayonIntent(
+        interfaces=("front frame cross rail", "intake roller axle", "artifact side guidance"),
+        refine_with=("polycarbonate side plates", "bearing blocks", "belt guard"),
+    )
+    queue_sidewall_intent = CrayonIntent(
+        interfaces=("3 artifact queue", "indexer roller axle", "shooter feed throat"),
+        refine_with=("polycarbonate sidewalls", "low-friction liners", "anti-jam relief"),
+    )
     return [
         crayon_box(
             "front intake swept volume",
@@ -184,6 +245,22 @@ def _intake_and_indexer_children():
                 interfaces=("front frame cross rail", "artifact handoff to storage queue"),
                 refine_with=("intake side plates", "compliant wheels", "belt path"),
             ),
+        ),
+        crayon_box(
+            "left front intake side plate",
+            (-INTAKE_SIDE_PLATE_X_MM, 158.0, 96.0),
+            (5.0, 88.0, 100.0),
+            CRAYON_INTAKE,
+            alpha=0.75,
+            intent=intake_side_plate_intent,
+        ),
+        crayon_box(
+            "right front intake side plate",
+            (INTAKE_SIDE_PLATE_X_MM, 158.0, 96.0),
+            (5.0, 88.0, 100.0),
+            CRAYON_INTAKE,
+            alpha=0.75,
+            intent=intake_side_plate_intent,
         ),
         crayon_cylinder(
             "front-facing main intake roller",
@@ -208,7 +285,7 @@ def _intake_and_indexer_children():
             ),
         ),
         crayon_box(
-            "three artifact queue channel",
+            "three artifact queue swept volume",
             (0.0, -6.0, 116.0),
             (146.0, 342.0, 132.0),
             CRAYON_INDEXER,
@@ -216,6 +293,34 @@ def _intake_and_indexer_children():
             intent=CrayonIntent(
                 interfaces=("3 artifact capacity", "main intake handoff", "shooter feed wheel"),
                 refine_with=("sidewalls", "polycarbonate guides", "anti-jam clearances"),
+            ),
+        ),
+        crayon_box(
+            "left three-ball queue sidewall plate",
+            (-QUEUE_SIDEWALL_X_MM, -6.0, 116.0),
+            (5.0, 342.0, 132.0),
+            CRAYON_INDEXER,
+            alpha=0.78,
+            intent=queue_sidewall_intent,
+        ),
+        crayon_box(
+            "right three-ball queue sidewall plate",
+            (QUEUE_SIDEWALL_X_MM, -6.0, 116.0),
+            (5.0, 342.0, 132.0),
+            CRAYON_INDEXER,
+            alpha=0.78,
+            intent=queue_sidewall_intent,
+        ),
+        crayon_box(
+            "sloped queue floor feeding shooter throat",
+            (0.0, 40.0, 132.0),
+            (138.0, 184.0, 5.0),
+            CRAYON_INDEXER,
+            alpha=0.72,
+            rotation=(-14.0, 0.0, 0.0),
+            intent=CrayonIntent(
+                interfaces=("stored artifacts", "second stage indexer", "flywheel throat"),
+                refine_with=("polycarbonate ramp", "low-friction tape", "clearance slots"),
             ),
         ),
         crayon_cylinder(
@@ -244,17 +349,41 @@ def _intake_and_indexer_children():
 
 
 def _shooter_children():
+    side_plate_intent = CrayonIntent(
+        interfaces=("flywheel shaft", "hood roller axles", "top service plate"),
+        refine_with=("shooter side plates", "bearing holes", "compression slots"),
+    )
+    bearing_block_intent = CrayonIntent(
+        interfaces=("hood roller axle", "shooter side plate"),
+        refine_with=("bearing block", "slotted compression adjustment", "fasteners"),
+    )
     return [
         crayon_box(
-            "front-facing shooter throat envelope",
-            (0.0, 148.0, 252.0),
-            (154.0, 94.0, 88.0),
+            "front-facing shooter ball path envelope above flywheel",
+            (0.0, 124.0, 318.0),
+            (154.0, 154.0, 128.0),
             CRAYON_SHOOTER,
-            alpha=0.3,
+            alpha=0.22,
             intent=CrayonIntent(
-                interfaces=("artifact feed tangent", "front shot exit", "hood roller path"),
+                interfaces=("artifact feed tangent", "front shot exit", "hood roller contact path"),
                 refine_with=("hood plates", "flywheel guard", "compression tuning"),
             ),
+        ),
+        crayon_box(
+            "left shooter side plate with roller slots",
+            (-92.0, 124.0, 304.0),
+            (5.0, 164.0, 162.0),
+            CRAYON_SHOOTER,
+            alpha=0.78,
+            intent=side_plate_intent,
+        ),
+        crayon_box(
+            "right shooter side plate with roller slots",
+            (92.0, 124.0, 304.0),
+            (5.0, 164.0, 162.0),
+            CRAYON_SHOOTER,
+            alpha=0.78,
+            intent=side_plate_intent,
         ),
         crayon_cylinder(
             "72 mm flywheel shooter wheel",
@@ -268,9 +397,21 @@ def _shooter_children():
                 refine_with=("72 mm flywheel STEP", "shaft", "bearings", "spacers"),
             ),
         ),
+        crayon_cylinder(
+            "8 mm flywheel live shaft",
+            FLYWHEEL_CENTER_MM,
+            radius=4.0,
+            length=194.0,
+            axis="x",
+            color="#d1d5db",
+            intent=CrayonIntent(
+                interfaces=("flywheel", "shooter side plate bearings", "motor coupling"),
+                refine_with=("8 mm REX shaft", "bearings", "shaft collars"),
+            ),
+        ),
         make_yellowjacket_motor_proxy(
             "shooter Yellow Jacket proxy",
-            (-124.0, 112.0, 236.0),
+            (-124.0, 74.0, 210.0),
             axis="x",
             shaft_direction=1,
             intent=CrayonIntent(
@@ -293,10 +434,35 @@ def _shooter_children():
             )
             for index, center in enumerate(HOOD_ROLLER_CENTERS_MM, start=1)
         ],
+        *[
+            crayon_box(
+                f"{side} hood roller {index} bearing block",
+                (x, center[1], center[2]),
+                (14.0, 24.0, 30.0),
+                "#fb923c",
+                intent=bearing_block_intent,
+            )
+            for index, center in enumerate(HOOD_ROLLER_CENTERS_MM, start=1)
+            for side, x in (("left", -92.0), ("right", 92.0))
+        ],
+        *[
+            crayon_sphere(
+                f"shooter ball path ghost {index}",
+                center,
+                radius=ARTIFACT_RADIUS_MM,
+                color=CRAYON_KEEP_OUT,
+                alpha=0.18,
+                intent=CrayonIntent(
+                    interfaces=("flywheel compression path", "hood roller compression path"),
+                    refine_with=("dynamic shot simulation", "compression tuning", "exit angle"),
+                ),
+            )
+            for index, center in enumerate(SHOOTER_BALL_PATH_CENTERS_MM, start=1)
+        ],
         crayon_box(
             "front shooter exit keepout",
-            (0.0, 184.0, 252.0),
-            (136.0, 34.0, 62.0),
+            (0.0, 190.0, 334.0),
+            (136.0, 30.0, 72.0),
             CRAYON_KEEP_OUT,
             alpha=0.24,
             intent=CrayonIntent(

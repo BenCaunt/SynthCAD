@@ -19,12 +19,15 @@ from synthcad.projects.demo_ftc_robot.robot import (
     DRIVE_WHEEL_WIDTH_MM,
     FLYWHEEL_DIAMETER_MM,
     FLYWHEEL_CENTER_MM,
+    FLYWHEEL_COMPRESSION_MM,
     FRONT_DIRECTION,
     FTC_STARTING_CUBE_MM,
+    HOOD_ROLLER_COMPRESSION_MM,
     HOOD_ROLLER_DIAMETER_MM,
     HOOD_ROLLER_CENTERS_MM,
     INTAKE_ROLLER_CENTER_MM,
     INDEXER_ROLLER_CENTER_MM,
+    SHOOTER_BALL_PATH_CENTERS_MM,
     TARGET_ENVELOPE_MM,
     make_demo_ftc_robot,
 )
@@ -38,6 +41,10 @@ def _children():
 def _children_matching(token: str):
     token = token.lower()
     return [child for child in _children() if token in child.label.lower()]
+
+
+def _yz_distance(first: tuple[float, float, float], second: tuple[float, float, float]) -> float:
+    return ((first[1] - second[1]) ** 2 + (first[2] - second[2]) ** 2) ** 0.5
 
 
 def test_demo_ftc_robot_fits_requested_16_in_concept_envelope() -> None:
@@ -97,6 +104,59 @@ def test_intake_indexer_and_shooter_point_toward_robot_front() -> None:
             HOOD_ROLLER_DIAMETER_MM,
             abs=0.1,
         )
+
+
+def test_shooter_path_places_ball_above_flywheel_under_hood_rollers() -> None:
+    flywheel_contact_center = SHOOTER_BALL_PATH_CENTERS_MM[0]
+    hood_contact_centers = SHOOTER_BALL_PATH_CENTERS_MM[:2]
+
+    assert all(center[2] > FLYWHEEL_CENTER_MM[2] for center in SHOOTER_BALL_PATH_CENTERS_MM)
+    assert all(roller[2] > center[2] for roller, center in zip(
+        HOOD_ROLLER_CENTERS_MM,
+        hood_contact_centers,
+        strict=True,
+    ))
+
+    flywheel_contact_distance = (
+        ARTIFACT_DIAMETER_MM / 2
+        + FLYWHEEL_DIAMETER_MM / 2
+        - FLYWHEEL_COMPRESSION_MM
+    )
+    hood_contact_distance = (
+        ARTIFACT_DIAMETER_MM / 2
+        + HOOD_ROLLER_DIAMETER_MM / 2
+        - HOOD_ROLLER_COMPRESSION_MM
+    )
+
+    assert _yz_distance(FLYWHEEL_CENTER_MM, flywheel_contact_center) == pytest.approx(
+        flywheel_contact_distance,
+        abs=1.0,
+    )
+    for roller_center, ball_center in zip(
+        HOOD_ROLLER_CENTERS_MM,
+        hood_contact_centers,
+        strict=True,
+    ):
+        assert _yz_distance(roller_center, ball_center) == pytest.approx(
+            hood_contact_distance,
+            abs=1.5,
+        )
+
+
+def test_demo_ftc_robot_has_structural_crayon_parts() -> None:
+    required_tokens = (
+        "flat drivetrain side plate",
+        "frame standoff",
+        "front intake side plate",
+        "queue sidewall plate",
+        "shooter side plate",
+        "flywheel live shaft",
+        "top service plate",
+    )
+
+    labels = [child.label.lower() for child in _children()]
+    for token in required_tokens:
+        assert any(token in label for label in labels), f"missing structural token {token!r}"
 
 
 def test_yellowjacket_proxy_is_project_owned_not_shared_crayon_library() -> None:
