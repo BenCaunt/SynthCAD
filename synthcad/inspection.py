@@ -244,6 +244,7 @@ def render_quick_detail_svg(
                 "hull": hull,
                 "center": center,
                 "depth": sum(depth for _x, _y, depth in projected) / len(projected),
+                "shape_type": type(child).__name__,
             }
         )
 
@@ -306,6 +307,19 @@ def render_quick_detail_svg(
     for record in sorted(records, key=lambda item: item["depth"]):
         hull = [screen(point) for point in record["hull"]]
         if len(hull) < 3:
+            continue
+        if record["shape_type"] in {"Cylinder", "Sphere"}:
+            xs = [point[0] for point in hull]
+            ys = [point[1] for point in hull]
+            cx = (min(xs) + max(xs)) / 2
+            cy = (min(ys) + max(ys)) / 2
+            rx = max((max(xs) - min(xs)) / 2, 3.0)
+            ry = max((max(ys) - min(ys)) / 2, 3.0)
+            svg.append(
+                f'<ellipse cx="{cx:.2f}" cy="{cy:.2f}" rx="{rx:.2f}" ry="{ry:.2f}" '
+                f'fill="{record["color"]}" fill-opacity="0.52" stroke="#0f172a" '
+                'stroke-opacity="0.46" stroke-width="1" />'
+            )
             continue
         svg.append(
             f'<polygon points="{_svg_polygon_points(hull)}" fill="{record["color"]}" '

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from build123d import Box, Color, Compound, Location
+from build123d import Box, Color, Compound, Cylinder, Location
 
 from synthcad.build import target_lookup
 from synthcad.inspect_cli import _default_output_dir
@@ -50,8 +50,8 @@ def test_render_quick_detail_svg_writes_colored_labeled_overview(tmp_path: Path)
     first = Box(10, 20, 30)
     first.label = "red planning block"
     first.color = Color("#ff0000")
-    second = Location((20, 0, 0)) * Box(8, 8, 8)
-    second.label = "green planning block"
+    second = Location((20, 0, 0)) * Cylinder(4, 8)
+    second.label = "green planning wheel"
     second.color = Color("#00ff00")
 
     output_path = render_quick_detail_svg(
@@ -62,9 +62,10 @@ def test_render_quick_detail_svg_writes_colored_labeled_overview(tmp_path: Path)
 
     assert output_path.exists()
     assert "red planning block" in content
-    assert "green planning block" in content
+    assert "green planning wheel" in content
     assert "#ff0000" in content
     assert "#00ff00" in content
+    assert "<ellipse" in content
 
 
 def test_inspect_cli_defaults_to_selected_project_generated_dir() -> None:
