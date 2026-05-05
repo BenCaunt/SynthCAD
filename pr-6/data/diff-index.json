@@ -1,6 +1,6 @@
 {
   "base_ref": "50cc8c6e65051c70cf7ecb9be8ab6dacc433294c",
-  "head_ref": "a02d9e6804c7141e04dc4132e399b397f42d2fa9",
+  "head_ref": "dcdc11e032f55448115aac3a9500317b36c6be14",
   "default_assembly": "demo-ftc-robot",
   "assemblies": [
     {
@@ -2360,6 +2360,64 @@
             }
           },
           {
+            "label": "left flywheel bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "left flywheel bearing block @ (-92.00, 88.00, 210.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -100.0,
+                73.0,
+                193.0
+              ],
+              "max": [
+                -84.0,
+                103.0,
+                227.0
+              ],
+              "center": [
+                -92.0,
+                88.0,
+                210.0
+              ],
+              "size": [
+                16.0,
+                30.0,
+                34.0
+              ],
+              "diagonal": 48.0833
+            }
+          },
+          {
+            "label": "right flywheel bearing block",
+            "base_instance_key": null,
+            "head_instance_key": "right flywheel bearing block @ (92.00, 88.00, 210.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                84.0,
+                73.0,
+                193.0
+              ],
+              "max": [
+                100.0,
+                103.0,
+                227.0
+              ],
+              "center": [
+                92.0,
+                88.0,
+                210.0
+              ],
+              "size": [
+                16.0,
+                30.0,
+                34.0
+              ],
+              "diagonal": 48.0833
+            }
+          },
+          {
             "label": "72 mm flywheel shooter wheel",
             "base_instance_key": null,
             "head_instance_key": "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
@@ -2618,6 +2676,180 @@
                 30.0
               ],
               "diagonal": 40.8901
+            }
+          },
+          {
+            "label": "left curved hood rail lower segment",
+            "base_instance_key": null,
+            "head_instance_key": "left curved hood rail lower segment @ (-78.00, 83.00, 349.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -80.5,
+                67.5241,
+                328.3059
+              ],
+              "max": [
+                -75.5,
+                98.4759,
+                369.6941
+              ],
+              "center": [
+                -78.0,
+                83.0,
+                349.0
+              ],
+              "size": [
+                5.0,
+                30.9518,
+                41.3881
+              ],
+              "diagonal": 51.9229
+            }
+          },
+          {
+            "label": "right curved hood rail lower segment",
+            "base_instance_key": null,
+            "head_instance_key": "right curved hood rail lower segment @ (78.00, 83.00, 349.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                75.5,
+                67.5241,
+                328.3059
+              ],
+              "max": [
+                80.5,
+                98.4759,
+                369.6941
+              ],
+              "center": [
+                78.0,
+                83.0,
+                349.0
+              ],
+              "size": [
+                5.0,
+                30.9518,
+                41.3881
+              ],
+              "diagonal": 51.9229
+            }
+          },
+          {
+            "label": "left curved hood rail upper segment",
+            "base_instance_key": null,
+            "head_instance_key": "left curved hood rail upper segment @ (-78.00, 118.00, 374.50)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -80.5,
+                95.15,
+                365.1229
+              ],
+              "max": [
+                -75.5,
+                140.85,
+                383.8771
+              ],
+              "center": [
+                -78.0,
+                118.0,
+                374.5
+              ],
+              "size": [
+                5.0,
+                45.7001,
+                18.7541
+              ],
+              "diagonal": 49.6509
+            }
+          },
+          {
+            "label": "right curved hood rail upper segment",
+            "base_instance_key": null,
+            "head_instance_key": "right curved hood rail upper segment @ (78.00, 118.00, 374.50)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                75.5,
+                95.15,
+                365.1229
+              ],
+              "max": [
+                80.5,
+                140.85,
+                383.8771
+              ],
+              "center": [
+                78.0,
+                118.0,
+                374.5
+              ],
+              "size": [
+                5.0,
+                45.7001,
+                18.7541
+              ],
+              "diagonal": 49.6509
+            }
+          },
+          {
+            "label": "left shooter compression slot reference",
+            "base_instance_key": null,
+            "head_instance_key": "left shooter compression slot reference @ (-92.00, 122.00, 374.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -95.0,
+                89.7963,
+                360.8882
+              ],
+              "max": [
+                -89.0,
+                154.2037,
+                387.1118
+              ],
+              "center": [
+                -92.0,
+                122.0,
+                374.0
+              ],
+              "size": [
+                6.0,
+                64.4074,
+                26.2237
+              ],
+              "diagonal": 69.7997
+            }
+          },
+          {
+            "label": "right shooter compression slot reference",
+            "base_instance_key": null,
+            "head_instance_key": "right shooter compression slot reference @ (92.00, 122.00, 374.00)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                89.0,
+                89.7963,
+                360.8882
+              ],
+              "max": [
+                95.0,
+                154.2037,
+                387.1118
+              ],
+              "center": [
+                92.0,
+                122.0,
+                374.0
+              ],
+              "size": [
+                6.0,
+                64.4074,
+                26.2237
+              ],
+              "diagonal": 69.7997
             }
           },
           {
@@ -2982,8 +3214,8 @@
             ],
             "diagonal": 695.4317
           },
-          "child_count": 99,
-          "solid_count": 99,
+          "child_count": 107,
+          "solid_count": 107,
           "volume_mm3": 0.0
         },
         "children": [
@@ -6148,6 +6380,84 @@
           },
           {
             "index": 81,
+            "label": "left flywheel bearing block",
+            "instance_key": "left flywheel bearing block @ (-92.00, 88.00, 210.00)",
+            "bbox_mm": {
+              "min": [
+                -100.0,
+                73.0,
+                193.0
+              ],
+              "max": [
+                -84.0,
+                103.0,
+                227.0
+              ],
+              "center": [
+                -92.0,
+                88.0,
+                210.0
+              ],
+              "size": [
+                16.0,
+                30.0,
+                34.0
+              ],
+              "diagonal": 48.0833
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 82,
+            "label": "right flywheel bearing block",
+            "instance_key": "right flywheel bearing block @ (92.00, 88.00, 210.00)",
+            "bbox_mm": {
+              "min": [
+                84.0,
+                73.0,
+                193.0
+              ],
+              "max": [
+                100.0,
+                103.0,
+                227.0
+              ],
+              "center": [
+                92.0,
+                88.0,
+                210.0
+              ],
+              "size": [
+                16.0,
+                30.0,
+                34.0
+              ],
+              "diagonal": 48.0833
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                1.0
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 83,
             "label": "72 mm flywheel shooter wheel",
             "instance_key": "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
             "bbox_mm": {
@@ -6186,7 +6496,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 82,
+            "index": 84,
             "label": "8 mm flywheel live shaft",
             "instance_key": "8 mm flywheel live shaft @ (0.00, 88.00, 210.00)",
             "bbox_mm": {
@@ -6225,7 +6535,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 83,
+            "index": 85,
             "label": "shooter Yellow Jacket proxy",
             "instance_key": "shooter Yellow Jacket proxy @ (-124.00, 74.00, 210.00)",
             "bbox_mm": {
@@ -6264,7 +6574,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 84,
+            "index": 86,
             "label": "lid-mounted 1 in hood roller 1",
             "instance_key": "lid-mounted 1 in hood roller 1 @ (0.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -6303,7 +6613,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 85,
+            "index": 87,
             "label": "lid-mounted 1 in hood roller 2",
             "instance_key": "lid-mounted 1 in hood roller 2 @ (0.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -6342,7 +6652,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 86,
+            "index": 88,
             "label": "left hood roller 1 bearing block",
             "instance_key": "left hood roller 1 bearing block @ (-92.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -6381,7 +6691,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 87,
+            "index": 89,
             "label": "right hood roller 1 bearing block",
             "instance_key": "right hood roller 1 bearing block @ (92.00, 96.00, 368.00)",
             "bbox_mm": {
@@ -6420,7 +6730,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 88,
+            "index": 90,
             "label": "left hood roller 2 bearing block",
             "instance_key": "left hood roller 2 bearing block @ (-92.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -6459,7 +6769,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 89,
+            "index": 91,
             "label": "right hood roller 2 bearing block",
             "instance_key": "right hood roller 2 bearing block @ (92.00, 140.00, 381.00)",
             "bbox_mm": {
@@ -6498,7 +6808,241 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 90,
+            "index": 92,
+            "label": "left curved hood rail lower segment",
+            "instance_key": "left curved hood rail lower segment @ (-78.00, 83.00, 349.00)",
+            "bbox_mm": {
+              "min": [
+                -80.5,
+                67.5241,
+                328.3059
+              ],
+              "max": [
+                -75.5,
+                98.4759,
+                369.6941
+              ],
+              "center": [
+                -78.0,
+                83.0,
+                349.0
+              ],
+              "size": [
+                5.0,
+                30.9518,
+                41.3881
+              ],
+              "diagonal": 51.9229
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                0.86
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 93,
+            "label": "right curved hood rail lower segment",
+            "instance_key": "right curved hood rail lower segment @ (78.00, 83.00, 349.00)",
+            "bbox_mm": {
+              "min": [
+                75.5,
+                67.5241,
+                328.3059
+              ],
+              "max": [
+                80.5,
+                98.4759,
+                369.6941
+              ],
+              "center": [
+                78.0,
+                83.0,
+                349.0
+              ],
+              "size": [
+                5.0,
+                30.9518,
+                41.3881
+              ],
+              "diagonal": 51.9229
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                0.86
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 94,
+            "label": "left curved hood rail upper segment",
+            "instance_key": "left curved hood rail upper segment @ (-78.00, 118.00, 374.50)",
+            "bbox_mm": {
+              "min": [
+                -80.5,
+                95.15,
+                365.1229
+              ],
+              "max": [
+                -75.5,
+                140.85,
+                383.8771
+              ],
+              "center": [
+                -78.0,
+                118.0,
+                374.5
+              ],
+              "size": [
+                5.0,
+                45.7001,
+                18.7541
+              ],
+              "diagonal": 49.6509
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                0.86
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 95,
+            "label": "right curved hood rail upper segment",
+            "instance_key": "right curved hood rail upper segment @ (78.00, 118.00, 374.50)",
+            "bbox_mm": {
+              "min": [
+                75.5,
+                95.15,
+                365.1229
+              ],
+              "max": [
+                80.5,
+                140.85,
+                383.8771
+              ],
+              "center": [
+                78.0,
+                118.0,
+                374.5
+              ],
+              "size": [
+                5.0,
+                45.7001,
+                18.7541
+              ],
+              "diagonal": 49.6509
+            },
+            "color": {
+              "hex": "#fb923c",
+              "rgba": [
+                0.984314,
+                0.572549,
+                0.235294,
+                0.86
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 96,
+            "label": "left shooter compression slot reference",
+            "instance_key": "left shooter compression slot reference @ (-92.00, 122.00, 374.00)",
+            "bbox_mm": {
+              "min": [
+                -95.0,
+                89.7963,
+                360.8882
+              ],
+              "max": [
+                -89.0,
+                154.2037,
+                387.1118
+              ],
+              "center": [
+                -92.0,
+                122.0,
+                374.0
+              ],
+              "size": [
+                6.0,
+                64.4074,
+                26.2237
+              ],
+              "diagonal": 69.7997
+            },
+            "color": {
+              "hex": "#fed7aa",
+              "rgba": [
+                0.996078,
+                0.843137,
+                0.666667,
+                0.74
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 97,
+            "label": "right shooter compression slot reference",
+            "instance_key": "right shooter compression slot reference @ (92.00, 122.00, 374.00)",
+            "bbox_mm": {
+              "min": [
+                89.0,
+                89.7963,
+                360.8882
+              ],
+              "max": [
+                95.0,
+                154.2037,
+                387.1118
+              ],
+              "center": [
+                92.0,
+                122.0,
+                374.0
+              ],
+              "size": [
+                6.0,
+                64.4074,
+                26.2237
+              ],
+              "diagonal": 69.7997
+            },
+            "color": {
+              "hex": "#fed7aa",
+              "rgba": [
+                0.996078,
+                0.843137,
+                0.666667,
+                0.74
+              ]
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 98,
             "label": "shooter ball path ghost 1",
             "instance_key": "shooter ball path ghost 1 @ (0.00, 74.00, 300.00)",
             "bbox_mm": {
@@ -6537,7 +7081,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 91,
+            "index": 99,
             "label": "shooter ball path ghost 2",
             "instance_key": "shooter ball path ghost 2 @ (0.00, 116.00, 314.00)",
             "bbox_mm": {
@@ -6576,7 +7120,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 92,
+            "index": 100,
             "label": "shooter ball path ghost 3",
             "instance_key": "shooter ball path ghost 3 @ (0.00, 150.00, 334.00)",
             "bbox_mm": {
@@ -6615,7 +7159,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 93,
+            "index": 101,
             "label": "front shooter exit keepout",
             "instance_key": "front shooter exit keepout @ (0.00, 190.00, 334.00)",
             "bbox_mm": {
@@ -6654,7 +7198,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 94,
+            "index": 102,
             "label": "stored DECODE artifact 1",
             "instance_key": "stored DECODE artifact 1 @ (0.00, -128.00, 116.00)",
             "bbox_mm": {
@@ -6693,7 +7237,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 95,
+            "index": 103,
             "label": "stored DECODE artifact 2",
             "instance_key": "stored DECODE artifact 2 @ (0.00, -2.00, 116.00)",
             "bbox_mm": {
@@ -6732,7 +7276,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 96,
+            "index": 104,
             "label": "stored DECODE artifact 3",
             "instance_key": "stored DECODE artifact 3 @ (0.00, 124.00, 116.00)",
             "bbox_mm": {
@@ -6771,7 +7315,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 97,
+            "index": 105,
             "label": "REV control hub placeholder",
             "instance_key": "REV control hub placeholder @ (54.00, -88.00, 56.00)",
             "bbox_mm": {
@@ -6810,7 +7354,7 @@
             "volume_mm3": 0.0
           },
           {
-            "index": 98,
+            "index": 106,
             "label": "12V FTC battery placeholder",
             "instance_key": "12V FTC battery placeholder @ (-66.00, -92.00, 52.00)",
             "bbox_mm": {
@@ -6939,6 +7483,8 @@
           "front-facing shooter ball path envelope above flywheel @ (0.00, 124.00, 318.00)",
           "left shooter side plate with roller slots @ (-92.00, 124.00, 304.00)",
           "right shooter side plate with roller slots @ (92.00, 124.00, 304.00)",
+          "left flywheel bearing block @ (-92.00, 88.00, 210.00)",
+          "right flywheel bearing block @ (92.00, 88.00, 210.00)",
           "72 mm flywheel shooter wheel @ (0.00, 88.00, 210.00)",
           "8 mm flywheel live shaft @ (0.00, 88.00, 210.00)",
           "shooter Yellow Jacket proxy @ (-124.00, 74.00, 210.00)",
@@ -6948,6 +7494,12 @@
           "right hood roller 1 bearing block @ (92.00, 96.00, 368.00)",
           "left hood roller 2 bearing block @ (-92.00, 140.00, 381.00)",
           "right hood roller 2 bearing block @ (92.00, 140.00, 381.00)",
+          "left curved hood rail lower segment @ (-78.00, 83.00, 349.00)",
+          "right curved hood rail lower segment @ (78.00, 83.00, 349.00)",
+          "left curved hood rail upper segment @ (-78.00, 118.00, 374.50)",
+          "right curved hood rail upper segment @ (78.00, 118.00, 374.50)",
+          "left shooter compression slot reference @ (-92.00, 122.00, 374.00)",
+          "right shooter compression slot reference @ (92.00, 122.00, 374.00)",
           "shooter ball path ghost 1 @ (0.00, 74.00, 300.00)",
           "shooter ball path ghost 2 @ (0.00, 116.00, 314.00)",
           "shooter ball path ghost 3 @ (0.00, 150.00, 334.00)",
