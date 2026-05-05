@@ -14,7 +14,7 @@ from synthcad.build import (
     project_names as registry_project_names,
     target_lookup as registry_target_lookup,
 )
-from synthcad.paths import GENERATED_DIR
+from synthcad.paths import GENERATED_DIR, project_generated_dir
 
 
 DEFAULT_GENERATED_DIR = GENERATED_DIR
@@ -76,8 +76,27 @@ def _read_json(path: Path) -> Any | None:
     return json.loads(path.read_text())
 
 
-def _load_manifest_index() -> dict[str, dict[str, Any]]:
-    manifest = _read_json(DEFAULT_MANIFEST_PATH)
+def _default_generated_dir_for_targets(targets: Sequence[BuildTarget]) -> Path:
+    selected_projects = {target.project for target in targets}
+    if len(selected_projects) == 1:
+        return project_generated_dir(next(iter(selected_projects)))
+    return DEFAULT_GENERATED_DIR
+
+
+def _manifest_path(generated_dir: Path) -> Path:
+    return generated_dir / "manifest.json"
+
+
+def _inspection_report_path(generated_dir: Path) -> Path:
+    return generated_dir / "inspection" / "inspection-report.json"
+
+
+def _interference_report_path(generated_dir: Path) -> Path:
+    return generated_dir / "inspection" / "interference" / "show-interference-report.json"
+
+
+def _load_manifest_index(manifest_path: Path = DEFAULT_MANIFEST_PATH) -> dict[str, dict[str, Any]]:
+    manifest = _read_json(manifest_path)
     if not isinstance(manifest, list):
         return {}
     return {
@@ -87,8 +106,10 @@ def _load_manifest_index() -> dict[str, dict[str, Any]]:
     }
 
 
-def _load_inspection_subjects() -> dict[str, dict[str, Any]]:
-    report = _read_json(DEFAULT_INSPECTION_REPORT_PATH)
+def _load_inspection_subjects(
+    report_path: Path = DEFAULT_INSPECTION_REPORT_PATH,
+) -> dict[str, dict[str, Any]]:
+    report = _read_json(report_path)
     if not isinstance(report, dict):
         return {}
     subjects = report.get("subjects", [])
@@ -101,8 +122,10 @@ def _load_inspection_subjects() -> dict[str, dict[str, Any]]:
     }
 
 
-def _load_interference_subjects() -> dict[str, dict[str, Any]]:
-    report = _read_json(DEFAULT_INTERFERENCE_REPORT_PATH)
+def _load_interference_subjects(
+    report_path: Path = DEFAULT_INTERFERENCE_REPORT_PATH,
+) -> dict[str, dict[str, Any]]:
+    report = _read_json(report_path)
     if not isinstance(report, dict):
         return {}
     subjects = report.get("subjects", [])
@@ -120,11 +143,16 @@ def build_report_bundle(
     selected_targets: Sequence[BuildTarget],
     selected_projects: Sequence[str] | None = None,
     all_targets: Sequence[BuildTarget] | None = None,
+    generated_dir: Path | None = None,
 ) -> dict[str, Any]:
     del all_targets
-    manifest_index = _load_manifest_index()
-    inspection_subjects = _load_inspection_subjects()
-    interference_subjects = _load_interference_subjects()
+    artifact_dir = generated_dir or _default_generated_dir_for_targets(selected_targets)
+    manifest_path = _manifest_path(artifact_dir)
+    inspection_report_path = _inspection_report_path(artifact_dir)
+    interference_report_path = _interference_report_path(artifact_dir)
+    manifest_index = _load_manifest_index(manifest_path)
+    inspection_subjects = _load_inspection_subjects(inspection_report_path)
+    interference_subjects = _load_interference_subjects(interference_report_path)
 
     selected_target_records: list[dict[str, Any]] = []
     for target in selected_targets:
@@ -156,18 +184,18 @@ def build_report_bundle(
         "targets": selected_target_records,
         "artifacts": {
             "manifest": {
-                "path": str(DEFAULT_MANIFEST_PATH),
-                "exists": DEFAULT_MANIFEST_PATH.exists(),
+                "path": str(manifest_path),
+                "exists": manifest_path.exists(),
                 "targets": list(manifest_index.values()),
             },
             "inspection": {
-                "path": str(DEFAULT_INSPECTION_REPORT_PATH),
-                "exists": DEFAULT_INSPECTION_REPORT_PATH.exists(),
+                "path": str(inspection_report_path),
+                "exists": inspection_report_path.exists(),
                 "subjects": scoped_inspection_subjects,
             },
             "interference": {
-                "path": str(DEFAULT_INTERFERENCE_REPORT_PATH),
-                "exists": DEFAULT_INTERFERENCE_REPORT_PATH.exists(),
+                "path": str(interference_report_path),
+                "exists": interference_report_path.exists(),
                 "subjects": scoped_interference_subjects,
             },
         },
@@ -239,10 +267,12 @@ def render_markdown_report(bundle: dict[str, Any]) -> str:
             inspection_subject = target.get("inspection_subject")
             if inspection_subject:
                 projection_outputs = inspection_subject.get("projection_outputs", [])
+                detail_outputs = inspection_subject.get("detail_projection_outputs", [])
                 interference_check = inspection_subject.get("interference_check", {})
                 lines.append(
                     "  - inspection: "
                     f"{len(projection_outputs)} projection(s), "
+                    f"{len(detail_outputs)} detail render(s), "
                     f"{len(interference_check.get('interferences', []))} interference(s)"
                 )
             lines.append("")
@@ -259,9 +289,11 @@ def render_markdown_report(bundle: dict[str, Any]) -> str:
     if subjects:
         for subject in subjects:
             projection_outputs = subject.get("projection_outputs", [])
+            detail_outputs = subject.get("detail_projection_outputs", [])
             lines.append(
                 f"  - `{subject.get('name', 'unknown')}`: "
-                f"{len(projection_outputs)} projection(s)"
+                f"{len(projection_outputs)} projection(s), "
+                f"{len(detail_outputs)} detail render(s)"
             )
     elif inspection.get("exists"):
         lines.append("  - no selected target subjects found in the latest inspection report")
@@ -320,6 +352,14 @@ def _parse_args() -> argparse.Namespace:
         action="store_true",
         help="Print machine-readable JSON instead of Markdown.",
     )
+    parser.add_argument(
+        "--generated-dir",
+        type=Path,
+        help=(
+            "Directory containing manifest.json and inspection/. Defaults to "
+            "the selected project's generated directory when one project is selected."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -358,6 +398,7 @@ def main() -> int:
     bundle = build_report_bundle(
         selected_targets=targets,
         selected_projects=normalized_projects,
+        generated_dir=args.generated_dir,
     )
     bundle["filters"] = {
         "targets": [*args.target_options, *args.targets],

@@ -53,7 +53,7 @@ def _unavailable_snapshot(
             "volume_mm3": 0.0,
         },
         "children": [],
-        "inspection": {"projection_urls": []},
+        "inspection": {"projection_urls": [], "detail_projection_urls": []},
         "unavailable": True,
         "unavailable_reason": reason,
     }

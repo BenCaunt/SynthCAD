@@ -37,6 +37,8 @@ def _seed_viewer_artifacts(tmp_path, monkeypatch, target, *, snapshot_payload=No
     projection_path = inspection_dir / f"{target.name}-isometric.svg"
     projection_path.parent.mkdir(parents=True, exist_ok=True)
     projection_path.write_text("<svg></svg>\n", encoding="utf-8")
+    detail_projection_path = inspection_dir / f"{target.name}-isometric-detail.svg"
+    detail_projection_path.write_text("<svg></svg>\n", encoding="utf-8")
 
     snapshot_path = generated_dir / target.project / f"{target.name}.snapshot.json"
     if snapshot_payload is not None:
@@ -59,6 +61,7 @@ def _seed_viewer_artifacts(tmp_path, monkeypatch, target, *, snapshot_payload=No
                 {
                     "name": target.name,
                     "projection_outputs": [str(projection_path)],
+                    "detail_projection_outputs": [str(detail_projection_path)],
                     "interference_check": {"interferences": []},
                 }
             ]
@@ -189,6 +192,7 @@ def test_viewer_data_detail_prefers_prebuilt_snapshot_without_calling_factory(
         "second child",
     ]
     assert payload["inspection"]["projection_urls"]
+    assert payload["inspection"]["detail_projection_urls"]
 
 
 def test_viewer_data_detail_falls_back_to_live_snapshot_when_prebuilt_missing(

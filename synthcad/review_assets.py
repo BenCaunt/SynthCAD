@@ -179,7 +179,7 @@ def build_display_snapshot(target: Any, model: Any) -> dict[str, Any]:
             "volume_mm3": 0.0,
         },
         "children": child_records,
-        "inspection": {"projection_urls": []},
+        "inspection": {"projection_urls": [], "detail_projection_urls": []},
     }
 
 

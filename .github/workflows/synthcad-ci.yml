@@ -12,11 +12,7 @@ permissions:
   pages: write
 
 env:
-  SYNTHCAD_PROJECT: flat-disk-robot
-  SYNTHCAD_ASSEMBLY_TARGET: flat-disk-robot
-  SYNTHCAD_URDF_TARGET: flat-disk-robot
   SYNTHCAD_ARTIFACT_NAME: synthcad-review-artifacts
-  SYNTHCAD_PR_SITE_TARGETS: flat-disk-robot
 
 jobs:
   cad-review:
@@ -42,15 +38,46 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         run: git worktree add --detach "$RUNNER_TEMP/base" "${{ github.event.pull_request.base.sha }}"
 
+      - name: Plan CAD review scope
+        id: plan
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            base_ref="${{ github.event.pull_request.base.sha }}"
+            head_ref="${{ github.event.pull_request.head.sha }}"
+          else
+            base_ref="${{ github.event.before }}"
+            head_ref="HEAD"
+          fi
+
+          if [ -z "$base_ref" ] || ! git cat-file -e "$base_ref^{commit}" 2>/dev/null; then
+            if git rev-parse HEAD^ >/dev/null 2>&1; then
+              base_ref="HEAD^"
+            else
+              base_ref="HEAD"
+            fi
+          fi
+
+          uv run synthcad-ci-plan \
+            --base-ref "$base_ref" \
+            --head-ref "$head_ref" \
+            --github-output "$GITHUB_OUTPUT" \
+            --json
+
       - name: Compile Python sources
         run: uv run python -m compileall -q -f main.py synthcad tests projects
 
       - name: Require project-local tests
+        env:
+          SYNTHCAD_PROJECTS: ${{ steps.plan.outputs.projects }}
         run: |
-          test -d "projects/${SYNTHCAD_PROJECT}/tests"
-          test -n "$(find "projects/${SYNTHCAD_PROJECT}/tests" -name 'test_*.py' -print -quit)"
+          for project in $SYNTHCAD_PROJECTS; do
+            test -d "projects/${project}/tests"
+            test -n "$(find "projects/${project}/tests" -name 'test_*.py' -print -quit)"
+          done
 
       - name: Run tests
+        env:
+          SYNTHCAD_TEST_PATHS: ${{ steps.plan.outputs.test_paths }}
         run: |
           uv run python - <<'PY'
           import os
@@ -61,48 +88,46 @@ jobs:
 
           import pytest
 
-          project = os.environ["SYNTHCAD_PROJECT"]
-          raise SystemExit(pytest.main(["-q", "tests", f"projects/{project}/tests"]))
+          test_paths = os.environ["SYNTHCAD_TEST_PATHS"].split() or ["tests"]
+          raise SystemExit(pytest.main(["-q", *test_paths]))
           PY
 
-      - name: Export flat disk robot CAD
-        run: uv run synthcad-build --project "$SYNTHCAD_PROJECT" --profile
-
-      - name: Inspect flat disk robot assembly
+      - name: Export selected CAD
+        env:
+          SYNTHCAD_PROJECTS: ${{ steps.plan.outputs.projects }}
         run: |
-          uv run synthcad-inspect \
-            --target "$SYNTHCAD_ASSEMBLY_TARGET" \
-            --interference all \
-            --view isometric \
-            --view rear-isometric
+          for project in $SYNTHCAD_PROJECTS; do
+            uv run synthcad-build --project "$project" --profile
+          done
 
-      - name: Render interference overlays
+      - name: Inspect selected assemblies
+        env:
+          SYNTHCAD_INSPECT_TARGETS: ${{ steps.plan.outputs.inspect_targets }}
         run: |
-          uv run show-interference \
-            --target "$SYNTHCAD_ASSEMBLY_TARGET" \
-            --view isometric \
-            --view rear-isometric
-
-      - name: Export URDF package
-        run: |
-          if [ -z "$SYNTHCAD_URDF_TARGET" ]; then
-            echo "SYNTHCAD_URDF_TARGET is empty; skipping URDF export."
+          if [ -z "$SYNTHCAD_INSPECT_TARGETS" ]; then
+            echo "No assembly targets selected for inspection."
             exit 0
           fi
-          uv run synthcad-urdf --target "$SYNTHCAD_URDF_TARGET"
+          for target in $SYNTHCAD_INSPECT_TARGETS; do
+            uv run synthcad-inspect --target "$target" --view isometric
+          done
 
       - name: Write validation report
+        env:
+          SYNTHCAD_PROJECTS: ${{ steps.plan.outputs.projects }}
         run: |
-          REPORT_PATH="projects/${SYNTHCAD_PROJECT}/generated/ci/validation-report.md"
-          mkdir -p "$(dirname "$REPORT_PATH")"
-          uv run synthcad-report --project "$SYNTHCAD_PROJECT" | tee "$REPORT_PATH"
-          cat "$REPORT_PATH" >> "$GITHUB_STEP_SUMMARY"
+          for project in $SYNTHCAD_PROJECTS; do
+            REPORT_PATH="projects/${project}/generated/ci/validation-report.md"
+            mkdir -p "$(dirname "$REPORT_PATH")"
+            uv run synthcad-report --project "$project" | tee "$REPORT_PATH"
+            cat "$REPORT_PATH" >> "$GITHUB_STEP_SUMMARY"
+          done
 
       - name: Upload generated review artifacts
         uses: actions/upload-artifact@v7.0.1
         with:
           name: ${{ env.SYNTHCAD_ARTIFACT_NAME }}
-          path: projects/${{ env.SYNTHCAD_PROJECT }}/generated
+          path: ${{ steps.plan.outputs.artifact_paths }}
           if-no-files-found: error
 
       - name: Build PR diff viewer site
@@ -110,13 +135,17 @@ jobs:
         env:
           SITE_DIR: ${{ runner.temp }}/pr-diff-site
           PYTHONUNBUFFERED: "1"
+          SYNTHCAD_PROJECTS: ${{ steps.plan.outputs.projects }}
+          SYNTHCAD_PR_SITE_TARGETS: ${{ steps.plan.outputs.pr_site_targets }}
         run: |
           target_args=()
           for target in $SYNTHCAD_PR_SITE_TARGETS; do
             target_args+=(--target "$target")
           done
           if [ "${#target_args[@]}" -eq 0 ]; then
-            target_args+=(--project "$SYNTHCAD_PROJECT")
+            for project in $SYNTHCAD_PROJECTS; do
+              target_args+=(--project "$project")
+            done
           fi
 
           uv run synthcad-pr-pages \
@@ -222,6 +251,7 @@ jobs:
           PAGES_URL_PATH: ${{ runner.temp }}/pages-url.txt
           PR_NUMBER: ${{ github.event.pull_request.number }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SYNTHCAD_TARGET_LABEL: ${{ steps.plan.outputs.target_label }}
         run: |
           marker="<!-- synthcad-pr-visualization -->"
           body_path="$RUNNER_TEMP/pr-visualization-comment.md"
@@ -235,7 +265,7 @@ jobs:
             printf "%s\n\n" "$marker"
             printf "## SynthCAD CAD review\n\n"
             printf "Compared \`%s\` to \`%s\` for \`%s\`.\n\n" \
-              "${BASE_REF:0:12}" "${HEAD_REF:0:12}" "$SYNTHCAD_PR_SITE_TARGETS"
+              "${BASE_REF:0:12}" "${HEAD_REF:0:12}" "$SYNTHCAD_TARGET_LABEL"
             if [ -n "$pages_url" ]; then
               printf -- "- [Interactive diff viewer](%s)\n" "$pages_url"
             else

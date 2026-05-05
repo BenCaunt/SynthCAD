@@ -129,6 +129,22 @@ class ViewerData:
         return [
             f"/generated/inspection/{path.name}"
             for path in sorted((GENERATED_DIR / "inspection").glob(f"{target_name}-*.svg"))
+            if path.is_file() and not path.name.endswith("-detail.svg")
+        ]
+
+    def _detail_projection_urls(self, target_name: str, subject: dict[str, Any] | None) -> list[str]:
+        output_paths = []
+        if isinstance(subject, dict):
+            output_paths = list(subject.get("detail_projection_outputs", []) or [])
+        if output_paths:
+            return [
+                url
+                for url in (self._generated_url(path) for path in output_paths)
+                if url is not None
+            ]
+        return [
+            f"/generated/inspection/{path.name}"
+            for path in sorted((GENERATED_DIR / "inspection").glob(f"{target_name}-*-detail.svg"))
             if path.is_file()
         ]
 
@@ -181,6 +197,11 @@ class ViewerData:
             "glb_url": self._generated_url(glb_path) if glb_path.exists() else None,
             "projection_count": len(
                 (inspection_subject or {}).get("projection_outputs", [])
+                if isinstance(inspection_subject, dict)
+                else []
+            ),
+            "detail_projection_count": len(
+                (inspection_subject or {}).get("detail_projection_outputs", [])
                 if isinstance(inspection_subject, dict)
                 else []
             ),
@@ -250,6 +271,10 @@ class ViewerData:
                 "inspection": {
                     "subject": inspection_subject,
                     "projection_urls": self._projection_urls(target.name, inspection_subject),
+                    "detail_projection_urls": self._detail_projection_urls(
+                        target.name,
+                        inspection_subject,
+                    ),
                 },
                 "interference": {
                     "subject": interference_subject,

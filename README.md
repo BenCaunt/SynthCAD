@@ -26,6 +26,8 @@ uv run synthcad-urdf --target flat-disk-robot
 
 Generated STEP, STL, GLB, inspection, and URDF artifacts are written under
 `projects/flat-disk-robot/generated/`, which is intentionally ignored by git.
+`synthcad-inspect` writes the exact hidden-line projection plus a fast
+colorized `*-detail.svg` overview with direct-child labels and sizes.
 
 ## Build Targets
 
@@ -43,11 +45,12 @@ committed.
 
 ## GitHub CI
 
-`.github/workflows/synthcad-ci.yml` runs tests, exports the flat disk robot,
-generates inspection/interference evidence, exports the URDF package, writes a
-Markdown Actions summary, and uploads `projects/flat-disk-robot/generated/` as
-review artifacts. On pull requests it also publishes a static base/head CAD
-diff viewer and updates a PR comment with the visualization and workflow links.
+`.github/workflows/synthcad-ci.yml` detects the changed project scope, runs the
+shared tests plus selected project-local tests, exports selected CAD, generates
+inspection evidence, writes a Markdown Actions summary, and uploads the selected
+`projects/<project>/generated/` review artifacts. On pull requests it also
+publishes a static base/head CAD diff viewer for the selected assembly target(s)
+and updates a PR comment with the visualization and workflow links.
 
 Example: [PR #1 CAD review comment](https://github.com/BenCaunt/SynthCAD/pull/1#issuecomment-4373932308).
 

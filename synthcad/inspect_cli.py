@@ -15,9 +15,10 @@ from synthcad.inspection import (
     PROJECTION_VIEWS,
     find_interferences,
     model_summary,
+    render_quick_detail_svg,
     render_projection_svg,
 )
-from synthcad.paths import GENERATED_DIR
+from synthcad.paths import GENERATED_DIR, project_generated_dir
 from synthcad.report_cli import describe_target_projects, filter_targets_by_project
 
 
@@ -87,10 +88,11 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=DEFAULT_INSPECTION_DIR,
+        default=None,
         help=(
-            "Directory for SVGs and inspection-report.json. "
-            f"Defaults to {DEFAULT_INSPECTION_DIR}."
+            "Directory for SVGs and inspection-report.json. Defaults to the "
+            "selected project's generated/inspection directory when one "
+            f"project is selected, otherwise {DEFAULT_INSPECTION_DIR}."
         ),
     )
     parser.add_argument(
@@ -103,6 +105,11 @@ def _parse_args() -> argparse.Namespace:
         "--no-render",
         action="store_true",
         help="Skip SVG projection output.",
+    )
+    parser.add_argument(
+        "--no-detail-render",
+        action="store_true",
+        help="Skip the fast colored direct-child detail SVG.",
     )
     parser.add_argument(
         "--interference",
@@ -223,12 +230,20 @@ def _should_check_interference(subject: InspectionSubject, mode: str) -> bool:
     return "assembly" in subject.kind
 
 
+def _default_output_dir(targets: list[BuildTarget]) -> Path:
+    selected_projects = {target.project for target in targets}
+    if len(selected_projects) == 1:
+        return project_generated_dir(next(iter(selected_projects))) / "inspection"
+    return DEFAULT_INSPECTION_DIR
+
+
 def _inspect_subject(
     subject: InspectionSubject,
     *,
     output_dir: Path,
     views: list[str],
     render: bool,
+    detail_render: bool,
     interference_mode: str,
     min_volume_mm3: float,
     profile: bool,
@@ -239,6 +254,7 @@ def _inspect_subject(
     summary["source_targets"] = list(subject.source_targets)
     summary["model_source"] = subject.model_source
     summary["projection_outputs"] = []
+    summary["detail_projection_outputs"] = []
 
     render_seconds = 0.0
     if render:
@@ -249,6 +265,14 @@ def _inspect_subject(
             render_seconds += perf_counter() - view_start
             summary["projection_outputs"].append(str(output_path))
             print(f"{subject.name}: wrote {output_path}")
+
+            if detail_render:
+                detail_output_path = output_dir / f"{subject.name}-{view_name}-detail.svg"
+                detail_start = perf_counter()
+                render_quick_detail_svg(subject.model, detail_output_path, view_name)
+                render_seconds += perf_counter() - detail_start
+                summary["detail_projection_outputs"].append(str(detail_output_path))
+                print(f"{subject.name}: wrote {detail_output_path}")
 
     interference_found = False
     interference_start = perf_counter()
@@ -313,11 +337,12 @@ def main() -> int:
     targets = _resolve_targets(args)
     subjects = _build_subjects(targets, combine_as=args.combine_as)
     views = args.view or ["isometric"]
+    output_dir = args.output_dir or _default_output_dir(targets)
 
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
     report: dict[str, Any] = {
         "views": views,
-        "output_dir": str(args.output_dir),
+        "output_dir": str(output_dir),
         "interference_mode": args.interference,
         "min_volume_mm3": args.min_volume_mm3,
         "subjects": [],
@@ -327,9 +352,10 @@ def main() -> int:
     for subject in subjects:
         subject_report, subject_has_interference = _inspect_subject(
             subject,
-            output_dir=args.output_dir,
+            output_dir=output_dir,
             views=views,
             render=not args.no_render,
+            detail_render=not args.no_detail_render,
             interference_mode=args.interference,
             min_volume_mm3=args.min_volume_mm3,
             profile=args.profile,
@@ -337,7 +363,7 @@ def main() -> int:
         report["subjects"].append(subject_report)
         any_interference = any_interference or subject_has_interference
 
-    report_path = args.output_dir / "inspection-report.json"
+    report_path = output_dir / "inspection-report.json"
     report_path.write_text(json.dumps(report, indent=2) + "\n")
     print(f"wrote {report_path}")
 

@@ -46,7 +46,7 @@ def _snapshot(name: str, *, children: list[dict]) -> dict:
             "volume_mm3": 0.0,
         },
         "children": children,
-        "inspection": {"projection_urls": []},
+        "inspection": {"projection_urls": [], "detail_projection_urls": []},
     }
 
 

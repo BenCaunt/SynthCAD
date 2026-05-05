@@ -15,6 +15,7 @@ dev = [
 
 [project.scripts]
 synthcad-build = "synthcad.build:main"
+synthcad-ci-plan = "synthcad.ci_plan:main"
 synthcad-inspect = "synthcad.inspect_cli:main"
 synthcad-report = "synthcad.report_cli:main"
 synthcad-show-interference = "synthcad.show_interference_cli:main"

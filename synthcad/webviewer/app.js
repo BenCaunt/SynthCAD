@@ -622,9 +622,11 @@ function filterPartRows() {
 
 function renderInspectionGallery(detail) {
   const projectionUrls = detail.inspection?.projection_urls || [];
+  const detailProjectionUrls = detail.inspection?.detail_projection_urls || [];
   const overlayUrls = detail.interference?.overlay_urls || [];
   const galleryItems = [
     ...projectionUrls.map((url) => ({ url, label: humanLabelFromUrl(url), type: 'Projection' })),
+    ...detailProjectionUrls.map((url) => ({ url, label: humanLabelFromUrl(url), type: 'Detail' })),
     ...overlayUrls.map((url) => ({ url, label: humanLabelFromUrl(url), type: 'Interference' })),
   ];
 

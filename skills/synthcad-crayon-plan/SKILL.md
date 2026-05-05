@@ -44,3 +44,5 @@ motion envelopes, service zones, or multiple architecture options.
 - Project tests pass.
 - `uv run synthcad-build --project <project-slug>` writes STEP/GLB/snapshot
   review artifacts.
+- `uv run synthcad-inspect --target <target-name>` writes both the exact
+  projection SVG and the colorized `*-detail.svg` planning overview.
