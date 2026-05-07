@@ -1,6 +1,6 @@
 {
   "base_ref": "50cc8c6e65051c70cf7ecb9be8ab6dacc433294c",
-  "head_ref": "07a14cb16d7fa5b3e0bbcac620d9a05ff14cbc5c",
+  "head_ref": "ce9b67ac765170898e8ee59c3ce5b99cfc4cfed2",
   "default_assembly": "flat-disk-robot",
   "assemblies": [
     {
