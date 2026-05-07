@@ -38,6 +38,11 @@ jobs:
         with:
           python-version-file: .python-version
 
+      - name: Install OpenSCAD
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openscad
+
       - name: Prepare base worktree
         if: ${{ github.event_name == 'pull_request' }}
         run: git worktree add --detach "$RUNNER_TEMP/base" "${{ github.event.pull_request.base.sha }}"
@@ -90,6 +95,33 @@ jobs:
             exit 0
           fi
           uv run synthcad-urdf --target "$SYNTHCAD_URDF_TARGET"
+
+
+      - name: Render OpenSCAD review artifacts
+        run: |
+          scad_dir="projects/${SYNTHCAD_PROJECT}/openscad"
+          out_dir="projects/${SYNTHCAD_PROJECT}/generated/ci/openscad"
+          mkdir -p "$out_dir"
+          if [ ! -d "$scad_dir" ]; then
+            echo "No OpenSCAD directory found at $scad_dir; skipping."
+            exit 0
+          fi
+
+          shopt -s nullglob
+          scad_files=("$scad_dir"/*.scad)
+          if [ "${#scad_files[@]}" -eq 0 ]; then
+            echo "No .scad files found in $scad_dir; skipping."
+            exit 0
+          fi
+
+          for scad_path in "${scad_files[@]}"; do
+            name="$(basename "${scad_path%.scad}")"
+            target_dir="$out_dir/$name"
+            mkdir -p "$target_dir"
+
+            openscad -o "$target_dir/$name.stl" "$scad_path"
+            openscad --imgsize=1600,1200 --autocenter --viewall               -o "$target_dir/$name.png" "$scad_path"
+          done
 
       - name: Write validation report
         run: |
