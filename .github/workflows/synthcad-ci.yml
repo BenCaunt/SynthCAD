@@ -41,7 +41,7 @@ jobs:
       - name: Install OpenSCAD
         run: |
           sudo apt-get update
-          sudo apt-get install -y openscad
+          sudo apt-get install -y openscad xvfb
 
       - name: Prepare base worktree
         if: ${{ github.event_name == 'pull_request' }}
@@ -120,7 +120,9 @@ jobs:
             mkdir -p "$target_dir"
 
             openscad -o "$target_dir/$name.stl" "$scad_path"
-            openscad --imgsize=1600,1200 --autocenter --viewall               -o "$target_dir/$name.png" "$scad_path"
+            xvfb-run -a -s "-screen 0 1600x1200x24" \
+              openscad --imgsize=1600,1200 --autocenter --viewall \
+              -o "$target_dir/$name.png" "$scad_path"
           done
 
       - name: Write validation report
