@@ -14,6 +14,12 @@ from synthcad.projects.flat_disk_robot.robot import (
     make_flat_disk_robot_chassis,
     make_flat_disk_robot_lid,
 )
+from synthcad.projects.so101_cart.cart import (
+    make_flat_disk_robot_with_cart,
+    make_so101_cart,
+    make_so101_cart_deck,
+    make_so101_cart_wheel,
+)
 from synthcad.review_assets import build_display_snapshot
 
 
@@ -70,6 +76,10 @@ FLAT_DISK_SOURCE_REFS = (
     "projects/flat-disk-robot/real-parts/battery.png",
 )
 
+SO101_CART_SOURCE_REFS = (
+    "projects/so101-cart/real-parts/so-arm-101.snapshot/SO101_Assembly.step",
+)
+
 
 BUILD_TARGETS = [
     BuildTarget(
@@ -110,6 +120,57 @@ BUILD_TARGETS = [
                 "repeat-compact-1806-gearmotor",
                 "TPU press-fit D-bore wheel",
                 "The wheel/motor overlap is the modeled TPU press fit, not a hard interference.",
+            ),
+        ),
+    ),
+    BuildTarget(
+        "so101-cart-deck",
+        make_so101_cart_deck,
+        "generated-printable-part",
+        "synthcad.projects.so101_cart.cart",
+        True,
+        "so101-cart",
+        "printable-candidate",
+        source_refs=SO101_CART_SOURCE_REFS,
+    ),
+    BuildTarget(
+        "so101-cart-wheel",
+        make_so101_cart_wheel,
+        "generated-printable-part",
+        "synthcad.projects.so101_cart.cart",
+        True,
+        "so101-cart",
+        "printable-candidate",
+    ),
+    BuildTarget(
+        "so101-cart",
+        make_so101_cart,
+        "robot-reference-assembly",
+        "synthcad.projects.so101_cart.cart",
+        False,
+        "so101-cart",
+        "active",
+        source_refs=SO101_CART_SOURCE_REFS,
+    ),
+    BuildTarget(
+        "flat-disk-robot-with-cart",
+        make_flat_disk_robot_with_cart,
+        "robot-reference-assembly",
+        "synthcad.projects.so101_cart.cart",
+        False,
+        "so101-cart",
+        "active",
+        source_refs=FLAT_DISK_SOURCE_REFS + SO101_CART_SOURCE_REFS,
+        intentional_interferences=(
+            IntentionalInterference(
+                "repeat-compact-1806-gearmotor",
+                "TPU press-fit D-bore wheel",
+                "Disk-robot motor/wheel TPU press fit (inherited from flat-disk-robot).",
+            ),
+            IntentionalInterference(
+                "lid dock magnet",
+                "cart dock magnet",
+                "Modeled disc magnets touch face-to-face across the dock seam.",
             ),
         ),
     ),

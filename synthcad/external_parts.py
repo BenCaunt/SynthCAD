@@ -7,7 +7,7 @@ from typing import Any
 
 from build123d import Color, export_brep, import_brep, import_step
 
-from synthcad.paths import REAL_PARTS_DIR
+from synthcad.paths import REAL_PARTS_DIR, project_real_parts_dir
 
 
 @lru_cache(maxsize=None)
@@ -124,6 +124,20 @@ OV2640_21MM_160_CAMERA = ExternalPart(
     project="flat-disk-robot",
 )
 
+SO_ARM_101_ASSEMBLY = ExternalPart(
+    name="so-arm-101-assembly",
+    step_path=project_real_parts_dir("so101-cart")
+    / "so-arm-101.snapshot"
+    / "SO101_Assembly.step",
+    source_kind="external-step",
+    notes=(
+        "TheRobotStudio SO-ARM100 SO-101 follower assembly STEP. In this STEP "
+        "the base sits on Z=0, the arm columns extend toward +Z, and the "
+        "rotation axis of the shoulder is parallel to local Z."
+    ),
+    project="so101-cart",
+)
+
 EXTERNAL_PARTS = {
     part.name: part
     for part in [
@@ -131,6 +145,7 @@ EXTERNAL_PARTS = {
         AS5600_ENCODER,
         XIAO_ESP32S3_SENSE,
         OV2640_21MM_160_CAMERA,
+        SO_ARM_101_ASSEMBLY,
     ]
 }
 

@@ -70,6 +70,12 @@ and rear-mounted magnetic encoder boards.
 - Shallow recessed rear-center lid logo reading `Designed by GPT-5.4 xhigh with build123d`
   as a larger, left-aligned single-line text block.
 - Four per-side motor-screw service tunnels in the lower chassis so a slim driver can reach the face-mount screws.
+- Two `12 x 5 mm` N52 dock magnet bores in the rear of the lid wall (one on
+  each side of the rear service opening) so the disk robot can dock with the
+  [`so101-cart`](../../so101-cart/README.md) trailer that carries an SO-101
+  arm.  Both bores are radial so their pole faces sit flush with the curved
+  outer surface; the supporting bosses extend inward only and never break the
+  216 mm lid envelope.
 
 ## Battery Assumptions
 

@@ -1,0 +1,11 @@
+[project]
+name = "so101-cart"
+boundary = "project"
+lifecycle = "active"
+summary = "Two-wheeled cart that carries the SO-101 arm and docks magnetically with the flat disk robot."
+
+[layout]
+source_refs = "real-parts"
+docs = "docs"
+tests = "tests"
+generated = "generated"

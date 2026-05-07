@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from math import cos, sin, sqrt, tau
+from math import atan2, cos, degrees, radians, sin, sqrt, tau
 
 from build123d import (
     Align,
@@ -311,6 +311,27 @@ MOTOR_DRIVER_ACCESS_OVERTRAVEL = 6.0
 LID_VENT_HOLE_RADIUS = 4.0
 LID_VENT_RING_RADIUS = 24.0
 LID_VENT_HOLE_COUNT = 8
+
+# Two N52 disc magnets in the rear of the lid let the disk robot dock into the
+# cart cradle.  The magnet bores are radial so the magnet faces sit (essentially)
+# flush with the curved outer surface of the lid wall.  The bosses extend
+# inward only and are sized so they never break the 216 mm lid envelope.
+LID_DOCK_MAGNET_DIAMETER = 12.0
+LID_DOCK_MAGNET_RADIUS = LID_DOCK_MAGNET_DIAMETER / 2
+LID_DOCK_MAGNET_THICKNESS = 5.0
+LID_DOCK_MAGNET_POCKET_RADIAL_CLEARANCE = 0.2
+LID_DOCK_MAGNET_POCKET_RADIUS = (
+    LID_DOCK_MAGNET_RADIUS + LID_DOCK_MAGNET_POCKET_RADIAL_CLEARANCE
+)
+LID_DOCK_MAGNET_POCKET_DEPTH = LID_DOCK_MAGNET_THICKNESS + 0.2
+LID_DOCK_MAGNET_BOSS_RADIUS = 9.0
+LID_DOCK_MAGNET_BOSS_DEPTH = 7.0
+LID_DOCK_MAGNET_BOSS_OUTER_INSET = 0.5
+LID_DOCK_MAGNET_X_OFFSET = 50.0
+LID_DOCK_MAGNET_Y_OUTER = -sqrt(
+    ROBOT_RADIUS**2 - LID_DOCK_MAGNET_X_OFFSET**2
+)
+LID_DOCK_MAGNET_CENTER_Z = (LID_WALL_BOTTOM_Z + LID_TOP_UNDERSIDE_Z) / 2
 
 LID_LOGO_TEXT_LINES = (
     "Designed by GPT-5.4 xhigh with build123d",
@@ -684,6 +705,50 @@ def make_flat_disk_robot_chassis():
     return tag(chassis.part, "216 mm flat disk robot chassis", PRINTED_FRAME)
 
 
+def lid_dock_magnet_theta_deg(side: int) -> float:
+    """Angle (deg) of the radial axis through the rear-arc dock magnet."""
+
+    return degrees(atan2(LID_DOCK_MAGNET_Y_OUTER, side * LID_DOCK_MAGNET_X_OFFSET))
+
+
+def lid_dock_magnet_outer_face_location(side: int) -> Location:
+    """World location at the magnet's outer face center, local +X radial outward."""
+
+    theta_deg = lid_dock_magnet_theta_deg(side)
+    return Location(
+        (
+            ROBOT_RADIUS * cos(radians(theta_deg)),
+            ROBOT_RADIUS * sin(radians(theta_deg)),
+            LID_DOCK_MAGNET_CENTER_Z,
+        ),
+        (0, 0, theta_deg),
+    )
+
+
+def _add_lid_dock_magnet(side: int):
+    """Inward-facing boss with a radial pocket for one rear-arc dock magnet."""
+
+    base = lid_dock_magnet_outer_face_location(side)
+    boss_local_x = (
+        -LID_DOCK_MAGNET_BOSS_OUTER_INSET - LID_DOCK_MAGNET_BOSS_DEPTH / 2
+    )
+    pocket_local_x = -LID_DOCK_MAGNET_POCKET_DEPTH / 2
+
+    with Locations(base * Location((boss_local_x, 0, 0))):
+        Cylinder(
+            LID_DOCK_MAGNET_BOSS_RADIUS,
+            LID_DOCK_MAGNET_BOSS_DEPTH,
+            rotation=(0, 90, 0),
+        )
+    with Locations(base * Location((pocket_local_x, 0, 0))):
+        Cylinder(
+            LID_DOCK_MAGNET_POCKET_RADIUS,
+            LID_DOCK_MAGNET_POCKET_DEPTH + 0.4,
+            rotation=(0, 90, 0),
+            mode=Mode.SUBTRACT,
+        )
+
+
 def _make_circular_lid_shell(*, outer_radius: float, inner_radius: float, height: float):
     with BuildPart() as shell:
         with Locations((0, 0, height / 2)):
@@ -785,6 +850,9 @@ def make_flat_disk_robot_lid():
                     mode=Mode.SUBTRACT,
                 )
 
+        for side in [-1, 1]:
+            _add_lid_dock_magnet(side)
+
         with Locations((LID_SWITCH_CUTOUT_CENTER[0], LID_SWITCH_CUTOUT_CENTER[1], LID_TOP_CENTER_Z)):
             Box(
                 LID_SWITCH_CUTOUT_SIZE[0],
@@ -880,6 +948,28 @@ def place_as5600_encoder(side: int):
     )
     label = "right AS5600 drive encoder" if side > 0 else "left AS5600 drive encoder"
     return tag(placed, label, BLUE)
+
+
+def place_lid_dock_magnet(side: int):
+    base = lid_dock_magnet_outer_face_location(side)
+    magnet_local_offset = Location(
+        (-LID_DOCK_MAGNET_THICKNESS / 2, 0, 0)
+    )
+    placed = (
+        base
+        * magnet_local_offset
+        * Cylinder(
+            LID_DOCK_MAGNET_RADIUS,
+            LID_DOCK_MAGNET_THICKNESS,
+            rotation=(0, 90, 0),
+        )
+    )
+    label = (
+        "right rear lid dock magnet"
+        if side > 0
+        else "left rear lid dock magnet"
+    )
+    return tag(placed, label, BLACK)
 
 
 def place_encoder_magnet(side: int):
@@ -997,6 +1087,7 @@ def make_flat_disk_robot(*, include_lid_driver_access_refs: bool = False) -> Com
         children.append(place_wheel_on_x_axis(side))
         children.append(place_encoder_magnet(side))
         children.append(place_as5600_encoder(side))
+        children.append(place_lid_dock_magnet(side))
         children.extend(_motor_screw_heads(side))
 
     return Compound(children=children, label="flat-disk-robot")
