@@ -23,3 +23,8 @@ Current targets:
 Done means the chassis, lid, reference assembly, and URDF package regenerate,
 inspect cleanly except for documented intentional overlaps, and preserve the
 motor, wheel, sensor, battery, encoder, and USB service interfaces.
+
+## OpenSCAD exploration
+
+- Migration notes: `docs/openscad-migration-evaluation.md`
+- Prototype port: `openscad/flat_disk_robot.scad`
