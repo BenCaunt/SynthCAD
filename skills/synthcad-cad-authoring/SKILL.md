@@ -71,3 +71,14 @@ A CAD change is done when:
 
 Open `references/project-workflow.md` for the generic project workflow and
 test expectations.
+
+## Robotics Robustness Extension
+
+For robotics parts/assemblies, pair this skill with:
+
+- `references/robotics-robustness-prompt.md` for a reusable prompt add-on.
+- `docs/robotics-design-guidelines.md` for design guardrails and tooling roadmap.
+
+When outputs include rotating shafts, bearing supports, or structural load paths,
+require explicit rationale and fail the task if support topology is unsafe or
+insufficiently specified.
