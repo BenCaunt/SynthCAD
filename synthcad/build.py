@@ -8,6 +8,7 @@ from time import perf_counter
 from typing import Callable
 
 from synthcad.cad.common import export_model, export_model_with_timings
+from synthcad.library.load_cells import make_m3564c_load_cell
 from synthcad.paths import GENERATED_DIR, project_generated_dir
 from synthcad.projects.flat_disk_robot.robot import (
     make_flat_disk_robot,
@@ -70,6 +71,10 @@ FLAT_DISK_SOURCE_REFS = (
     "projects/flat-disk-robot/real-parts/battery.png",
 )
 
+M3564C_SOURCE_REFS = (
+    "projects/m3564c-load-cell/real-parts/m3564c-drawing.pdf",
+)
+
 
 BUILD_TARGETS = [
     BuildTarget(
@@ -112,6 +117,17 @@ BUILD_TARGETS = [
                 "The wheel/motor overlap is the modeled TPU press fit, not a hard interference.",
             ),
         ),
+    ),
+    BuildTarget(
+        "m3564c-six-axis-load-cell",
+        make_m3564c_load_cell,
+        "vendor-reference-part",
+        "synthcad.library.load_cells",
+        False,
+        "m3564c-load-cell",
+        "reference-model",
+        source_refs=M3564C_SOURCE_REFS,
+        docs=("projects/m3564c-load-cell/docs/m3564c-load-cell-notes.md",),
     ),
 ]
 

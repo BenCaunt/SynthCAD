@@ -18,14 +18,17 @@ Photos of the physical robot and printed chassis details:
 
 ```bash
 uv run synthcad-build --project flat-disk-robot
+uv run synthcad-build --target m3564c-six-axis-load-cell \
+  --output-dir projects/m3564c-load-cell/generated
 uv run synthcad-probe --target flat-disk-robot --children
 uv run synthcad-inspect --target flat-disk-robot
 uv run show-interference --target flat-disk-robot
 uv run synthcad-urdf --target flat-disk-robot
 ```
 
-Generated STEP, STL, GLB, inspection, and URDF artifacts are written under
-`projects/flat-disk-robot/generated/`, which is intentionally ignored by git.
+Generated STEP, STL, GLB, inspection, and URDF artifacts are written under each
+project's `generated/` directory when using the project-local output paths
+shown above. Generated directories are intentionally ignored by git.
 
 ## Build Targets
 
@@ -33,11 +36,15 @@ Generated STEP, STL, GLB, inspection, and URDF artifacts are written under
 - `flat-disk-robot-lid`: printable service lid.
 - `flat-disk-robot`: reference assembly with motors, wheels, electronics,
   sensors, battery, and lid.
+- `m3564c-six-axis-load-cell`: reference model of the Sunrise Instruments
+  M3564C 60 mm six-axis circular load cell.
 
 The source references used by the flat disk robot live under
 `projects/flat-disk-robot/real-parts/`. BREP cache files may be generated
 beside STEP inputs during local builds; they are ignored and should not be
 committed.
+The M3564C source drawing lives under
+`projects/m3564c-load-cell/real-parts/`.
 
 ## GitHub CI
 
