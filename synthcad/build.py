@@ -2,166 +2,23 @@ from __future__ import annotations
 
 import argparse
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict
 from pathlib import Path
 from time import perf_counter
-from typing import Callable
 
 from synthcad.cad.common import export_model, export_model_with_timings
 from synthcad.paths import GENERATED_DIR, project_generated_dir
-from synthcad.projects.flat_disk_robot.robot import (
-    make_flat_disk_robot,
-    make_flat_disk_robot_chassis,
-    make_flat_disk_robot_lid,
+from synthcad.registry import (
+    BUILD_TARGETS,
+    BuildTarget,
+    IntentionalInterference,
+    ValidationPlan,
+    filter_targets,
+    project_names,
+    target_lookup,
+    targets_for_project,
 )
 from synthcad.review_assets import build_display_snapshot
-
-
-@dataclass(frozen=True)
-class ValidationPlan:
-    inspect: bool = True
-    interference_targets: tuple[str, ...] = ()
-
-
-@dataclass(frozen=True)
-class IntentionalInterference:
-    first: str
-    second: str
-    reason: str
-
-
-@dataclass(frozen=True)
-class BuildTarget:
-    name: str
-    factory: Callable
-    kind: str
-    source_module: str
-    printable: bool
-    project: str
-    status: str
-    source_refs: tuple[str, ...] = ()
-    docs: tuple[str, ...] = ()
-    validation: ValidationPlan = field(default_factory=ValidationPlan)
-    intentional_interferences: tuple[IntentionalInterference, ...] = ()
-    inspection_factory: Callable | None = None
-    formats: tuple[str, ...] = ("step", "stl", "glb")
-
-    @property
-    def is_assembly(self) -> bool:
-        return "assembly" in self.kind
-
-    def output_prefix(self, output_dir: str | Path = GENERATED_DIR) -> Path:
-        output_path = Path(output_dir)
-        if output_path.resolve() == project_generated_dir(self.project).resolve():
-            return output_path / self.name
-        return output_path / self.project / self.name
-
-    def make_inspection_model(self):
-        factory = self.inspection_factory or self.factory
-        return factory()
-
-
-FLAT_DISK_SOURCE_REFS = (
-    "projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
-    "projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
-    "projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
-    "projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP",
-    "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
-    "projects/flat-disk-robot/real-parts/battery.png",
-)
-
-
-BUILD_TARGETS = [
-    BuildTarget(
-        "flat-disk-robot-chassis",
-        make_flat_disk_robot_chassis,
-        "generated-printable-part",
-        "synthcad.projects.flat_disk_robot.robot",
-        True,
-        "flat-disk-robot",
-        "printable-candidate",
-        source_refs=FLAT_DISK_SOURCE_REFS,
-        docs=("projects/flat-disk-robot/docs/flat-disk-robot-notes.md",),
-        validation=ValidationPlan(interference_targets=("flat-disk-robot",)),
-    ),
-    BuildTarget(
-        "flat-disk-robot-lid",
-        make_flat_disk_robot_lid,
-        "generated-printable-part",
-        "synthcad.projects.flat_disk_robot.robot",
-        True,
-        "flat-disk-robot",
-        "printable-candidate",
-        docs=("projects/flat-disk-robot/docs/flat-disk-robot-notes.md",),
-        validation=ValidationPlan(interference_targets=("flat-disk-robot",)),
-    ),
-    BuildTarget(
-        "flat-disk-robot",
-        make_flat_disk_robot,
-        "robot-reference-assembly",
-        "synthcad.projects.flat_disk_robot.robot",
-        False,
-        "flat-disk-robot",
-        "active",
-        source_refs=FLAT_DISK_SOURCE_REFS,
-        docs=("projects/flat-disk-robot/docs/flat-disk-robot-notes.md",),
-        intentional_interferences=(
-            IntentionalInterference(
-                "repeat-compact-1806-gearmotor",
-                "TPU press-fit D-bore wheel",
-                "The wheel/motor overlap is the modeled TPU press fit, not a hard interference.",
-            ),
-        ),
-    ),
-]
-
-
-def target_lookup() -> dict[str, BuildTarget]:
-    return {target.name: target for target in BUILD_TARGETS}
-
-
-def project_names() -> tuple[str, ...]:
-    return tuple(sorted({target.project for target in BUILD_TARGETS}))
-
-
-def targets_for_project(project: str) -> list[BuildTarget]:
-    return [target for target in BUILD_TARGETS if target.project == project]
-
-
-def filter_targets(
-    *,
-    names: list[str] | tuple[str, ...] = (),
-    projects: list[str] | tuple[str, ...] = (),
-    default_all: bool = False,
-) -> list[BuildTarget]:
-    lookup = target_lookup()
-    selected: list[BuildTarget] = []
-
-    if default_all and not names and not projects:
-        selected.extend(BUILD_TARGETS)
-
-    for project in projects:
-        matches = targets_for_project(project)
-        if not matches:
-            available = ", ".join(project_names())
-            raise ValueError(f"Unknown project {project!r}. Available projects: {available}")
-        selected.extend(matches)
-
-    unknown = [name for name in names if name not in lookup]
-    if unknown:
-        available = ", ".join(sorted(lookup))
-        raise ValueError(
-            f"Unknown build target(s): {', '.join(unknown)}. Available targets: {available}"
-        )
-    selected.extend(lookup[name] for name in names)
-
-    deduped: list[BuildTarget] = []
-    seen: set[str] = set()
-    for target in selected:
-        if target.name not in seen:
-            deduped.append(target)
-            seen.add(target.name)
-    return deduped
 
 
 def _snapshot_path_for_target(target: BuildTarget, output_path: Path) -> Path:
@@ -229,9 +86,7 @@ def export_targets(
 
         snapshot_path = _write_display_snapshot(target, model, output_path)
         written.extend([*target_paths, snapshot_path])
-        manifest.append(
-            _manifest_entry(target, target_paths, display_snapshot=snapshot_path)
-        )
+        manifest.append(_manifest_entry(target, target_paths, display_snapshot=snapshot_path))
 
     manifest_path = output_path / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
@@ -282,8 +137,8 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=GENERATED_DIR,
-        help=f"Output directory. Defaults to {GENERATED_DIR}.",
+        default=None,
+        help="Output directory. Defaults to each selected project's generated directory.",
     )
     parser.add_argument(
         "--list",
@@ -324,7 +179,21 @@ def main() -> None:
     except ValueError as exc:
         raise SystemExit(str(exc)) from exc
 
-    for path in export_targets(targets, output_dir=args.output_dir, profile=args.profile):
+    if args.output_dir is not None:
+        written = export_targets(targets, output_dir=args.output_dir, profile=args.profile)
+    else:
+        written = []
+        for project in sorted({target.project for target in targets}):
+            project_targets = [target for target in targets if target.project == project]
+            written.extend(
+                export_targets(
+                    project_targets,
+                    output_dir=project_generated_dir(project),
+                    profile=args.profile,
+                )
+            )
+
+    for path in written:
         print(path)
 
 

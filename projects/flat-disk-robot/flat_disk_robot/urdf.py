@@ -3,17 +3,17 @@ from __future__ import annotations
 from build123d import Cylinder, Location
 
 from synthcad.cad.common import BLACK, BLUE, COPPER_GOLD, PRINTED_FRAME, SILVER, TPU_BLACK
-from synthcad.external_parts import (
+from flat_disk_robot.external_parts import (
     AS5600_ENCODER,
     OV2640_21MM_160_CAMERA,
     REPEAT_COMPACT_1806,
     XIAO_ESP32S3_SENSE,
 )
-from synthcad.library.batteries import BATTERY_HEIGHT, BATTERY_LENGTH, BATTERY_WIDTH, make_small_4s_battery
-from synthcad.library.boards import make_tof_sensor_board
-from synthcad.library.repeat_drive import WHEEL_HUB_WIDTH, make_tpu_d_bore_wheel
-from synthcad.library.sensors import make_forward_radar_module
-import synthcad.projects.flat_disk_robot.robot as flat_robot
+from flat_disk_robot.batteries import BATTERY_HEIGHT, BATTERY_LENGTH, BATTERY_WIDTH, make_small_4s_battery
+from flat_disk_robot.boards import make_tof_sensor_board
+from flat_disk_robot.repeat_drive import WHEEL_HUB_WIDTH, make_tpu_d_bore_wheel
+from flat_disk_robot.sensors import make_forward_radar_module
+import flat_disk_robot.robot as flat_robot
 from synthcad.urdf import (
     CollisionSpec,
     JointDynamics,
@@ -300,7 +300,7 @@ def make_flat_disk_robot_urdf() -> RobotDescription:
         links=tuple(links),
         joints=tuple(joints),
         notes=(
-            "All coordinates originate from synthcad.projects.flat_disk_robot.robot.",
+            "All coordinates originate from projects/flat-disk-robot/flat_disk_robot/robot.py.",
             "URDF mesh geometry is exported in millimeters and scaled to meters with mesh scale 0.001.",
             "Wheel joints are continuous around the robot X axis; all other joints are fixed reference placements.",
             "Mass and inertia values are first-pass assumptions for visualization, TF, and basic simulation setup.",

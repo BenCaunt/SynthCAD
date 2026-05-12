@@ -14,7 +14,7 @@ from build123d import (
 
 from synthcad.cad.features import candidate_circular_holes
 from synthcad.inspection import bounding_box_summary
-from synthcad.library.repeat_drive import (
+from flat_disk_robot.repeat_drive import (
     MOTOR_BOLT_CIRCLE_RADIUS,
     WHEEL_HUB_WIDTH,
     WHEEL_RADIUS,
@@ -22,7 +22,7 @@ from synthcad.library.repeat_drive import (
     make_tpu_d_bore_wheel,
     motor_bolt_circle_offsets,
 )
-from synthcad.projects.flat_disk_robot.robot import (
+from flat_disk_robot.robot import (
     ENCODER_MOUNT_PLATE_THICKNESS,
     ENCODER_MOUNT_PLATE_WIDTH,
     ENCODER_MOUNT_PLATE_BOTTOM_Z,

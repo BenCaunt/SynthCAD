@@ -16,11 +16,10 @@ from synthcad.inspection import (
     model_summary,
     render_interference_projection_svg,
 )
-from synthcad.paths import GENERATED_DIR
+from synthcad.paths import GENERATED_DIR, project_generated_dir
 from synthcad.report_cli import describe_target_projects, filter_targets_by_project
 
 
-DEFAULT_SHOW_INTERFERENCE_DIR = GENERATED_DIR / "inspection" / "interference"
 DEFAULT_SHOW_INTERFERENCE_VIEWS = tuple(PROJECTION_VIEWS)
 
 
@@ -85,10 +84,11 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=DEFAULT_SHOW_INTERFERENCE_DIR,
+        default=None,
         help=(
             "Directory for red-overlay SVGs and show-interference-report.json. "
-            f"Defaults to {DEFAULT_SHOW_INTERFERENCE_DIR}."
+            "Defaults to the selected project's generated/inspection/interference "
+            "directory when all checked targets belong to one project."
         ),
     )
     parser.add_argument(
@@ -235,6 +235,22 @@ def _show_subject_interference(
     return subject_report, True
 
 
+def _default_output_dir(subjects: list[InterferenceSubject], explicit: Path | None) -> Path:
+    if explicit is not None:
+        return explicit
+
+    lookup = _target_lookup()
+    projects = {
+        lookup[target_name].project
+        for subject in subjects
+        for target_name in subject.source_targets
+        if target_name in lookup
+    }
+    if len(projects) == 1:
+        return project_generated_dir(next(iter(projects))) / "inspection" / "interference"
+    return GENERATED_DIR / "inspection" / "interference"
+
+
 def main() -> int:
     args = _parse_args()
     if args.list:
@@ -244,11 +260,12 @@ def main() -> int:
     targets = _resolve_targets(args)
     subjects = _build_subjects(targets, combine_as=args.combine_as)
     views = tuple(args.view or DEFAULT_SHOW_INTERFERENCE_VIEWS)
+    output_dir = _default_output_dir(subjects, args.output_dir)
 
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
     report: dict[str, Any] = {
         "views": list(views),
-        "output_dir": str(args.output_dir),
+        "output_dir": str(output_dir),
         "min_volume_mm3": args.min_volume_mm3,
         "subjects": [],
     }
@@ -257,14 +274,14 @@ def main() -> int:
     for subject in subjects:
         subject_report, subject_has_interference = _show_subject_interference(
             subject,
-            output_dir=args.output_dir,
+            output_dir=output_dir,
             views=views,
             min_volume_mm3=args.min_volume_mm3,
         )
         report["subjects"].append(subject_report)
         any_interference = any_interference or subject_has_interference
 
-    report_path = args.output_dir / "show-interference-report.json"
+    report_path = output_dir / "show-interference-report.json"
     report_path.write_text(json.dumps(report, indent=2) + "\n")
     print(f"wrote {report_path}")
 

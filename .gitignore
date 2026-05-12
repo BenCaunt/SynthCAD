@@ -1,4 +1,5 @@
 projects/*/generated/
+generated/
 .venv/
 .pytest_cache/
 __pycache__/

@@ -3,7 +3,8 @@
 Boundary: `project`
 
 Robot-specific work for the flat disk platform. Keep chassis, assembly, and
-validation notes here. Reusable primitives belong in `projects/library/`.
+validation notes here. Shared framework utilities belong in `synthcad/`; robot
+parts and references stay inside this project.
 
 Project-owned files live with this bundle:
 

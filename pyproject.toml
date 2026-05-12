@@ -1,7 +1,7 @@
 [project]
 name = "synthcad"
 version = "0.1.0"
-description = "Open build123d CAD workflow and flat disk robot reference project."
+description = "Open build123d CAD workflow with project-local CAD targets."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -22,6 +22,7 @@ synthcad-view = "synthcad.viewer_cli:main"
 synthcad-urdf = "synthcad.urdf_cli:main"
 synthcad-probe = "synthcad.probe_cli:main"
 synthcad-pr-pages = "synthcad.pr_pages:main"
+synthcad-select = "synthcad.selection_cli:main"
 show-interference = "synthcad.show_interference_cli:main"
 
 [build-system]

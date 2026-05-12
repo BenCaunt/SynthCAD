@@ -1,0 +1,11 @@
+[project]
+name = "m3564c-load-cell"
+boundary = "project"
+lifecycle = "active"
+summary = "Reference CAD model for the Sunrise Instruments M3564C six-axis circular load cell."
+
+[layout]
+source_refs = "real-parts"
+docs = "docs"
+tests = "tests"
+generated = "generated"

@@ -30,16 +30,16 @@ from synthcad.cad.common import (
     tag,
 )
 from synthcad.cad.serviceability import make_vertical_access_keepout
-from synthcad.external_parts import (
+from flat_disk_robot.external_parts import (
     AS5600_ENCODER,
     AS5600_MOUNTING_HOLES,
     OV2640_21MM_160_CAMERA,
     REPEAT_COMPACT_1806,
     XIAO_ESP32S3_SENSE,
 )
-from synthcad.library.batteries import make_small_4s_battery
-from synthcad.library.boards import TOF_MOUNTING_HOLES, make_tof_sensor_board
-from synthcad.library.repeat_drive import (
+from flat_disk_robot.batteries import make_small_4s_battery
+from flat_disk_robot.boards import TOF_MOUNTING_HOLES, make_tof_sensor_board
+from flat_disk_robot.repeat_drive import (
     FACE_REGISTER_RADIUS,
     M2_CLEARANCE_RADIUS,
     M2_COUNTERBORE_DEPTH,
@@ -60,7 +60,7 @@ from synthcad.library.repeat_drive import (
     motor_bolt_circle_offsets,
     make_tpu_d_bore_wheel,
 )
-from synthcad.library.sensors import make_forward_radar_module
+from flat_disk_robot.sensors import make_forward_radar_module
 
 
 ROBOT_DIAMETER = 216.0
