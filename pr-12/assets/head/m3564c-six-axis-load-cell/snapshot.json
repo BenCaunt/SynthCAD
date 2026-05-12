@@ -1,0 +1,212 @@
+{
+  "target": {
+    "name": "m3564c-six-axis-load-cell",
+    "kind": "vendor-reference-part",
+    "source_module": "m3564c_load_cell.load_cell",
+    "printable": false,
+    "project": "m3564c-load-cell",
+    "status": "reference-model",
+    "source_refs": [
+      "projects/m3564c-load-cell/real-parts/m3564c-drawing.pdf"
+    ],
+    "docs": [
+      "projects/m3564c-load-cell/docs/m3564c-load-cell-notes.md"
+    ],
+    "validation": {
+      "inspect": true,
+      "interference_targets": []
+    },
+    "intentional_interferences": [],
+    "formats": [
+      "step",
+      "stl",
+      "glb"
+    ]
+  },
+  "model_summary": {
+    "name": "m3564c-six-axis-load-cell",
+    "kind": "vendor-reference-part",
+    "label": "M3564C six-axis circular load cell",
+    "bbox_mm": {
+      "min": [
+        -30.0,
+        -58.0,
+        0.0
+      ],
+      "max": [
+        30.0,
+        30.0,
+        12.5
+      ],
+      "center": [
+        0.0,
+        -14.0,
+        6.25
+      ],
+      "size": [
+        60.0,
+        88.0,
+        12.5
+      ],
+      "diagonal": 107.2392
+    },
+    "child_count": 5,
+    "solid_count": 5,
+    "volume_mm3": 0.0
+  },
+  "children": [
+    {
+      "index": 0,
+      "label": "M3564C machined load-cell body",
+      "instance_key": "M3564C machined load-cell body @ (0.00, 0.00, 6.25)",
+      "bbox_mm": {
+        "min": [
+          -30.0,
+          -30.0,
+          0.0
+        ],
+        "max": [
+          30.0,
+          30.0,
+          12.5
+        ],
+        "center": [
+          0.0,
+          0.0,
+          6.25
+        ],
+        "size": [
+          60.0,
+          60.0,
+          12.5
+        ],
+        "diagonal": 85.7686
+      },
+      "solid_count": 1,
+      "volume_mm3": 0.0
+    },
+    {
+      "index": 1,
+      "label": "M3564C molded cable gland",
+      "instance_key": "M3564C molded cable gland @ (0.00, -34.00, 2.50)",
+      "bbox_mm": {
+        "min": [
+          -6.0,
+          -39.0,
+          0.0
+        ],
+        "max": [
+          6.0,
+          -29.0,
+          5.0
+        ],
+        "center": [
+          0.0,
+          -34.0,
+          2.5
+        ],
+        "size": [
+          12.0,
+          10.0,
+          5.0
+        ],
+        "diagonal": 16.4012
+      },
+      "solid_count": 1,
+      "volume_mm3": 0.0
+    },
+    {
+      "index": 2,
+      "label": "M3564C 4 m cable direction stub",
+      "instance_key": "M3564C 4 m cable direction stub @ (0.00, -49.00, 1.80)",
+      "bbox_mm": {
+        "min": [
+          -1.8,
+          -58.0,
+          -0.0
+        ],
+        "max": [
+          1.8,
+          -40.0,
+          3.6
+        ],
+        "center": [
+          0.0,
+          -49.0,
+          1.8
+        ],
+        "size": [
+          3.6,
+          18.0,
+          3.6
+        ],
+        "diagonal": 18.7061
+      },
+      "solid_count": 1,
+      "volume_mm3": 0.0
+    },
+    {
+      "index": 3,
+      "label": "M3564C top marking M3564C",
+      "instance_key": "M3564C top marking M3564C @ (0.00, 21.00, 12.05)",
+      "bbox_mm": {
+        "min": [
+          -5.9304,
+          19.8655,
+          12.02
+        ],
+        "max": [
+          5.9304,
+          22.1345,
+          12.08
+        ],
+        "center": [
+          0.0,
+          21.0,
+          12.05
+        ],
+        "size": [
+          11.8608,
+          2.269,
+          0.06
+        ],
+        "diagonal": 12.0761
+      },
+      "solid_count": 1,
+      "volume_mm3": 0.0
+    },
+    {
+      "index": 4,
+      "label": "M3564C top marking TOOL SIDE",
+      "instance_key": "M3564C top marking TOOL SIDE @ (0.00, -21.00, 12.05)",
+      "bbox_mm": {
+        "min": [
+          -5.8636,
+          -21.832,
+          12.02
+        ],
+        "max": [
+          5.8636,
+          -20.168,
+          12.08
+        ],
+        "center": [
+          0.0,
+          -21.0,
+          12.05
+        ],
+        "size": [
+          11.7272,
+          1.664,
+          0.06
+        ],
+        "diagonal": 11.8449
+      },
+      "solid_count": 1,
+      "volume_mm3": 0.0
+    }
+  ],
+  "inspection": {
+    "projection_urls": []
+  }
+}

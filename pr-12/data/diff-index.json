@@ -1,8 +1,310 @@
 {
   "base_ref": "b5dce19c37688828487bdd448a5f77fbb1225a4d",
-  "head_ref": "b7c1a18d2f245673092fe4269fb396d6042ad8ea",
-  "default_assembly": "flat-disk-robot",
+  "head_ref": "17f2609fe043d780cf4d8a337a66b9614576fb1f",
+  "default_assembly": "flat-disk-robot-chassis",
   "assemblies": [
+    {
+      "name": "flat-disk-robot-chassis",
+      "project": "flat-disk-robot",
+      "kind": "generated-printable-part",
+      "comparison": {
+        "unchanged_count": 0,
+        "added": [],
+        "modified": [],
+        "removed": []
+      },
+      "base": {
+        "target": {
+          "name": "flat-disk-robot-chassis",
+          "kind": "generated-printable-part",
+          "source_module": "synthcad.projects.flat_disk_robot.robot",
+          "printable": true,
+          "project": "flat-disk-robot",
+          "status": "printable-candidate",
+          "source_refs": [
+            "projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
+            "projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
+            "projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
+            "projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP",
+            "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
+            "projects/flat-disk-robot/real-parts/battery.png"
+          ],
+          "docs": [
+            "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
+          ],
+          "validation": {
+            "inspect": true,
+            "interference_targets": [
+              "flat-disk-robot"
+            ]
+          },
+          "intentional_interferences": [],
+          "formats": [
+            "step",
+            "stl",
+            "glb"
+          ]
+        },
+        "model_summary": {
+          "name": "flat-disk-robot-chassis",
+          "kind": "generated-printable-part",
+          "label": "216 mm flat disk robot chassis",
+          "bbox_mm": {
+            "min": [
+              -108.0,
+              -108.0,
+              -0.0
+            ],
+            "max": [
+              108.0,
+              108.0,
+              43.65
+            ],
+            "center": [
+              -0.0,
+              0.0,
+              21.825
+            ],
+            "size": [
+              216.0,
+              216.0,
+              43.65
+            ],
+            "diagonal": 308.573
+          },
+          "child_count": 0,
+          "solid_count": 0,
+          "volume_mm3": 0.0
+        },
+        "children": [],
+        "inspection": {
+          "projection_urls": []
+        },
+        "glb_url": "assets/base/flat-disk-robot-chassis/flat-disk-robot-chassis.glb",
+        "artifact_urls": {
+          "glb": "assets/base/flat-disk-robot-chassis/flat-disk-robot-chassis.glb"
+        },
+        "changed_instance_keys": []
+      },
+      "head": {
+        "target": {
+          "name": "flat-disk-robot-chassis",
+          "kind": "generated-printable-part",
+          "source_module": "flat_disk_robot.robot",
+          "printable": true,
+          "project": "flat-disk-robot",
+          "status": "printable-candidate",
+          "source_refs": [
+            "projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
+            "projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
+            "projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
+            "projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP",
+            "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
+            "projects/flat-disk-robot/real-parts/battery.png"
+          ],
+          "docs": [
+            "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
+          ],
+          "validation": {
+            "inspect": true,
+            "interference_targets": [
+              "flat-disk-robot"
+            ]
+          },
+          "intentional_interferences": [],
+          "formats": [
+            "step",
+            "stl",
+            "glb"
+          ]
+        },
+        "model_summary": {
+          "name": "flat-disk-robot-chassis",
+          "kind": "generated-printable-part",
+          "label": "216 mm flat disk robot chassis",
+          "bbox_mm": {
+            "min": [
+              -108.0,
+              -108.0,
+              -0.0
+            ],
+            "max": [
+              108.0,
+              108.0,
+              43.65
+            ],
+            "center": [
+              -0.0,
+              0.0,
+              21.825
+            ],
+            "size": [
+              216.0,
+              216.0,
+              43.65
+            ],
+            "diagonal": 308.573
+          },
+          "child_count": 0,
+          "solid_count": 0,
+          "volume_mm3": 0.0
+        },
+        "children": [],
+        "inspection": {
+          "projection_urls": []
+        },
+        "glb_url": "assets/head/flat-disk-robot-chassis/flat-disk-robot-chassis.glb",
+        "artifact_urls": {
+          "glb": "assets/head/flat-disk-robot-chassis/flat-disk-robot-chassis.glb"
+        },
+        "changed_instance_keys": []
+      },
+      "review_outputs": []
+    },
+    {
+      "name": "flat-disk-robot-lid",
+      "project": "flat-disk-robot",
+      "kind": "generated-printable-part",
+      "comparison": {
+        "unchanged_count": 0,
+        "added": [],
+        "modified": [],
+        "removed": []
+      },
+      "base": {
+        "target": {
+          "name": "flat-disk-robot-lid",
+          "kind": "generated-printable-part",
+          "source_module": "synthcad.projects.flat_disk_robot.robot",
+          "printable": true,
+          "project": "flat-disk-robot",
+          "status": "printable-candidate",
+          "source_refs": [],
+          "docs": [
+            "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
+          ],
+          "validation": {
+            "inspect": true,
+            "interference_targets": [
+              "flat-disk-robot"
+            ]
+          },
+          "intentional_interferences": [],
+          "formats": [
+            "step",
+            "stl",
+            "glb"
+          ]
+        },
+        "model_summary": {
+          "name": "flat-disk-robot-lid",
+          "kind": "generated-printable-part",
+          "label": "M4-fastened flat disk robot service lid",
+          "bbox_mm": {
+            "min": [
+              -108.0,
+              -108.0,
+              23.0
+            ],
+            "max": [
+              108.0,
+              108.0,
+              49.5
+            ],
+            "center": [
+              0.0,
+              0.0,
+              36.25
+            ],
+            "size": [
+              216.0,
+              216.0,
+              26.5
+            ],
+            "diagonal": 306.6174
+          },
+          "child_count": 0,
+          "solid_count": 0,
+          "volume_mm3": 0.0
+        },
+        "children": [],
+        "inspection": {
+          "projection_urls": []
+        },
+        "glb_url": "assets/base/flat-disk-robot-lid/flat-disk-robot-lid.glb",
+        "artifact_urls": {
+          "glb": "assets/base/flat-disk-robot-lid/flat-disk-robot-lid.glb"
+        },
+        "changed_instance_keys": []
+      },
+      "head": {
+        "target": {
+          "name": "flat-disk-robot-lid",
+          "kind": "generated-printable-part",
+          "source_module": "flat_disk_robot.robot",
+          "printable": true,
+          "project": "flat-disk-robot",
+          "status": "printable-candidate",
+          "source_refs": [],
+          "docs": [
+            "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
+          ],
+          "validation": {
+            "inspect": true,
+            "interference_targets": [
+              "flat-disk-robot"
+            ]
+          },
+          "intentional_interferences": [],
+          "formats": [
+            "step",
+            "stl",
+            "glb"
+          ]
+        },
+        "model_summary": {
+          "name": "flat-disk-robot-lid",
+          "kind": "generated-printable-part",
+          "label": "M4-fastened flat disk robot service lid",
+          "bbox_mm": {
+            "min": [
+              -108.0,
+              -108.0,
+              23.0
+            ],
+            "max": [
+              108.0,
+              108.0,
+              49.5
+            ],
+            "center": [
+              0.0,
+              0.0,
+              36.25
+            ],
+            "size": [
+              216.0,
+              216.0,
+              26.5
+            ],
+            "diagonal": 306.6174
+          },
+          "child_count": 0,
+          "solid_count": 0,
+          "volume_mm3": 0.0
+        },
+        "children": [],
+        "inspection": {
+          "projection_urls": []
+        },
+        "glb_url": "assets/head/flat-disk-robot-lid/flat-disk-robot-lid.glb",
+        "artifact_urls": {
+          "glb": "assets/head/flat-disk-robot-lid/flat-disk-robot-lid.glb"
+        },
+        "changed_instance_keys": []
+      },
+      "review_outputs": []
+    },
     {
       "name": "flat-disk-robot",
       "project": "flat-disk-robot",
@@ -965,7 +1267,7 @@
         "target": {
           "name": "flat-disk-robot",
           "kind": "robot-reference-assembly",
-          "source_module": "synthcad.projects.flat_disk_robot.robot",
+          "source_module": "flat_disk_robot.robot",
           "printable": false,
           "project": "flat-disk-robot",
           "status": "active",
@@ -1908,6 +2210,434 @@
           "glb": "assets/head/flat-disk-robot/flat-disk-robot.glb"
         },
         "changed_instance_keys": []
+      },
+      "review_outputs": []
+    },
+    {
+      "name": "m3564c-six-axis-load-cell",
+      "project": "m3564c-load-cell",
+      "kind": "vendor-reference-part",
+      "comparison": {
+        "unchanged_count": 0,
+        "added": [
+          {
+            "label": "M3564C machined load-cell body",
+            "base_instance_key": null,
+            "head_instance_key": "M3564C machined load-cell body @ (0.00, 0.00, 6.25)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -30.0,
+                -30.0,
+                0.0
+              ],
+              "max": [
+                30.0,
+                30.0,
+                12.5
+              ],
+              "center": [
+                0.0,
+                0.0,
+                6.25
+              ],
+              "size": [
+                60.0,
+                60.0,
+                12.5
+              ],
+              "diagonal": 85.7686
+            }
+          },
+          {
+            "label": "M3564C molded cable gland",
+            "base_instance_key": null,
+            "head_instance_key": "M3564C molded cable gland @ (0.00, -34.00, 2.50)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -6.0,
+                -39.0,
+                0.0
+              ],
+              "max": [
+                6.0,
+                -29.0,
+                5.0
+              ],
+              "center": [
+                0.0,
+                -34.0,
+                2.5
+              ],
+              "size": [
+                12.0,
+                10.0,
+                5.0
+              ],
+              "diagonal": 16.4012
+            }
+          },
+          {
+            "label": "M3564C 4 m cable direction stub",
+            "base_instance_key": null,
+            "head_instance_key": "M3564C 4 m cable direction stub @ (0.00, -49.00, 1.80)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -1.8,
+                -58.0,
+                -0.0
+              ],
+              "max": [
+                1.8,
+                -40.0,
+                3.6
+              ],
+              "center": [
+                0.0,
+                -49.0,
+                1.8
+              ],
+              "size": [
+                3.6,
+                18.0,
+                3.6
+              ],
+              "diagonal": 18.7061
+            }
+          },
+          {
+            "label": "M3564C top marking M3564C",
+            "base_instance_key": null,
+            "head_instance_key": "M3564C top marking M3564C @ (0.00, 21.00, 12.05)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -5.9304,
+                19.8655,
+                12.02
+              ],
+              "max": [
+                5.9304,
+                22.1345,
+                12.08
+              ],
+              "center": [
+                0.0,
+                21.0,
+                12.05
+              ],
+              "size": [
+                11.8608,
+                2.269,
+                0.06
+              ],
+              "diagonal": 12.0761
+            }
+          },
+          {
+            "label": "M3564C top marking TOOL SIDE",
+            "base_instance_key": null,
+            "head_instance_key": "M3564C top marking TOOL SIDE @ (0.00, -21.00, 12.05)",
+            "base_bbox_mm": null,
+            "head_bbox_mm": {
+              "min": [
+                -5.8636,
+                -21.832,
+                12.02
+              ],
+              "max": [
+                5.8636,
+                -20.168,
+                12.08
+              ],
+              "center": [
+                0.0,
+                -21.0,
+                12.05
+              ],
+              "size": [
+                11.7272,
+                1.664,
+                0.06
+              ],
+              "diagonal": 11.8449
+            }
+          }
+        ],
+        "modified": [],
+        "removed": []
+      },
+      "base": {
+        "target": {
+          "name": "m3564c-six-axis-load-cell",
+          "project": null,
+          "kind": "unavailable-build-target"
+        },
+        "glb_url": null,
+        "artifact_urls": {},
+        "model_summary": {
+          "name": "m3564c-six-axis-load-cell",
+          "kind": "unavailable-build-target",
+          "label": "m3564c-six-axis-load-cell",
+          "bbox_mm": {
+            "min": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "diagonal": 0.0
+          },
+          "child_count": 0,
+          "solid_count": 0,
+          "volume_mm3": 0.0
+        },
+        "children": [],
+        "inspection": {
+          "projection_urls": []
+        },
+        "unavailable": true,
+        "unavailable_reason": "Target is unavailable in this revision.",
+        "changed_instance_keys": []
+      },
+      "head": {
+        "target": {
+          "name": "m3564c-six-axis-load-cell",
+          "kind": "vendor-reference-part",
+          "source_module": "m3564c_load_cell.load_cell",
+          "printable": false,
+          "project": "m3564c-load-cell",
+          "status": "reference-model",
+          "source_refs": [
+            "projects/m3564c-load-cell/real-parts/m3564c-drawing.pdf"
+          ],
+          "docs": [
+            "projects/m3564c-load-cell/docs/m3564c-load-cell-notes.md"
+          ],
+          "validation": {
+            "inspect": true,
+            "interference_targets": []
+          },
+          "intentional_interferences": [],
+          "formats": [
+            "step",
+            "stl",
+            "glb"
+          ]
+        },
+        "model_summary": {
+          "name": "m3564c-six-axis-load-cell",
+          "kind": "vendor-reference-part",
+          "label": "M3564C six-axis circular load cell",
+          "bbox_mm": {
+            "min": [
+              -30.0,
+              -58.0,
+              0.0
+            ],
+            "max": [
+              30.0,
+              30.0,
+              12.5
+            ],
+            "center": [
+              0.0,
+              -14.0,
+              6.25
+            ],
+            "size": [
+              60.0,
+              88.0,
+              12.5
+            ],
+            "diagonal": 107.2392
+          },
+          "child_count": 5,
+          "solid_count": 5,
+          "volume_mm3": 0.0
+        },
+        "children": [
+          {
+            "index": 0,
+            "label": "M3564C machined load-cell body",
+            "instance_key": "M3564C machined load-cell body @ (0.00, 0.00, 6.25)",
+            "bbox_mm": {
+              "min": [
+                -30.0,
+                -30.0,
+                0.0
+              ],
+              "max": [
+                30.0,
+                30.0,
+                12.5
+              ],
+              "center": [
+                0.0,
+                0.0,
+                6.25
+              ],
+              "size": [
+                60.0,
+                60.0,
+                12.5
+              ],
+              "diagonal": 85.7686
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 1,
+            "label": "M3564C molded cable gland",
+            "instance_key": "M3564C molded cable gland @ (0.00, -34.00, 2.50)",
+            "bbox_mm": {
+              "min": [
+                -6.0,
+                -39.0,
+                0.0
+              ],
+              "max": [
+                6.0,
+                -29.0,
+                5.0
+              ],
+              "center": [
+                0.0,
+                -34.0,
+                2.5
+              ],
+              "size": [
+                12.0,
+                10.0,
+                5.0
+              ],
+              "diagonal": 16.4012
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 2,
+            "label": "M3564C 4 m cable direction stub",
+            "instance_key": "M3564C 4 m cable direction stub @ (0.00, -49.00, 1.80)",
+            "bbox_mm": {
+              "min": [
+                -1.8,
+                -58.0,
+                -0.0
+              ],
+              "max": [
+                1.8,
+                -40.0,
+                3.6
+              ],
+              "center": [
+                0.0,
+                -49.0,
+                1.8
+              ],
+              "size": [
+                3.6,
+                18.0,
+                3.6
+              ],
+              "diagonal": 18.7061
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 3,
+            "label": "M3564C top marking M3564C",
+            "instance_key": "M3564C top marking M3564C @ (0.00, 21.00, 12.05)",
+            "bbox_mm": {
+              "min": [
+                -5.9304,
+                19.8655,
+                12.02
+              ],
+              "max": [
+                5.9304,
+                22.1345,
+                12.08
+              ],
+              "center": [
+                0.0,
+                21.0,
+                12.05
+              ],
+              "size": [
+                11.8608,
+                2.269,
+                0.06
+              ],
+              "diagonal": 12.0761
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          },
+          {
+            "index": 4,
+            "label": "M3564C top marking TOOL SIDE",
+            "instance_key": "M3564C top marking TOOL SIDE @ (0.00, -21.00, 12.05)",
+            "bbox_mm": {
+              "min": [
+                -5.8636,
+                -21.832,
+                12.02
+              ],
+              "max": [
+                5.8636,
+                -20.168,
+                12.08
+              ],
+              "center": [
+                0.0,
+                -21.0,
+                12.05
+              ],
+              "size": [
+                11.7272,
+                1.664,
+                0.06
+              ],
+              "diagonal": 11.8449
+            },
+            "solid_count": 1,
+            "volume_mm3": 0.0
+          }
+        ],
+        "inspection": {
+          "projection_urls": []
+        },
+        "glb_url": "assets/head/m3564c-six-axis-load-cell/m3564c-six-axis-load-cell.glb",
+        "artifact_urls": {
+          "glb": "assets/head/m3564c-six-axis-load-cell/m3564c-six-axis-load-cell.glb"
+        },
+        "changed_instance_keys": [
+          "M3564C machined load-cell body @ (0.00, 0.00, 6.25)",
+          "M3564C molded cable gland @ (0.00, -34.00, 2.50)",
+          "M3564C 4 m cable direction stub @ (0.00, -49.00, 1.80)",
+          "M3564C top marking M3564C @ (0.00, 21.00, 12.05)",
+          "M3564C top marking TOOL SIDE @ (0.00, -21.00, 12.05)"
+        ]
       },
       "review_outputs": []
     }

@@ -2,7 +2,7 @@
   "target": {
     "name": "flat-disk-robot",
     "kind": "robot-reference-assembly",
-    "source_module": "synthcad.projects.flat_disk_robot.robot",
+    "source_module": "flat_disk_robot.robot",
     "printable": false,
     "project": "flat-disk-robot",
     "status": "active",

@@ -1,0 +1,61 @@
+{
+  "target": {
+    "name": "flat-disk-robot-lid",
+    "kind": "generated-printable-part",
+    "source_module": "synthcad.projects.flat_disk_robot.robot",
+    "printable": true,
+    "project": "flat-disk-robot",
+    "status": "printable-candidate",
+    "source_refs": [],
+    "docs": [
+      "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
+    ],
+    "validation": {
+      "inspect": true,
+      "interference_targets": [
+        "flat-disk-robot"
+      ]
+    },
+    "intentional_interferences": [],
+    "formats": [
+      "step",
+      "stl",
+      "glb"
+    ]
+  },
+  "model_summary": {
+    "name": "flat-disk-robot-lid",
+    "kind": "generated-printable-part",
+    "label": "M4-fastened flat disk robot service lid",
+    "bbox_mm": {
+      "min": [
+        -108.0,
+        -108.0,
+        23.0
+      ],
+      "max": [
+        108.0,
+        108.0,
+        49.5
+      ],
+      "center": [
+        0.0,
+        0.0,
+        36.25
+      ],
+      "size": [
+        216.0,
+        216.0,
+        26.5
+      ],
+      "diagonal": 306.6174
+    },
+    "child_count": 0,
+    "solid_count": 0,
+    "volume_mm3": 0.0
+  },
+  "children": [],
+  "inspection": {
+    "projection_urls": []
+  }
+}

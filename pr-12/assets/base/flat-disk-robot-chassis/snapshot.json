@@ -1,0 +1,68 @@
+{
+  "target": {
+    "name": "flat-disk-robot-chassis",
+    "kind": "generated-printable-part",
+    "source_module": "synthcad.projects.flat_disk_robot.robot",
+    "printable": true,
+    "project": "flat-disk-robot",
+    "status": "printable-candidate",
+    "source_refs": [
+      "projects/flat-disk-robot/real-parts/repeat-drive-compact-1.snapshot.11/Repeat Compact 1806.STEP",
+      "projects/flat-disk-robot/real-parts/as5600-magnetic-encoder-module-1.snapshot.5/AS5600_magnetic_encoder.step",
+      "projects/flat-disk-robot/real-parts/seeed-studio-xiao-esp32s3-sense-1.snapshot.2/Seeed Studio XIAO-ESP32-S3-Sense.step",
+      "projects/flat-disk-robot/real-parts/OV2640_21mm-160_camera.STEP",
+      "projects/flat-disk-robot/real-parts/TOF-sensor-drawing.webp",
+      "projects/flat-disk-robot/real-parts/battery.png"
+    ],
+    "docs": [
+      "projects/flat-disk-robot/docs/flat-disk-robot-notes.md"
+    ],
+    "validation": {
+      "inspect": true,
+      "interference_targets": [
+        "flat-disk-robot"
+      ]
+    },
+    "intentional_interferences": [],
+    "formats": [
+      "step",
+      "stl",
+      "glb"
+    ]
+  },
+  "model_summary": {
+    "name": "flat-disk-robot-chassis",
+    "kind": "generated-printable-part",
+    "label": "216 mm flat disk robot chassis",
+    "bbox_mm": {
+      "min": [
+        -108.0,
+        -108.0,
+        -0.0
+      ],
+      "max": [
+        108.0,
+        108.0,
+        43.65
+      ],
+      "center": [
+        -0.0,
+        0.0,
+        21.825
+      ],
+      "size": [
+        216.0,
+        216.0,
+        43.65
+      ],
+      "diagonal": 308.573
+    },
+    "child_count": 0,
+    "solid_count": 0,
+    "volume_mm3": 0.0
+  },
+  "children": [],
+  "inspection": {
+    "projection_urls": []
+  }
+}
