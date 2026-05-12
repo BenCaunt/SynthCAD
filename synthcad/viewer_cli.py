@@ -14,7 +14,7 @@ from typing import Any
 from urllib.parse import quote, unquote, urlparse
 
 from synthcad.build import BUILD_TARGETS, BuildTarget
-from synthcad.paths import GENERATED_DIR, ROOT
+from synthcad.paths import ROOT, project_generated_dir
 from synthcad.report_cli import filter_targets_by_project
 from synthcad.review_assets import build_display_snapshot
 
@@ -22,11 +22,6 @@ from synthcad.review_assets import build_display_snapshot
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8765
 WEBVIEWER_DIR = Path(__file__).resolve().with_name("webviewer")
-DEFAULT_MANIFEST_PATH = GENERATED_DIR / "manifest.json"
-DEFAULT_INSPECTION_REPORT_PATH = GENERATED_DIR / "inspection" / "inspection-report.json"
-DEFAULT_INTERFERENCE_REPORT_PATH = (
-    GENERATED_DIR / "inspection" / "interference" / "show-interference-report.json"
-)
 
 
 def _read_json(path: Path) -> Any | None:
@@ -55,18 +50,31 @@ class ViewerData:
         self._detail_cache: dict[str, dict[str, Any]] = {}
         self._detail_lock = threading.Lock()
         self.manifest_index = self._load_manifest_index()
-        self.inspection_subjects = self._load_subjects(DEFAULT_INSPECTION_REPORT_PATH)
-        self.interference_subjects = self._load_subjects(DEFAULT_INTERFERENCE_REPORT_PATH)
+        self.inspection_subjects = self._load_project_subjects("inspection/inspection-report.json")
+        self.interference_subjects = self._load_project_subjects(
+            "inspection/interference/show-interference-report.json"
+        )
 
     def _load_manifest_index(self) -> dict[str, dict[str, Any]]:
-        manifest = _read_json(DEFAULT_MANIFEST_PATH)
-        if not isinstance(manifest, list):
-            return {}
-        return {
-            entry["name"]: entry
-            for entry in manifest
-            if isinstance(entry, dict) and isinstance(entry.get("name"), str)
-        }
+        index: dict[str, dict[str, Any]] = {}
+        for project in sorted({target.project for target in self.targets}):
+            manifest = _read_json(project_generated_dir(project) / "manifest.json")
+            if not isinstance(manifest, list):
+                continue
+            index.update(
+                {
+                    entry["name"]: entry
+                    for entry in manifest
+                    if isinstance(entry, dict) and isinstance(entry.get("name"), str)
+                }
+            )
+        return index
+
+    def _load_project_subjects(self, relative_path: str) -> dict[str, dict[str, Any]]:
+        subjects: dict[str, dict[str, Any]] = {}
+        for project in sorted({target.project for target in self.targets}):
+            subjects.update(self._load_subjects(project_generated_dir(project) / relative_path))
+        return subjects
 
     def _load_subjects(self, report_path: Path) -> dict[str, dict[str, Any]]:
         report = _read_json(report_path)
@@ -90,7 +98,7 @@ class ViewerData:
         else:
             candidate = candidate.resolve()
         try:
-            relative = candidate.relative_to(GENERATED_DIR.resolve())
+            relative = candidate.relative_to(ROOT.resolve())
         except ValueError:
             return None
         return f"/generated/{relative.as_posix()}"
@@ -115,11 +123,13 @@ class ViewerData:
                 for url in (self._generated_url(path) for path in output_paths)
                 if url is not None
             ]
-        return [
-            f"/generated/inspection/{path.name}"
-            for path in sorted((GENERATED_DIR / "inspection").glob(f"{target_name}-*.svg"))
+        project_dir = project_generated_dir(self.target_lookup[target_name].project)
+        urls = [
+            self._generated_url(path)
+            for path in sorted((project_dir / "inspection").glob(f"{target_name}-*.svg"))
             if path.is_file()
         ]
+        return [url for url in urls if url is not None]
 
     def _interference_overlay_urls(self, target_name: str, subject: dict[str, Any] | None) -> list[str]:
         output_paths = []
@@ -131,15 +141,17 @@ class ViewerData:
                 for url in (self._generated_url(path) for path in output_paths)
                 if url is not None
             ]
-        return [
-            f"/generated/inspection/interference/{path.name}"
+        project_dir = project_generated_dir(self.target_lookup[target_name].project)
+        urls = [
+            self._generated_url(path)
             for path in sorted(
-                (GENERATED_DIR / "inspection" / "interference").glob(
+                (project_dir / "inspection" / "interference").glob(
                     f"{target_name}-*-interference.svg"
                 )
             )
             if path.is_file()
         ]
+        return [url for url in urls if url is not None]
 
     def _default_target_name(self) -> str | None:
         if self.initial_target:
@@ -186,7 +198,7 @@ class ViewerData:
     def index_payload(self) -> dict[str, Any]:
         return {
             "default_target": self._default_target_name(),
-            "generated_dir": str(GENERATED_DIR),
+            "generated_dir": "project-local generated directories",
             "targets": [self._overview_entry(target) for target in self.targets],
         }
 
@@ -281,7 +293,7 @@ class ViewerRequestHandler(SimpleHTTPRequestHandler):
 
         if parsed.path.startswith("/generated/"):
             relative = parsed.path.removeprefix("/generated/")
-            self._serve_file_from_base(GENERATED_DIR, relative)
+            self._serve_file_from_base(ROOT, relative)
             return
 
         super().do_GET()

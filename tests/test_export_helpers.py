@@ -48,6 +48,7 @@ def test_external_part_load_reuses_imported_step_and_returns_fresh_wrappers(
         step_path=tmp_path / "test.step",
         source_kind="external-step",
         notes="test fixture",
+        project="test-project",
     )
 
     first = part.load()

@@ -1,10 +1,12 @@
 # SynthCAD
 
 SynthCAD is a small `build123d` CAD workflow for generating, inspecting, and
-exporting 3D-printable robotics parts from Python.
+exporting CAD parts from Python.
 
-This open-source extraction contains only the flat disk robot project and its
-required reference inputs.
+The `synthcad/` package is the reusable framework: CLIs, registries, export
+helpers, inspection tools, web viewer assets, and generic CAD utilities.
+Project-owned CAD source, references, tests, docs, and target declarations live
+under `projects/<project-slug>/`.
 
 ## Demo
 
@@ -18,8 +20,7 @@ Photos of the physical robot and printed chassis details:
 
 ```bash
 uv run synthcad-build --project flat-disk-robot
-uv run synthcad-build --target m3564c-six-axis-load-cell \
-  --output-dir projects/m3564c-load-cell/generated
+uv run synthcad-build --target m3564c-six-axis-load-cell
 uv run synthcad-probe --target flat-disk-robot --children
 uv run synthcad-inspect --target flat-disk-robot
 uv run show-interference --target flat-disk-robot
@@ -27,8 +28,8 @@ uv run synthcad-urdf --target flat-disk-robot
 ```
 
 Generated STEP, STL, GLB, inspection, and URDF artifacts are written under each
-project's `generated/` directory when using the project-local output paths
-shown above. Generated directories are intentionally ignored by git.
+project's `generated/` directory by default. Generated directories are
+intentionally ignored by git.
 
 ## Build Targets
 
@@ -46,13 +47,18 @@ committed.
 The M3564C source drawing lives under
 `projects/m3564c-load-cell/real-parts/`.
 
+Each project declares its build and optional URDF targets in
+`projects/<project-slug>/targets.py`. `uv run synthcad-build --list` discovers
+those project-local declarations without keeping project factories in the core
+package.
+
 ## GitHub CI
 
-`.github/workflows/synthcad-ci.yml` runs tests, exports the flat disk robot,
-generates inspection/interference evidence, exports the URDF package, writes a
-Markdown Actions summary, and uploads `projects/flat-disk-robot/generated/` as
-review artifacts. On pull requests it also publishes a static base/head CAD
-diff viewer and updates a PR comment with the visualization and workflow links.
+`.github/workflows/synthcad-ci.yml` selects affected projects from changed
+paths, runs root framework tests plus those projects' local tests, exports only
+the selected projects, and builds the PR diff viewer for selected targets. Core
+framework changes fan out to every project; project-local changes stay scoped
+to that project.
 
 Example: [PR #1 CAD review comment](https://github.com/BenCaunt/SynthCAD/pull/1#issuecomment-4373932308).
 
@@ -80,14 +86,16 @@ Run the regression suite:
 uv run pytest
 ```
 
-For geometry changes, regenerate exports and inspect the affected flat disk
-targets before calling the change done:
+For geometry changes, regenerate exports and inspect the affected project
+before calling the change done:
 
 ```bash
-uv run synthcad-build --project flat-disk-robot
-uv run synthcad-inspect --target flat-disk-robot
-uv run synthcad-report --project flat-disk-robot
+PROJECT=flat-disk-robot
+uv run synthcad-build --project "$PROJECT"
+uv run synthcad-inspect --project "$PROJECT" --output-dir "projects/$PROJECT/generated/inspection"
+uv run synthcad-report --project "$PROJECT"
 ```
 
 See `projects/flat-disk-robot/docs/flat-disk-robot-notes.md` for robot-specific
-layout assumptions and current validation notes.
+layout assumptions, and `projects/m3564c-load-cell/docs/m3564c-load-cell-notes.md`
+for the M3564C drawing interpretation.

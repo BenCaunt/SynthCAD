@@ -27,10 +27,10 @@ def _make_target(name: str, factory) -> BuildTarget:
 
 
 def _seed_viewer_artifacts(tmp_path, monkeypatch, target, *, snapshot_payload=None):
-    generated_dir = tmp_path / "generated"
+    generated_dir = tmp_path / "projects" / target.project / "generated"
     inspection_dir = generated_dir / "inspection"
     interference_dir = inspection_dir / "interference"
-    glb_path = generated_dir / target.project / f"{target.name}.glb"
+    glb_path = generated_dir / f"{target.name}.glb"
     glb_path.parent.mkdir(parents=True, exist_ok=True)
     glb_path.write_bytes(b"glb")
 
@@ -38,7 +38,7 @@ def _seed_viewer_artifacts(tmp_path, monkeypatch, target, *, snapshot_payload=No
     projection_path.parent.mkdir(parents=True, exist_ok=True)
     projection_path.write_text("<svg></svg>\n", encoding="utf-8")
 
-    snapshot_path = generated_dir / target.project / f"{target.name}.snapshot.json"
+    snapshot_path = generated_dir / f"{target.name}.snapshot.json"
     if snapshot_payload is not None:
         _write_json(snapshot_path, snapshot_payload)
 
@@ -77,18 +77,8 @@ def _seed_viewer_artifacts(tmp_path, monkeypatch, target, *, snapshot_payload=No
         },
     )
 
-    monkeypatch.setattr(viewer_module, "GENERATED_DIR", generated_dir)
-    monkeypatch.setattr(viewer_module, "DEFAULT_MANIFEST_PATH", generated_dir / "manifest.json")
-    monkeypatch.setattr(
-        viewer_module,
-        "DEFAULT_INSPECTION_REPORT_PATH",
-        inspection_dir / "inspection-report.json",
-    )
-    monkeypatch.setattr(
-        viewer_module,
-        "DEFAULT_INTERFERENCE_REPORT_PATH",
-        interference_dir / "show-interference-report.json",
-    )
+    monkeypatch.setattr(viewer_module, "ROOT", tmp_path)
+    monkeypatch.setattr(viewer_module, "project_generated_dir", lambda _project: generated_dir)
     return glb_path
 
 

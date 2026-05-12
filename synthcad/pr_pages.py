@@ -8,12 +8,13 @@ from pathlib import Path
 from typing import Any, Sequence
 
 from synthcad.build import filter_targets
+from synthcad.paths import GENERATED_DIR
 from synthcad.review_assets import DisplayExportRequest, export_display_assets_batch
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WEBVIEWER_DIR = Path(__file__).resolve().with_name("webviewer")
-DEFAULT_PR_PAGES_DIR = REPO_ROOT / "projects" / "flat-disk-robot" / "generated" / "pr-pages"
+DEFAULT_PR_PAGES_DIR = GENERATED_DIR / "pr-pages"
 
 
 def _with_snapshot_urls(snapshot: dict[str, Any], glb_url: str) -> dict[str, Any]:

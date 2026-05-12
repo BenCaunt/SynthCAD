@@ -20,7 +20,7 @@ from build123d import (
 )
 
 from synthcad.cad.common import PRINTED_FRAME, SILVER, TPU_BLACK, tag
-from synthcad.external_parts import REPEAT_COMPACT_1806
+from flat_disk_robot.external_parts import REPEAT_COMPACT_1806
 
 
 CHASSIS_LENGTH = 110.0

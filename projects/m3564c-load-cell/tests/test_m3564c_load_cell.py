@@ -5,7 +5,7 @@ import pytest
 from synthcad.build import target_lookup
 from synthcad.cad.features import candidate_circular_holes
 from synthcad.inspection import bounding_box_summary
-from synthcad.library.load_cells import (
+from m3564c_load_cell.load_cell import (
     M3564C_CENTER_BORE_DIAMETER,
     M3564C_DOWEL_HOLE_COUNT_PER_FACE,
     M3564C_FACE_OFFSET,

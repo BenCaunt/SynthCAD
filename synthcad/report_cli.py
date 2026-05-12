@@ -14,15 +14,19 @@ from synthcad.build import (
     project_names as registry_project_names,
     target_lookup as registry_target_lookup,
 )
-from synthcad.paths import GENERATED_DIR
+from synthcad.paths import project_generated_dir
 
 
-DEFAULT_GENERATED_DIR = GENERATED_DIR
-DEFAULT_MANIFEST_PATH = DEFAULT_GENERATED_DIR / "manifest.json"
-DEFAULT_INSPECTION_REPORT_PATH = DEFAULT_GENERATED_DIR / "inspection" / "inspection-report.json"
-DEFAULT_INTERFERENCE_REPORT_PATH = (
-    DEFAULT_GENERATED_DIR / "inspection" / "interference" / "show-interference-report.json"
-)
+def _manifest_path(project: str) -> Path:
+    return project_generated_dir(project) / "manifest.json"
+
+
+def _inspection_report_path(project: str) -> Path:
+    return project_generated_dir(project) / "inspection" / "inspection-report.json"
+
+
+def _interference_report_path(project: str) -> Path:
+    return project_generated_dir(project) / "inspection" / "interference" / "show-interference-report.json"
 
 
 def _normalize_label(value: str) -> str:
@@ -76,8 +80,8 @@ def _read_json(path: Path) -> Any | None:
     return json.loads(path.read_text())
 
 
-def _load_manifest_index() -> dict[str, dict[str, Any]]:
-    manifest = _read_json(DEFAULT_MANIFEST_PATH)
+def _load_manifest_index(path: Path) -> dict[str, dict[str, Any]]:
+    manifest = _read_json(path)
     if not isinstance(manifest, list):
         return {}
     return {
@@ -87,8 +91,8 @@ def _load_manifest_index() -> dict[str, dict[str, Any]]:
     }
 
 
-def _load_inspection_subjects() -> dict[str, dict[str, Any]]:
-    report = _read_json(DEFAULT_INSPECTION_REPORT_PATH)
+def _load_inspection_subjects(path: Path) -> dict[str, dict[str, Any]]:
+    report = _read_json(path)
     if not isinstance(report, dict):
         return {}
     subjects = report.get("subjects", [])
@@ -101,8 +105,8 @@ def _load_inspection_subjects() -> dict[str, dict[str, Any]]:
     }
 
 
-def _load_interference_subjects() -> dict[str, dict[str, Any]]:
-    report = _read_json(DEFAULT_INTERFERENCE_REPORT_PATH)
+def _load_interference_subjects(path: Path) -> dict[str, dict[str, Any]]:
+    report = _read_json(path)
     if not isinstance(report, dict):
         return {}
     subjects = report.get("subjects", [])
@@ -122,52 +126,85 @@ def build_report_bundle(
     all_targets: Sequence[BuildTarget] | None = None,
 ) -> dict[str, Any]:
     del all_targets
-    manifest_index = _load_manifest_index()
-    inspection_subjects = _load_inspection_subjects()
-    interference_subjects = _load_interference_subjects()
+    selected_project_names = tuple(sorted({target.project for target in selected_targets}))
+    manifest_indexes = {
+        project: _load_manifest_index(_manifest_path(project))
+        for project in selected_project_names
+    }
+    inspection_subject_indexes = {
+        project: _load_inspection_subjects(_inspection_report_path(project))
+        for project in selected_project_names
+    }
+    interference_subject_indexes = {
+        project: _load_interference_subjects(_interference_report_path(project))
+        for project in selected_project_names
+    }
 
     selected_target_records: list[dict[str, Any]] = []
     for target in selected_targets:
-        manifest_entry = manifest_index.get(target.name)
+        manifest_entry = manifest_indexes.get(target.project, {}).get(target.name)
         target_record = asdict(target)
         target_record.pop("factory", None)
         target_record["output_prefix"] = str(target.output_prefix())
         target_record["project_labels"] = list(target_project_labels(target))
         target_record["manifest_entry"] = manifest_entry
-        target_record["inspection_subject"] = inspection_subjects.get(target.name)
-        target_record["interference_subject"] = interference_subjects.get(target.name)
+        target_record["inspection_subject"] = inspection_subject_indexes.get(target.project, {}).get(target.name)
+        target_record["interference_subject"] = interference_subject_indexes.get(target.project, {}).get(target.name)
         selected_target_records.append(
             target_record
         )
 
     selected_names = {target.name for target in selected_targets}
     scoped_inspection_subjects = [
-        subject for name, subject in inspection_subjects.items() if name in selected_names
+        subject
+        for subjects in inspection_subject_indexes.values()
+        for name, subject in subjects.items()
+        if name in selected_names
     ]
     scoped_interference_subjects = [
-        subject for name, subject in interference_subjects.items() if name in selected_names
+        subject
+        for subjects in interference_subject_indexes.values()
+        for name, subject in subjects.items()
+        if name in selected_names
+    ]
+    manifest_entries = [
+        entry
+        for indexes in manifest_indexes.values()
+        for entry in indexes.values()
     ]
 
     return {
         "filters": {
             "targets": [target.name for target in selected_targets],
-            "projects": [],
+            "projects": list(selected_projects or ()),
         },
         "targets": selected_target_records,
         "artifacts": {
             "manifest": {
-                "path": str(DEFAULT_MANIFEST_PATH),
-                "exists": DEFAULT_MANIFEST_PATH.exists(),
-                "targets": list(manifest_index.values()),
+                "path": ", ".join(str(_manifest_path(project)) for project in selected_project_names),
+                "paths": {
+                    project: str(_manifest_path(project))
+                    for project in selected_project_names
+                },
+                "exists": any(_manifest_path(project).exists() for project in selected_project_names),
+                "targets": manifest_entries,
             },
             "inspection": {
-                "path": str(DEFAULT_INSPECTION_REPORT_PATH),
-                "exists": DEFAULT_INSPECTION_REPORT_PATH.exists(),
+                "path": ", ".join(str(_inspection_report_path(project)) for project in selected_project_names),
+                "paths": {
+                    project: str(_inspection_report_path(project))
+                    for project in selected_project_names
+                },
+                "exists": any(_inspection_report_path(project).exists() for project in selected_project_names),
                 "subjects": scoped_inspection_subjects,
             },
             "interference": {
-                "path": str(DEFAULT_INTERFERENCE_REPORT_PATH),
-                "exists": DEFAULT_INTERFERENCE_REPORT_PATH.exists(),
+                "path": ", ".join(str(_interference_report_path(project)) for project in selected_project_names),
+                "paths": {
+                    project: str(_interference_report_path(project))
+                    for project in selected_project_names
+                },
+                "exists": any(_interference_report_path(project).exists() for project in selected_project_names),
                 "subjects": scoped_interference_subjects,
             },
         },

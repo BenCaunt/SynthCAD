@@ -16,10 +16,10 @@ Then set:
   review.
 - `URDF_TARGET`: the target to export as URDF, or empty when not applicable.
 
-Find source ownership from `synthcad/build.py` and each target's
-`source_module`. Project-specific CAD should live under
-`synthcad/projects/<project_module>/`; reusable CAD should live under
-`synthcad/library/`.
+Find source ownership from `projects/<project-slug>/targets.py` and each
+target's `source_module`. Project-specific CAD should live under the owning
+`projects/<project-slug>/` tree. Keep `synthcad/` for shared framework code,
+CLI tooling, and generic CAD utilities.
 
 ## Project Files
 
